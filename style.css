@@ -1,106 +1,31 @@
-/* Estilos generales */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #333;
-    background-color: #f7f7f7;
+#mi-libro {
+    background-color: #f0f8ff; /* Color de fondo suave */
+    border: 2px solid #8bc34a; /* Borde verde */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    margin: 20px 0; /* Espaciado externo */
+    font-family: 'Arial', sans-serif; /* Fuente básica */
 }
 
-/* Estilo del encabezado */
-header {
-    background-color: #0044cc; /* Azul */
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-    border-bottom: 5px solid #ffcc00; /* Amarillo */
+#mi-libro h2 {
+    color: #4caf50; /* Color verde para el título */
+    font-family: 'Georgia', serif; /* Fuente serif para un toque elegante */
 }
 
-header img {
-    width: 150px; /* Ajusta el tamaño del logo según sea necesario */
-    height: auto;
-    display: block;
-    margin: 0 auto;
+#mi-libro p {
+    color: #333; /* Color de texto oscuro */
+    font-size: 1.2em; /* Tamaño de texto más grande */
 }
 
-header h1 {
-    margin: 10px 0 5px;
+#mi-libro a {
+    background-color: #4caf50; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    padding: 10px 15px; /* Espaciado interno del botón */
+    text-decoration: none; /* Sin subrayado */
+    border-radius: 5px; /* Bordes redondeados del botón */
+    transition: background-color 0.3s; /* Transición suave */
 }
 
-header p {
-    margin: 0;
-    font-weight: bold;
+#mi-libro a:hover {
+    background-color: #388e3c; /* Color más oscuro al pasar el mouse */
 }
-
-/* Estilo del menú de navegación */
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 10px 0 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: #ffcc00; /* Amarillo */
-    text-decoration: none;
-    font-weight: bold;
-}
-
-nav ul li a:hover {
-    text-decoration: underline;
-}
-
-/* Estilo del contenido principal */
-main {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-section {
-    margin-bottom: 30px;
-}
-
-.chapter h3 {
-    color: #0044cc; /* Azul */
-}
-
-.chapter a {
-    text-decoration: none;
-    color: #ffcc00; /* Amarillo */
-    font-weight: bold;
-}
-
-.chapter a:hover {
-    text-decoration: underline;
-}
-
-dl {
-    margin: 0;
-    padding: 0;
-}
-
-dt {
-    font-weight: bold;
-    margin-top: 15px;
-}
-
-dd {
-    margin: 0 0 10px 20px;
-}
-
-/* Estilo del formulario de contacto */
-form {
-    display: grid;
-    gap: 10px;
-}
-
-label {
-    font-weight: bold
