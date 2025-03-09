@@ -1,6 +1,6 @@
 /* Estilos generales */
         body {
-            font-family: 'Nunito', sans-serif;
+            font-family: 'Feather Bold', sans-serif; /* Aplicando Feather Bold */
             margin: 0;
             padding: 0;
             color: #333;
@@ -113,12 +113,12 @@
             border-radius: 10px; /* Bordes redondeados */
             padding: 20px; /* Espaciado interno */
             margin: 20px 0; /* Espaciado externo */
-            font-family: 'Nunito', sans-serif; /* Fuente básica actualizada */
+            font-family: 'Feather Bold', sans-serif; /* Cambié la fuente a Feather Bold */
         }
 
         #mi-libro h2 {
             color: #4caf50; /* Color verde para el título */
-            font-family: 'Nunito', sans-serif; /* Fuente del título */
+            font-family: 'Feather Bold', sans-serif; /* Título con Feather Bold */
         }
 
         #mi-libro p {
