@@ -1,130 +1,182 @@
 /* Estilos generales */
-        body {
-            font-family: 'Feather Bold', sans-serif; /* Aplicando Feather Bold */
-            margin: 0;
-            padding: 0;
-            color: #333;
-            background-color: #f7f7f7;
-        }
+body {
+    font-family: 'Feather Bold', sans-serif; /* Aplicando Feather Bold */
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f7f7f7;
+}
 
-        /* Estilo del encabezado */
-        header {
-            background-color: #0044cc; /* Azul */
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-            border-bottom: 5px solid #ffcc00; /* Amarillo */
-        }
+/* Estilo del encabezado */
+header {
+    background-color: #0044cc; /* Azul */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 5px solid #ffcc00; /* Amarillo */
+}
 
-        header img {
-            width: 150px; /* Ajusta el tamaño del logo según sea necesario */
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
+header img {
+    width: 150px; /* Ajusta el tamaño del logo según sea necesario */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
 
-        header h1 {
-            margin: 10px 0 5px;
-        }
+header h1 {
+    margin: 10px 0 5px;
+}
 
-        header p {
-            margin: 0;
-            font-weight: bold;
-        }
+header p {
+    margin: 0;
+    font-weight: bold;
+}
 
-        /* Estilo del menú de navegación */
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 10px 0 0;
-        }
+/* Estilo del menú de navegación */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0 0;
+}
 
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
 
-        nav ul li a {
-            color: #ffcc00; /* Amarillo */
-            text-decoration: none;
-            font-weight: bold;
-        }
+nav ul li a {
+    color: #ffcc00; /* Amarillo */
+    text-decoration: none;
+    font-weight: bold;
+}
 
-        nav ul li a:hover {
-            text-decoration: underline;
-        }
+nav ul li a:hover {
+    text-decoration: underline;
+}
 
-        /* Estilo del contenido principal */
-        main {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+/* Estilo del contenido principal */
+main {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-        section {
-            margin-bottom: 30px;
-        }
+section {
+    margin-bottom: 30px;
+}
 
-        .chapter h3 {
-            color: #0044cc; /* Azul */
-        }
+.chapter h3 {
+    color: #0044cc; /* Azul */
+}
 
-        .chapter a {
-            text-decoration: none;
-            color: #ffcc00; /* Amarillo */
-            font-weight: bold;
-        }
+.chapter a {
+    text-decoration: none;
+    color: #ffcc00; /* Amarillo */
+    font-weight: bold;
+}
 
-        .chapter a:hover {
-            text-decoration: underline;
-        }
+.chapter a:hover {
+    text-decoration: underline;
+}
 
-        dl {
-            margin: 0;
-            padding: 0;
-        }
+dl {
+    margin: 0;
+    padding: 0;
+}
 
-        dt {
-            font-weight: bold;
-            margin-top: 15px;
-        }
+dt {
+    font-weight: bold;
+    margin-top: 15px;
+}
 
-        dd {
-            margin: 0 0 10px 20px;
-        }
+dd {
+    margin: 0 0 10px 20px;
+}
 
-        /* Estilo del formulario de contacto */
-        form {
-            display: grid;
-            gap: 10px;
-        }
+/* Estilo del formulario de contacto */
+form {
+    display: grid;
+    gap: 10px;
+}
 
-        label {
-            font-weight: bold;
-        }
+label {
+    font-weight: bold;
+}
 
-        #mi-libro h2 {
-            color: #4caf50; /* Color verde para el título */
-            font-family: 'Feather Bold', sans-serif; /* Título con Feather Bold */
-        }
+#mi-libro h2 {
+    color: #4caf50; /* Color verde para el título */
+    font-family: 'Feather Bold', sans-serif; /* Título con Feather Bold */
+}
 
-        #mi-libro p {
-            color: #333; /* Color de texto oscuro */
-            font-size: 1.2em; /* Tamaño de texto más grande */
-        }
+#mi-libro p {
+    color: #333; /* Color de texto oscuro */
+    font-size: 1.2em; /* Tamaño de texto más grande */
+}
 
-        #mi-libro a {
-            background-color: #4caf50; /* Color de fondo del botón */
-            color: white; /* Color del texto del botón */
-            padding: 10px 15px; /* Espaciado interno del botón */
-            text-decoration: none; /* Sin subrayado */
-            border-radius: 5px; /* Bordes redondeados del botón */
-            transition: background-color 0.3s; /* Transición suave */
-        }
+#mi-libro a {
+    background-color: #4caf50; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    padding: 10px 15px; /* Espaciado interno del botón */
+    text-decoration: none; /* Sin subrayado */
+    border-radius: 5px; /* Bordes redondeados del botón */
+    transition: background-color 0.3s; /* Transición suave */
+}
 
-        #mi-libro a:hover {
-            background-color: #388e3c; /* Color más oscuro al pasar el mouse */
-        }
+#mi-libro a:hover {
+    background-color: #388e3c; /* Color más oscuro al pasar el mouse */
+}
+
+/* Estilo para la sección de comentarios */
+#comentarios {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#comentarios h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#comentario-actual {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #555;
+    text-align: center;
+    padding: 15px;
+    background-color: #ffffff;
+    border-left: 5px solid #007bff;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Estilo para el texto del comentario */
+#comentario-actual p {
+    margin: 0;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    color: #444;
+}
+
+/* Añadir animación a los comentarios */
+#comentario-actual p {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
