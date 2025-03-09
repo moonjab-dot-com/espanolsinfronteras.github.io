@@ -28,6 +28,7 @@
                 <li><a href="#programación">Programación</a></li>
                 <li><a href="#preguntas">Preguntas Frecuentes</a></li>
                 <li><a href="#mi-libro">Mi Libro</a></li>
+                <li><a href="#comentarios">Comentarios</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
@@ -298,10 +299,10 @@
              
 
         <section id="mi-libro">
-    <h2>Mi Libro: El Gran Sueño de Cris</h2>
+    <h3>El Gran Sueño de Cris</h3>
     <p>Estoy emocionado de compartir mi libro titulado "<strong>El Gran Sueño de Cris</strong>". Este libro está diseñado para niños que sueñan en grande y buscan inspiración. <em>¡Acompaña a Cris, un niño apasionado por el tenis, en su emocionante viaje hacia la competencia! Descubre cómo cada desafío lo acerca a su gran sueño.</em></p>
                 <div class="chapter">
-                 <a href="https://drive.google.com/file/d/1om4ew8uDccRSxu-CHqDueuWVKJPk-dX_/view?usp=sharing">Descargar Mi Libro</a>
+                 <a href="https://drive.google.com/file/d/1om4ew8uDccRSxu-CHqDueuWVKJPk-dX_/view?usp=sharing">Descargar</a>
                 </div>
 </section>
 
@@ -329,6 +330,47 @@
                 <dd>Las actualizaciones y noticias sobre "Español Sin Fronteras" se publican en nuestro blog y en nuestras redes sociales. Síguenos en Instagram como @espanol_sin_fronteras_org y encuentranos en LinkedIn como Español Sin Fronteras para estar al tanto de las últimas novedades.</dd>
             </dl>
         </section>
+
+        <section id="comentarios">
+            <h2>Comentarios</h2>
+            <div id="comentario-actual">
+                <p>"¡Buenísimo! Me ha ayudado mucho a mejorar mi español." - Santiago</p>
+            </div>
+        </section>
+        
+        <script>
+            let comentarios = [
+                '"Me ha ayudado mucho a mejorar mi gramatica en español. ¡Recomiendo este sitio al 100%!" - Marta',
+                '"Los capitulos son claros y fáciles de seguir. Perfecto para aprender español rápidamente." - Carlos',
+                '"Este curso me ha permitido avanzar mucho en mi comprensión del idioma. ¡Increíble!" - Lucia',
+                '"Me encanta cómo se adaptan a diferentes niveles. Ideal para principiantes y avanzados." - Sergio',
+                '"Una excelente manera de aprender vocabulario y gramática de forma divertida." - Claudia',
+                '"Lo que más me gusta es que puedo aprender a mi propio ritmo, sin presión." - Ana',
+                '"Este curso me ha abierto los ojos sobre cómo gestionar mejor mi dinero. ¡Lo recomiendo a todos!" - Eduardo',
+                '"La información está presentada de manera clara y accesible. Ideal para quienes no sabemos mucho de finanzas." - Teresa',
+                '"Nunca entendí de finanzas hasta que use esta pagina. Ahora sé cómo ahorrar e invertir de manera efectiva." - Jorge',
+                '"¡Totalmente recomendable! He aprendido a crear un presupuesto que realmente funciona para mí." - Mariana',
+                '"Este sitio hace que aprender sobre finanzas sea fácil y, sobre todo, aplicable a la vida diaria." - Iván',
+                '"Gracias a este sitio, ahora tengo un control total sobre mis gastos e inversiones." - Felipe',
+                '"Me encanta que este sitio no solo enseña teoría, sino que también te da herramientas prácticas." - Laura',
+                '"Lo mejor de este sitio es que pude aplicar lo aprendido de inmediato a mi vida financiera." - Ricardo',
+                '"Este sitio ha sido fundamental para aprender programación desde cero. ¡Me siento más seguro escribiendo cualquier código!" - Alberto',
+                '"Los ejercicios prácticos me ayudaron a entender realmente cómo funciona la programación. Muy recomendable." - Javier',
+                '"Aprender programación aquí ha sido una experiencia increíble. Los capitulos son fáciles de seguir y muy completas." - David',
+                '"Me encanta cómo explican conceptos complejos de forma sencilla. Ahora soy capaz de programar con confianza." - Beatriz'
+            ];
+        
+            let comentarioIndex = 0;
+            const comentarioElement = document.getElementById('comentario-actual');
+        
+            function cambiarComentario() {
+                comentarioElement.innerHTML = `<p>${comentarios[comentarioIndex]}</p>`;
+                comentarioIndex = (comentarioIndex + 1) % comentarios.length;
+            }
+        
+            setInterval(cambiarComentario, 5000);
+        </script>
+
         <section id="contacto">
             <h2>Contacto</h2>
             <p>Si tienes alguna pregunta o deseas ponerte en contacto con nosotros, por favor completa el siguiente formulario:</p>
@@ -349,5 +391,6 @@
     <footer>
         <p>&copy; 2025 Español Sin Fronteras. Todos los derechos reservados.</p>
     </footer>
+
 </body>
 </html>
