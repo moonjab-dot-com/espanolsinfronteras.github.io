@@ -1,6 +1,6 @@
 /* Estilos generales */
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     margin: 0;
     padding: 0;
     color: #333;
@@ -111,12 +111,12 @@ label {
     border-radius: 10px; /* Bordes redondeados */
     padding: 20px; /* Espaciado interno */
     margin: 20px 0; /* Espaciado externo */
-    font-family: 'Poppins', sans-serif; /* Fuente básica */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /* Fuente básica */
 }
 
 #mi-libro h2 {
     color: #4caf50; /* Color verde para el título */
-    font-family: 'Georgia', serif; /* Fuente serif para un toque elegante */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /* Fuente serif para un toque elegante */
 }
 
 #mi-libro p {
