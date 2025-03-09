@@ -106,16 +106,6 @@
             font-weight: bold;
         }
 
-        /* Estilo específico para #mi-libro */
-        #mi-libro {
-            background-color: #f0f8ff; /* Color de fondo suave */
-            border: 2px solid #8bc34a; /* Borde verde */
-            border-radius: 10px; /* Bordes redondeados */
-            padding: 20px; /* Espaciado interno */
-            margin: 20px 0; /* Espaciado externo */
-            font-family: 'Feather Bold', sans-serif; /* Cambié la fuente a Feather Bold */
-        }
-
         #mi-libro h2 {
             color: #4caf50; /* Color verde para el título */
             font-family: 'Feather Bold', sans-serif; /* Título con Feather Bold */
