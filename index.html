@@ -315,28 +315,40 @@
 
         </section>
 
-        <section id="preguntas">
+        <section id="faq">
             <h2>Preguntas Frecuentes</h2>
-            <dl>
-                <dt>¿Qué es "Español Sin Fronteras"?</dt>
-                <dd>"Español Sin Fronteras" es una plataforma dedicada a proporcionar recursos educativos gratuitos para el aprendizaje del español. Ofrecemos capítulos de libros y materiales de enseñanza sin costo alguno para facilitar el acceso a quienes no tienen recursos.</dd>
-
-                <dt>¿Necesito crear una cuenta para acceder a los materiales?</dt>
-                <dd>No, no necesitas crear una cuenta. Todos los materiales están disponibles de forma gratuita y se pueden descargar sin necesidad de registrarse.</dd>
-
-                <dt>¿Cómo puedo sugerir nuevos capítulos o recursos para el sitio?</dt>
-                <dd>Puedes enviarnos tus sugerencias a través del formulario de contacto en la sección "Contacto" de nuestro sitio web. Estamos abiertos a recomendaciones y siempre buscamos mejorar nuestra oferta de recursos.</dd>
-
-                <dt>¿Es posible donar para apoyar el proyecto?</dt>
-                <dd>"Español Sin Fronteras" no acepta donaciones. Sin embargo, apreciamos tu apoyo en la difusión del proyecto. Comparte nuestro sitio web con amigos, familiares y colegas interesados en aprender español.</dd>
-
-                <dt>¿Cómo puedo contactar al equipo de "Español Sin Fronteras"?</dt>
-                <dd>Puedes ponerte en contacto con nosotros utilizando el formulario de contacto disponible en la sección "Contacto" de nuestro sitio web. Nos esforzamos por responder a todas las consultas en el menor tiempo posible.</dd>
-                
-                 <dt>¿Dónde puedo encontrar actualizaciones y noticias sobre "Español Sin Fronteras"?</dt>
-                <dd>Las actualizaciones y noticias sobre "Español Sin Fronteras" se publican en nuestro blog y en nuestras redes sociales. Síguenos en Instagram como @espanol_sin_fronteras_org y encuentranos en LinkedIn como Español Sin Fronteras para estar al tanto de las últimas novedades.</dd>
-            </dl>
+            <div class="accordion">
+                <div class="item">
+                    <button class="accordion-btn">¿Cómo puedo aprender español aquí?</button>
+                    <div class="accordion-content">
+                        <p>Ofrecemos lecciones en video, ejercicios interactivos y clases en vivo...</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <button class="accordion-btn">¿Necesito experiencia previa?</button>
+                    <div class="accordion-content">
+                        <p>No, tenemos cursos para todos los niveles, desde principiantes hasta avanzados.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <button class="accordion-btn">¿Qué recursos están disponibles?</button>
+                    <div class="accordion-content">
+                        <p>Tenemos recursos como tutoriales en video, pruebas interactivas, y materiales descargables.</p>
+                    </div>
+                </div>
+            </div>
         </section>
+        
+        <script>
+            const accordions = document.querySelectorAll('.accordion-btn');
+        
+            accordions.forEach(accordion => {
+                accordion.addEventListener('click', function() {
+                    const item = this.parentElement;
+                    item.classList.toggle('active');
+                });
+            });
+        </script>
 
         <section id="comentarios">
             <h2>Lo que nuestros usuarios dicen de nosotros</h2>
