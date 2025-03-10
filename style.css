@@ -9,7 +9,7 @@ body {
 
 
 header {
-    background-color: #0044cc;
+    background-color: #0070f3;
     color: #fff;
     padding: 20px;
     text-align: center;
@@ -69,7 +69,7 @@ section {
 }
 
 .chapter h3 {
-    color: #0044cc;
+    color: #0070f3;
 }
 
 .chapter a {
@@ -107,7 +107,7 @@ label {
 }
 
 #mi-libro h3 {
-    color: #0044cc;
+    color: #0070f3;
     font-family: 'Feather Bold', sans-serif;
 }
 
@@ -126,7 +126,7 @@ label {
 }
 
 #mi-libro a:hover {
-    background-color: #0044cc;
+    background-color: #0070f3;
     color:white;
 }
 
