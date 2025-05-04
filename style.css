@@ -9,11 +9,11 @@ body {
 
 
 header {
-    background-color: #0070f3;
+    background-color: #006039;
     color: #fff;
     padding: 20px;
     text-align: center;
-    border-bottom: 5px solid #ffcc00;
+    border-bottom: 5px solid #a37e2c;
 }
 
 header img {
@@ -45,7 +45,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #ffcc00;
+    color: #a37e2c;
     text-decoration: none;
     font-weight: bold;
 }
@@ -69,12 +69,12 @@ section {
 }
 
 .chapter h3 {
-    color: #0070f3;
+    color: #006039;
 }
 
 .chapter a {
     text-decoration: none;
-    color: #ffcc00;
+    color: #a37e2c;
     font-weight: bold;
 }
 
@@ -107,7 +107,7 @@ label {
 }
 
 #mi-libro h3 {
-    color: #0070f3;
+    color: #006039;
     font-family: 'Feather Bold', sans-serif;
 }
 
@@ -117,7 +117,7 @@ label {
 }
 
 #mi-libro a {
-    background-color: #ffcc00;
+    background-color: #a37e2c;
     color:#333;
     padding: 10px 15px;
     text-decoration: none;
@@ -126,7 +126,7 @@ label {
 }
 
 #mi-libro a:hover {
-    background-color: #0070f3;
+    background-color: #006039;
     color:white;
 }
 
@@ -154,7 +154,7 @@ label {
     text-align: center;
     padding: 15px;
     background-color: #ffffff;
-    border-left: 5px solid #ffcc00;
+    border-left: 5px solid #a37e2c;
     border-radius: 5px;
     transition: all 0.3s ease-in-out;
 }
@@ -244,8 +244,8 @@ input, textarea {
 }
 
 input:focus, textarea:focus {
-    border-color: #0070f3;
-    box-shadow: 0 0 5px rgba(0, 112, 243, 0.5);
+    border-color: #006039;
+    box-shadow: 0 0 5px #003c24;
     outline: none;
 }
 
@@ -254,7 +254,7 @@ textarea {
 }
 
 button {
-    background-color: #0070f3;
+    background-color: #006039;
     color: white;
     padding: 12px 24px;
     font-size: 16px;
@@ -268,7 +268,7 @@ button {
 }
 
 button:hover {
-    background-color: #005bb5;
+    background-color: #003c24;
     transform: translateY(-3px);
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
@@ -304,7 +304,7 @@ input:focus {
 }
 
 .event .date {
-    background-color: #0070f3;
+    background-color: #006039;
     color: white;
     border-radius: 50%;
     padding: 20px;
@@ -334,7 +334,7 @@ input:focus {
 }
 
 .accordion-btn {
-    background-color: #0070f3;
+    background-color: #006039;
     color: white;
     padding: 15px;
     width: 100%;
@@ -347,7 +347,7 @@ input:focus {
 }
 
 .accordion-btn:hover {
-    background-color: #005bb5;
+    background-color: #003c24;
 }
 
 .accordion-content {
@@ -361,5 +361,4 @@ input:focus {
 .item.active .accordion-content {
     display: block;
 }
-
 
