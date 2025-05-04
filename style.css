@@ -4,13 +4,13 @@ body {
     margin: 0;
     padding: 0;
     color: #333;
-    background-color: #f7f7f7;
+    background-color: #F5F4F1;
 }
 
 
 header {
     background-color: #003E78;
-    color: #fff;
+    color: #F5F4F1;
     padding: 20px;
     text-align: center;
     border-bottom: 5px solid #B39D63;
@@ -59,7 +59,7 @@ main {
     max-width: 900px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: #F5F4F1;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -127,12 +127,12 @@ label {
 
 #mi-libro a:hover {
     background-color: #003E78;
-    color:white;
+    color:#F5F4F1;
 }
 
 
 #comentarios {
-    background-color: #f8f9fa;
+    background-color: #F5F4F1;
     padding: 20px;
     border-radius: 8px;
     margin: 20px 0;
@@ -153,7 +153,7 @@ label {
     color: #555;
     text-align: center;
     padding: 15px;
-    background-color: #ffffff;
+    background-color: #F5F4F1;
     border-left: 5px solid #B39D63;
     border-radius: 5px;
     transition: all 0.3s ease-in-out;
@@ -240,7 +240,7 @@ input, textarea {
     font-size: 16px;
     box-sizing: border-box;
     transition: all 0.3s ease;
-    background-color: #fff;
+    background-color: #F5F4F1;
 }
 
 input:focus, textarea:focus {
@@ -255,7 +255,7 @@ textarea {
 
 button {
     background-color: #003E78;
-    color: white;
+    color: #F5F4F1;
     padding: 12px 24px;
     font-size: 16px;
     font-weight: 600;
@@ -279,11 +279,11 @@ button:active {
 }
 
 textarea:focus {
-    background-color: #fff8e1;
+    background-color: #F5F4F1;
 }
 
 input:focus {
-    background-color: #e6f7ff;
+    background-color: #F5F4F1;
 }
 
 #historia {
@@ -305,7 +305,7 @@ input:focus {
 
 .event .date {
     background-color: #003E78;
-    color: white;
+    color: #F5F4F1;
     border-radius: 50%;
     padding: 20px;
     width: 60px;
@@ -317,14 +317,14 @@ input:focus {
 }
 
 .event .details {
-    background-color: #fff;
+    background-color: #F5F4F1;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .event:hover .details {
-    background-color: #e6f7ff;
+    background-color: #F5F4F1;
 }
 
 #faq {
@@ -335,7 +335,7 @@ input:focus {
 
 .accordion-btn {
     background-color: #003E78;
-    color: white;
+    color: #F5F4F1;
     padding: 15px;
     width: 100%;
     text-align: left;
@@ -352,7 +352,7 @@ input:focus {
 
 .accordion-content {
     padding: 15px;
-    background-color: #f0f0f0;
+    background-color: #F5F4F1;
     border-radius: 8px;
     margin-top: 10px;
     display: none;
