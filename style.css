@@ -1,47 +1,47 @@
-/* Fuente general para la página */
+
 body {
     margin: 0;
     padding: 0;
     color: #333;
     background-color: #F5F4F1;
-    font-family: 'Poppins', sans-serif; /* Fuente moderna y elegante */
+    font-family: 'Poppins', sans-serif;
     line-height: 1.6;
 }
 
-/* Fuentes para los encabezados */
+
 h1, h2, h3, h4 {
-    font-family: 'Lora', serif; /* Serif de lujo con un toque contemporáneo */
+    font-family: 'Lora', serif;
     font-weight: bold;
     color: #003E78;
 }
 
-/* Títulos secundarios (subtítulos) */
+
 h2, h3 {
-    font-family: 'Cinzel', serif; /* Fuente elegante y lujosa para subtítulos */
-    color: #B39D63; /* Dorado para resaltar */
+    font-family: 'Cinzel', serif; 
+    color: #B39D63; 
 }
 
-/* Párrafos */
+
 p {
-    font-family: 'Quicksand', sans-serif; /* Sans-serif ligera y jugosa */
+    font-family: 'Quicksand', sans-serif; 
     font-size: 1.1em;
     color: #1C1C1C;
 }
 
-/* Enlaces y botones */
+
 a, button {
-    font-family: 'Raleway', sans-serif; /* Fuente ligera y elegante para enlaces */
+    font-family: 'Raleway', sans-serif; 
     font-weight: bold;
     text-decoration: none;
     color: #B39D63;
 }
 
 a:hover, button:hover {
-    color: #003E78; /* Azul profundo para hover */
-    background-color: #F5F4F1; /* Fondo claro para el hover */
+    color: #003E78; 
+    background-color: #F5F4F1; 
 }
 
-/* Encabezado */
+
 header {
     background-color: #003E78;
     color: #F5F4F1;
@@ -50,7 +50,7 @@ header {
     border-bottom: 5px solid #B39D63;
 }
 
-/* Imagen en el encabezado */
+
 header img {
     width: 200px;
     height: auto;
@@ -58,17 +58,7 @@ header img {
     margin: 0 auto;
 }
 
-/* Títulos en el encabezado */
-header h1 {
-    margin: 10px 0 5px;
-}
 
-header p {
-    margin: 0;
-    font-weight: bold;
-}
-
-/* Menú de navegación */
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -90,7 +80,7 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
-/* Estilo principal */
+
 main {
     max-width: 900px;
     margin: 20px auto;
@@ -100,10 +90,6 @@ main {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Sección y capítulos */
-section {
-    margin-bottom: 30px;
-}
 
 .chapter h3 {
     color: #003E78;
@@ -119,22 +105,7 @@ section {
     text-decoration: underline;
 }
 
-/* Definición de listas */
-dl {
-    margin: 0;
-    padding: 0;
-}
 
-dt {
-    font-weight: bold;
-    margin-top: 15px;
-}
-
-dd {
-    margin: 0 0 10px 20px;
-}
-
-/* Estilo de formularios */
 form {
     display: grid;
     gap: 10px;
@@ -144,7 +115,7 @@ label {
     font-weight: bold;
 }
 
-/* Estilo de los comentarios */
+
 #comentarios {
     background-color: #F5F4F1;
     padding: 20px;
@@ -173,30 +144,7 @@ label {
     transition: all 0.3s ease-in-out;
 }
 
-/* Comentario en particular */
-#comentario-actual p {
-    margin: 0;
-    line-height: 1.6;
-    font-size: 1.1rem;
-    color: #444;
-}
 
-#comentario-actual p {
-    opacity: 0;
-    animation: fadeIn 1s forwards;
-}
-
-/* Animación de Fade */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-/* Iconos sociales */
 .social-icons {
     display: flex;
     justify-content: center;
@@ -217,7 +165,7 @@ label {
     transform: scale(1.1);
 }
 
-/* Contacto */
+
 .contacto {
     padding: 40px;
     max-width: 600px;
@@ -232,42 +180,7 @@ h2 {
     text-align: center;
 }
 
-p {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #555;
-}
 
-/* Estilo de formulario */
-.form-group {
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    font-size: 14px;
-    color: #333;
-    margin-bottom: 5px;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    font-size: 16px;
-    box-sizing: border-box;
-    transition: all 0.3s ease;
-    background-color: #F5F4F1;
-}
-
-input:focus, textarea:focus {
-    border-color: #003E78;
-    box-shadow: 0 0 5px rgba(0, 96, 192, 0.5);
-    outline: none;
-}
-
-/* Estilo de botones */
 button {
     background-color: #003E78;
     color: #F5F4F1;
@@ -288,25 +201,6 @@ button:hover {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-button:active {
-    transform: translateY(1px);
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-textarea:focus {
-    background-color: #F5F4F1;
-}
-
-input:focus {
-    background-color: #F5F4F1;
-}
-
-/* Línea de tiempo */
-#historia {
-    max-width: 900px;
-    margin: 50px auto;
-    padding: 20px;
-}
 
 .timeline {
     display: flex;
@@ -339,16 +233,6 @@ input:focus {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.event:hover .details {
-    background-color: #F5F4F1;
-}
-
-/* Acordeón */
-#faq {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 20px;
-}
 
 .accordion-btn {
     background-color: #003E78;
@@ -367,17 +251,65 @@ input:focus {
     background-color: #0A2342;
 }
 
-.accordion-content {
-    padding: 15px;
-    background-color: #F5F4F1;
+form {
+    display: grid;
+    gap: 10px;
+    font-family: 'Quicksand', sans-serif; 
+}
+
+label {
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif; 
+    font-size: 16px;
+    color: #333;
+}
+
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
     border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    background-color: #F5F4F1;
+    font-family: 'Quicksand', sans-serif;
+}
+
+input:focus, textarea:focus {
+    border-color: #003E78;
+    box-shadow: 0 0 5px rgba(0, 96, 192, 0.5);
+    outline: none;
+}
+
+
+button {
+    background-color: #003E78;
+    color: #F5F4F1;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
     margin-top: 10px;
-    display: none;
+    font-family: 'Raleway', sans-serif;
 }
 
-.item.active .accordion-content {
-    display: block;
+button:hover {
+    background-color: #003E78;
+    transform: translateY(-3px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Fuentes personalizadas desde Google Fonts */
+button:active {
+    transform: translateY(1px);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Lora:wght@400;700&family=Cinzel:wght@700&family=Quicksand:wght@400;500&family=Raleway:wght@400;600&display=swap');
