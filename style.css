@@ -315,6 +315,17 @@ button:active {
     text-align: center;
 }
 
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.item.active .accordion-content {
+    max-height: 500px; 
+}
+
+
 
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Lora:wght@400;700&family=Cinzel:wght@700&family=Quicksand:wght@400;500&family=Raleway:wght@400;600&display=swap');
