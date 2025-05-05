@@ -411,54 +411,51 @@
 </div>
 
 <section id="faq">
-    <h2>Preguntas Frecuentes</h2>
-    <div class="accordion">
+  <h2>Preguntas Frecuentes</h2>
+  <div class="accordion">
 
-        <div class="item">
-            <button class="accordion-btn">¿Qué es "Español Sin Fronteras"?</button>
-            <div class="accordion-content">
-                <p>"Español Sin Fronteras" es una plataforma educativa gratuita que ofrece materiales para aprender español, programación, educación financiera, matemáticas y ciencias, sin necesidad de registrarse.</p>
-            </div>
-        </div>
-
-        <div class="item">
-            <button class="accordion-btn">¿Necesito registrarme para acceder al contenido?</button>
-            <div class="accordion-content">
-                <p>No, todos los recursos están disponibles gratuitamente y sin necesidad de crear una cuenta o iniciar sesión.</p>
-            </div>
-        </div>
-
-        <div class="item">
-            <button class="accordion-btn">¿Puedo usar los materiales en clases?</button>
-            <div class="accordion-content">
-                <p>¡Claro! Todo el contenido está diseñado para usarse tanto en clases presenciales como virtuales, y puedes compartirlo libremente.</p>
-            </div>
-        </div>
-
-        <div class="item">
-            <button class="accordion-btn">¿Dónde puedo seguir sus actualizaciones?</button>
-            <div class="accordion-content">
-                <p>Síguenos en redes sociales: Instagram @espanol_sin_fronteras_org, TikTok @espanolsinfronteras.org, Facebook y LinkedIn como Español Sin Fronteras, y Spotify como Savias Finanzas.</p>
-            </div>
-        </div>
-
+    <div class="item">
+      <button class="accordion-btn">¿Qué es "Español Sin Fronteras"?</button>
+      <div class="accordion-content">
+        <p>"Español Sin Fronteras" es una plataforma educativa gratuita que ofrece materiales para aprender español, programación, educación financiera, matemáticas y ciencias, sin necesidad de registrarse.</p>
+      </div>
     </div>
+
+    <div class="item">
+      <button class="accordion-btn">¿Necesito registrarme para acceder al contenido?</button>
+      <div class="accordion-content">
+        <p>No, todos los recursos están disponibles gratuitamente y sin necesidad de crear una cuenta o iniciar sesión.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <button class="accordion-btn">¿Puedo usar los materiales en clases?</button>
+      <div class="accordion-content">
+        <p>¡Claro! Todo el contenido está diseñado para usarse tanto en clases presenciales como virtuales, y puedes compartirlo libremente.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <button class="accordion-btn">¿Dónde puedo seguir sus actualizaciones?</button>
+      <div class="accordion-content">
+        <p>Síguenos en redes sociales: Instagram @espanol_sin_fronteras_org, TikTok @espanolsinfronteras.org, Facebook y LinkedIn como Español Sin Fronteras, y Spotify como Savias Finanzas.</p>
+      </div>
+    </div>
+
+  </div>
 </section>
 
+<script>
+  const accordions = document.querySelectorAll('.accordion-btn');
 
+  accordions.forEach(accordion => {
+    accordion.addEventListener('click', function () {
+      const item = this.parentElement;
 
-
-        
-        <script>
-            const accordions = document.querySelectorAll('.accordion-btn');
-        
-            accordions.forEach(accordion => {
-                accordion.addEventListener('click', function() {
-                    const item = this.parentElement;
-                    item.classList.toggle('active');
-                });
-            });
-        </script>
+      item.classList.toggle('active');
+    });
+  });
+</script>
 
         <section id="comentarios">
             <h2>Lo que nuestros usuarios dicen de nosotros</h2>
