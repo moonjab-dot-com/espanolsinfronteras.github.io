@@ -230,18 +230,18 @@
 
 <section class="form-popup" id="formulario">
   <h2>Comparte tu historia</h2>
-  <form>
+  <form id="formulario-historia" onsubmit="enviarEmail(event)">
     <label>¿Cómo ha cambiado tu vida Español Sin Fronteras?</label>
-    <textarea required></textarea>
+    <textarea name="historia" required></textarea>
 
     <label>Tu nombre</label>
-    <input type="text" required>
+    <input type="text" name="nombre" required>
 
     <label>Tu correo electrónico</label>
-    <input type="email" required>
+    <input type="email" name="email" required>
 
     <label>Estoy usando Español Sin Fronteras como</label>
-    <select required>
+    <select name="tipo_usuario" required>
       <option value="">Selecciona una opción</option>
       <option value="estudiante">Estudiante</option>
       <option value="profesor">Profesor</option>
@@ -250,19 +250,47 @@
     </select>
 
     <label>Nivel escolar</label>
-    <input type="text" placeholder="Por ejemplo, 8vo grado">
+    <input type="text" name="nivel_escolar" placeholder="Por ejemplo, 8vo grado">
 
     <label>Comparte tu historia en video (opcional)</label>
-    <input type="url" placeholder="Proporciona un enlace a tu video">
+    <input type="url" name="video_url" placeholder="Proporciona un enlace a tu video">
 
     <div class="checkbox-label">
-      <input type="checkbox" required>
+      <input type="checkbox" name="acepto" required>
       <span>Español Sin Fronteras puede compartir mi historia públicamente, y tengo 13 años o más</span>
     </div>
 
     <button type="submit" class="button">Enviar historia</button>
   </form>
 </section>
+
+<script>
+  function enviarEmail(event) {
+    event.preventDefault();
+
+    var historia = document.querySelector('textarea[name="historia"]').value;
+    var nombre = document.querySelector('input[name="nombre"]').value;
+    var email = document.querySelector('input[name="email"]').value;
+    var tipo_usuario = document.querySelector('select[name="tipo_usuario"]').value;
+    var nivel_escolar = document.querySelector('input[name="nivel_escolar"]').value;
+    var video_url = document.querySelector('input[name="video_url"]').value;
+    var acepto = document.querySelector('input[name="acepto"]:checked') ? "Sí" : "No";
+
+    var cuerpo = `Nombre: ${nombre}%0D%0A` +
+                 `Correo electrónico: ${email}%0D%0A` +
+                 `Tipo de usuario: ${tipo_usuario}%0D%0A` +
+                 `Nivel escolar: ${nivel_escolar}%0D%0A` +
+                 `Historia: ${historia}%0D%0A` +
+                 `Video: ${video_url}%0D%0A` +
+                 `Acepto compartir: ${acepto}`;
+
+    var mailtoLink = `mailto:espanolsinfronteras1@gmail.com?subject=Nueva Historia Enviada&body=${cuerpo}`;
+
+
+    window.location.href = mailtoLink;
+  }
+</script>
+
 
 </body>
 </html>
