@@ -367,10 +367,10 @@ button.btn-azul {
   border-radius: 12px;
   background: linear-gradient(
     to left,
-    #002C56 0%,
-    #003E78 8%,
-    #003E78 92%,
-    #002C56 100%
+    #003E78 0%,
+    #002C56 8%,
+    #002C56 92%,
+    #003E78 100%
   );
 }
 
