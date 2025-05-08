@@ -332,49 +332,57 @@ button:active {
 
 
 
-.btn-descarga {
-  --clr-font-main: hsla(0, 0%, 20%, 1);
-  --btn-bg-1: #B39D63;
-  --btn-bg-2: #B39D63;
-  --btn-bg-color: #ffffff;
-  --radii: 0.5em;
-  cursor: pointer;
-  padding: 0.9em 1.4em;
-  min-width: 120px;
-  min-height: 44px;
-  font-size: var(--size, 1rem);
+button {
+  font-size: 17px;
+  padding: 1em 2.7em;
   font-weight: 500;
-  transition: 0.8s;
-  background-size: 280% auto;
-  background-image: linear-gradient(
-    325deg,
-    var(--btn-bg-2) 0%,
-    var(--btn-bg-1) 55%,
-    var(--btn-bg-2) 90%
-  );
+  background: #1f2937;
+  color: white;
   border: none;
-  border-radius: var(--radii);
-  color: var(--btn-bg-color);
-  box-shadow:
-    0px 0px 20px #b39d6380,
-    0px 5px 5px -1px #b39d6340,
-    inset 4px 4px 8px #b39d6380,
-    inset -4px -4px 8px #b39d6359;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.6em;
+  cursor: pointer;
 }
 
-.btn-descargar:hover {
-  background-position: right top;
+.gradient {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 0.6em;
+  margin-top: -0.25em;
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.3)
+  );
 }
 
-.btn-descargar:is(:focus, :focus-visible, :active) {
-  outline: none;
-  box-shadow:
-    0 0 0 3px var(--btn-bg-color),
-    0 0 0 6px var(--btn-bg-2);
+.label {
+  position: relative;
+  top: -1px;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .btn-descargar {
-    transition: linear;
-  }
+.transition {
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transition-duration: 500ms;
+  background-color: rgba(16, 185, 129, 0.6);
+  border-radius: 9999px;
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+button:hover .transition {
+  width: 14em;
+  height: 14em;
+}
+
+button:active {
+  transform: scale(0.97);
 }
