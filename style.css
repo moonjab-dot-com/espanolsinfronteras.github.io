@@ -326,6 +326,10 @@ button:active {
 }
 
 
+.leer-historias {
+    text-align: center; 
+}
+
 
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Lora:wght@400;700&family=Cinzel:wght@700&family=Quicksand:wght@400;500&family=Raleway:wght@400;600&display=swap');
