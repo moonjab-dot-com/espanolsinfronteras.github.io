@@ -170,14 +170,34 @@
   <h3>Historias de usuarios que encontraron nuevas oportunidades a través del aprendizaje.</h3>
   <button class="button" onclick="document.getElementById('formulario').scrollIntoView();">Comparte tu historia</button>
   <style>
-    color: white;
+    body {
+      background-color: #333; /* Fondo de la página */
+    }
     h1 {
       font-family: 'Lora', serif;
       font-weight: bold;
       color: white;
     }
+    .button {
+      background-color: #4CAF50; /* Color de fondo normal */
+      color: white; /* Color del texto */
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .button:hover {
+      background-color: #45a049; /* Cambia el color de fondo al pasar el cursor */
+      color: white; /* El texto sigue siendo blanco */
+    }
   </style>
 </header>
+
 
 <section class="stories-container">
 
