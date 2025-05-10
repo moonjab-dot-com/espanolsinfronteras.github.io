@@ -566,6 +566,34 @@
     </form>
 </section>
 
+
+<script>
+  function enviarContacto(event) {
+    event.preventDefault();
+
+    var nombre = document.querySelector('input[name="nombre"]').value;
+    var email = document.querySelector('input[name="email"]').value;
+    var mensaje = document.querySelector('textarea[name="mensaje"]').value;
+
+    var cuerpo = `Nombre: ${nombre}%0D%0A` +
+                 `Correo electrónico: ${email}%0D%0A` +
+                 `Mensaje: ${mensaje}`;
+
+    var mailtoLink = `mailto:espanolsinfronteras1@gmail.com?subject=Nuevo mensaje de contacto&body=${cuerpo}`;
+
+    window.location.href = mailtoLink;
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var formulario = document.querySelector('#contacto form');
+    if (formulario) {
+      formulario.addEventListener('submit', enviarContacto);
+    }
+  });
+</script>
+
+
+                
             <section id="leer-historias"
                 <h2></h2>
                 <a href="historias.html" target="_blank">Historias de antiguos usuarios</a>
