@@ -391,3 +391,28 @@ btn-azul p {
 btn-azul:active {
  transform: scale(0.95);
 }
+
+
+
+
+
+
+    .flags {
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+      gap: 20px;
+    }
+    .flag-button {
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+    .flag-button img {
+      width: 50px;
+      height: auto;
+      transition: transform 0.2s;
+    }
+    .flag-button img:hover {
+      transform: scale(1.1);
+    }
