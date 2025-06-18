@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stories - Español Sin Fronteras</title>
+  <link rel="icon" href="BUHO.jpeg.png" type="image/png" />
+  <link rel="stylesheet" href="style.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Lora:wght@400;700&family=Cinzel:wght@700&family=Quicksand:wght@400;500&family=Raleway:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      color: #333;
+      background-color: #F5F4F1;
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+    }
+
+    h2, h4 {
+      font-family: 'Lora', serif;
+      font-weight: bold;
+      color: #003E78;
+    }
+
+    h1, h3 {
+      font-family: 'Lora', serif;
+      font-weight: bold;
+      color: whitesmoke;
+    }
+
+    h2 {
+      font-family: 'Cinzel', serif;
+      color: #B39D63;
+    }
+
+    p {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 1.1em;
+      color: #333;
+      text-align: center;
+    }
+
+    a, button {
+      font-family: 'Raleway', sans-serif;
+      font-weight: bold;
+      text-decoration: none;
+      color: #B39D63;
+    }
+
+    a:hover, button:hover {
+      color: #003E78;
+      background-color: #F5F4F1;
+    }
+
+    header {
+      background-color: #003E78;
+      color: #F5F4F1;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 5px solid #B39D63;
+    }
+
+    .button {
+      background-color: #003E78;
+      color: #F5F4F1;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      width: auto;
+      margin-top: 10px;
+    }
+
+    .button:hover {
+      background-color: #003E78;
+      transform: translateY(-3px);
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .stories-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    .story-card {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+
+    .story-author {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #555;
+      text-align: center;
+    }
+
+    .form-popup {
+      background: white;
+      padding: 20px;
+      width: 100%;
+      max-width: 500px;
+      margin: 30px auto;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+
+    form {
+      display: grid;
+      gap: 10px;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    label {
+      font-weight: bold;
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      color: #333;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      font-size: 16px;
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+      background-color: #F5F4F1;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: #003E78;
+      box-shadow: 0 0 5px rgba(0, 96, 192, 0.5);
+      outline: none;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    .checkbox-label input {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Español Sin Fronteras has changed lives in over 60 countries</h1>
+  <h3>Stories from users who found new opportunities through learning.</h3>
+  <button class="button" onclick="document.getElementById('formulario').scrollIntoView();">Share your story</button>
+</header>
+
+<section class="stories-container">
+  <div class="story-card">
+    <p>Math used to scare me, but now, solving fraction exercises and seeing how they apply in daily life makes me feel so proud. Who would have thought I’d enjoy calculating discounts while shopping!</p>
+    <div class="story-author">Adrián</div>
+  </div>
+  <div class="story-card">
+    <p>Saturdays are our special time. My niece and I study Spanish together, play with new words, and write short stories. It’s the highlight of my week—we always end up laughing and learning.</p>
+    <div class="story-author">Laura</div>
+  </div>
+  <div class="story-card">
+    <p>Learning has become part of my daily routine, like coffee. I'm now into basic programming and I love seeing how I can create something from scratch. It energizes me and makes me feel empowered.</p>
+    <div class="story-author">Carlos</div>
+  </div>
+  <div class="story-card">
+    <p>After lunch, my grandson and I sit down to watch science videos. He learns so fast and I love watching his excitement when he understands how the human body works. Those shared moments are priceless!</p>
+    <div class="story-author">Rosa</div>
+  </div>
+  <div class="story-card">
+    <p>When my kids say “Let’s study together,” I realize this platform has sparked something beautiful—curiosity. The other day we learned about internet safety. Now they even correct me if I use weak passwords!</p>
+    <div class="story-author">Jorge</div>
+  </div>
+  <div class="story-card">
+    <p>My son comes home from school, changes, and immediately jumps into coding activities. He's so hooked on building his first game that I get excited right along with him.</p>
+    <div class="story-author">Paula</div>
+  </div>
+  <div class="story-card">
+    <p>The best part is learning at my own pace. I'm exploring financial literacy and love understanding my income and expenses better. Each day I improve a little more, and that feels great.</p>
+    <div class="story-author">Andrés</div>
+  </div>
+  <div class="story-card">
+    <p>We only have one tablet at home, but we all use it to learn. We share science activities, math games, and cybersecurity tips. It feels like a member of the family—right alongside Sunday lunch and mate. It brings us together in a special way!</p>
+    <div class="story-author">Marcela</div>
+  </div>
+  <div class="story-card">
+    <p>With every new thing I learn, I feel more confident. I'm learning how to spot online scams and protect my data. I used to doubt myself, but now I feel capable of protecting myself and my family.</p>
+    <div class="story-author">Sofía</div>
+  </div>
+  <div class="story-card">
+    <p>My son used to lose interest quickly, but now he really focuses on what he’s learning. Yesterday he explained how to create a family budget. It's amazing to see that passion and responsibility grow!</p>
+    <div class="story-author">Patricia</div>
+  </div>
+  <div class="story-card">
+    <p>Studying used to be an obligation. But now, when I wake up, I want to see what I can learn today. This morning it was about the risks of sharing information on social media. It’s like opening a gift every morning!</p>
+    <div class="story-author">Valeria</div>
+  </div>
+  <div class="story-card">
+    <p>As a kid, science was a mystery. But now I get it, I enjoy it—and I even explain it to my son. We recently talked about volcanoes and he couldn’t stop asking questions. What a rewarding moment!</p>
+    <div class="story-author">Ana</div>
+  </div>
+  <div class="story-card">
+    <p>My sister and I challenged each other to learn something new every day. This week it’s programming, and we had so much fun building a small interactive quiz. It’s a healthy competition that keeps us going!</p>
+    <div class="story-author">Claudia</div>
+  </div>
+  <div class="story-card">
+    <p>After dinner, I take a moment for myself to learn in peace. I'm doing an advanced Spanish course, and it relaxes me more than any TV show. I feel calm and happy investing that time in myself.</p>
+    <div class="story-author">María</div>
+  </div>
+  <div class="story-card">
+    <p>I love how easy learning feels here. Everything is so well-designed it makes me want to log in every day, with curiosity and a smile. This week I learned how to shop online safely. It’s a space I truly enjoy!</p>
+    <div class="story-author">Luciana</div>
+  </div>
+</section>
+
+<section class="form-popup" id="formulario">
+  <h2>Share your story</h2>
+  <form id="formulario-historia" onsubmit="enviarEmail(event)">
+    <label>How has Español Sin Fronteras changed your life?</label>
+    <textarea name="historia" required></textarea>
+
+    <label>Your name</label>
+    <input type="text" name="nombre" required />
+
+    <label>Your email</label>
+    <input type="email" name="email" required />
+
+    <label>You use Español Sin Fronteras as a:</label>
+    <select name="tipo_usuario" required>
+      <option value="">Select an option</option>
+      <option value="estudiante">Student</option>
+      <option value="profesor">Teacher</option>
+      <option value="padre">Parent</option>
+      <option value="otro">Other</option>
+    </select>
+
+    <label>School grade</label>
+    <input type="text" name="nivel_escolar" placeholder="e.g., 11th grade" />
+
+    <label>Share your story via video (optional)</label>
+    <input type="url" name="video_url" placeholder="Paste a link to your video" />
+
+    <div class="checkbox-label">
+      <input type="checkbox" name="acepto" required />
+      <span>
+        Español Sin Fronteras may share my story publicly, and I am 13 years old or older
+      </span>
+    </div>
+
+    <button type="submit" class="button">Submit story</button>
+  </form>
+</section>
+
+<script>
+  function enviarEmail(event) {
+    event.preventDefault();
+
+    const historia = document.querySelector('textarea[name="historia"]').value;
+    const nombre = document.querySelector('input[name="nombre"]').value;
+    const email = document.querySelector('input[name="email"]').value;
+    const tipo_usuario = document.querySelector('select[name="tipo_usuario"]').value;
+    const nivel_escolar = document.querySelector('input[name="nivel_escolar"]').value;
+    const video_url = document.querySelector('input[name="video_url"]').value;
+    const acepto = document.querySelector('input[name="acepto"]:checked') ? "Yes" : "No";
+
+    const cuerpo = `Name: ${nombre}%0D%0A` +
+                   `Email: ${email}%0D%0A` +
+                   `User type: ${tipo_usuario}%0D%0A` +
+                   `School grade: ${nivel_escolar}%0D%0A` +
+                   `Story: ${historia}%0D%0A` +
+                   `Video: ${video_url}%0D%0A` +
+                   `Consent to share: ${acepto}`;
+
+    const mailtoLink = `mailto:espanolsinfronteras1@gmail.com?subject=New Story Submission&body=${cuerpo}`;
+    window.location.href = mailtoLink;
+  }
+</script>
+
+</body>
+</html>
