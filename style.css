@@ -397,22 +397,30 @@ btn-azul:active {
 
 
 
-    .flags {
-      display: flex;
-      justify-content: center;
-      margin-top: 50px;
-      gap: 20px;
-    }
-    .flag-button {
-      border: none;
-      background: none;
-      cursor: pointer;
-    }
-    .flag-button img {
-      width: 50px;
-      height: auto;
-      transition: transform 0.2s;
-    }
-    .flag-button img:hover {
-      transform: scale(1.1);
-    }
+.flags-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  gap: 15px;
+  background-color: #111a2c; /* Fondo oscuro similar al de la imagen */
+  padding: 10px 20px;
+  border-radius: 12px; /* Bordes redondeados */
+}
+
+.flag-button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.flag-button img {
+  width: 30px; /* Más pequeñas */
+  height: auto;
+  transition: transform 0.2s;
+}
+
+.flag-button img:hover {
+  transform: scale(1.1);
+}
+
