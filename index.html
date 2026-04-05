@@ -283,13 +283,96 @@
 <script>
 // ===== DATA =====
 const courses = [
-  { slug:"espanol", icon:"message-circle", color:"blue", titleEs:"Comunicación", titleEn:"Communication (Spanish)", descEs:"Mejora tu escritura, lectura y comunicación en español.", descEn:"Improve your writing, reading, and communication in Spanish.", chapters:["El Alfabeto","Los Colores","Los Animales","Los Números","Sinónimos","Antónimos","Interrogativos 1","Interrogativos 2","El Sustantivo","El Adjetivo","El Pronombre","El Sujeto","El Predicado","La Oración","La Sílaba","Determinantes","La Preposición","El Sintaxis Nominal","Vicios Gramaticales","Tildación","La Morfología","Clasificación Morfológica","Relaciones Semánticas","Familias Lingüísticas en el Perú","Uso de Mayúsculas","La Comunicación","Homonimia","Homofonía"]},
-  { slug:"finanzas", icon:"dollar-sign", color:"emerald", titleEs:"Educación Financiera", titleEn:"Financial Education", descEs:"Aprende sobre ahorro, inversiones y finanzas personales.", descEn:"Learn about saving, investing, and personal finance.", chapters:["Las necesidades y metas frente a recursos disponibles","Decisiones Financieras: El Costo de Oportunidad y el Ahorro","El flujo circular de la economía","Cómo armar un presupuesto","Impuestos","Sistema Financiero","Los Bancos","Introducción a la Inversión","El impacto de la inflación","Gastos inteligentes","Importancia del crédito","Emprendimiento y Finanzas","Los Errores Financieros Comunes y Cómo Evitarlos"]},
-  { slug:"programacion", icon:"code", color:"violet", titleEs:"Programación", titleEn:"Programming", descEs:"Desde los fundamentos hasta proyectos prácticos.", descEn:"From fundamentals to hands-on projects.", chapters:["Introducción a la Programación Web","HTML Básico","HTML Avanzado","Introducción a CSS","CSS Avanzado","Introducción a JavaScript","DOM y Eventos","Introducción a Python"]},
-  { slug:"matematicas", icon:"calculator", color:"amber", titleEs:"Matemáticas", titleEn:"Mathematics", descEs:"Números, geometría, probabilidad y más.", descEn:"Numbers, geometry, probability, and more.", chapters:["Números Enteros y Operaciones","Medidas y Magnitudes","Patrones y Secuencias","Figuras y Formas","Áreas y Perímetros","Volúmenes","La Probabilidad","La Multiplicación"]},
-  { slug:"ciencias", icon:"flask", color:"teal", titleEs:"Ciencias", titleEn:"Science", descEs:"Física, química, biología y ciencias de la tierra.", descEn:"Physics, chemistry, biology, and earth sciences.", chapters:["Introducción a la Física","Movimiento Rectilíneo Uniforme","Movimiento Rectilíneo Uniforme Variado","Movimiento Vertical de Caída Libre","Movimiento Parabólico de Caída Libre","Elementos y Átomos","El Número Atómico","Células y Organismos","Partes de la Célula y sus Funciones"]},
-  { slug:"ciberseguridad", icon:"shield", color:"rose", titleEs:"Ciberseguridad", titleEn:"Cybersecurity", descEs:"Protege tu información y aprende seguridad digital.", descEn:"Protect your information and learn digital security.", chapters:["Las Diferentes Partes de Internet y su Relación con la Ciberseguridad","Comportamiento Ciberseguro y Protección de Dispositivos","Estrategias Avanzadas de Ciberseguridad","Respuesta ante Incidentes de Ciberseguridad en el Entorno Profesional","Respuesta ante incidentes y gestión de eventos de seguridad"]},
-  { slug:"ingles", icon:"languages", color:"indigo", titleEs:"Inglés", titleEn:"English", descEs:"Gramática, vocabulario y conversación en inglés.", descEn:"Grammar, vocabulary, and English conversation.", chapters:["Essential Question Forms in English","Bridges Across Time: Mastering the Present Perfect","Time in Motion: Understanding the Present Perfect Continuous","Moments and Movements: The Past Simple and Past Continuous","Before the Past: The Past Perfect Simple and Past Perfect Continuous"]},
+  { slug:"espanol", icon:"message-circle", color:"blue", titleEs:"Comunicación", titleEn:"Communication (Spanish)", descEs:"Mejora tu escritura, lectura y comunicación en español.", descEn:"Improve your writing, reading, and communication in Spanish.", chapters:[
+    {title:"El Alfabeto", href:"CAP 1 EL ALFABETO ESF.html"},
+    {title:"Los Colores", href:"CAP 2 LOS COLORES ESF.html"},
+    {title:"Los Animales", href:"CAP 3 LOS ANIMALES ESF.html"},
+    {title:"Los Números", href:"CAP 4 LOS NUMEROS ESF.html"},
+    {title:"Sinónimos", href:"CAP 5 LOS SINÓNIMOS ESF.html"},
+    {title:"Antónimos", href:"CAP 6 LOS ANTÓNIMOS ESF.html"},
+    {title:"Interrogativos 1", href:"CAP 7 INTERROGATIVOS PARTE I ESF.html"},
+    {title:"Interrogativos 2", href:"CAP 8 INTERROGATIVOS PARTE II ESF.html"},
+    {title:"El Sustantivo", href:"CAP 9 EL SUSTANTIVO ESF.html"},
+    {title:"El Adjetivo", href:"CAP 10 EL ADJETIVO ESF.html"},
+    {title:"El Pronombre", href:"CAP 11 EL PRONOMBRE ESF.html"},
+    {title:"El Sujeto", href:"CAP 12 EL SUJETO ESF.html"},
+    {title:"El Predicado", href:"CAP 13 EL PREDICADO ESF.html"},
+    {title:"La Oración", href:"CAP 14 LA ORACION ESF.html"},
+    {title:"La Sílaba", href:"CAP 15 LA SILABA ESF.html"},
+    {title:"Determinantes", href:"CAP 16 DETERMINANTES ESF.html"},
+    {title:"La Preposición", href:"CAP 17 LA PREPOSICIÓN ESF.html"},
+    {title:"El Sintaxis Nominal", href:"CAP 18 EL SINTAXIS NOMINAL ESF.html"},
+    {title:"Vicios Gramaticales", href:"CAP 19 VICIOS GRAMATICALES ESF.html"},
+    {title:"Tildación", href:"CAP 20 TILDACIÓN ESF.html"},
+    {title:"La Morfología", href:"CAP 21 LA MORFOLOGIA ESF.html"},
+    {title:"Clasificación Morfológica", href:"CAP 22 LA CLASIFICACIÓN MORFOLOGICA ESF.html"},
+    {title:"Relaciones Semánticas", href:"CAP 23 RELACIONES SEMANTICAS ESF.html"},
+    {title:"Familias Lingüísticas en el Perú", href:"CAP 24 FAMILIAS LINGÜÍSTICAS EN EL PERÚ ESF.html"},
+    {title:"Uso de Mayúsculas", href:"CAP 25 EL USO DE MAYUSCULAS ESF.html"},
+    {title:"La Comunicación", href:"CAP 26 LA COMUNICACIÓN ESF.html"},
+    {title:"Homonimia", href:"CAP 27 HOMONIMIA ESF.html"},
+    {title:"Homofonía", href:"CAP 28 HOMOFONÍA ESF.html"},
+  ]},
+  { slug:"finanzas", icon:"dollar-sign", color:"emerald", titleEs:"Educación Financiera", titleEn:"Financial Education", descEs:"Aprende sobre ahorro, inversiones y finanzas personales.", descEn:"Learn about saving, investing, and personal finance.", chapters:[
+    {title:"Las necesidades y metas frente a recursos disponibles", href:"CAP 1 LAS NECESIDADES Y METAS FRENTE A RECURSOS DISPONIBLES ESF.html"},
+    {title:"Decisiones Financieras: El Costo de Oportunidad y el Ahorro", href:"CAP 2 DECISIONES FINANCIERAS_ EL COSTO DE OPORTUNIDADES Y EL AHORRO ESF.html"},
+    {title:"El flujo circular de la economía", href:"CAP 3 EL FLUJO CIRCULAR DE LA ECONOMÍA ESF.html"},
+    {title:"Cómo armar un presupuesto", href:"CAP 4 COMO ARMAR UN PRESUPUESTO ESF.html"},
+    {title:"Impuestos", href:"CAP 5 IMPUESTOS ESF.html"},
+    {title:"Sistema Financiero", href:"CAP 6 SISTEMA FINANCIERO ESF.html"},
+    {title:"Los Bancos", href:"CAP 7 LOS BANCOS ESF.html"},
+    {title:"Introducción a la Inversión", href:"CAP 8 INTRODUCCIÓN A LA INVERSIÓN ESF.html"},
+    {title:"El impacto de la inflación", href:"CAP 9 EL IMPACTO DE LA INFLACIÓN ESF.html"},
+    {title:"Gastos inteligentes", href:"CAP 10 GASTOS INTELIGENTES ESF.html"},
+    {title:"Importancia del crédito", href:"CAP 11 IMPORTANCIA DEL CRÉDITO ESF.html"},
+    {title:"Emprendimiento y Finanzas", href:"CAP 12 EMPRENDIMIENTO Y FINANZAS ESF.html"},
+    {title:"Los Errores Financieros Comunes y Cómo Evitarlos", href:"CAP 13 LOS ERRORES FINANCIEROS COMUNES Y CÓMO EVITARLOS ESF.html"},
+  ]},
+  { slug:"programacion", icon:"code", color:"violet", titleEs:"Programación", titleEn:"Programming", descEs:"Desde los fundamentos hasta proyectos prácticos.", descEn:"From fundamentals to hands-on projects.", chapters:[
+    {title:"Introducción a la Programación Web", href:"CAP 1 INTRODUCCIÓN A LA PROGRAMACIÓN WEB ESF.html"},
+    {title:"HTML Básico", href:"CAP 2 HTML Básico ESF.html"},
+    {title:"HTML Avanzado", href:"CAP 3 HTML Avanzado ESF.html"},
+    {title:"Introducción a CSS", href:"CAP 4 Introducción a CSS ESF.html"},
+    {title:"CSS Avanzado", href:"CAP 5 CSS Avanzado ESF.html"},
+    {title:"Introducción a JavaScript", href:"CAP 6 Introducción a JavaScript ESF.html"},
+    {title:"DOM y Eventos", href:"CAP 7 DOM y Eventos ESF.html"},
+    {title:"Introducción a Python", href:"CAP 8 Introducción a Python ESF.html"},
+  ]},
+  { slug:"matematicas", icon:"calculator", color:"amber", titleEs:"Matemáticas", titleEn:"Mathematics", descEs:"Números, geometría, probabilidad y más.", descEn:"Numbers, geometry, probability, and more.", chapters:[
+    {title:"Números Enteros y Operaciones", href:"CAP 1 Números Enteros y Operaciones ESF.html"},
+    {title:"Medidas y Magnitudes", href:"CAP 2 Medidas y Magnitudes ESF.html"},
+    {title:"Patrones y Secuencias", href:"CAP 3 Patrones y Secuencias ESF.html"},
+    {title:"Figuras y Formas", href:"CAP 4 Figuras y Formas ESF.html"},
+    {title:"Áreas y Perímetros", href:"CAP 5 Áreas y Perímetros ESF.html"},
+    {title:"Volúmenes", href:"CAP 6 Volúmenes ESF.html"},
+    {title:"La Probabilidad", href:"CAP 7 La Probabilidad ESF.html"},
+    {title:"La Multiplicación", href:"CAP 8 La Multiplicación ESF.html"},
+  ]},
+  { slug:"ciencias", icon:"flask", color:"teal", titleEs:"Ciencias", titleEn:"Science", descEs:"Física, química, biología y ciencias de la tierra.", descEn:"Physics, chemistry, biology, and earth sciences.", chapters:[
+    {title:"Introducción a la Física", href:"CAP 1 Introducción a la Física ESF.html"},
+    {title:"Movimiento Rectilíneo Uniforme", href:"CAP 2 Movimiento Rectilíneo Uniforme (MRU) ESF.html"},
+    {title:"Movimiento Rectilíneo Uniforme Variado", href:"CAP 3 MOVIMIENTO RECTILÍNEO UNIFORMEMENTE VARIADO (MRUV) ESF.html"},
+    {title:"Movimiento Vertical de Caída Libre", href:"CAP 4 MOVIMIENTO VERTICAL DE CAÍDA LIBRE (MVCL) ESF.html"},
+    {title:"Movimiento Parabólico de Caída Libre", href:"CAP 5 MOVIMIENTO PARABÓLICO DE CAÍDA LIBRE ESF.html"},
+    {title:"Elementos y Átomos", href:"CAP 6 Elementos y Átomos ESF.html"},
+    {title:"El Número Atómico", href:"CAP 7 El Número Atómico ESF.html"},
+    {title:"Células y Organismos", href:"CAP 8 Células y Organismos ESF.html"},
+    {title:"Partes de la Célula y sus Funciones", href:"CAP 9 Partes de la Célula y sus Funciones ESF.html"},
+  ]},
+  { slug:"ciberseguridad", icon:"shield", color:"rose", titleEs:"Ciberseguridad", titleEn:"Cybersecurity", descEs:"Protege tu información y aprende seguridad digital.", descEn:"Protect your information and learn digital security.", chapters:[
+    {title:"Las Diferentes Partes de Internet y su Relación con la Ciberseguridad", href:"CAP 1 Las Diferentes Partes de Internet y su Relación con la Ciberseguridad.html"},
+    {title:"Comportamiento Ciberseguro y Protección de Dispositivos", href:"CAP 2 Comportamiento Ciberseguro y Protección de Dispositivos.html"},
+    {title:"Estrategias Avanzadas de Ciberseguridad", href:"CAP 3 Estrategias Avanzadas de Ciberseguridad_ Protegiendo Dispositivos y Comunicaciones.html"},
+    {title:"Respuesta ante Incidentes de Ciberseguridad en el Entorno Profesional", href:"CAP 4 Respuesta ante Incidentes de Ciberseguridad en el Entorno Profesional.html"},
+    {title:"Respuesta ante incidentes y gestión de eventos de seguridad", href:"CAP 5 Respuesta ante incidentes y gestión de eventos de seguridad.html"},
+  ]},
+  { slug:"ingles", icon:"languages", color:"indigo", titleEs:"Inglés", titleEn:"English", descEs:"Gramática, vocabulario y conversación en inglés.", descEn:"Grammar, vocabulary, and English conversation.", chapters:[
+    {title:"Essential Question Forms in English", href:"Essential Question Forms in English CHAPTER 1.html"},
+    {title:"Bridges Across Time: Mastering the Present Perfect", href:"Bridges Across Time_ Mastering the Present Perfect CHAPTER 2.html"},
+    {title:"Time in Motion: Understanding the Present Perfect Continuous", href:"Time in Motion_ Understanding the Present Perfect Continuous CHAPTER 3.html"},
+    {title:"Moments and Movements: The Past Simple and Past Continuous", href:"Moments and Movements_ The Past Simple and Past Continuous CHAPTER 4.html"},
+    {title:"Before the Past: The Past Perfect Simple and Past Perfect Continuous", href:"Before the Past_ The Past Perfect Simple and Past Perfect Continuous CHAPTER 5.html"},
+  ]},
 ];
 
 const testimonials = [
@@ -399,7 +482,7 @@ function openCourse(slug) {
 
   const chevron = '<svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>';
   document.getElementById("chaptersList").innerHTML = c.chapters.map((ch, i) =>
-    `<div class="chapter-item"><div class="chapter-num">${i+1}</div><h3>${ch}</h3>${chevron}</div>`
+    `<a href="${ch.href}" target="_blank" class="chapter-item" style="text-decoration:none;color:inherit;"><div class="chapter-num">${i+1}</div><h3>${ch.title}</h3>${chevron}</a>`
   ).join("");
 
   document.getElementById("mainView").classList.add("hidden");
