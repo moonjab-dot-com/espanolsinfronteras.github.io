@@ -56,6 +56,19 @@ export const courses: Course[] = [
     ],
   },
   {
+    slug: "global-finance",
+    icon: "TrendingUp",
+    colorClass: "blue",
+    titleEs: "Global Finance Series",
+    titleEn: "Global Finance Series",
+    descriptionEs: "Conceptos clave de finanzas globales: presupuesto e inversión.",
+    descriptionEn: "Key global finance concepts: budgeting and investing.",
+    chapters: [
+      { id: 1, title: "Budgeting", href: "flhqxesf_Module1_Budgeting.html" },
+      { id: 2, title: "Intro to Investing", href: "flhqxesf_Module1_Intro-to-Investing.html" },
+    ],
+  },
+  {
     slug: "finanzas",
     icon: "DollarSign",
     colorClass: "green",
