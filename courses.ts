@@ -64,7 +64,7 @@ export const courses: Course[] = [
     descriptionEs: "Descubre la riqueza cultural e histórica del Perú.",
     descriptionEn: "Discover Peru's cultural and historical richness.",
     chapters: [
-      { id: 1, title: "Introducción a la Identidad Peruana", href: "https://drive.google.com/file/d/1eUAPsIxe_E8PExr0VkL4AyFaDCXI52FT/view?usp=sharing" },
+      { id: 1, title: "Introducción a la Identidad Peruana", href: "https://drive.google.com/file/d/1ZTO9i3Z_5-tqQz5pPhMZKUYQkVr9wSA0/view?usp=sharing" },
       { id: 2, title: "Civilizaciones Preincas", href: "Civilizaciones-Preincaicas-Herencia-Peruana_1.html" },
     ],
   },
