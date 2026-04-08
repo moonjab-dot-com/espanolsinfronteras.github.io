@@ -12,6 +12,8 @@ const colorMap: Record<string, { bg: string; light: string; text: string; accent
   teal: { bg: "bg-teal-500", light: "bg-gradient-to-br from-teal-50 to-cyan-50", text: "text-teal-600", accent: "border-teal-200", gradient: "from-teal-500 to-teal-600" },
 };
 
+const getChapterHref = (href: string) => encodeURI(href.startsWith("/") ? href : `/${href}`);
+
 const CoursePage = ({ lang }: CoursePageProps) => {
   const { slug } = useParams<{ slug: string }>();
   const course = courses.find((c) => c.slug === slug);
@@ -71,7 +73,13 @@ const CoursePage = ({ lang }: CoursePageProps) => {
           </h2>
           <div className="grid gap-3">
             {course.chapters.map((ch) => (
-              <div key={ch.id} className="chapter-card group">
+              <a
+                key={ch.id}
+                href={getChapterHref(ch.href)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="chapter-card group cursor-pointer"
+              >
                 <div className="chapter-number group-hover:bg-primary group-hover:text-white transition-all duration-200">{ch.id}</div>
                 <div className="flex-1 min-w-0">
                   <h3 className="font-semibold text-foreground text-sm group-hover:text-primary transition-colors">
@@ -79,7 +87,7 @@ const CoursePage = ({ lang }: CoursePageProps) => {
                   </h3>
                 </div>
                 <ChevronRight className="w-4 h-4 text-muted-foreground/30 group-hover:text-primary group-hover:translate-x-1 transition-all flex-shrink-0" />
-              </div>
+              </a>
             ))}
           </div>
         </div>
