@@ -64,8 +64,15 @@ export const courses: Course[] = [
     descriptionEs: "Descubre la riqueza cultural e histórica del Perú.",
     descriptionEn: "Discover Peru's cultural and historical richness.",
     chapters: [
-      { id: 1, title: "Introducción a la Identidad Peruana", href: "https://drive.google.com/file/d/1ZTO9i3Z_5-tqQz5pPhMZKUYQkVr9wSA0/view?usp=sharing" },
-      { id: 2, title: "Civilizaciones Preincas", href: "ESF_PREINCAS_CAP1.html" },
+      { id: 1, title: "Introducción a la Identidad Peruana", href: "https://drive.google.com/file/d/1eUAPsIxe_E8PExr0VkL4AyFaDCXI52FT/view?usp=sharing" },
+      { id: 2, title: "Civilizaciones Preincas", href: "Civilizaciones-Preincaicas-Herencia-Peruana_1.html" },
+      { id: 3, title: "La Conquista y el Virreinato", href: "https://drive.google.com/file/d/1KXpNRVxc7AVxoGFj7nO4Tq0KCmwy1TOP/view?usp=sharing" },
+      { id: 4, title: "El Imperio Inca Tahuantinsuyo", href: "https://drive.google.com/file/d/1FEyUVZC4WYfTCYmc07LJCoxshMR7AOdG/view?usp=sharing" },
+      { id: 5, title: "Geografía y Regiones del Perú", href: "https://drive.google.com/file/d/1ayEd1ZfO6QniqkmcudGTnR8awQpjUSbo/view?usp=sharing" },
+      { id: 6, title: "Gastronomía Peruana", href: "https://drive.google.com/file/d/1xi67Oj027LqLDJk1PGXuUrXaBEDQau5r/view?usp=sharing" },
+      { id: 7, title: "Música y Danzas Tradicionales Peruanas", href: "https://drive.google.com/file/d/1-VkkNQhxWRjpdlJ6jo7v8ghIlxZcscY7/view?usp=sharing" },
+      { id: 8, title: "Arte y Patrimonio Peruano", href: "https://drive.google.com/file/d/15RtRCIB6zX8GjkDq-VsAR0hVPSlaTNug/view?usp=sharing" },
+      { id: 9, title: "Tradiciones y Festividades Peruanas", href: "https://drive.google.com/file/d/18IrfL5TS9Ss2Fa3oMAxxDS-f-LRqdh8g/view?usp=sharing" },
     ],
   },
   {
