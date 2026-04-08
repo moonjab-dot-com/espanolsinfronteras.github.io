@@ -56,6 +56,19 @@ export const courses: Course[] = [
     ],
   },
   {
+    slug: "herencia-peruana",
+    icon: "Sun",
+    colorClass: "blue",
+    titleEs: "Herencia Peruana",
+    titleEn: "Peruvian Heritage",
+    descriptionEs: "Descubre la riqueza cultural e histórica del Perú.",
+    descriptionEn: "Discover Peru's cultural and historical richness.",
+    chapters: [
+      { id: 1, title: "Introducción a la Identidad Peruana", href: "https://drive.google.com/file/d/1eUAPsIxe_E8PExr0VkL4AyFaDCXI52FT/view?usp=sharing" },
+      { id: 2, title: "Civilizaciones Preincas", href: "Civilizaciones-Preincaicas-Herencia-Peruana_1.html" },
+    ],
+  },
+  {
     slug: "global-finance",
     icon: "TrendingUp",
     colorClass: "blue",
