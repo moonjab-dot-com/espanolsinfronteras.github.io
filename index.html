@@ -23,7 +23,6 @@
 <body>
 
 
-
 <!-- ======== NAV ======== -->
 <nav class="nav">
   <div class="container nav-inner">
@@ -79,7 +78,7 @@
           <div><div class="stat-val">70+</div><div class="stat-label" data-es="Lecciones" data-en="Lessons">Lecciones</div></div>
           <div><div class="stat-val">65+</div><div class="stat-label" data-es="Países" data-en="Countries">Países</div></div>
           <div><div class="stat-val">7</div><div class="stat-label" data-es="Materias" data-en="Subjects">Materias</div></div>
-          <div><div class="stat-val">1000+</div><div class="stat-label" data-es="Libros donados" data-en="Books donated">Libros donados</div></div>
+          <div><div class="stat-val">500+</div><div class="stat-label" data-es="Libros donados" data-en="Books donated">Libros donados</div></div>
         </div>
       </div>
       <div class="hero-right">
@@ -148,7 +147,6 @@
         </div>
       </div>
     </div>
-  </div>
 </section>
 
 <!-- GALERÍA / MEDIA -->
@@ -178,6 +176,7 @@
     </div>
   </div>
 </section>
+
 
 <!-- PARTNERSHIP -->
 <section class="section section-alt" id="partnership">
@@ -375,6 +374,10 @@ const courses = [
     {title:"Homonimia", href:"CAP 27 HOMONIMIA ESF.html"},
     {title:"Homofonía", href:"CAP 28 HOMOFONÍA ESF.html"},
   ]},
+  { slug:"global-finance", icon:"trending-up", color:"sky", titleEs:"Global Finance Series", titleEn:"Global Finance Series", descEs:"Conceptos clave de finanzas globales: presupuesto e inversión.", descEn:"Key global finance concepts: budgeting and investing.", chapters:[
+    {title:"Budgeting", href:"flhqxesf_Module1_Budgeting.html"},
+    {title:"Intro to Investing", href:"flhqxesf_Module1_Intro-to-Investing.html"},
+  ]},
   { slug:"finanzas", icon:"dollar-sign", color:"emerald", titleEs:"Educación Financiera", titleEn:"Financial Education", descEs:"Aprende sobre ahorro, inversiones y finanzas personales.", descEn:"Learn about saving, investing, and personal finance.", chapters:[
     {title:"Las necesidades y metas frente a recursos disponibles", href:"CAP 1 LAS NECESIDADES Y METAS FRENTE A RECURSOS DISPONIBLES ESF.html"},
     {title:"Decisiones Financieras: El Costo de Oportunidad y el Ahorro", href:"CAP 2 DECISIONES FINANCIERAS_ EL COSTO DE OPORTUNIDADES Y EL AHORRO ESF.html"},
@@ -466,9 +469,10 @@ const icons = {
   "flask": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/><path d="M8.5 2h7"/><path d="M7 16h10"/></svg>',
   "shield": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>',
   "languages": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg>',
+  "trending-up": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>',
 };
 
-const colorClasses = ["blue","emerald","violet","amber","teal","rose","indigo"];
+const colorClasses = ["blue","emerald","violet","amber","teal","rose","indigo","sky"];
 const chevronSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>';
 const chevronDownSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>';
 
@@ -483,12 +487,12 @@ function renderCourses() {
     const title = lang === "es" ? c.titleEs : c.titleEn;
     const desc = lang === "es" ? c.descEs : c.descEn;
     const chapLabel = lang === "es" ? "capítulos" : "chapters";
-    return `<div class="course-card reveal" onclick="openCourse('${c.slug}')" style="transition-delay:${i*80}ms">
+    return `<a href="#curso/${c.slug}" class="course-card reveal" style="transition-delay:${i*80}ms;text-decoration:none;color:inherit;">
       <div class="course-icon color-${c.color}">${icons[c.icon]}</div>
       <h3>${title}</h3>
       <p>${desc}</p>
       <div class="course-meta color-${c.color}-text">${c.chapters.length} ${chapLabel} ${chevronSvg}</div>
-    </div>`;
+    </a>`;
   }).join("");
   observeReveals();
 }
@@ -527,10 +531,18 @@ function toggleFaq(btn) {
   if (!wasOpen) item.classList.add("open");
 }
 
-// ===== COURSE DETAIL =====
-function openCourse(slug) {
+// ===== COURSE DETAIL (hash-based routing) =====
+function applyRouteClass(isCourse) {
+  if (isCourse) {
+    document.body.classList.add("course-route");
+  } else {
+    document.body.classList.remove("course-route");
+  }
+}
+
+function showCourse(slug) {
   const c = courses.find(x => x.slug === slug);
-  if (!c) return;
+  if (!c) return showHome();
   const title = lang === "es" ? c.titleEs : c.titleEn;
   const desc = lang === "es" ? c.descEs : c.descEn;
   const chapLabel = lang === "es" ? "capítulos" : "chapters";
@@ -547,24 +559,52 @@ function openCourse(slug) {
     `<a href="${encodeURI(ch.href.startsWith('/') ? ch.href : '/' + ch.href)}" target="_blank" rel="noopener noreferrer" class="chapter-item" style="text-decoration:none;color:inherit;"><div class="chapter-num">${i+1}</div><h3>${ch.title}</h3>${chevron}</a>`
   ).join("");
 
-  document.getElementById("mainView").classList.add("hidden");
-  document.getElementById("courseDetail").classList.add("active");
+  applyRouteClass(true);
+  document.getElementById("mainView").style.cssText = "display:none!important";
+  document.getElementById("courseDetail").style.cssText = "display:block!important;padding-top:64px";
   window.scrollTo(0, 0);
 }
 
+function showHome(scrollToCourses) {
+  applyRouteClass(false);
+  document.getElementById("mainView").style.cssText = "display:block";
+  document.getElementById("courseDetail").style.cssText = "display:none";
+  if (scrollToCourses) {
+    setTimeout(function() {
+      document.getElementById("cursos").scrollIntoView({ behavior: "smooth" });
+    }, 50);
+  }
+}
+
+function getCurrentCourseSlug() {
+  var hash = location.hash || "";
+  if (hash.indexOf("#curso/") === 0) return hash.substring(7);
+  var path = location.pathname || "";
+  var match = path.match(/^\/curso\/([^/]+)/);
+  if (match) return match[1];
+  return null;
+}
+
+function renderRoute() {
+  var slug = getCurrentCourseSlug();
+  if (slug) {
+    showCourse(slug);
+  } else {
+    showHome(false);
+  }
+}
+
 function getColorLight(color) {
-  const map = { blue:"#eff6ff, #eef2ff", emerald:"#ecfdf5, #f0fdfa", violet:"#f5f3ff, #ede9fe", amber:"#fffbeb, #fef3c7", teal:"#f0fdfa, #ecfeff", rose:"#fff1f2, #ffe4e6", indigo:"#eef2ff, #e0e7ff" };
+  const map = { blue:"#eff6ff, #eef2ff", emerald:"#ecfdf5, #f0fdfa", violet:"#f5f3ff, #ede9fe", amber:"#fffbeb, #fef3c7", teal:"#f0fdfa, #ecfeff", rose:"#fff1f2, #ffe4e6", indigo:"#eef2ff, #e0e7ff", sky:"#e0f2fe, #f0f9ff" };
   return map[color] || map.blue;
 }
 
 document.getElementById("backBtn").addEventListener("click", function(e) {
   e.preventDefault();
-  document.getElementById("mainView").classList.remove("hidden");
-  document.getElementById("courseDetail").classList.remove("active");
-  setTimeout(() => {
-    document.getElementById("cursos").scrollIntoView({ behavior: "smooth" });
-  }, 50);
+  location.hash = "#cursos";
 });
+
+window.addEventListener("hashchange", renderRoute);
 
 // ===== LANGUAGE TOGGLE =====
 function updateLang() {
@@ -614,6 +654,7 @@ renderCourses();
 renderFaq();
 renderTestimonials();
 observeReveals();
+renderRoute();
 </script>
 
 </body>
