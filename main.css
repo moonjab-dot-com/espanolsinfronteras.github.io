@@ -299,6 +299,8 @@ ul { list-style: none; }
 .color-indigo-text { color: #4f46e5; }
 .color-sky { background: linear-gradient(135deg, #0ea5e9, #0284c7); }
 .color-sky-text { color: #0284c7; }
+.color-green { background: linear-gradient(135deg, #22c55e, #16a34a); }
+.color-green-text { color: #16a34a; }
 
 /* ---- Story card ---- */
 .story-card {
