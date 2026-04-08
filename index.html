@@ -142,7 +142,6 @@
           <p>En 2024, Salvador decidió convertir esa idea en acción, creando una plataforma 100% gratuita donde cualquier persona puede aprender español, finanzas, programación, matemáticas, ciencias e inglés. Hoy cuenta con más de <strong>70 capítulos</strong> diseñados para ser prácticos, accesibles y útiles en la vida real.</p>
           <p>Desde entonces, la plataforma ha llegado a usuarios en más de <strong>65 países</strong>, demostrando que las ganas de aprender no tienen fronteras.</p>
           <p>Además, el proyecto también busca generar impacto fuera de la pantalla: se han donado más de <strong>1000 libros</strong>, útiles escolares en escuelas de Lima y se han organizado actividades para apoyar y motivar a niños. 🎒🎁</p>
-
         </div>
         </div>
       </div>
@@ -201,7 +200,6 @@
     </div>
   </div>
 </section>
-
 
 <!-- MI CUENTO -->
 <section class="section" id="micuento">
@@ -373,6 +371,10 @@ const courses = [
     {title:"Homonimia", href:"CAP 27 HOMONIMIA ESF.html"},
     {title:"Homofonía", href:"CAP 28 HOMOFONÍA ESF.html"},
   ]},
+  { slug:"herencia-peruana", icon:"sun", color:"amber", titleEs:"Herencia Peruana", titleEn:"Peruvian Heritage", descEs:"Descubre la riqueza cultural e histórica del Perú.", descEn:"Discover Peru's cultural and historical richness.", chapters:[
+    {title:"Introducción a la Identidad Peruana", href:"https://drive.google.com/file/d/1eUAPsIxe_E8PExr0VkL4AyFaDCXI52FT/view?usp=sharing"},
+    {title:"Civilizaciones Preincas", href:"Civilizaciones-Preincaicas-Herencia-Peruana_1.html"},
+  ]},
   { slug:"global-finance", icon:"trending-up", color:"sky", titleEs:"Global Finance Series", titleEn:"Global Finance Series", descEs:"Conceptos clave de finanzas globales: presupuesto e inversión.", descEn:"Key global finance concepts: budgeting and investing.", chapters:[
     {title:"Budgeting", href:"flhqxesf_Module1_Budgeting.html"},
     {title:"Intro to Investing", href:"flhqxesf_Module1_Intro-to-Investing.html"},
@@ -392,7 +394,7 @@ const courses = [
     {title:"Emprendimiento y Finanzas", href:"CAP 12 EMPRENDIMIENTO Y FINANZAS ESF.html"},
     {title:"Los Errores Financieros Comunes y Cómo Evitarlos", href:"CAP 13 LOS ERRORES FINANCIEROS COMUNES Y CÓMO EVITARLOS ESF.html"},
   ]},
-  { slug:"programacion", icon:"code", color:"violet", titleEs:"Programación", titleEn:"Programming", descEs:"Desde los fundamentos hasta proyectos prácticos.", descEn:"From fundamentals to hands-on projects.", chapters:[
+  { slug:"programacion", icon:"code", color:"violet", titleEs:"Programación y Ciberseguridad", titleEn:"Programming & Cybersecurity", descEs:"Desde los fundamentos de programación hasta seguridad digital.", descEn:"From programming fundamentals to digital security.", chapters:[
     {title:"Introducción a la Programación Web", href:"CAP 1 INTRODUCCIÓN A LA PROGRAMACIÓN WEB ESF.html"},
     {title:"HTML Básico", href:"CAP 2 HTML Básico ESF.html"},
     {title:"HTML Avanzado", href:"CAP 3 HTML Avanzado ESF.html"},
@@ -401,8 +403,13 @@ const courses = [
     {title:"Introducción a JavaScript", href:"CAP 6 Introducción a JavaScript ESF.html"},
     {title:"DOM y Eventos", href:"CAP 7 DOM y Eventos ESF.html"},
     {title:"Introducción a Python", href:"CAP 8 Introducción a Python ESF.html"},
+    {title:"Las Diferentes Partes de Internet y su Relación con la Ciberseguridad", href:"CAP 1 Las Diferentes Partes de Internet y su Relación con la Ciberseguridad.html"},
+    {title:"Comportamiento Ciberseguro y Protección de Dispositivos", href:"CAP 2 Comportamiento Ciberseguro y Protección de Dispositivos.html"},
+    {title:"Estrategias Avanzadas de Ciberseguridad", href:"CAP 3 Estrategias Avanzadas de Ciberseguridad_ Protegiendo Dispositivos y Comunicaciones.html"},
+    {title:"Respuesta ante Incidentes de Ciberseguridad en el Entorno Profesional", href:"CAP 4 Respuesta ante Incidentes de Ciberseguridad en el Entorno Profesional.html"},
+    {title:"Respuesta ante incidentes y gestión de eventos de seguridad", href:"CAP 5 Respuesta ante incidentes y gestión de eventos de seguridad.html"},
   ]},
-  { slug:"matematicas", icon:"calculator", color:"amber", titleEs:"Matemáticas", titleEn:"Mathematics", descEs:"Números, geometría, probabilidad y más.", descEn:"Numbers, geometry, probability, and more.", chapters:[
+  { slug:"matematicas", icon:"calculator", color:"blue", titleEs:"Matemáticas", titleEn:"Mathematics", descEs:"Números, geometría, probabilidad y más.", descEn:"Numbers, geometry, probability, and more.", chapters:[
     {title:"Números Enteros y Operaciones", href:"CAP 1 Números Enteros y Operaciones ESF.html"},
     {title:"Medidas y Magnitudes", href:"CAP 2 Medidas y Magnitudes ESF.html"},
     {title:"Patrones y Secuencias", href:"CAP 3 Patrones y Secuencias ESF.html"},
@@ -412,7 +419,7 @@ const courses = [
     {title:"La Probabilidad", href:"CAP 7 La Probabilidad ESF.html"},
     {title:"La Multiplicación", href:"CAP 8 La Multiplicación ESF.html"},
   ]},
-  { slug:"ciencias", icon:"flask", color:"teal", titleEs:"Ciencias", titleEn:"Science", descEs:"Física, química, biología y ciencias de la tierra.", descEn:"Physics, chemistry, biology, and earth sciences.", chapters:[
+  { slug:"ciencias", icon:"flask", color:"green", titleEs:"Ciencias", titleEn:"Science", descEs:"Física, química, biología y ciencias de la tierra.", descEn:"Physics, chemistry, biology, and earth sciences.", chapters:[
     {title:"Introducción a la Física", href:"CAP 1 Introducción a la Física ESF.html"},
     {title:"Movimiento Rectilíneo Uniforme", href:"CAP 2 Movimiento Rectilíneo Uniforme (MRU) ESF.html"},
     {title:"Movimiento Rectilíneo Uniforme Variado", href:"CAP 3 MOVIMIENTO RECTILÍNEO UNIFORMEMENTE VARIADO (MRUV) ESF.html"},
@@ -422,13 +429,6 @@ const courses = [
     {title:"El Número Atómico", href:"CAP 7 El Número Atómico ESF.html"},
     {title:"Células y Organismos", href:"CAP 8 Células y Organismos ESF.html"},
     {title:"Partes de la Célula y sus Funciones", href:"CAP 9 Partes de la Célula y sus Funciones ESF.html"},
-  ]},
-  { slug:"ciberseguridad", icon:"shield", color:"rose", titleEs:"Ciberseguridad", titleEn:"Cybersecurity", descEs:"Protege tu información y aprende seguridad digital.", descEn:"Protect your information and learn digital security.", chapters:[
-    {title:"Las Diferentes Partes de Internet y su Relación con la Ciberseguridad", href:"CAP 1 Las Diferentes Partes de Internet y su Relación con la Ciberseguridad.html"},
-    {title:"Comportamiento Ciberseguro y Protección de Dispositivos", href:"CAP 2 Comportamiento Ciberseguro y Protección de Dispositivos.html"},
-    {title:"Estrategias Avanzadas de Ciberseguridad", href:"CAP 3 Estrategias Avanzadas de Ciberseguridad_ Protegiendo Dispositivos y Comunicaciones.html"},
-    {title:"Respuesta ante Incidentes de Ciberseguridad en el Entorno Profesional", href:"CAP 4 Respuesta ante Incidentes de Ciberseguridad en el Entorno Profesional.html"},
-    {title:"Respuesta ante incidentes y gestión de eventos de seguridad", href:"CAP 5 Respuesta ante incidentes y gestión de eventos de seguridad.html"},
   ]},
   { slug:"ingles", icon:"languages", color:"indigo", titleEs:"Inglés", titleEn:"English", descEs:"Gramática, vocabulario y conversación en inglés.", descEn:"Grammar, vocabulary, and English conversation.", chapters:[
     {title:"Essential Question Forms in English", href:"Essential Question Forms in English CHAPTER 1.html"},
@@ -469,6 +469,7 @@ const icons = {
   "shield": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>',
   "languages": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg>',
   "trending-up": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>',
+  "sun": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>',
 };
 
 const colorClasses = ["blue","emerald","violet","amber","teal","rose","indigo","sky"];
@@ -555,7 +556,7 @@ function showCourse(slug) {
 
   const chevron = '<svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>';
   document.getElementById("chaptersList").innerHTML = c.chapters.map((ch, i) =>
-    `<a href="${encodeURI(ch.href.startsWith('/') ? ch.href : '/' + ch.href)}" target="_blank" rel="noopener noreferrer" class="chapter-item" style="text-decoration:none;color:inherit;"><div class="chapter-num">${i+1}</div><h3>${ch.title}</h3>${chevron}</a>`
+    `<a href="${ch.href.startsWith('http') ? ch.href : encodeURI(ch.href.startsWith('/') ? ch.href : '/' + ch.href)}" target="_blank" rel="noopener noreferrer" class="chapter-item" style="text-decoration:none;color:inherit;"><div class="chapter-num">${i+1}</div><h3>${ch.title}</h3>${chevron}</a>`
   ).join("");
 
   applyRouteClass(true);
