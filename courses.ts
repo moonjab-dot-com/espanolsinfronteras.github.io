@@ -65,7 +65,7 @@ export const courses: Course[] = [
     descriptionEn: "Discover Peru's cultural and historical richness.",
     chapters: [
       { id: 1, title: "Introducción a la Identidad Peruana", href: "https://drive.google.com/file/d/1eUAPsIxe_E8PExr0VkL4AyFaDCXI52FT/view?usp=sharing" },
-      { id: 2, title: "Civilizaciones Preincas", href: "Civilizaciones-Preincaicas-Herencia-Peruana_1.html" },
+      { id: 2, title: "Civilizaciones Preincas", href: "https://drive.google.com/file/d/1D-O1G8UWgXLIGKF_d_5w1YSLk-ZeBqQa/view?usp=sharing" },
       { id: 3, title: "La Conquista y el Virreinato", href: "https://drive.google.com/file/d/1KXpNRVxc7AVxoGFj7nO4Tq0KCmwy1TOP/view?usp=sharing" },
       { id: 4, title: "El Imperio Inca Tahuantinsuyo", href: "https://drive.google.com/file/d/1FEyUVZC4WYfTCYmc07LJCoxshMR7AOdG/view?usp=sharing" },
       { id: 5, title: "Geografía y Regiones del Perú", href: "https://drive.google.com/file/d/1ayEd1ZfO6QniqkmcudGTnR8awQpjUSbo/view?usp=sharing" },
