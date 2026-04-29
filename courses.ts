@@ -86,6 +86,9 @@ export const courses: Course[] = [
     chapters: [
       { id: 1, title: "Budgeting", href: "flhqxesf_Module1_Budgeting.html" },
       { id: 2, title: "Intro to Investing", href: "flhqxesf_Module1_Intro-to-Investing.html" },
+      { id: 3, title: "Saving", href: "FLHQ-x-Espan_ol-Sin-Fronteras-Presentation-Module-3-Saving.html" },
+      { id: 4, title: "Credit", href: "FLHQ-x-Espan_ol-Sin-Fronteras-Presentation-Module-4-Credit.html" },
+      { id: 5, title: "Making Money", href: "FLHQ-x-Espan_ol-Sin-Fronteras-Presentation-Module-5-Making-Money.html" },
     ],
   },
   {
