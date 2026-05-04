@@ -1,14 +1,29 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
+# ============================================================
+# robots.txt — Español Sin Fronteras
+# https://www.espanolsinfronteras.org/
+# ============================================================
 
 User-agent: *
 Allow: /
+
+# Allow all lesson pages
+Allow: /CAP
+Allow: /Essential
+Allow: /Bridges
+Allow: /Time
+Allow: /Moments
+Allow: /Before
+Allow: /flhqxesf
+Allow: /FLHQ
+
+# Disallow private / system paths (add yours as needed)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /tmp/
+
+# ── Sitemap ──
+Sitemap: https://www.espanolsinfronteras.org/sitemap.xml
+
+# ── Crawl-delay for polite bots ──
+Crawl-delay: 5
