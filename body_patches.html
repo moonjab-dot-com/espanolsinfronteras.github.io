@@ -1,0 +1,73 @@
+<!-- ================================================================
+     ESPAÑOL SIN FRONTERAS — BODY HTML PATCHES
+     Apply these targeted changes to the existing index.html body.
+     ================================================================ -->
+
+<!-- ── PATCH 1: Gallery image alt text (generic → descriptive) ──
+     FIND:
+     <img src="/media2.png" alt="Actividad ESF" loading="lazy" />
+     REPLACE WITH: -->
+<img src="/media2.png" alt="Estudiantes recibiendo libros donados por Español Sin Fronteras en Lima, Perú" loading="lazy" width="400" height="300" />
+
+<!-- FIND:
+     <img src="/media1.png" alt="Actividad ESF" loading="lazy" />
+     REPLACE WITH: -->
+<img src="/media1.png" alt="Voluntarios de ESF repartiendo útiles escolares en escuelas de Lima" loading="lazy" width="400" height="300" />
+
+<!-- FIND:
+     <img src="/media3.png" alt="Actividad ESF" loading="lazy" />
+     REPLACE WITH: -->
+<img src="/media3.png" alt="Comunidad de Español Sin Fronteras apoyando la educación infantil en Perú" loading="lazy" width="400" height="300" />
+
+<!-- ── PATCH 2: Nav logo alt text ──
+     FIND: alt="Español Sin Fronteras"
+     REPLACE WITH: -->
+<img src="/esf-logo.png" alt="Español Sin Fronteras – Plataforma educativa gratuita" class="nav-logo" width="120" height="40" />
+
+<!-- ── PATCH 3: Hero owl image ──
+     FIND: <img src="/owl-logo.png" alt="ESF Owl"
+     REPLACE WITH: -->
+<img src="/owl-logo.png" alt="Logo búho de Español Sin Fronteras" class="hero-owl animate-float-slow" width="320" height="320" />
+
+<!-- ── PATCH 4: Story section — add schema-friendly markup ──
+     FIND: <section class="section section-alt" id="historia">
+     REPLACE WITH: -->
+<section class="section section-alt" id="historia" aria-label="Historia de Español Sin Fronteras" itemscope itemtype="https://schema.org/AboutPage">
+
+<!-- ── PATCH 5: Add visible footer with E-E-A-T signals ──
+     INSERT before </body>: -->
+<footer class="site-footer" role="contentinfo" aria-label="Pie de página">
+  <div class="container">
+    <nav class="footer-nav" aria-label="Navegación secundaria">
+      <a href="#cursos">Cursos gratuitos</a>
+      <a href="#historia">Sobre ESF</a>
+      <a href="#faq">Preguntas frecuentes</a>
+      <a href="#contacto">Contacto</a>
+      <a href="/sitemap.xml" rel="nofollow">Sitemap</a>
+      <a href="/llms.txt" rel="nofollow">llms.txt</a>
+    </nav>
+    <p class="footer-copy">
+      © <span id="footerYear">2025</span> Español Sin Fronteras · Fundado por Salvador en Lima, Perú ·
+      <a href="mailto:espanolsinfronteras1@gmail.com">espanolsinfronteras1@gmail.com</a>
+    </p>
+    <p class="footer-mission">
+      Plataforma educativa 100% gratuita con 89+ lecciones en español, finanzas, programación, matemáticas, ciencias e inglés. Sin registro. Para todos.
+    </p>
+  </div>
+</footer>
+<script>document.getElementById('footerYear').textContent = new Date().getFullYear();</script>
+
+<!-- ── PATCH 6: Courses section — add aria-label ──
+     FIND: <section class="section" id="cursos">
+     REPLACE WITH: -->
+<section class="section" id="cursos" aria-label="Catálogo de cursos gratuitos">
+
+<!-- ── PATCH 7: FAQ section — add aria-label ──
+     FIND: <section class="section section-alt" id="faq">
+     REPLACE WITH: -->
+<section class="section section-alt" id="faq" aria-label="Preguntas frecuentes sobre Español Sin Fronteras">
+
+<!-- ── PATCH 8: Add skip link for accessibility (insert right after <body>) ──-->
+<a href="#cursos" class="skip-link" style="position:absolute;left:-9999px;top:0;z-index:9999;padding:8px 16px;background:#3b82f6;color:#fff;text-decoration:none;border-radius:0 0 4px 4px">
+  Ir al contenido principal
+</a>
