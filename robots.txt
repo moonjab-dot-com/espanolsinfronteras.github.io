@@ -1,29 +1,48 @@
 # ============================================================
 # robots.txt — Español Sin Fronteras
 # https://www.espanolsinfronteras.org/
+# Updated: 2026-05-08
 # ============================================================
 
 User-agent: *
 Allow: /
 
-# Allow all lesson pages
-Allow: /CAP
-Allow: /Essential
-Allow: /Bridges
-Allow: /Time
-Allow: /Moments
-Allow: /Before
-Allow: /flhqxesf
-Allow: /FLHQ
+# ── AI Search Bots (allow for citations) ──
+User-agent: GPTBot
+Allow: /
 
-# Disallow private / system paths (add yours as needed)
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# ── Block training-only scrapers (not search bots) ──
+User-agent: CCBot
+Disallow: /
+
+User-agent: DataForSeoBot
+Disallow: /
+
+# ── Disallow private/system paths ──
+User-agent: *
 Disallow: /admin/
 Disallow: /private/
-Disallow: /*.json$
 Disallow: /tmp/
+Disallow: /*.json$
 
 # ── Sitemap ──
 Sitemap: https://www.espanolsinfronteras.org/sitemap.xml
-
-# ── Crawl-delay for polite bots ──
-Crawl-delay: 5
+Sitemap: https://www.espanolsinfronteras.org/sitemap-lessons.xml
