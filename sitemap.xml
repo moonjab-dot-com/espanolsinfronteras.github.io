@@ -6,202 +6,96 @@
   <!-- ══ HOMEPAGE ══ -->
   <url>
     <loc>https://www.espanolsinfronteras.org/</loc>
-    <lastmod>2026-05-01</lastmod>
+    <lastmod>2026-05-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.espanolsinfronteras.org/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.espanolsinfronteras.org/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.espanolsinfronteras.org/" />
     <image:image>
       <image:loc>https://www.espanolsinfronteras.org/og-image.png</image:loc>
       <image:title>Español Sin Fronteras – Plataforma educativa gratuita</image:title>
     </image:image>
   </url>
 
-  <!-- ══ COURSE PAGES ══ -->
-  <url>
-    <loc>https://www.espanolsinfronteras.org/#curso/espanol</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://www.espanolsinfronteras.org/#curso/herencia-peruana</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://www.espanolsinfronteras.org/#curso/global-finance</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://www.espanolsinfronteras.org/#curso/finanzas</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://www.espanolsinfronteras.org/#curso/programacion</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://www.espanolsinfronteras.org/#curso/matematicas</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://www.espanolsinfronteras.org/#curso/ciencias</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://www.espanolsinfronteras.org/#curso/ingles</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- ══ SECTION ANCHORS ══ -->
-  <url>
-    <loc>https://www.espanolsinfronteras.org/#cursos</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.espanolsinfronteras.org/#historia</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://www.espanolsinfronteras.org/#galeria</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://www.espanolsinfronteras.org/#partnership</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://www.espanolsinfronteras.org/#micuento</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://www.espanolsinfronteras.org/#faq</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://www.espanolsinfronteras.org/#contacto</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
   <!-- ══ INDIVIDUAL LESSON PAGES — ESPAÑOL ══ -->
-  <url><loc>https://www.espanolsinfronteras.org/CAP%201%20EL%20ALFABETO%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%202%20LOS%20COLORES%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%203%20LOS%20ANIMALES%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%204%20LOS%20NUMEROS%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%205%20LOS%20SIN%C3%93NIMOS%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%206%20LOS%20ANT%C3%93NIMOS%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%207%20INTERROGATIVOS%20PARTE%20I%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%208%20INTERROGATIVOS%20PARTE%20II%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%209%20EL%20SUSTANTIVO%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2010%20EL%20ADJETIVO%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2011%20EL%20PRONOMBRE%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2012%20EL%20SUJETO%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2013%20EL%20PREDICADO%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2014%20LA%20ORACION%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2015%20LA%20SILABA%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2016%20DETERMINANTES%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2017%20LA%20PREPOSICI%C3%93N%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2018%20EL%20SINTAXIS%20NOMINAL%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2019%20VICIOS%20GRAMATICALES%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2020%20TILDACI%C3%93N%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2021%20LA%20MORFOLOGIA%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2022%20LA%20CLASIFICACI%C3%93N%20MORFOLOGICA%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2023%20RELACIONES%20SEMANTICAS%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2024%20FAMILIAS%20LING%C3%BC%C3%8DSTICAS%20EN%20EL%20PER%C3%9A%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2025%20EL%20USO%20DE%20MAYUSCULAS%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2026%20LA%20COMUNICACI%C3%93N%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2027%20HOMONIMIA%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2028%20HOMOFONÍA%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%201%20EL%20ALFABETO%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%202%20LOS%20COLORES%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%203%20LOS%20ANIMALES%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%204%20LOS%20NUMEROS%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%205%20LOS%20SIN%C3%93NIMOS%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%206%20LOS%20ANT%C3%93NIMOS%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%207%20INTERROGATIVOS%20PARTE%20I%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%208%20INTERROGATIVOS%20PARTE%20II%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%209%20EL%20SUSTANTIVO%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%2010%20EL%20ADJETIVO%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%2011%20EL%20PRONOMBRE%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%2012%20EL%20SUJETO%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%2013%20EL%20PREDICADO%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%2014%20LA%20ORACION%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%2015%20LA%20SILABA%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%2016%20DETERMINANTES%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%2017%20LA%20PREPOSICI%C3%93N%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%2018%20EL%20SINTAXIS%20NOMINAL%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%2019%20VICIOS%20GRAMATICALES%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%2020%20TILDACI%C3%93N%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%2021%20LA%20MORFOLOGIA%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%2022%20LA%20CLASIFICACI%C3%93N%20MORFOLOGICA%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%2023%20RELACIONES%20SEMANTICAS%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%2024%20FAMILIAS%20LING%C3%BC%C3%8DSTICAS%20EN%20EL%20PER%C3%9A%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%2025%20EL%20USO%20DE%20MAYUSCULAS%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%2026%20LA%20COMUNICACI%C3%93N%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%2027%20HOMONIMIA%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%2028%20HOMOFONÍA%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
 
   <!-- ══ INDIVIDUAL LESSON PAGES — FINANZAS ══ -->
-  <url><loc>https://www.espanolsinfronteras.org/CAP%201%20LAS%20NECESIDADES%20Y%20METAS%20FRENTE%20A%20RECURSOS%20DISPONIBLES%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%202%20DECISIONES%20FINANCIERAS_%20EL%20COSTO%20DE%20OPORTUNIDADES%20Y%20EL%20AHORRO%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%203%20EL%20FLUJO%20CIRCULAR%20DE%20LA%20ECONOM%C3%8DA%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%204%20COMO%20ARMAR%20UN%20PRESUPUESTO%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%205%20IMPUESTOS%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%206%20SISTEMA%20FINANCIERO%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%207%20LOS%20BANCOS%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%208%20INTRODUCCI%C3%93N%20A%20LA%20INVERSI%C3%93N%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%209%20EL%20IMPACTO%20DE%20LA%20INFLACI%C3%93N%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2010%20GASTOS%20INTELIGENTES%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2011%20IMPORTANCIA%20DEL%20CR%C3%89DITO%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2012%20EMPRENDIMIENTO%20Y%20FINANZAS%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2013%20LOS%20ERRORES%20FINANCIEROS%20COMUNES%20Y%20C%C3%93MO%20EVITARLOS%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%201%20LAS%20NECESIDADES%20Y%20METAS%20FRENTE%20A%20RECURSOS%20DISPONIBLES%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%202%20DECISIONES%20FINANCIERAS_%20EL%20COSTO%20DE%20OPORTUNIDADES%20Y%20EL%20AHORRO%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%203%20EL%20FLUJO%20CIRCULAR%20DE%20LA%20ECONOM%C3%8DA%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%204%20COMO%20ARMAR%20UN%20PRESUPUESTO%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%205%20IMPUESTOS%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%206%20SISTEMA%20FINANCIERO%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%207%20LOS%20BANCOS%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%208%20INTRODUCCI%C3%93N%20A%20LA%20INVERSI%C3%93N%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%209%20EL%20IMPACTO%20DE%20LA%20INFLACI%C3%93N%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%2010%20GASTOS%20INTELIGENTES%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%2011%20IMPORTANCIA%20DEL%20CR%C3%89DITO%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%2012%20EMPRENDIMIENTO%20Y%20FINANZAS%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%2013%20LOS%20ERRORES%20FINANCIEROS%20COMUNES%20Y%20C%C3%93MO%20EVITARLOS%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
 
   <!-- ══ INDIVIDUAL LESSON PAGES — MATEMÁTICAS ══ -->
-  <url><loc>https://www.espanolsinfronteras.org/CAP%201%20N%C3%BAmeros%20Enteros%20y%20Operaciones%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%202%20Medidas%20y%20Magnitudes%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%203%20Patrones%20y%20Secuencias%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%204%20Figuras%20y%20Formas%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%205%20%C3%81reas%20y%20Per%C3%ADmetros%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%206%20Vol%C3%BAmenes%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%207%20La%20Probabilidad%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%208%20La%20Multiplicaci%C3%B3n%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%201%20N%C3%BAmeros%20Enteros%20y%20Operaciones%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%202%20Medidas%20y%20Magnitudes%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%203%20Patrones%20y%20Secuencias%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%204%20Figuras%20y%20Formas%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%205%20%C3%81reas%20y%20Per%C3%ADmetros%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%206%20Vol%C3%BAmenes%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%207%20La%20Probabilidad%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%208%20La%20Multiplicaci%C3%B3n%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
 
   <!-- ══ INDIVIDUAL LESSON PAGES — CIENCIAS ══ -->
-  <url><loc>https://www.espanolsinfronteras.org/CAP%201%20Introducci%C3%B3n%20a%20la%20F%C3%ADsica%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%202%20Movimiento%20Rectil%C3%ADneo%20Uniforme%20(MRU)%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%203%20MOVIMIENTO%20RECTIL%C3%8DNEO%20UNIFORMEMENTE%20VARIADO%20(MRUV)%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%204%20MOVIMIENTO%20VERTICAL%20DE%20CA%C3%8DDA%20LIBRE%20(MVCL)%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%205%20MOVIMIENTO%20PARAB%C3%93LICO%20DE%20CA%C3%8DDA%20LIBRE%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%206%20Elementos%20y%20%C3%81tomos%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%207%20El%20N%C3%BAmero%20At%C3%B3mico%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%208%20C%C3%A9lulas%20y%20Organismos%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%209%20Partes%20de%20la%20C%C3%A9lula%20y%20sus%20Funciones%20ESF.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%201%20Introducci%C3%B3n%20a%20la%20F%C3%ADsica%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%202%20Movimiento%20Rectil%C3%ADneo%20Uniforme%20(MRU)%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%203%20MOVIMIENTO%20RECTIL%C3%8DNEO%20UNIFORMEMENTE%20VARIADO%20(MRUV)%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%204%20MOVIMIENTO%20VERTICAL%20DE%20CA%C3%8DDA%20LIBRE%20(MVCL)%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%205%20MOVIMIENTO%20PARAB%C3%93LICO%20DE%20CA%C3%8DDA%20LIBRE%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%206%20Elementos%20y%20%C3%81tomos%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%207%20El%20N%C3%BAmero%20At%C3%B3mico%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%208%20C%C3%A9lulas%20y%20Organismos%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/CAP%209%20Partes%20de%20la%20C%C3%A9lula%20y%20sus%20Funciones%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
 
   <!-- ══ INDIVIDUAL LESSON PAGES — INGLÉS ══ -->
-  <url><loc>https://www.espanolsinfronteras.org/Essential%20Question%20Forms%20in%20English%20CHAPTER%201.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/Bridges%20Across%20Time_%20Mastering%20the%20Present%20Perfect%20CHAPTER%202.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/Time%20in%20Motion_%20Understanding%20the%20Present%20Perfect%20Continuous%20CHAPTER%203.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/Moments%20and%20Movements_%20The%20Past%20Simple%20and%20Past%20Continuous%20CHAPTER%204.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/Before%20the%20Past_%20The%20Past%20Perfect%20Simple%20and%20Past%20Perfect%20Continuous%20CHAPTER%205.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/Essential%20Question%20Forms%20in%20English%20CHAPTER%201.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/Bridges%20Across%20Time_%20Mastering%20the%20Present%20Perfect%20CHAPTER%202.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/Time%20in%20Motion_%20Understanding%20the%20Present%20Perfect%20Continuous%20CHAPTER%203.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/Moments%20and%20Movements_%20The%20Past%20Simple%20and%20Past%20Continuous%20CHAPTER%204.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/Before%20the%20Past_%20The%20Past%20Perfect%20Simple%20and%20Past%20Perfect%20Continuous%20CHAPTER%205.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
 
   <!-- ══ GLOBAL FINANCE SERIES ══ -->
-  <url><loc>https://www.espanolsinfronteras.org/flhqxesf_Module1_Budgeting.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/flhqxesf_Module1_Intro-to-Investing.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/FLHQ-x-Espan_ol-Sin-Fronteras-Presentation-Module-3-Saving.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/FLHQ-x-Espan_ol-Sin-Fronteras-Presentation-Module-4-Credit.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/FLHQ-x-Espan_ol-Sin-Fronteras-Presentation-Module-5-Making-Money.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/flhqxesf_Module1_Budgeting.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/flhqxesf_Module1_Intro-to-Investing.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/FLHQ-x-Espan_ol-Sin-Fronteras-Presentation-Module-3-Saving.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/FLHQ-x-Espan_ol-Sin-Fronteras-Presentation-Module-4-Credit.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.espanolsinfronteras.org/FLHQ-x-Espan_ol-Sin-Fronteras-Presentation-Module-5-Making-Money.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
 
 </urlset>
