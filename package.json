@@ -5,6 +5,9 @@
   "description": "Plataforma educativa gratuita — Español Sin Fronteras",
   "homepage": "https://espanolsinfronteras.org",
   "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
