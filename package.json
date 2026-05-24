@@ -1,16 +1,21 @@
 {
-  "name": "vite_react_shadcn_ts",
+  "name": "espanol-sin-fronteras",
   "private": true,
-  "version": "0.0.0",
+  "version": "2.0.0",
+  "description": "Plataforma educativa gratuita — Español Sin Fronteras",
+  "homepage": "https://espanolsinfronteras.org",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "build:dev": "vite build --mode development",
-    "lint": "eslint .",
     "preview": "vite preview",
+    "lint": "eslint . --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint . --fix",
+    "type-check": "tsc --noEmit",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
