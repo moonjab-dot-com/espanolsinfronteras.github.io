@@ -507,6 +507,68 @@ function MiCuentoSection() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+// GALLERY
+// ─────────────────────────────────────────────────────────────────────────────
+
+const GALLERY_ITEMS = [
+  { src: "/media1.png", captionEs: "Educación en acción", captionEn: "Education in action" },
+  { src: "/media2.png", captionEs: "Nuestro impacto",     captionEn: "Our impact"           },
+  { src: "/media3.png", captionEs: "Comunidad",           captionEn: "Community"            },
+];
+
+function GallerySection() {
+  const { lang } = useLanguage();
+  const t = lang === "es";
+
+  return (
+    <section
+      className="section-padding bg-white"
+      id="galeria"
+      aria-labelledby="gallery-heading"
+    >
+      <div className="container-page">
+        <Reveal>
+          <div className="text-center mb-12">
+            <p className="section-eyebrow">
+              <Globe className="w-3.5 h-3.5" aria-hidden="true" />
+              {t ? "Galería de actividades" : "Activity Gallery"}
+            </p>
+            <h2 id="gallery-heading" className="text-3xl md:text-4xl font-extrabold text-foreground">
+              {t ? "Educación en " : "Education "}
+              <span className="bg-gradient-to-r from-primary to-teal-500 bg-clip-text text-transparent">
+                {t ? "acción" : "in action"}
+              </span>
+            </h2>
+          </div>
+        </Reveal>
+
+        <div className="grid sm:grid-cols-3 gap-6">
+          {GALLERY_ITEMS.map(({ src, captionEs, captionEn }, i) => (
+            <Reveal key={src} delay={i * 120}>
+              <div className="group overflow-hidden rounded-2xl border border-border bg-card shadow-sm hover:shadow-md transition-shadow duration-300">
+                <div className="overflow-hidden aspect-[4/3]">
+                  <img
+                    src={src}
+                    alt={t ? captionEs : captionEn}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="px-5 py-4 border-t border-border">
+                  <p className="text-sm font-semibold text-foreground/80">
+                    {t ? captionEs : captionEn}
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 // FAQ
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -757,6 +819,7 @@ const HomePage = () => (
     <CoursesSection />
     <ImpactSection />
     <MissionSection />
+    <GallerySection />
     <MiCuentoSection />
     <FAQSection />
     <TestimonialsSection />
