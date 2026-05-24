@@ -46,22 +46,8 @@ export default defineConfig(({ mode }) => ({
     target: "es2020",
     assetsInlineLimit: 4096,
     chunkSizeWarningLimit: 800,
-    rollupOptions: {
-      output: {
-        // Split into focused chunks for better long-term caching.
-        // Radix UI primitive packages are kept together (they share internals).
-        manualChunks(id) {
-          if (id.includes("node_modules")) {
-            if (id.includes("react-dom") || id.includes("react-router-dom")) return "vendor-react";
-            if (id.includes("/react/"))    return "vendor-react";
-            if (id.includes("@tanstack")) return "vendor-query";
-            if (id.includes("lucide-react")) return "vendor-icons";
-            if (id.includes("@radix-ui")) return "vendor-radix";
-            if (id.includes("sonner") || id.includes("vaul") || id.includes("cmdk")) return "vendor-extras";
-            return "vendor-misc";
-          }
-        },
-      },
-    },
+    // Let Vite/Rollup handle chunk splitting automatically.
+    // Custom manualChunks caused circular-dependency initialization errors
+    // (vendor-misc called React.createContext before React finished initialising).
   },
 }));
