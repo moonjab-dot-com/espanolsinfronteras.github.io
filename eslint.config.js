@@ -23,4 +23,13 @@ export default tseslint.config(
       "@typescript-eslint/no-unused-vars": "off",
     },
   },
+  // shadcn/ui components intentionally co-export variants alongside components
+  // (e.g. buttonVariants, badgeVariants). Context files export both providers
+  // and hooks by design. Disable fast-refresh rule for these directories.
+  {
+    files: ["src/components/ui/**/*.{ts,tsx}", "src/context/**/*.{ts,tsx}"],
+    rules: {
+      "react-refresh/only-export-components": "off",
+    },
+  },
 );
