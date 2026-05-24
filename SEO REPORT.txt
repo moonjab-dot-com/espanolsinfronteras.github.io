@@ -1,0 +1,827 @@
+﻿Execute a Link Building Strategy
+Links
+High Priority
+Add a Meta Description Tag
+On-Page SEO
+High Priority
+Increase length of Title Tag
+On-Page SEO
+High Priority
+Add Canonical Tag
+On-Page SEO
+High Priority
+Remove Duplicate H1 Tags
+On-Page SEO
+High Priority
+Add Schema Markup
+On-Page SEO
+High Priority
+Use your main keywords across the important HTML Tags
+On-Page SEO
+High Priority
+Increase Page Text Content
+On-Page SEO
+High Priority
+Optimize for Mobile PageSpeed Insights
+Usability
+High Priority
+Add a DMARC Mail Record
+Technology
+High Priority
+Add Facebook Open Graph Tags
+Social
+High Priority
+Add X Cards
+Social
+High Priority
+Create and link your X Profile
+Social
+High Priority
+Create and link an associated YouTube Channel
+Social
+High Priority
+Reduce Rendered Content
+GEO
+High Priority
+Install a Facebook Pixel
+Social
+High Priority
+Remove Inline Styles
+Performance
+High Priority
+Add Business Address and Phone Number
+Local SEO
+High Priority
+Add Local Business Schema
+Local SEO
+High Priority
+Add Identity Schema
+GEO
+High Priority
+
+
+
+
+
+
+On-Page SEO Results
+Your On-Page SEO could be better
+Your page has some level of On-Page SEO optimization but could be improved further. On-Page SEO is important to ensure Search Engines can understand your content appropriately and help it rank for relevant keywords. You should ensure that HTML Tag Content is completed correctly and align text content to target keywords.
+Title Tag
+You have a Title Tag, but ideally it should be between 50 and 60 characters in length (including spaces).
+Español Sin Fronteras
+	Length : 21
+Title Tags are very important for search engines to correctly understand and categorize your content.
+Meta Description Tag
+Your page appears to be missing a Meta Description Tag.
+A Meta Description is important for search engines to understand the content of your page, and is often shown as the description text blurb in search results.
+SERP Snippet Preview
+This illustrates how your page may appear in Search Results. Note, this is intended as a guide and Search Engines are more frequently generating this content dynamically.
+  
+
+Español Sin Fronteras
+https://espanolsinfronteras.org
+Español Sin Fronteras
+Hreflang Usage
+Your page is not making use of Hreflang attributes.
+Language
+Your page is using the Lang Attribute.
+Declared: Spanish
+	H1 Header Tag Usage
+Your page has more than one H1 Tag. It is generally recommended to only use one H1 Tag on a page.
+The H1 Header Tag is an important way of signaling to search engines what your content is about, and subsequently the keywords it should rank for.
+Tag
+	Value
+	H1
+	Aprender no tiene fronteras
+	H1
+	
+
+	H2-H6 Header Tag Usage
+Your page is making use multiple levels of Header Tags.
+Header Tag
+	Frequency
+	
+
+	H2
+	8
+	
+
+	H3
+	10
+	
+
+	H4
+	0
+	
+
+	H5
+	0
+	
+
+	H6
+	0
+	
+
+	Keyword Consistency
+Your page's main keywords are not distributed well across the important HTML Tags.
+Your page content should be focused around particular keywords you would like to rank for. Ideally these keywords should also be distributed across tags such as the title, meta and header tags.
+Individual Keywords
+Keyword
+	Title
+	Meta Description Tag
+	Headings Tags
+	Page Frequency
+	
+
+	capítulos
+	
+
+	
+
+	
+
+	12
+	
+
+	español
+	
+
+	
+
+	
+
+	11
+	
+
+	fronteras
+	
+
+	
+
+	
+
+	8
+	
+
+	más
+	
+
+	
+
+	
+
+	7
+	
+
+	aprender
+	
+
+	
+
+	
+
+	5
+	
+
+	plataforma
+	
+
+	
+
+	
+
+	5
+	
+
+	programación
+	
+
+	
+
+	
+
+	5
+	
+
+	ciencias
+	
+
+	
+
+	
+
+	5
+	
+
+	Phrases
+Phrase
+	Title
+	Meta Description Tag
+	Headings Tags
+	Page Frequency
+	
+
+	español sin fronteras
+	
+
+	
+
+	
+
+	6
+	
+
+	aprender no
+	
+
+	
+
+	
+
+	3
+	
+
+	programación matemáticas
+	
+
+	
+
+	
+
+	3
+	
+
+	más de 89
+	
+
+	
+
+	
+
+	3
+	
+
+	plataforma educativa
+	
+
+	
+
+	
+
+	2
+	
+
+	educativa gratuita
+	
+
+	
+
+	
+
+	2
+	
+
+	español finanzas
+	
+
+	
+
+	
+
+	2
+	
+
+	finanzas programación
+	
+
+	
+
+	
+
+	2
+	
+
+	Amount of Content
+Your page has a low volume of text content which search engines can interpret as 'thin content'.
+Word Count: 545
+	It has been well researched that higher text content volumes are related to better ranking ability in general.
+Image Alt Attributes
+You do not have any images missing Alt Attributes on your page.
+Canonical Tag
+Your page is not using the Canonical Tag.
+The Canonical Tag tells Search Engines the primary URL of a page. Google recommends all pages specify a Canonical.
+Noindex Tag Test
+Your page is not using the Noindex Tag which prevents indexing.
+Noindex Header Test
+Your page is not using the Noindex Header which prevents indexing.
+SSL Enabled
+Your website has SSL enabled.
+HTTPS Redirect
+Your page successfully redirects to a HTTPS (SSL secure) version.
+Robots.txt
+Your website appears to have a robots.txt file.
+http://espanolsinfronteras.org/robots.txt
+	Blocked by Robots.txt
+Your page does not appear to be blocked by robots.txt.
+XML Sitemaps
+Your website appears to have an XML Sitemap.
+https://espanolsinfronteras.org/sitemap.xml
+	Analytics
+Your page is using an analytics tool.
+  
+  Google Analytics
+	Schema.org Structured Data
+We have not detected any usage of Schema.org on your page.
+Schema.org is a structured data markup for webpages which helps Search Engines understand your site better and provide rich snippets directly in their search results.
+
+
+Generative Engine Optimization (GEO)
+Your Generative Engine Optimization needs improvement.
+Your page is not well positioned for Generative Engine Optimization (GEO). GEO is important to ensure LLMs and AI Search Engines can effectively crawl your content and understand the underlying entity structure. Consider additional enhancements or you may be missing out on traffic from LLMs which are rapidly growing as a traffic source.
+Identity SchemaNew
+No Organization or Person Schema identified on the page.
+The absence of Organization or Person Schema can make it harder for Search Engines and LLMs to identify the ownership of a website and confidently answer brand, company or person queries.
+Rendered Content (LLM Readability)New
+Your page has a high level of rendering (changes to the HTML).
+Rendering Percentage: 23%
+	Dynamically rendering a lot of page content risks some important information being missed by LLMs that generally do not read this content.
+Llms.txtNew
+Your website appears to have a llms.txt file.
+Llms.txt is a proposed standard for websites to guide large language models (LLMs) to better understand your site's content.
+http://espanolsinfronteras.org/llms.txt
+	
+
+
+
+Links
+Backlink Summary
+You have a reasonably weak level of backlink activity to this page.
+Search Engines use backlinks as a strong indicator of a page's authority, relevance and ranking potential. There are various strategies available to gain links to a page to improve this factor
+Domain
+Strength
+Page
+Strength
+37
+Total Backlinks
+33
+Referring Domains
+32
+Nofollow Backlinks
+5
+Dofollow Backlinks
+0
+Edu Backlinks
+0
+Gov Backlinks
+10
+IPs
+10
+Subnets
+Top Backlinks
+These are the highest value external pages we have found linking to your site.
+Domain
+strength
+	Referring Page URL
+	Referring Page Title
+	Anchor Text
+	67
+	https://urls-shortener.eu/share/118047
+	❤️ URL Shared ❤️
+	espanolsinfronteras.org
+	67
+	https://seo-tip.com/domain.php?part=80170
+	High-LevelSEO Practice: A Comprehensive Guide from Technical Optimization to Content Strategy | best seo guide for webmaster
+	espanolsinfronteras.org
+	66
+	https://wants.cfd/domain/domain/part/80170
+	seo domain research
+	espanolsinfronteras.org
+	65
+	https://quero.party/report/118047
+	👲 Domain Report 👲
+	espanolsinfronteras.org
+	64
+	http://takes.sbs/domain/domain/part/80170
+	seo domain research
+	espanolsinfronteras.org
+	62
+	https://drjack.world/report/118047
+	👲 Domain Report 👲
+	espanolsinfronteras.org
+	61
+	https://atomizelink.icu/report/118047
+	👲 Domain Report 👲
+	espanolsinfronteras.org
+	59
+	https://anchorurl.cloud/share/118047
+	❤️ URL Shared ❤️
+	espanolsinfronteras.org
+	58
+	https://backlink.wiki/domain.php?part=80170
+	High-LevelSEO Practice: A Comprehensive Guide from Technical Optimization to Content Strategy | best seo guide for webmaster
+	espanolsinfronteras.org
+	58
+	https://byteshort.xyz/report/118047
+	👲 Domain Report 👲
+	espanolsinfronteras.org
+	Top Pages by Backlinks
+These are the pages on your site with the most the backlinks from other sites.
+URL
+	Backlinks
+	
+
+	https://espanolsinfronteras.org/
+	36
+	
+
+	http://espanolsinfronteras.org/
+	1
+	
+
+	Top Anchors by Backlinks
+These are the top pieces of Anchor Text we found used to link to your site.
+Anchor
+	Backlinks
+	
+
+	espanolsinfronteras.org
+	36
+	
+
+	https://espanolsinfronteras.org/
+	1
+	
+
+	Top Referring Domain Geographies
+These are the Top Geographies we have found linking to your site.
+Top TLDs
+33Referring
+Domains
+com
+5
+top
+5
+website
+3
+eu
+2
+Other
+18
+Top Countries
+33Referring
+Domains
+FR
+13
+FI
+12
+US
+5
+CO
+1
+Other
+2
+On-Page Link Structure
+We found 6 total links. 100% of your links are external links and are sending authority to other sites. 0% of your links are nofollow links, meaning authority is not being passed to those destination pages.
+On-Page Links
+6Total
+Internal Links
+0
+External Links: Follow
+6
+External Links: Nofollow
+0
+Page
+	Type
+	Follow/ Nofollow
+	https://drive.google.com/file/d/1om4ew8uDccRSxu-CHqDueuWVKJPk-dX_/view?usp=sharing
+	External
+	Follow
+	https://open.spotify.com/show/02sYDMUgYDPOZg2ypgDnhd
+	External
+	Follow
+	https://www.facebook.com/people/Espa%C3%B1ol-Sin-Fronteras/pfbid04dD4Hdgp7QjQ5q3L2ydkDx9CqPvcTE2TKZqZuqkmSnmwRqYXtESSnqZ6CCSwnnVLl/
+	External
+	Follow
+	https://www.instagram.com/espanol_sin_fronteras_org
+	External
+	Follow
+	https://www.linkedin.com/company/espa%C3%B1ol-sin-fronteras
+	External
+	Follow
+	https://www.tiktok.com/@espanolsinfronteras.org
+	External
+	Follow
+	Friendly Links
+Your link URLs appear friendly (easily human or search engine readable).
+
+
+
+
+
+
+Usability
+Your usability is good
+Your page is mostly usable across devices. Usability is important to maximize your available audience and minimize user bounce rates (which can indirectly affect your search engine rankings).
+Device Rendering
+This check visually demonstrates how your page renders on different devices. It is important that your page is optimized for mobile and tablet experiences as today the majority of web traffic comes from these sources.
+Google's Core Web Vitals
+Google is indicating that they do not have 'sufficient real-world speed data for this page' in order to make a Core Web Vitals assessment. This can occur for smaller websites or those that are not crawl-able by Google.
+Use of Mobile Viewports
+Your page specifies a Viewport matching the device's size, allowing it to render appropriately across devices.
+Google's PageSpeed Insights - Mobile
+Google is indicating that your page is scoring poorly on their Mobile PageSpeed Insights evaluation.
+
+
+Note that this evaluation is being performed from US servers and the results may differ slightly from an evaluation carried out from Google's PageSpeed Web Interface as that reporting localizes to the region in which you are running the report.
+Google has indicated that the performance of a webpage is becoming more important from a user and subsequently ranking perspective.
+Lab Data
+	Value
+	First Contentful Paint
+	3.2 s
+	Speed Index
+	4.8 s
+	Largest Contentful Paint
+	5.3 s
+	Time to Interactive
+	5.3 s
+	Total Blocking Time
+	0.09 s
+	Cumulative Layout Shift
+	0
+	
+
+Opportunities
+	Estimated Savings
+	Avoid multiple page redirects
+	0.63 s
+	Reduce unused JavaScript
+	0.45 s
+	Google's PageSpeed Insights - Desktop
+Google is indicating that your page is scoring well on their Desktop PageSpeed Insights evaluation.
+Lab Data
+	Value
+	First Contentful Paint
+	0.9 s
+	Speed Index
+	0.9 s
+	Largest Contentful Paint
+	1.1 s
+	Time to Interactive
+	1.1 s
+	Total Blocking Time
+	0.08 s
+	Cumulative Layout Shift
+	0.001
+	
+
+Opportunities
+	Estimated Savings
+	Avoid multiple page redirects
+	0.19 s
+	Flash Used?
+No Flash content has been identified on your page.
+iFrames Used?
+There are no iFrames detected on your page.
+Favicon
+Your page has specified a Favicon.
+Email Privacy
+No email addresses have been found in plain text on your page.
+Legible Font Sizes
+The text on your page appears to be legible across devices.
+Tap Target Sizing
+The links and buttons on your page appear to be appropriately sized for a user to easily tap on a touchscreen.
+
+
+
+
+
+
+Performance Results
+Your performance is very good!
+Congratulations, your page has performed very well in our testing meaning it should be reasonably fast and responsive for users. Performance is important to ensure a good user experience, and reduced bounce rates (which can also indirectly affect your search engine rankings). Continue to monitor your performance over time to ensure there are no periodic fluctuations.
+Website Load Speed
+Your page loads in a reasonable amount of time.
+Server Response
+0.1s
+All Page Content Loaded
+0.5s
+All Page Scripts Complete
+0.7s
+Website Download Size
+Your page's file size is reasonably low which is good for Page Load Speed and user experience.
+Download Page Size
+2.02MB
+Download Page Size Breakdown
+2.02MBTotal
+HTML
+0.01MB
+CSS
+0.01MB
+JS
+0.15MB
+Images
+1.79MB
+Other
+0.06MB
+Compression Usage (Gzip, Deflate, Brotli)
+Your website appears to be using a reasonable level of compression.
+Compression Rate
+16%
+Compression Rates
+HTML
+70% compressed of 0.05MB
+CSS
+84% compressed of 0.05MB
+JS
+67% compressed of 0.46MB
+Images
+0% compressed of 1.79MB
+Other
+0% compressed of 0.06MB
+Total
+16% compressed of 2.41MB
+Resources Breakdown
+This check displays the total number of files that need to be retrieved from web servers to load your page.
+22
+Total Objects
+2
+Number of HTML Pages
+1
+Number of JS Resources
+3
+Number of CSS Resources
+13
+Number of Images
+3
+Other Resources
+Google Accelerated Mobile Pages (AMP)
+This page does not appear to have AMP Enabled.
+AMP Indicator
+	
+
+	AMP Related Doctype Declaration
+	
+
+	AMP Runtime
+	
+
+	AMP CSS Boilerplate
+	
+
+	Embedded Inline Custom CS
+	
+
+	AMP Images
+	
+
+	AMP HTML Canonical Link
+	
+
+	JavaScript Errors
+Your page is not reporting any JavaScript errors.
+HTTP2 Usage
+Your website is using the recommended HTTP/2+ Protocol.
+Optimize Images
+All of the images on your page appear to be optimized.
+Minification
+All your JavaScript and CSS files appear to be minified.
+Deprecated HTML
+No deprecated HTML tags have been found within your page.
+Inline Styles
+Your page appears to be using Inline Styles.
+Inline Styles are an older coding practice and discouraged in favor of using CSS style sheets, due to their ability to degrade page load performance and unnecessarily complicate HTML Code.
+Line
+	Style
+	50
+	width:500px;height:500px;background:#3b82f6;top:-160px;right:-160px;animation:blob 7s ease-in-out infinite
+	51
+	width:400px;height:400px;background:#34d399;bottom:0;left:-10%;animation:blob 7s ease-in-out infinite;animation-delay:-3s
+	52
+	width:300px;height:300px;background:#8b5cf6;top:50%;right:25%;animation:blob 7s ease-in-out infinite;animation-delay:-5s
+	53
+	position:relative;z-index:10;width:100%
+	84
+	animation-delay:-2s
+	88
+	animation-delay:-4s
+	101
+	margin-bottom:4rem
+	116
+	max-width:48rem;margin:0 auto
+	117
+	margin-bottom:3rem
+	151
+	margin-bottom:3rem
+	159
+	grid-template-columns:repeat(3,1fr);max-width:56rem;margin:0 auto
+	179
+	margin-bottom:3rem
+	213
+	max-width:48rem;margin:0 auto
+	214
+	margin-bottom:3rem
+	223
+	position:relative;z-index:10
+	244
+	margin-bottom:3rem
+	258
+	margin-bottom:3rem
+	310
+	position:relative;z-index:10
+	329
+	max-width:48rem
+	506
+	transition-delay:${i*80}ms;text-decoration:none;color:inherit;
+	522
+	transition-delay:${i*60}ms
+	575
+	text-decoration:none;color:inherit;
+	
+
+Social Results
+Facebook Page Linked
+Your page has a link to a Facebook Page.
+  
+
+	https://facebook.com/people
+	Facebook Open Graph Tags
+We have not found Facebook Open Graph Tags on your page.
+Facebook Open Graph Tags are a type of structured data that can be placed on your page to control what content is shown when a page is shared on Facebook.
+Facebook Pixel
+We have not detected a Facebook Pixel on your page.
+Facebook's Pixel is a useful piece of analytics code that allows you to retarget visitors if you decide to run Facebook Ads in future.
+X (formerly Twitter) Account Linked
+No associated X Profile found as a link on your page.
+X Cards
+We have not detected X Cards on your page.
+X Cards are a type of structured data that can be placed on your page to control what content is shown when a page is shared on X.
+Instagram Linked
+Your page has a link to an Instagram Profile.
+  
+
+	https://instagram.com/espanol_sin_fronteras_org
+	LinkedIn Page Linked
+Your page has a link to a LinkedIn Profile.
+  
+
+	https://linkedin.com/company/espa
+	YouTube Channel Linked
+No associated YouTube Channel found linked on your page.
+YouTube Channel Activity
+No associated YouTube Channel found linked on your page.
+
+
+Local SEO
+Address & Phone Shown on Website
+We can't identify one or both of these components on the page. Missing: Phone, Address
+Local Business Schema
+No Local Business Schema identified on the page.
+Google Business Profile Identified
+You can see information about your page's Google Business Profile within this report by signing up to one of our premium plans.
+
+
+
+
+
+
+
+
+Technology Results
+Technology List
+These software or coding libraries have been identified on your page.
+
+
+	Technology
+	Version
+	
+	Fastly
+	
+
+	
+	GitHub Pages
+	
+
+	
+	Google Analytics
+	
+
+	
+	Varnish
+	
+
+	Server IP Address
+185.199.108.153
+DNS Servers
+dns2.registrar-servers.com
+dns1.registrar-servers.com
+Web Server
+GitHub.com
+Charset
+text/html; charset=utf-8
+DMARC Record
+This site does not appear to have a DMARC record in place.
+DMARC records are important to improve email deliverability and combat spoofing.
+SPF Record
+This site appears to have an SPF record.
+v=spf1 include:spf.efwd.registrar-servers.com ~all
