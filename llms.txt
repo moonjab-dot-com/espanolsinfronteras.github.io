@@ -1,101 +1,66 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+# Español Sin Fronteras
 
-  <!-- ══ HOMEPAGE ══ -->
-  <url>
-    <loc>https://www.espanolsinfronteras.org/</loc>
-    <lastmod>2026-05-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.espanolsinfronteras.org/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.espanolsinfronteras.org/?lang=en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.espanolsinfronteras.org/" />
-    <image:image>
-      <image:loc>https://www.espanolsinfronteras.org/og-image.png</image:loc>
-      <image:title>Español Sin Fronteras – Plataforma educativa gratuita</image:title>
-    </image:image>
-  </url>
+> Plataforma educativa gratuita en español, finanzas, programación, matemáticas, ciberseguridad, ciencias e inglés. Fundada en 2024 por Salvador Bocanegra en Lima, Perú. Más de 89 lecciones en 8 materias, accesibles desde 72+ países sin registro ni pago.
 
-  <!-- ══ INDIVIDUAL LESSON PAGES — ESPAÑOL ══ -->
-  <url><loc>https://www.espanolsinfronteras.org/CAP%201%20EL%20ALFABETO%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%202%20LOS%20COLORES%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%203%20LOS%20ANIMALES%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%204%20LOS%20NUMEROS%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%205%20LOS%20SIN%C3%93NIMOS%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%206%20LOS%20ANT%C3%93NIMOS%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%207%20INTERROGATIVOS%20PARTE%20I%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%208%20INTERROGATIVOS%20PARTE%20II%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%209%20EL%20SUSTANTIVO%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2010%20EL%20ADJETIVO%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2011%20EL%20PRONOMBRE%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2012%20EL%20SUJETO%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2013%20EL%20PREDICADO%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2014%20LA%20ORACION%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2015%20LA%20SILABA%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2016%20DETERMINANTES%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2017%20LA%20PREPOSICI%C3%93N%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2018%20EL%20SINTAXIS%20NOMINAL%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2019%20VICIOS%20GRAMATICALES%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2020%20TILDACI%C3%93N%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2021%20LA%20MORFOLOGIA%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2022%20LA%20CLASIFICACI%C3%93N%20MORFOLOGICA%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2023%20RELACIONES%20SEMANTICAS%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2024%20FAMILIAS%20LING%C3%BC%C3%8DSTICAS%20EN%20EL%20PER%C3%9A%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2025%20EL%20USO%20DE%20MAYUSCULAS%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2026%20LA%20COMUNICACI%C3%93N%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2027%20HOMONIMIA%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2028%20HOMOFONÍA%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+Español Sin Fronteras nació con la convicción de que aprender no debería depender del dinero ni de las circunstancias. Es 100% gratuita, no requiere registro y está diseñada para estudiantes, docentes y autodidactas de cualquier nivel. Además de los cursos digitales, el proyecto ha donado más de 1,471 libros y útiles escolares a escuelas de Lima.
 
-  <!-- ══ INDIVIDUAL LESSON PAGES — FINANZAS ══ -->
-  <url><loc>https://www.espanolsinfronteras.org/CAP%201%20LAS%20NECESIDADES%20Y%20METAS%20FRENTE%20A%20RECURSOS%20DISPONIBLES%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%202%20DECISIONES%20FINANCIERAS_%20EL%20COSTO%20DE%20OPORTUNIDADES%20Y%20EL%20AHORRO%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%203%20EL%20FLUJO%20CIRCULAR%20DE%20LA%20ECONOM%C3%8DA%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%204%20COMO%20ARMAR%20UN%20PRESUPUESTO%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%205%20IMPUESTOS%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%206%20SISTEMA%20FINANCIERO%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%207%20LOS%20BANCOS%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%208%20INTRODUCCI%C3%93N%20A%20LA%20INVERSI%C3%93N%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%209%20EL%20IMPACTO%20DE%20LA%20INFLACI%C3%93N%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2010%20GASTOS%20INTELIGENTES%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2011%20IMPORTANCIA%20DEL%20CR%C3%89DITO%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2012%20EMPRENDIMIENTO%20Y%20FINANZAS%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%2013%20LOS%20ERRORES%20FINANCIEROS%20COMUNES%20Y%20C%C3%93MO%20EVITARLOS%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+## Información general
 
-  <!-- ══ INDIVIDUAL LESSON PAGES — MATEMÁTICAS ══ -->
-  <url><loc>https://www.espanolsinfronteras.org/CAP%201%20N%C3%BAmeros%20Enteros%20y%20Operaciones%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%202%20Medidas%20y%20Magnitudes%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%203%20Patrones%20y%20Secuencias%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%204%20Figuras%20y%20Formas%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%205%20%C3%81reas%20y%20Per%C3%ADmetros%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%206%20Vol%C3%BAmenes%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%207%20La%20Probabilidad%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%208%20La%20Multiplicaci%C3%B3n%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+- **Nombre:** Español Sin Fronteras
+- **Fundador:** Salvador Bocanegra
+- **Año de fundación:** 2024
+- **Sede:** Lima, Perú
+- **Alcance:** 72+ países
+- **Lecciones:** 89+ capítulos en 8 materias
+- **Precio:** 100% gratuito, sin registro
+- **Contacto:** espanolsinfronteras1@gmail.com
+- **URL principal:** https://espanolsinfronteras.org
 
-  <!-- ══ INDIVIDUAL LESSON PAGES — CIENCIAS ══ -->
-  <url><loc>https://www.espanolsinfronteras.org/CAP%201%20Introducci%C3%B3n%20a%20la%20F%C3%ADsica%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%202%20Movimiento%20Rectil%C3%ADneo%20Uniforme%20(MRU)%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%203%20MOVIMIENTO%20RECTIL%C3%8DNEO%20UNIFORMEMENTE%20VARIADO%20(MRUV)%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%204%20MOVIMIENTO%20VERTICAL%20DE%20CA%C3%8DDA%20LIBRE%20(MVCL)%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%205%20MOVIMIENTO%20PARAB%C3%93LICO%20DE%20CA%C3%8DDA%20LIBRE%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%206%20Elementos%20y%20%C3%81tomos%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%207%20El%20N%C3%BAmero%20At%C3%B3mico%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%208%20C%C3%A9lulas%20y%20Organismos%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/CAP%209%20Partes%20de%20la%20C%C3%A9lula%20y%20sus%20Funciones%20ESF.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+## Cursos disponibles
 
-  <!-- ══ INDIVIDUAL LESSON PAGES — INGLÉS ══ -->
-  <url><loc>https://www.espanolsinfronteras.org/Essential%20Question%20Forms%20in%20English%20CHAPTER%201.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/Bridges%20Across%20Time_%20Mastering%20the%20Present%20Perfect%20CHAPTER%202.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/Time%20in%20Motion_%20Understanding%20the%20Present%20Perfect%20Continuous%20CHAPTER%203.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/Moments%20and%20Movements_%20The%20Past%20Simple%20and%20Past%20Continuous%20CHAPTER%204.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/Before%20the%20Past_%20The%20Past%20Perfect%20Simple%20and%20Past%20Perfect%20Continuous%20CHAPTER%205.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+### Comunicación en Español (28 capítulos)
+Cubre el alfabeto, los colores, los animales, los números, sinónimos, antónimos, interrogativos, sustantivos, adjetivos, pronombres, sujeto, predicado, la oración, la sílaba, determinantes, preposición, sintaxis nominal, vicios gramaticales, tildación, morfología, clasificación morfológica, relaciones semánticas, familias lingüísticas del Perú, uso de mayúsculas, comunicación, homonimia y homofonía.
 
-  <!-- ══ GLOBAL FINANCE SERIES ══ -->
-  <url><loc>https://www.espanolsinfronteras.org/flhqxesf_Module1_Budgeting.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/flhqxesf_Module1_Intro-to-Investing.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/FLHQ-x-Espan_ol-Sin-Fronteras-Presentation-Module-3-Saving.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/FLHQ-x-Espan_ol-Sin-Fronteras-Presentation-Module-4-Credit.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.espanolsinfronteras.org/FLHQ-x-Espan_ol-Sin-Fronteras-Presentation-Module-5-Making-Money.html</loc><lastmod>2026-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+### Educación Financiera (13 capítulos)
+Cubre necesidades y metas, decisiones financieras, flujo circular de la economía, cómo armar un presupuesto, impuestos, sistema financiero, los bancos, introducción a la inversión, impacto de la inflación, gastos inteligentes, importancia del crédito, emprendimiento y finanzas, y errores financieros comunes.
 
-</urlset>
+### Programación y Ciberseguridad (13 capítulos)
+Cubre introducción a la programación web, HTML básico y avanzado, CSS, JavaScript, DOM y eventos, Python, las diferentes partes de internet, comportamiento ciberseguro, estrategias avanzadas de ciberseguridad, respuesta ante incidentes y gestión de eventos de seguridad.
+
+### Matemáticas (8 capítulos)
+Cubre números enteros y operaciones, medidas y magnitudes, patrones y secuencias, figuras y formas, áreas y perímetros, volúmenes, la probabilidad y la multiplicación.
+
+### Ciencias (9 capítulos)
+Cubre introducción a la física, movimiento rectilíneo uniforme (MRU), movimiento rectilíneo uniformemente variado (MRUV), movimiento vertical de caída libre (MVCL), movimiento parabólico, elementos y átomos, el número atómico, células y organismos, y partes de la célula.
+
+### Inglés (5 capítulos)
+Cubre formas de preguntar en inglés, present perfect, present perfect continuous, past simple y past continuous, y past perfect simple y continuous.
+
+### Herencia Peruana (9 capítulos)
+Cubre introducción a la identidad peruana, civilizaciones preincas, el Imperio Inca Tahuantinsuyo, la Conquista y el Virreinato, geografía y regiones del Perú, gastronomía peruana, música y danzas tradicionales, arte y patrimonio peruano, y tradiciones y festividades.
+
+### Global Finance Series (5 módulos — en inglés)
+En colaboración con Financial Literacy HQ. Cubre presupuesto, introducción a la inversión, ahorro, crédito y generación de ingresos.
+
+## Páginas principales
+
+- [Inicio](https://espanolsinfronteras.org/): Página principal con acceso a todos los cursos
+- [Cursos](https://espanolsinfronteras.org/#cursos): Catálogo completo de 8 materias
+- [Historia](https://espanolsinfronteras.org/#historia): La misión y origen de Español Sin Fronteras
+- [Galería](https://espanolsinfronteras.org/#galeria): Fotos de actividades e impacto comunitario
+- [Partners](https://espanolsinfronteras.org/#partnership): Organizaciones aliadas
+- [Mi Cuento](https://espanolsinfronteras.org/#micuento): Cuento gratuito "El Gran Sueño de Cris"
+- [FAQ](https://espanolsinfronteras.org/#faq): Preguntas frecuentes
+- [Contacto](https://espanolsinfronteras.org/#contacto): Cómo comunicarse con el equipo
+
+## Redes sociales
+
+- Instagram: https://www.instagram.com/espanol_sin_fronteras_org
+- TikTok: https://www.tiktok.com/@espanolsinfronteras.org
+- Facebook: https://www.facebook.com/people/Espa%C3%B1ol-Sin-Fronteras/pfbid04dD4Hdgp7QjQ5q3L2ydkDx9CqPvcTE2TKZqZuqkmSnmwRqYXtESSnqZ6CCSwnnVLl/
+- LinkedIn: https://www.linkedin.com/company/espa%C3%B1ol-sin-fronteras
+- Spotify: https://open.spotify.com/show/02sYDMUgYDPOZg2ypgDnhd
+
+## Partners
+
+Financial Literacy HQ, UpWright Youth, UpWard Bound, SpanTheWorld, Eternal Growth, Investment and Economics Club, Vertex, Next Fellow.
