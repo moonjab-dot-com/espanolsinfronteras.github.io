@@ -273,27 +273,39 @@ function UnitHeader({
   const t = lang === "es";
   return (
     <div
-      className={`flex items-center gap-3 rounded-2xl p-4 md:p-5 bg-gradient-to-r ${theme.unit} mb-2 mt-8 first:mt-0`}
+      className="relative my-10 first:mt-0"
+      role="separator"
+      aria-label={`${t ? "Unidad" : "Unit"} ${index + 1}: ${name}`}
     >
-      <div
-        className={`w-9 h-9 rounded-xl bg-gradient-to-br ${theme.unitNumGrad} flex items-center justify-center text-white font-extrabold text-sm flex-shrink-0 shadow-sm`}
-        aria-hidden="true"
-      >
-        {index + 1}
+      {/* Full-width rule */}
+      <div className="absolute inset-0 flex items-center" aria-hidden="true">
+        <div className={`w-full h-px ${theme.connector}`} />
       </div>
 
-      <div className="flex-1 min-w-0">
-        <p className={`text-[10px] font-bold uppercase tracking-[0.14em] ${theme.unitLabel} mb-0.5`}>
-          {t ? `Unidad ${index + 1}` : `Unit ${index + 1}`}
-        </p>
-        <p className={`font-bold text-[14px] ${theme.unitText} truncate`}>{name}</p>
+      {/* Floating badge centred on the rule */}
+      <div className="relative flex items-center justify-center">
+        <div
+          className={`inline-flex items-center gap-2.5 pl-3.5 pr-4 py-2 rounded-2xl bg-white border shadow-sm ${theme.mascotBorder}`}
+        >
+          <div
+            className={`w-7 h-7 rounded-xl flex-shrink-0 bg-gradient-to-br ${theme.unitNumGrad} flex items-center justify-center text-white font-extrabold text-xs shadow-sm`}
+            aria-hidden="true"
+          >
+            {index + 1}
+          </div>
+          <div className="flex-shrink-0">
+            <p className={`text-[9px] font-bold uppercase tracking-[0.16em] ${theme.unitLabel} leading-none mb-0.5`}>
+              {t ? `Unidad ${index + 1}` : `Unit ${index + 1}`}
+            </p>
+            <p className={`text-[13px] font-bold ${theme.unitText} leading-none`}>{name}</p>
+          </div>
+          <span
+            className={`text-[10px] font-semibold px-2 py-1 rounded-lg border flex-shrink-0 ${theme.badge}`}
+          >
+            {chaptersCount} {t ? "caps." : "chaps."}
+          </span>
+        </div>
       </div>
-
-      <span
-        className={`text-[11px] font-semibold px-2.5 py-1 rounded-lg border flex-shrink-0 ${theme.badge}`}
-      >
-        {chaptersCount} {t ? "caps." : "chaps."}
-      </span>
     </div>
   );
 }
