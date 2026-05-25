@@ -95,6 +95,84 @@ const COLOR_MAP = {
   },
 } as const;
 
+// ─── Alliance marquee data ────────────────────────────────────────────────────
+
+const ALLIANCE_ROW1 = [
+  "UNAM", "PUCP", "UBA", "Universidad de Chile", "U. de Los Andes",
+  "UCR", "ESPOL", "USP", "U. Complutense", "UTN", "UDLAP", "UNMSM",
+];
+
+const ALLIANCE_ROW2 = [
+  "🇲🇽 México", "🇵🇪 Perú", "🇦🇷 Argentina", "🇨🇱 Chile", "🇨🇴 Colombia",
+  "🇧🇷 Brasil", "🇪🇸 España", "🇺🇸 EE.UU.", "🇨🇷 Costa Rica", "🇪🇨 Ecuador",
+  "🇻🇪 Venezuela", "🇬🇹 Guatemala", "🇩🇴 R. Dominicana", "🇧🇴 Bolivia",
+];
+
+// ─── Educational principles data ─────────────────────────────────────────────
+
+const PRINCIPLES = [
+  {
+    num: "01",
+    titleEs: "Acceso Universal",
+    titleEn: "Universal Access",
+    descEs: "Todo el conocimiento aquí es 100% gratuito. Sin suscripciones, sin paywalls, sin excepciones. Aprender nunca debería costar dinero.",
+    descEn: "All knowledge here is 100% free. No subscriptions, no paywalls, no exceptions. Learning should never cost money.",
+    stat: "$0",
+    statLabelEs: "Siempre gratis",
+    statLabelEn: "Always free",
+    owl: "/OWL_INVESTIGADOR.png",
+    color: "blue" as const,
+  },
+  {
+    num: "02",
+    titleEs: "Sin Barreras",
+    titleEn: "No Barriers",
+    descEs: "Sin registro, sin contraseñas, sin formularios. Llegas, aprendes y avanzas. Diseñado para que nada te detenga.",
+    descEn: "No sign-up, no passwords, no forms. You arrive, you learn, you move forward. Designed so nothing stops you.",
+    stat: "0",
+    statLabelEs: "Requisitos para empezar",
+    statLabelEn: "Requirements to start",
+    owl: "/OWL_WITH_SPAIN_FLAG.png",
+    color: "green" as const,
+  },
+  {
+    num: "03",
+    titleEs: "Alcance Global",
+    titleEn: "Global Reach",
+    descEs: "El conocimiento no tiene pasaporte. Más de 72 países confían en ESF para aprender español, finanzas, programación y más.",
+    descEn: "Knowledge has no passport. Over 72 countries trust ESF to learn Spanish, finance, coding, and more.",
+    stat: "72+",
+    statLabelEs: "Países",
+    statLabelEn: "Countries",
+    owl: "/OWL_WITH_THE_EARTH.png",
+    color: "teal" as const,
+  },
+  {
+    num: "04",
+    titleEs: "Aprendizaje Práctico",
+    titleEn: "Practical Learning",
+    descEs: "89+ capítulos diseñados para ser útiles en la vida real. Finanzas personales, código, ciencias — cada lección tiene un propósito concreto.",
+    descEn: "89+ chapters designed to be useful in real life. Personal finance, coding, science — every lesson has a concrete purpose.",
+    stat: "89+",
+    statLabelEs: "Capítulos disponibles",
+    statLabelEn: "Chapters available",
+    owl: "/OWL_CODING.png",
+    color: "violet" as const,
+  },
+  {
+    num: "05",
+    titleEs: "Impacto Real",
+    titleEn: "Real Impact",
+    descEs: "Más de 1,471 libros donados a escuelas de Lima. Porque la educación no termina en la pantalla — también se vive en las comunidades.",
+    descEn: "Over 1,471 books donated to schools in Lima. Because education doesn't end at the screen — it also lives in communities.",
+    stat: "1,471+",
+    statLabelEs: "Libros donados",
+    statLabelEn: "Books donated",
+    owl: "/OWL_INVESTIGADOR_WITH_BOOK.png",
+    color: "amber" as const,
+  },
+] as const;
+
 // ─────────────────────────────────────────────────────────────────────────────
 // HERO SECTION
 // ─────────────────────────────────────────────────────────────────────────────
@@ -392,6 +470,90 @@ function ImpactSection() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+// ALLIANCES / GLOBAL COMMUNITY
+// ─────────────────────────────────────────────────────────────────────────────
+
+function AlliancesSection() {
+  const { lang } = useLanguage();
+  const t = lang === "es";
+
+  // Duplicate each row for seamless infinite loop
+  const row1 = [...ALLIANCE_ROW1, ...ALLIANCE_ROW1];
+  const row2 = [...ALLIANCE_ROW2, ...ALLIANCE_ROW2];
+
+  return (
+    <section
+      className="bg-[hsl(222,47%,8%)] py-16 overflow-hidden"
+      aria-labelledby="alliances-heading"
+    >
+      <div className="container-page mb-10">
+        <Reveal>
+          <div className="text-center">
+            <p className="section-eyebrow">
+              <Globe className="w-3.5 h-3.5" aria-hidden="true" />
+              {t ? "Comunidad educativa global" : "Global educational community"}
+            </p>
+            <h2
+              id="alliances-heading"
+              className="text-2xl sm:text-3xl font-extrabold text-white mb-3"
+            >
+              {t
+                ? "Aprendices de todo el mundo"
+                : "Learners from around the world"}
+            </h2>
+            <p className="text-white/40 text-sm max-w-sm mx-auto leading-relaxed">
+              {t
+                ? "Estudiantes de universidades e instituciones en más de 72 países."
+                : "Students from universities and institutions in over 72 countries."}
+            </p>
+          </div>
+        </Reveal>
+      </div>
+
+      {/* Row 1 — universities, scrolling left */}
+      <div
+        className="marquee-wrapper marquee-mask overflow-hidden py-2.5"
+        aria-hidden="true"
+      >
+        <div
+          className="flex animate-marquee"
+          style={{ width: "max-content", gap: "1rem" }}
+        >
+          {row1.map((name, i) => (
+            <span
+              key={i}
+              className="flex-shrink-0 px-5 py-2.5 rounded-xl whitespace-nowrap text-sm font-semibold border border-white/8 bg-white/[0.04] text-white/55"
+            >
+              {name}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Row 2 — countries with flags, scrolling right */}
+      <div
+        className="marquee-wrapper marquee-mask overflow-hidden py-2.5 mt-3"
+        aria-hidden="true"
+      >
+        <div
+          className="flex animate-marquee-reverse"
+          style={{ width: "max-content", gap: "1rem" }}
+        >
+          {row2.map((name, i) => (
+            <span
+              key={i}
+              className="flex-shrink-0 px-5 py-2.5 rounded-xl whitespace-nowrap text-sm font-semibold border border-white/8 bg-white/[0.04] text-white/65"
+            >
+              {name}
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 // MISSION / STORY SECTION
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -472,6 +634,132 @@ function MissionSection() {
               )}
             </div>
           </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// EDUCATIONAL PRINCIPLES — two-column sticky/scroll layout
+// ─────────────────────────────────────────────────────────────────────────────
+
+function PrinciplesSection() {
+  const { lang } = useLanguage();
+  const t = lang === "es";
+
+  return (
+    <section
+      className="section-padding bg-[hsl(220,16%,97%)]"
+      aria-labelledby="principles-heading"
+    >
+      <div className="container-page">
+        <div className="lg:grid lg:grid-cols-[1fr_1.5fr] lg:gap-20 lg:items-start">
+
+          {/* ── Left: sticky heading ────────────────────────────────────────*/}
+          <div className="mb-12 lg:mb-0">
+            <div className="lg:sticky lg:top-28">
+              <Reveal>
+                <p className="section-eyebrow">
+                  <Sparkles className="w-3.5 h-3.5" aria-hidden="true" />
+                  {t ? "Nuestros principios" : "Our principles"}
+                </p>
+                <h2
+                  id="principles-heading"
+                  className="text-3xl md:text-4xl font-extrabold text-foreground mb-5"
+                >
+                  {t ? "Por qué funciona ESF" : "Why ESF works"}
+                </h2>
+                <p className="text-muted-foreground text-[15px] leading-relaxed">
+                  {t
+                    ? "Cinco compromisos que guían cada decisión que tomamos. No son promesas — son la razón por la que estudiantes de 72+ países confían en nosotros."
+                    : "Five commitments that guide every decision we make. Not promises — they're why students from 72+ countries trust us."}
+                </p>
+
+                {/* Decorative owl — only visible on desktop */}
+                <div className="mt-10 hidden lg:block" aria-hidden="true">
+                  <img
+                    src="/OWL_INVESTIGADOR.png"
+                    alt=""
+                    className="w-28 h-28 object-contain opacity-60 animate-float-slow"
+                    loading="lazy"
+                  />
+                </div>
+              </Reveal>
+            </div>
+          </div>
+
+          {/* ── Right: principle cards ──────────────────────────────────────*/}
+          <div className="space-y-4">
+            {PRINCIPLES.map((p, i) => {
+              const color = COLOR_MAP[p.color];
+              return (
+                <Reveal key={p.num} delay={i * 80}>
+                  <div
+                    className="relative rounded-2xl border border-border bg-card p-7 overflow-hidden"
+                    style={{
+                      boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.04)",
+                    }}
+                  >
+                    {/* Accent top bar */}
+                    <div
+                      className="absolute top-0 left-0 right-0 h-[3px] rounded-t-2xl"
+                      style={{ background: color.accent }}
+                      aria-hidden="true"
+                    />
+
+                    {/* Owl illustration — decorative */}
+                    <div
+                      className="absolute bottom-0 right-0 w-20 h-20 pointer-events-none"
+                      aria-hidden="true"
+                    >
+                      <img
+                        src={p.owl}
+                        alt=""
+                        className="w-full h-full object-contain opacity-[0.13]"
+                        loading="lazy"
+                      />
+                    </div>
+
+                    {/* Number badge + content */}
+                    <div className="flex items-start gap-4">
+                      <span
+                        className={`flex-shrink-0 text-[11px] font-bold uppercase tracking-[0.14em] px-2.5 py-1 rounded-lg ${color.badge}`}
+                      >
+                        {p.num}
+                      </span>
+
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-baseline justify-between gap-4 mb-2">
+                          <h3 className="font-bold text-[16px] text-foreground">
+                            {t ? p.titleEs : p.titleEn}
+                          </h3>
+                          <span
+                            className="flex-shrink-0 text-xl font-extrabold tabular-nums text-foreground/15 select-none"
+                            style={{
+                              fontFamily: "var(--font-display)",
+                              letterSpacing: "-0.04em",
+                            }}
+                            aria-hidden="true"
+                          >
+                            {p.stat}
+                          </span>
+                        </div>
+
+                        <p className="text-sm text-muted-foreground leading-relaxed pr-6">
+                          {t ? p.descEs : p.descEn}
+                        </p>
+
+                        <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground/40 mt-3">
+                          {t ? p.statLabelEs : p.statLabelEn}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </Reveal>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
@@ -924,7 +1212,9 @@ const HomePage = () => (
     <HeroSection />
     <CoursesSection />
     <ImpactSection />
+    <AlliancesSection />
     <MissionSection />
+    <PrinciplesSection />
     <MascotShowcaseSection />
     <GallerySection />
     <MiCuentoSection />
