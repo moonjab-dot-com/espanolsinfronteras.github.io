@@ -255,22 +255,91 @@ export const faqItems = [
   },
 ];
 
+export type PartnerCategory =
+  | "finance"
+  | "youth"
+  | "education"
+  | "language"
+  | "growth"
+  | "economics"
+  | "technology"
+  | "fellowship";
+
 export interface Partner {
   name: string;
-  nameEs: string;
   abbr: string;
+  taglineEs: string;
+  taglineEn: string;
+  category: PartnerCategory;
+  /** Tailwind classes: bg + text + border — applied to the icon badge */
   color: string;
 }
 
 export const partners: Partner[] = [
-  { name: "Financial Literacy HQ", nameEs: "Financial Literacy HQ", abbr: "FLHQ", color: "bg-emerald-50 text-emerald-600 border-emerald-100" },
-  { name: "UpWright Youth",        nameEs: "UpWright Youth",        abbr: "UWY",  color: "bg-blue-50 text-blue-600 border-blue-100"       },
-  { name: "UpWard Bound",          nameEs: "UpWard Bound",          abbr: "UB",   color: "bg-violet-50 text-violet-600 border-violet-100"  },
-  { name: "SpanTheWorld",          nameEs: "SpanTheWorld",          abbr: "STW",  color: "bg-teal-50 text-teal-600 border-teal-100"        },
-  { name: "Eternal Growth",        nameEs: "Eternal Growth",        abbr: "EG",   color: "bg-amber-50 text-amber-600 border-amber-100"     },
-  { name: "Investment & Economics Club", nameEs: "Investment & Economics Club", abbr: "IEC", color: "bg-green-50 text-green-600 border-green-100" },
-  { name: "Vertex",                nameEs: "Vertex",                abbr: "VX",   color: "bg-indigo-50 text-indigo-600 border-indigo-100"  },
-  { name: "Next Fellow",           nameEs: "Next Fellow",           abbr: "NF",   color: "bg-rose-50 text-rose-600 border-rose-100"        },
+  {
+    name: "Financial Literacy HQ",
+    abbr: "FLHQ",
+    taglineEs: "Educación financiera global",
+    taglineEn: "Global financial education",
+    category: "finance",
+    color: "bg-emerald-50 text-emerald-600 border-emerald-100",
+  },
+  {
+    name: "UpWright Youth",
+    abbr: "UWY",
+    taglineEs: "Liderazgo para la juventud",
+    taglineEn: "Leadership for youth",
+    category: "youth",
+    color: "bg-blue-50 text-blue-600 border-blue-100",
+  },
+  {
+    name: "UpWard Bound",
+    abbr: "UB",
+    taglineEs: "Preparación universitaria",
+    taglineEn: "College readiness",
+    category: "education",
+    color: "bg-violet-50 text-violet-600 border-violet-100",
+  },
+  {
+    name: "SpanTheWorld",
+    abbr: "STW",
+    taglineEs: "Español sin fronteras",
+    taglineEn: "Spanish without limits",
+    category: "language",
+    color: "bg-teal-50 text-teal-600 border-teal-100",
+  },
+  {
+    name: "Eternal Growth",
+    abbr: "EG",
+    taglineEs: "Crecimiento continuo",
+    taglineEn: "Continuous growth",
+    category: "growth",
+    color: "bg-amber-50 text-amber-600 border-amber-100",
+  },
+  {
+    name: "Investment & Economics Club",
+    abbr: "IEC",
+    taglineEs: "Finanzas y economía",
+    taglineEn: "Finance & economics",
+    category: "economics",
+    color: "bg-green-50 text-green-600 border-green-100",
+  },
+  {
+    name: "Vertex",
+    abbr: "VX",
+    taglineEs: "Innovación educativa",
+    taglineEn: "Educational innovation",
+    category: "technology",
+    color: "bg-indigo-50 text-indigo-600 border-indigo-100",
+  },
+  {
+    name: "Next Fellow",
+    abbr: "NF",
+    taglineEs: "Becas y desarrollo",
+    taglineEn: "Fellowships & development",
+    category: "fellowship",
+    color: "bg-rose-50 text-rose-600 border-rose-100",
+  },
 ];
 
 export const socialLinks = [
