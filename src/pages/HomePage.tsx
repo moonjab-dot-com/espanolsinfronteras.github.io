@@ -179,10 +179,9 @@ function HeroSection() {
                 aria-hidden="true"
               />
 
-              {/* Teacher owl — more expressive than the plain logo */}
               <img
-                src="/TEACHER_OWL.png"
-                alt={t ? "Búho educador — mascota de Español Sin Fronteras" : "Teacher owl — ESF mascot"}
+                src="/OWL_INVESTIGADOR_WITH_BOOK.png"
+                alt={t ? "Búho estudiante — mascota de Español Sin Fronteras" : "Study owl — ESF mascot"}
                 className="relative z-10 w-[280px] h-[280px] object-contain drop-shadow-2xl animate-float-slow"
                 width={280}
                 height={280}
@@ -427,7 +426,7 @@ function MissionSection() {
                   ? '"Nadie debería quedarse sin estudiar por falta de tiempo o dinero."'
                   : '"No one should miss out on education due to lack of time or money."'}
               </span>
-              <footer className="mt-4 text-base text-muted-foreground font-normal">— Salvador Bocanegra, {t ? "Fundador" : "Founder"}</footer>
+              <footer className="mt-4 text-base text-muted-foreground font-normal">— Salvador B., {t ? "Fundador" : "Founder"}</footer>
             </blockquote>
           </Reveal>
 
@@ -488,7 +487,7 @@ function MascotShowcaseSection() {
   const t = lang === "es";
 
   const owls = [
-    { src: "/TEACHER_OWL.png",                  labelEs: "Educador",      labelEn: "Educator"      },
+    { src: "/OWL_INVESTIGADOR.png",              labelEs: "Educador",      labelEn: "Educator"      },
     { src: "/OWL_WITH_SPAIN_FLAG.png",           labelEs: "Comunicación",  labelEn: "Communication" },
     { src: "/OWL_SCIENCE.png",                   labelEs: "Ciencias",      labelEn: "Science"       },
     { src: "/OWL_CODING.png",                    labelEs: "Programación",  labelEn: "Coding"        },
