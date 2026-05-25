@@ -180,11 +180,11 @@ function HeroSection() {
               />
 
               <img
-                src="/OWL_INVESTIGADOR_WITH_BOOK.png"
-                alt={t ? "Búho estudiante — mascota de Español Sin Fronteras" : "Study owl — ESF mascot"}
-                className="relative z-10 w-[280px] h-[280px] object-contain drop-shadow-2xl animate-float-slow"
-                width={280}
-                height={280}
+                src="/owl-logo.png"
+                alt={t ? "Logo oficial de Español Sin Fronteras" : "Official Español Sin Fronteras logo"}
+                className="relative z-10 w-[260px] h-[260px] object-contain drop-shadow-2xl animate-float-slow"
+                width={260}
+                height={260}
                 loading="eager"
               />
 
@@ -435,38 +435,37 @@ function MissionSection() {
               {t ? (
                 <>
                   <p>
-                    Salvador conoció a un niño que no podía estudiar porque tenía que trabajar para ayudar en su hogar.
-                    Ese momento lo cambió todo. Convencido de que <strong className="text-foreground font-semibold">el conocimiento no debe tener precio</strong>,
-                    creó <em>Español Sin Fronteras</em>: una plataforma completamente gratuita para que cualquier persona,
-                    sin importar su situación económica, pudiera aprender.
+                    <strong className="text-foreground font-semibold">Español Sin Fronteras</strong> nació con una idea clara: aprender no debería depender del dinero ni de las circunstancias.
                   </p>
                   <p>
-                    Desde su lanzamiento, la plataforma ha sido utilizada en más de{" "}
-                    <strong className="text-foreground font-semibold">72 países</strong>, con 89+ lecciones en español,
-                    finanzas, programación, matemáticas, ciencias, ciberseguridad e inglés.
+                    En 2024, Salvador decidió convertir esa idea en acción, creando una plataforma 100% gratuita donde cualquier persona puede aprender español, finanzas, programación, matemáticas, ciencias e inglés. Hoy cuenta con más de{" "}
+                    <strong className="text-foreground font-semibold">89 capítulos</strong> diseñados para ser prácticos, accesibles y útiles en la vida real.
                   </p>
                   <p>
-                    La misión es simple:{" "}
-                    <strong className="text-foreground font-semibold">que aprender sea un derecho, no un privilegio.</strong>
+                    Desde entonces, la plataforma ha llegado a usuarios en más de{" "}
+                    <strong className="text-foreground font-semibold">72 países</strong>, demostrando que las ganas de aprender no tienen fronteras.
+                  </p>
+                  <p>
+                    Además, el proyecto también busca generar impacto fuera de la pantalla: se han donado más de{" "}
+                    <strong className="text-foreground font-semibold">1471 libros</strong>, útiles escolares en escuelas de Lima y se han organizado actividades para apoyar y motivar a niños. 🎒🎁
                   </p>
                 </>
               ) : (
                 <>
                   <p>
-                    Salvador met a child who couldn't study because he had to work to help at home.
-                    That moment changed everything. Convinced that{" "}
-                    <strong className="text-foreground font-semibold">knowledge shouldn't have a price</strong>,
-                    he created <em>Español Sin Fronteras</em>: a completely free platform so that anyone,
-                    regardless of their economic situation, could learn.
+                    <strong className="text-foreground font-semibold">Español Sin Fronteras</strong> was born with a clear idea: learning shouldn't depend on money or circumstances.
                   </p>
                   <p>
-                    Since launch, the platform has been used in{" "}
-                    <strong className="text-foreground font-semibold">72+ countries</strong>, with 89+ lessons
-                    in Spanish, finance, programming, math, science, cybersecurity, and English.
+                    In 2024, Salvador decided to turn that idea into action, creating a 100% free platform where anyone can learn Spanish, finance, programming, math, science, and English. Today it has more than{" "}
+                    <strong className="text-foreground font-semibold">89 chapters</strong> designed to be practical, accessible, and useful in real life.
                   </p>
                   <p>
-                    The mission is simple:{" "}
-                    <strong className="text-foreground font-semibold">make learning a right, not a privilege.</strong>
+                    Since then, the platform has reached users in more than{" "}
+                    <strong className="text-foreground font-semibold">72 countries</strong>, proving that the desire to learn has no borders.
+                  </p>
+                  <p>
+                    The project also seeks to create impact beyond the screen: more than{" "}
+                    <strong className="text-foreground font-semibold">1,471 books</strong> and school supplies have been donated to schools in Lima, and activities have been organized to support and motivate children. 🎒🎁
                   </p>
                 </>
               )}
