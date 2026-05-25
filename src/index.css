@@ -372,3 +372,37 @@
   background: hsl(var(--primary) / 0.18);
   color: hsl(var(--foreground));
 }
+
+/* ─── Learning Path ──────────────────────────────────────────────────────────
+   Used by CoursePage.tsx learning path system.
+   Relies on Tailwind utility classes in component JSX;
+   only structural overrides live here. */
+
+/* Ensure the tracking column fills the gap between nodes properly */
+.learning-path-track {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 56px;
+  flex-shrink: 0;
+}
+
+/* ─── Reduced Motion ─────────────────────────────────────────────────────────*/
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-fade-in,
+  .animate-float,
+  .animate-float-slow,
+  .animate-pulse-glow {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
