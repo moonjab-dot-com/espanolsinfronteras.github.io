@@ -271,7 +271,9 @@ export interface Partner {
   taglineEs: string;
   taglineEn: string;
   category: PartnerCategory;
-  /** Tailwind classes: bg + text + border — applied to the icon badge */
+  /** Path to logo in /public (e.g. "/financialhq.png") */
+  logo: string;
+  /** Tailwind classes: bg + text + border — fallback when logo fails to load */
   color: string;
 }
 
@@ -282,6 +284,7 @@ export const partners: Partner[] = [
     taglineEs: "Educación financiera global",
     taglineEn: "Global financial education",
     category: "finance",
+    logo: "/financialhq.png",
     color: "bg-emerald-50 text-emerald-600 border-emerald-100",
   },
   {
@@ -290,6 +293,7 @@ export const partners: Partner[] = [
     taglineEs: "Liderazgo para la juventud",
     taglineEn: "Leadership for youth",
     category: "youth",
+    logo: "/upwright.png",
     color: "bg-blue-50 text-blue-600 border-blue-100",
   },
   {
@@ -298,6 +302,7 @@ export const partners: Partner[] = [
     taglineEs: "Preparación universitaria",
     taglineEn: "College readiness",
     category: "education",
+    logo: "/upwardbound.png",
     color: "bg-violet-50 text-violet-600 border-violet-100",
   },
   {
@@ -306,6 +311,7 @@ export const partners: Partner[] = [
     taglineEs: "Español sin fronteras",
     taglineEn: "Spanish without limits",
     category: "language",
+    logo: "/spantheworld.png",
     color: "bg-teal-50 text-teal-600 border-teal-100",
   },
   {
@@ -314,6 +320,7 @@ export const partners: Partner[] = [
     taglineEs: "Crecimiento continuo",
     taglineEn: "Continuous growth",
     category: "growth",
+    logo: "/eternalgrowth.png",
     color: "bg-amber-50 text-amber-600 border-amber-100",
   },
   {
@@ -322,6 +329,7 @@ export const partners: Partner[] = [
     taglineEs: "Finanzas y economía",
     taglineEn: "Finance & economics",
     category: "economics",
+    logo: "/cinvestment.jpg",
     color: "bg-green-50 text-green-600 border-green-100",
   },
   {
@@ -330,6 +338,7 @@ export const partners: Partner[] = [
     taglineEs: "Innovación educativa",
     taglineEn: "Educational innovation",
     category: "technology",
+    logo: "/vertex.png",
     color: "bg-indigo-50 text-indigo-600 border-indigo-100",
   },
   {
@@ -338,6 +347,7 @@ export const partners: Partner[] = [
     taglineEs: "Becas y desarrollo",
     taglineEn: "Fellowships & development",
     category: "fellowship",
+    logo: "/nextlogo.png",
     color: "bg-rose-50 text-rose-600 border-rose-100",
   },
 ];
