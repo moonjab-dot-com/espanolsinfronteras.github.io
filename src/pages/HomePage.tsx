@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { courseIconMap } from "@/lib/course-icons";
 import { COURSE_MASCOTS } from "@/lib/course-mascots";
+import { BrandScroller } from "@/components/ui/brand-scroller";
 
 // ─── Scroll-reveal hook ───────────────────────────────────────────────────────
 
@@ -923,9 +924,13 @@ function PartnersSection() {
   const { lang } = useLanguage();
   const t = lang === "es";
 
+  // Split partners into two rows for the dual-direction scroller effect
+  const row1 = partners;
+  const row2 = [...partners].reverse();
+
   return (
     <section
-      className="section-padding bg-white"
+      className="section-padding bg-[hsl(220,16%,97%)] overflow-hidden"
       id="alianzas"
       aria-labelledby="alianzas-heading"
     >
@@ -934,40 +939,58 @@ function PartnersSection() {
           <div className="text-center mb-12">
             <p className="section-eyebrow">
               <Handshake className="w-3.5 h-3.5" aria-hidden="true" />
-              {t ? "Alianzas" : "Partners"}
+              {t ? "Alianzas estratégicas" : "Strategic partnerships"}
             </p>
-            <h2 id="alianzas-heading" className="text-3xl md:text-4xl font-extrabold text-foreground">
+            <h2 id="alianzas-heading" className="text-3xl md:text-4xl font-extrabold text-foreground mb-3">
               {t ? "Organizaciones que " : "Organizations that "}
               <span className="bg-gradient-to-r from-primary to-teal-500 bg-clip-text text-transparent">
                 {t ? "creen en la misión" : "believe in the mission"}
               </span>
             </h2>
-            <p className="text-muted-foreground text-base max-w-sm mx-auto mt-3">
+            <p className="text-muted-foreground text-base max-w-[420px] mx-auto leading-relaxed">
               {t
-                ? "Trabajamos con organizaciones que comparten nuestra visión de educación accesible para todos."
-                : "We work with organizations that share our vision of accessible education for all."}
+                ? "Trabajamos junto a organizaciones líderes que comparten nuestra visión: educación de calidad, accesible para todos, sin importar el lugar."
+                : "We work alongside leading organizations that share our vision: quality education, accessible to everyone, regardless of where they are."}
             </p>
+
+            {/* Alliance count badge */}
+            <div className="inline-flex items-center gap-2 mt-5 px-4 py-2 rounded-full bg-primary/8 border border-primary/15 text-primary text-xs font-bold">
+              <Handshake className="w-3 h-3" aria-hidden="true" />
+              {partners.length}{" "}
+              {t ? "alianzas activas" : "active alliances"}
+            </div>
           </div>
         </Reveal>
-
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
-          {partners.map((partner, i) => (
-            <Reveal key={partner.name} delay={i * 55}>
-              <div className="group flex flex-col items-center gap-3 p-5 rounded-2xl border border-border bg-white hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 text-center h-full">
-                <div
-                  className={`w-14 h-14 rounded-2xl border flex items-center justify-center font-extrabold text-xs tracking-tight flex-shrink-0 ${partner.color}`}
-                  aria-hidden="true"
-                >
-                  {partner.abbr}
-                </div>
-                <p className="text-[13px] font-semibold text-foreground leading-snug group-hover:text-primary transition-colors">
-                  {t ? partner.nameEs : partner.name}
-                </p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
       </div>
+
+      {/* ── Row 1: forward ───────────────────────────────────────────────────── */}
+      <Reveal delay={80}>
+        <BrandScroller
+          items={row1}
+          lang={lang}
+          direction="forward"
+          duration={40}
+          className="mb-3"
+          label={t ? "Organizaciones aliadas" : "Partner organizations"}
+        />
+      </Reveal>
+
+      {/* ── Row 2: reverse ───────────────────────────────────────────────────── */}
+      <Reveal delay={140}>
+        <BrandScroller
+          items={row2}
+          lang={lang}
+          direction="reverse"
+          duration={34}
+        />
+      </Reveal>
+
+      {/* Bottom attribution */}
+      <Reveal delay={200}>
+        <p className="text-center text-[12px] text-muted-foreground/50 mt-10 font-medium">
+          {t ? "Hecho con ❤️ desde Perú para el mundo" : "Made with ❤️ from Peru for the world"}
+        </p>
+      </Reveal>
     </section>
   );
 }
