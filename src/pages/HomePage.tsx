@@ -8,6 +8,7 @@ import {
   Mail, MessageCircle, Quote, Sparkles,
 } from "lucide-react";
 import { courseIconMap } from "@/lib/course-icons";
+import { COURSE_MASCOTS } from "@/lib/course-mascots";
 
 // ─── Scroll-reveal hook ───────────────────────────────────────────────────────
 
@@ -33,8 +34,6 @@ function useInView(threshold = 0.1) {
 
   return { ref, inView };
 }
-
-// ─── Reveal wrapper ───────────────────────────────────────────────────────────
 
 function Reveal({
   children,
@@ -68,26 +67,31 @@ const COLOR_MAP = {
     icon:     "bg-blue-50 text-blue-600",
     accent:   "hsl(221,83%,53%)",
     badge:    "bg-blue-50 text-blue-700 border-blue-100",
+    masGlow:  "from-blue-100/60 to-indigo-100/30",
   },
   green: {
     icon:     "bg-emerald-50 text-emerald-600",
     accent:   "hsl(156,64%,38%)",
     badge:    "bg-emerald-50 text-emerald-700 border-emerald-100",
+    masGlow:  "from-emerald-100/60 to-teal-100/30",
   },
   teal: {
     icon:     "bg-teal-50 text-teal-600",
     accent:   "hsl(172,66%,35%)",
     badge:    "bg-teal-50 text-teal-700 border-teal-100",
+    masGlow:  "from-teal-100/60 to-cyan-100/30",
   },
   violet: {
     icon:     "bg-violet-50 text-violet-600",
     accent:   "hsl(262,83%,58%)",
     badge:    "bg-violet-50 text-violet-700 border-violet-100",
+    masGlow:  "from-violet-100/60 to-purple-100/30",
   },
   amber: {
     icon:     "bg-amber-50 text-amber-600",
     accent:   "hsl(38,92%,50%)",
     badge:    "bg-amber-50 text-amber-700 border-amber-100",
+    masGlow:  "from-amber-100/60 to-orange-100/30",
   },
 } as const;
 
@@ -105,18 +109,16 @@ function HeroSection() {
       id="inicio"
       aria-label={t ? "Sección principal" : "Main section"}
     >
-      <div className="container-page relative z-10 w-full py-24">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="container-page relative z-10 w-full py-20">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
 
           {/* ── Left: copy ─────────────────────────────────────────────────*/}
           <div>
-            {/* Eyebrow badge */}
             <div className="animate-fade-up inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/12 bg-white/5 text-white/75 text-xs font-semibold mb-8">
               <Sparkles className="w-3 h-3 text-amber-400 shrink-0" aria-hidden="true" />
-              {t ? "100% Gratuito · 72+ países" : "100% Free · 72+ countries"}
+              {t ? "100% Gratuito · 72+ países · Sin registro" : "100% Free · 72+ countries · No sign-up"}
             </div>
 
-            {/* Headline */}
             <h1 className="animate-fade-up delay-75 text-[2.75rem] sm:text-5xl lg:text-[3.5rem] font-extrabold text-white mb-5 leading-[1.06]">
               {t ? "Aprende" : "Learn"}{" "}
               <span
@@ -127,14 +129,12 @@ function HeroSection() {
               </span>
             </h1>
 
-            {/* Sub */}
             <p className="animate-fade-up delay-150 text-[17px] text-white/55 leading-relaxed mb-10 max-w-[480px]">
               {t
                 ? "Plataforma educativa gratuita con 89+ lecciones en español, finanzas, programación, matemáticas y más. Sin registro, sin costo, para siempre."
                 : "Free educational platform with 89+ lessons covering Spanish, finance, programming, math, and more. No sign-up, no cost, forever."}
             </p>
 
-            {/* CTA group */}
             <div className="animate-fade-up delay-225 flex flex-wrap gap-3 mb-14">
               <a href="#cursos" className="btn-primary">
                 {t ? "Explorar cursos" : "Explore courses"}
@@ -150,7 +150,7 @@ function HeroSection() {
               {[
                 { v: "89+", l: t ? "Lecciones" : "Lessons" },
                 { v: "72+", l: t ? "Países" : "Countries" },
-                { v: "8",   l: t ? "Materias" : "Subjects"  },
+                { v: "9",   l: t ? "Materias" : "Subjects"  },
               ].map(({ v, l }) => (
                 <div key={l} className="flex flex-col gap-0.5">
                   <span className="text-2xl font-extrabold text-white tabular-nums" style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.04em" }}>
@@ -164,32 +164,37 @@ function HeroSection() {
             </div>
           </div>
 
-          {/* ── Right: visual ───────────────────────────────────────────────*/}
+          {/* ── Right: owl mascot ───────────────────────────────────────────*/}
           <div className="hidden lg:flex items-center justify-center">
             <div className="relative">
-              {/* Glow */}
+              {/* Multi-layer glow */}
               <div
-                className="absolute inset-0 rounded-full blur-3xl scale-110 opacity-20"
-                style={{ background: "radial-gradient(circle, hsl(221,83%,60%), hsl(156,64%,44%))" }}
+                className="absolute inset-0 rounded-full blur-3xl scale-110 opacity-25"
+                style={{ background: "radial-gradient(circle, hsl(156,64%,44%), hsl(221,83%,60%))" }}
+                aria-hidden="true"
+              />
+              <div
+                className="absolute inset-0 rounded-full blur-xl scale-90 opacity-15"
+                style={{ background: "radial-gradient(circle, hsl(38,92%,60%), transparent)" }}
                 aria-hidden="true"
               />
 
-              {/* Owl mascot */}
+              {/* Teacher owl — more expressive than the plain logo */}
               <img
-                src="/owl-logo.png"
-                alt={t ? "Mascota ESF — el búho del conocimiento" : "ESF Mascot — the owl of knowledge"}
-                className="relative z-10 w-[220px] h-[220px] object-contain drop-shadow-2xl animate-float-slow"
-                width={220}
-                height={220}
+                src="/TEACHER_OWL.png"
+                alt={t ? "Búho educador — mascota de Español Sin Fronteras" : "Teacher owl — ESF mascot"}
+                className="relative z-10 w-[280px] h-[280px] object-contain drop-shadow-2xl animate-float-slow"
+                width={280}
+                height={280}
                 loading="eager"
               />
 
-              {/* Floating pill: subjects */}
+              {/* Floating subject pills */}
               {[
-                { label: t ? "📚 Español"    : "📚 Spanish",     top: "-12%",  left: "-30%",  delay: 0 },
-                { label: t ? "💰 Finanzas"   : "💰 Finance",     top: "65%",   left: "-32%",  delay: 600 },
-                { label: t ? "💻 Programación" : "💻 Coding",    top: "-8%",   right: "-28%", delay: 1200 },
-                { label: t ? "🔢 Matemáticas" : "🔢 Math",       top: "70%",   right: "-30%", delay: 800 },
+                { label: t ? "📚 Español"    : "📚 Spanish",       top: "-10%",  left: "-32%",  delay: 0    },
+                { label: t ? "💰 Finanzas"   : "💰 Finance",       top: "68%",   left: "-30%",  delay: 600  },
+                { label: t ? "💻 Programación" : "💻 Coding",      top: "-8%",   right: "-26%", delay: 1200 },
+                { label: t ? "🔬 Ciencias"   : "🔬 Science",       top: "72%",   right: "-28%", delay: 900  },
               ].map(({ label, delay: d, ...pos }) => (
                 <div
                   key={label}
@@ -237,41 +242,60 @@ function CoursesSection() {
             </h2>
             <p className="text-muted-foreground text-base max-w-sm mx-auto">
               {t
-                ? "8 materias, 89+ capítulos. Todo 100% gratuito, sin registro."
-                : "8 subjects, 89+ chapters. All 100% free, no sign-up."}
+                ? "9 materias, 89+ capítulos. Todo 100% gratuito, sin registro."
+                : "9 subjects, 89+ chapters. All 100% free, no sign-up."}
             </p>
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 xl:gap-5">
           {courses.map((course, i) => {
             const color = COLOR_MAP[course.colorClass];
             const Icon = courseIconMap[course.icon];
+            const mascot = COURSE_MASCOTS[course.slug];
+
             return (
-              <Reveal key={course.slug} delay={i * 60}>
+              <Reveal key={course.slug} delay={i * 55}>
                 <Link
                   to={`/curso/${course.slug}`}
-                  className="card-course h-full group block no-underline"
+                  className="card-course h-full group block no-underline relative overflow-hidden"
                   style={{ "--card-accent": color.accent } as React.CSSProperties}
                   aria-label={`${t ? course.titleEs : course.titleEn} — ${course.chapters.length} ${t ? "capítulos" : "chapters"}`}
                 >
+                  {/* Owl mascot — decorative background illustration */}
+                  {mascot && (
+                    <div
+                      className={`absolute -bottom-3 -right-3 w-28 h-28 pointer-events-none`}
+                      aria-hidden="true"
+                    >
+                      <div className={`absolute inset-0 rounded-full bg-gradient-to-tl ${color.masGlow} blur-lg`} />
+                      <img
+                        src={mascot}
+                        alt=""
+                        className="relative w-full h-full object-contain opacity-[0.18] group-hover:opacity-[0.32] transition-opacity duration-300 select-none"
+                        loading="lazy"
+                        draggable={false}
+                      />
+                    </div>
+                  )}
+
                   {/* Icon */}
-                  <div className={`w-12 h-12 rounded-xl ${color.icon} flex items-center justify-center mb-5 transition-transform duration-200 group-hover:scale-110`}>
+                  <div className={`w-12 h-12 rounded-xl ${color.icon} flex items-center justify-center mb-5 transition-transform duration-200 group-hover:scale-110 relative z-10`}>
                     {Icon && <Icon className="w-5 h-5" strokeWidth={2} aria-hidden="true" />}
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-[15px] font-bold text-foreground mb-1.5 group-hover:text-primary transition-colors">
+                  <h3 className="relative z-10 text-[15px] font-bold text-foreground mb-1.5 group-hover:text-primary transition-colors">
                     {t ? course.titleEs : course.titleEn}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-5 flex-1 line-clamp-2">
+                  <p className="relative z-10 text-sm text-muted-foreground leading-relaxed mb-5 flex-1 line-clamp-2">
                     {t ? course.descriptionEs : course.descriptionEn}
                   </p>
 
                   {/* Footer */}
-                  <div className="flex items-center justify-between mt-auto pt-4 border-t border-border/60">
+                  <div className="relative z-10 flex items-center justify-between mt-auto pt-4 border-t border-border/60">
                     <span className={`inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-lg border ${color.badge}`}>
                       {course.chapters.length} {t ? "caps." : "chaps."}
                     </span>
@@ -313,7 +337,7 @@ function ImpactSection() {
       icon: BookOpen,
     },
     {
-      value: "8",
+      value: "9",
       labelEs: "Materias",
       labelEn: "Subjects",
       descEs: "Español, finanzas, STEM y más",
@@ -321,7 +345,7 @@ function ImpactSection() {
       icon: GraduationCap,
     },
     {
-      value: "0$",
+      value: "$0",
       labelEs: "Costo",
       labelEn: "Cost",
       descEs: "Siempre gratis, sin excepciones",
@@ -456,6 +480,73 @@ function MissionSection() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+// MASCOT SHOWCASE — "Meet the Owls"
+// ─────────────────────────────────────────────────────────────────────────────
+
+function MascotShowcaseSection() {
+  const { lang } = useLanguage();
+  const t = lang === "es";
+
+  const owls = [
+    { src: "/TEACHER_OWL.png",                  labelEs: "Educador",      labelEn: "Educator"      },
+    { src: "/OWL_WITH_SPAIN_FLAG.png",           labelEs: "Comunicación",  labelEn: "Communication" },
+    { src: "/OWL_SCIENCE.png",                   labelEs: "Ciencias",      labelEn: "Science"       },
+    { src: "/OWL_CODING.png",                    labelEs: "Programación",  labelEn: "Coding"        },
+    { src: "/OWL_NUMBER_ONE.png",                labelEs: "Matemáticas",   labelEn: "Math"          },
+    { src: "/OWL_INVESTIGATOR_WITH_COMPUTER.png",labelEs: "Tecnología",    labelEn: "Technology"    },
+  ];
+
+  return (
+    <section
+      className="section-padding bg-[hsl(220,16%,97%)] overflow-hidden"
+      aria-labelledby="owls-heading"
+    >
+      <div className="container-page">
+        <Reveal>
+          <div className="text-center mb-12">
+            <p className="section-eyebrow">
+              <Sparkles className="w-3.5 h-3.5" aria-hidden="true" />
+              {t ? "Nuestros tutores" : "Our tutors"}
+            </p>
+            <h2 id="owls-heading" className="text-3xl md:text-4xl font-extrabold text-foreground">
+              {t ? "Un búho para " : "An owl for "}
+              <span className="bg-gradient-to-r from-primary to-teal-500 bg-clip-text text-transparent">
+                {t ? "cada materia" : "every subject"}
+              </span>
+            </h2>
+            <p className="text-muted-foreground text-base max-w-xs mx-auto mt-3">
+              {t
+                ? "Cada curso tiene su propio guía — listo para acompañarte en tu camino."
+                : "Every course has its own guide — ready to accompany you on your journey."}
+            </p>
+          </div>
+        </Reveal>
+
+        <div className="grid grid-cols-3 sm:grid-cols-6 gap-4 md:gap-6 max-w-2xl mx-auto">
+          {owls.map(({ src, labelEs, labelEn }, i) => (
+            <Reveal key={src} delay={i * 80}>
+              <div className="flex flex-col items-center gap-2 group cursor-default">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white border border-border/70 shadow-sm flex items-center justify-center overflow-hidden group-hover:shadow-md group-hover:-translate-y-1 transition-all duration-300">
+                  <img
+                    src={src}
+                    alt={t ? labelEs : labelEn}
+                    className="w-14 h-14 sm:w-[72px] sm:h-[72px] object-contain"
+                    loading="lazy"
+                  />
+                </div>
+                <span className="text-[11px] font-semibold text-muted-foreground text-center leading-tight">
+                  {t ? labelEs : labelEn}
+                </span>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 // MI CUENTO
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -465,7 +556,7 @@ function MiCuentoSection() {
 
   return (
     <section
-      className="section-padding bg-[hsl(220,16%,97%)]"
+      className="section-padding bg-white"
       id="micuento"
       aria-labelledby="cuento-heading"
     >
@@ -474,29 +565,41 @@ function MiCuentoSection() {
           <Reveal>
             <div className="rounded-2xl border border-border bg-card overflow-hidden shadow-sm">
               <div className="h-1.5 w-full bg-gradient-to-r from-primary via-teal-400 to-emerald-400" aria-hidden="true" />
-              <div className="p-8 md:p-10">
-                <p className="section-eyebrow">
-                  <BookOpen className="w-3.5 h-3.5" aria-hidden="true" />
-                  {t ? "Lectura gratuita" : "Free reading"}
-                </p>
-                <h2 id="cuento-heading" className="text-2xl md:text-3xl font-extrabold text-foreground mb-3">
-                  {t ? "El Gran Sueño de Cris" : "Cris's Big Dream"}
-                </h2>
-                <p className="text-muted-foreground text-[15px] leading-relaxed mb-8">
-                  {t
-                    ? "Un niño apasionado por el tenis enfrenta desafíos para alcanzar su gran sueño. Una historia de perseverancia, esfuerzo y amor por el deporte. ¡Perfecta para aprender leyendo!"
-                    : "A boy passionate about tennis faces challenges to achieve his big dream. A story of perseverance, effort, and love for sport. Perfect for learning through reading!"}
-                </p>
-                <a
-                  href="https://drive.google.com/file/d/1om4ew8uDccRSxu-CHqDueuWVKJPk-dX_/view?usp=sharing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary"
-                  aria-label={t ? "Descargar cuento El Gran Sueño de Cris (PDF)" : "Download story Cris's Big Dream (PDF)"}
-                >
-                  {t ? "Descargar cuento" : "Download story"}
-                  <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
-                </a>
+              <div className="p-8 md:p-10 flex items-start gap-6">
+                {/* Owl reading — illustrates the story context */}
+                <div className="hidden sm:block flex-shrink-0">
+                  <img
+                    src="/OWL_INVESTIGADOR_WITH_BOOK.png"
+                    alt=""
+                    aria-hidden="true"
+                    className="w-24 h-24 object-contain animate-float-slow"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="section-eyebrow">
+                    <BookOpen className="w-3.5 h-3.5" aria-hidden="true" />
+                    {t ? "Lectura gratuita" : "Free reading"}
+                  </p>
+                  <h2 id="cuento-heading" className="text-2xl md:text-3xl font-extrabold text-foreground mb-3">
+                    {t ? "El Gran Sueño de Cris" : "Cris's Big Dream"}
+                  </h2>
+                  <p className="text-muted-foreground text-[15px] leading-relaxed mb-6">
+                    {t
+                      ? "Un niño apasionado por el tenis enfrenta desafíos para alcanzar su gran sueño. Una historia de perseverancia, esfuerzo y amor por el deporte."
+                      : "A boy passionate about tennis faces challenges to achieve his big dream. A story of perseverance, effort, and love for sport."}
+                  </p>
+                  <a
+                    href="https://drive.google.com/file/d/1om4ew8uDccRSxu-CHqDueuWVKJPk-dX_/view?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary"
+                    aria-label={t ? "Descargar cuento El Gran Sueño de Cris (PDF)" : "Download story Cris's Big Dream (PDF)"}
+                  >
+                    {t ? "Descargar cuento" : "Download story"}
+                    <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
+                  </a>
+                </div>
               </div>
             </div>
           </Reveal>
@@ -583,7 +686,7 @@ function FAQSection() {
 
   return (
     <section
-      className="section-padding bg-white"
+      className="section-padding bg-[hsl(220,16%,97%)]"
       id="faq"
       aria-labelledby="faq-heading"
     >
@@ -676,7 +779,7 @@ function TestimonialsSection() {
 
   return (
     <section
-      className="section-padding bg-[hsl(220,16%,97%)]"
+      className="section-padding bg-white"
       id="comentarios"
       aria-labelledby="testimonials-heading"
     >
@@ -710,7 +813,6 @@ function TestimonialsSection() {
                 — {testimonials[current].author}
               </p>
 
-              {/* Navigation dots */}
               <div className="flex justify-center gap-2 mt-2" role="tablist" aria-label={t ? "Navegación de testimonios" : "Testimonial navigation"}>
                 {testimonials.map((_, i) => (
                   <button
@@ -745,24 +847,29 @@ function ContactSection() {
 
   return (
     <section
-      className="section-padding bg-white"
+      className="section-padding bg-[hsl(220,16%,97%)]"
       id="contacto"
       aria-labelledby="contacto-heading"
     >
       <div className="container-page">
         <Reveal>
           <div className="max-w-2xl mx-auto rounded-3xl bg-[hsl(222,47%,8%)] px-8 py-16 text-center relative overflow-hidden">
-            {/* Subtle radial highlights */}
             <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
               <div className="absolute -top-24 -left-24 w-64 h-64 rounded-full bg-primary/10 blur-3xl" />
               <div className="absolute -bottom-16 -right-16 w-48 h-48 rounded-full bg-emerald-500/8 blur-3xl" />
             </div>
 
-            <div className="relative z-10">
-              <div className="w-14 h-14 rounded-2xl bg-white/8 border border-white/10 flex items-center justify-center mx-auto mb-6">
-                <Mail className="w-6 h-6 text-white/70" aria-hidden="true" />
-              </div>
+            {/* Decorative owl */}
+            <div className="relative z-10 mx-auto w-16 h-16 mb-6" aria-hidden="true">
+              <img
+                src="/OWL_WITH_THE_EARTH.png"
+                alt=""
+                className="w-full h-full object-contain opacity-60 animate-float-slow"
+                loading="lazy"
+              />
+            </div>
 
+            <div className="relative z-10">
               <h2 id="contacto-heading" className="text-3xl md:text-4xl font-extrabold text-white mb-3">
                 {t ? "¿Hablamos?" : "Let's connect?"}
               </h2>
@@ -781,7 +888,6 @@ function ContactSection() {
                 {t ? "Escribirnos" : "Write to us"}
               </a>
 
-              {/* Social links */}
               <div
                 className="flex justify-center flex-wrap gap-5 mt-10 pt-8 border-t border-white/8"
                 role="list"
@@ -819,6 +925,7 @@ const HomePage = () => (
     <CoursesSection />
     <ImpactSection />
     <MissionSection />
+    <MascotShowcaseSection />
     <GallerySection />
     <MiCuentoSection />
     <FAQSection />

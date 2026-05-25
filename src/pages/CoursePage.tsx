@@ -1,68 +1,349 @@
+import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useLanguage } from "@/context/LanguageContext";
 import { courses } from "@/data/courses";
-import { ArrowLeft, BookOpen, ChevronRight, ExternalLink } from "lucide-react";
+import type { Chapter } from "@/data/courses";
+import { ArrowLeft, BookOpen, ExternalLink, GraduationCap } from "lucide-react";
 import { courseIconMap } from "@/lib/course-icons";
+import { COURSE_MASCOTS, UNIT_NAMES } from "@/lib/course-mascots";
+import { useSEOMeta } from "@/hooks/useSEOMeta";
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
-/**
- * Returns a safe href for a chapter link.
- * External URLs (http/https) are returned as-is.
- * Relative paths get a leading "/" and URI-encoded.
- */
 function getChapterHref(href: string): string {
   if (href.startsWith("http://") || href.startsWith("https://")) return href;
   return encodeURI(href.startsWith("/") ? href : `/${href}`);
 }
 
-/**
- * Returns true for external URLs (Google Drive, etc.)
- */
 const isExternal = (href: string) =>
   href.startsWith("http://") || href.startsWith("https://");
 
-// ─── Color map ────────────────────────────────────────────────────────────────
+function groupIntoUnits(chapters: Chapter[], size = 6): Chapter[][] {
+  const groups: Chapter[][] = [];
+  for (let i = 0; i < chapters.length; i += size) {
+    groups.push(chapters.slice(i, i + size));
+  }
+  return groups;
+}
 
-const COLOR_MAP = {
+// ─── Per-colour theme tokens ──────────────────────────────────────────────────
+// All class strings must be literal so Tailwind JIT does not purge them.
+
+const PATH_THEME = {
   blue: {
-    header:  "bg-gradient-to-br from-blue-50 to-indigo-50",
-    icon:    "from-blue-500 to-blue-600",
-    text:    "text-blue-600",
-    badge:   "bg-blue-50 text-blue-700 border-blue-200",
-    accent:  "hsl(221,83%,53%)",
+    headerGrad:    "from-blue-600 to-indigo-600",
+    headerBg:      "from-blue-50/80 via-indigo-50/40 to-white",
+    node:          "border-blue-300 bg-blue-50 text-blue-600",
+    nodeHov:       "bg-blue-600 border-blue-600 text-white",
+    nodeShadow:    "0 8px 24px rgba(37,99,235,0.3)",
+    connector:     "bg-blue-100",
+    titleHov:      "text-blue-600",
+    unit:          "from-blue-50 to-indigo-50/40 border-blue-100",
+    unitNumGrad:   "from-blue-600 to-indigo-600",
+    unitText:      "text-blue-800",
+    unitLabel:     "text-blue-500",
+    badge:         "bg-blue-50 text-blue-700 border-blue-100",
+    iconGrad:      "from-blue-500 to-blue-600",
+    mascotBg:      "from-blue-50 to-indigo-50",
+    mascotBorder:  "border-blue-100",
+    progressBg:    "bg-blue-100",
+    progressFill:  "bg-blue-600",
   },
   green: {
-    header:  "bg-gradient-to-br from-emerald-50 to-teal-50",
-    icon:    "from-emerald-500 to-emerald-600",
-    text:    "text-emerald-600",
-    badge:   "bg-emerald-50 text-emerald-700 border-emerald-200",
-    accent:  "hsl(156,64%,38%)",
+    headerGrad:    "from-emerald-600 to-teal-600",
+    headerBg:      "from-emerald-50/80 via-teal-50/40 to-white",
+    node:          "border-emerald-300 bg-emerald-50 text-emerald-600",
+    nodeHov:       "bg-emerald-600 border-emerald-600 text-white",
+    nodeShadow:    "0 8px 24px rgba(5,150,105,0.3)",
+    connector:     "bg-emerald-100",
+    titleHov:      "text-emerald-600",
+    unit:          "from-emerald-50 to-teal-50/40 border-emerald-100",
+    unitNumGrad:   "from-emerald-600 to-teal-600",
+    unitText:      "text-emerald-800",
+    unitLabel:     "text-emerald-500",
+    badge:         "bg-emerald-50 text-emerald-700 border-emerald-100",
+    iconGrad:      "from-emerald-500 to-emerald-600",
+    mascotBg:      "from-emerald-50 to-teal-50",
+    mascotBorder:  "border-emerald-100",
+    progressBg:    "bg-emerald-100",
+    progressFill:  "bg-emerald-600",
   },
   teal: {
-    header:  "bg-gradient-to-br from-teal-50 to-cyan-50",
-    icon:    "from-teal-500 to-teal-600",
-    text:    "text-teal-600",
-    badge:   "bg-teal-50 text-teal-700 border-teal-200",
-    accent:  "hsl(172,66%,35%)",
+    headerGrad:    "from-teal-600 to-cyan-600",
+    headerBg:      "from-teal-50/80 via-cyan-50/40 to-white",
+    node:          "border-teal-300 bg-teal-50 text-teal-600",
+    nodeHov:       "bg-teal-600 border-teal-600 text-white",
+    nodeShadow:    "0 8px 24px rgba(13,148,136,0.3)",
+    connector:     "bg-teal-100",
+    titleHov:      "text-teal-600",
+    unit:          "from-teal-50 to-cyan-50/40 border-teal-100",
+    unitNumGrad:   "from-teal-600 to-cyan-600",
+    unitText:      "text-teal-800",
+    unitLabel:     "text-teal-500",
+    badge:         "bg-teal-50 text-teal-700 border-teal-100",
+    iconGrad:      "from-teal-500 to-teal-600",
+    mascotBg:      "from-teal-50 to-cyan-50",
+    mascotBorder:  "border-teal-100",
+    progressBg:    "bg-teal-100",
+    progressFill:  "bg-teal-600",
   },
   violet: {
-    header:  "bg-gradient-to-br from-violet-50 to-purple-50",
-    icon:    "from-violet-500 to-violet-600",
-    text:    "text-violet-600",
-    badge:   "bg-violet-50 text-violet-700 border-violet-200",
-    accent:  "hsl(262,83%,58%)",
+    headerGrad:    "from-violet-600 to-purple-600",
+    headerBg:      "from-violet-50/80 via-purple-50/40 to-white",
+    node:          "border-violet-300 bg-violet-50 text-violet-600",
+    nodeHov:       "bg-violet-600 border-violet-600 text-white",
+    nodeShadow:    "0 8px 24px rgba(124,58,237,0.3)",
+    connector:     "bg-violet-100",
+    titleHov:      "text-violet-600",
+    unit:          "from-violet-50 to-purple-50/40 border-violet-100",
+    unitNumGrad:   "from-violet-600 to-purple-600",
+    unitText:      "text-violet-800",
+    unitLabel:     "text-violet-500",
+    badge:         "bg-violet-50 text-violet-700 border-violet-100",
+    iconGrad:      "from-violet-500 to-violet-600",
+    mascotBg:      "from-violet-50 to-purple-50",
+    mascotBorder:  "border-violet-100",
+    progressBg:    "bg-violet-100",
+    progressFill:  "bg-violet-600",
   },
   amber: {
-    header:  "bg-gradient-to-br from-amber-50 to-orange-50",
-    icon:    "from-amber-500 to-amber-600",
-    text:    "text-amber-600",
-    badge:   "bg-amber-50 text-amber-700 border-amber-200",
-    accent:  "hsl(38,92%,50%)",
+    headerGrad:    "from-amber-500 to-orange-500",
+    headerBg:      "from-amber-50/80 via-orange-50/40 to-white",
+    node:          "border-amber-300 bg-amber-50 text-amber-600",
+    nodeHov:       "bg-amber-500 border-amber-500 text-white",
+    nodeShadow:    "0 8px 24px rgba(245,158,11,0.3)",
+    connector:     "bg-amber-100",
+    titleHov:      "text-amber-600",
+    unit:          "from-amber-50 to-orange-50/40 border-amber-100",
+    unitNumGrad:   "from-amber-500 to-orange-500",
+    unitText:      "text-amber-800",
+    unitLabel:     "text-amber-500",
+    badge:         "bg-amber-50 text-amber-700 border-amber-100",
+    iconGrad:      "from-amber-500 to-amber-600",
+    mascotBg:      "from-amber-50 to-orange-50",
+    mascotBorder:  "border-amber-100",
+    progressBg:    "bg-amber-100",
+    progressFill:  "bg-amber-500",
   },
 } as const;
 
-// ─── Component ────────────────────────────────────────────────────────────────
+type ThemeKey = keyof typeof PATH_THEME;
+
+// ─── Chapter Node ─────────────────────────────────────────────────────────────
+
+function ChapterNode({
+  chapter,
+  theme,
+  isLast,
+  lang,
+  globalIndex,
+}: {
+  chapter: Chapter;
+  theme: (typeof PATH_THEME)[ThemeKey];
+  isLast: boolean;
+  lang: string;
+  globalIndex: number;
+}) {
+  const [hovered, setHovered] = useState(false);
+  const href = getChapterHref(chapter.href);
+  const external = isExternal(chapter.href);
+  const t = lang === "es";
+
+  return (
+    <a
+      href={href}
+      target={external ? "_blank" : "_self"}
+      rel={external ? "noopener noreferrer" : undefined}
+      className="flex items-start gap-4 no-underline cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-xl"
+      aria-label={`${t ? "Capítulo" : "Chapter"} ${chapter.id}: ${chapter.title}${external ? (t ? " (abre en nueva pestaña)" : " (opens in new tab)") : ""}`}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onFocus={() => setHovered(true)}
+      onBlur={() => setHovered(false)}
+      style={{
+        animationDelay: `${globalIndex * 40}ms`,
+      }}
+    >
+      {/* Left track: circle + connector line */}
+      <div className="flex flex-col items-center flex-shrink-0 select-none">
+        <div
+          className={`w-14 h-14 rounded-full border-2 flex items-center justify-center font-bold text-[15px] transition-all duration-250 flex-shrink-0 ${
+            hovered ? theme.nodeHov : theme.node
+          }`}
+          style={
+            hovered
+              ? { boxShadow: theme.nodeShadow, transform: "scale(1.1)" }
+              : { transform: "scale(1)" }
+          }
+          aria-hidden="true"
+        >
+          {String(chapter.id).padStart(2, "0")}
+        </div>
+
+        {!isLast && (
+          <div
+            className={`w-0.5 flex-1 min-h-7 mt-1 transition-opacity duration-300 ${theme.connector} ${hovered ? "opacity-100" : "opacity-60"}`}
+          />
+        )}
+      </div>
+
+      {/* Chapter content */}
+      <div className="flex-1 min-w-0 pt-2.5 pb-6">
+        <p className="text-[11px] font-semibold uppercase tracking-widest text-muted-foreground/60 mb-0.5 tabular-nums">
+          {t ? `Capítulo ${chapter.id}` : `Chapter ${chapter.id}`}
+        </p>
+        <h3
+          className={`text-[15px] font-bold leading-snug transition-colors duration-200 ${
+            hovered ? theme.titleHov : "text-foreground"
+          }`}
+        >
+          {chapter.title}
+        </h3>
+        {external && (
+          <span className="inline-flex items-center gap-1 text-xs text-muted-foreground/60 mt-1">
+            <ExternalLink className="w-3 h-3" aria-hidden="true" />
+            {t ? "PDF · Abre en nueva pestaña" : "PDF · Opens in new tab"}
+          </span>
+        )}
+      </div>
+
+      {/* Trailing arrow */}
+      <div
+        className={`flex-shrink-0 mt-3 transition-all duration-200 ${
+          hovered ? `${theme.titleHov} translate-x-0.5` : "text-muted-foreground/20"
+        }`}
+        aria-hidden="true"
+      >
+        {external ? (
+          <ExternalLink className="w-4 h-4" />
+        ) : (
+          <svg viewBox="0 0 16 16" className="w-4 h-4 fill-current">
+            <path d="M5.293 3.293a1 1 0 011.414 0L11.414 8l-4.707 4.707a1 1 0 01-1.414-1.414L8.586 8 5.293 4.707a1 1 0 010-1.414z" />
+          </svg>
+        )}
+      </div>
+    </a>
+  );
+}
+
+// ─── Unit Header ──────────────────────────────────────────────────────────────
+
+function UnitHeader({
+  index,
+  name,
+  chaptersCount,
+  theme,
+  lang,
+}: {
+  index: number;
+  name: string;
+  chaptersCount: number;
+  theme: (typeof PATH_THEME)[ThemeKey];
+  lang: string;
+}) {
+  const t = lang === "es";
+  return (
+    <div
+      className={`flex items-center gap-3 rounded-2xl p-4 md:p-5 bg-gradient-to-r ${theme.unit} mb-2 mt-8 first:mt-0`}
+    >
+      <div
+        className={`w-9 h-9 rounded-xl bg-gradient-to-br ${theme.unitNumGrad} flex items-center justify-center text-white font-extrabold text-sm flex-shrink-0 shadow-sm`}
+        aria-hidden="true"
+      >
+        {index + 1}
+      </div>
+
+      <div className="flex-1 min-w-0">
+        <p className={`text-[10px] font-bold uppercase tracking-[0.14em] ${theme.unitLabel} mb-0.5`}>
+          {t ? `Unidad ${index + 1}` : `Unit ${index + 1}`}
+        </p>
+        <p className={`font-bold text-[14px] ${theme.unitText} truncate`}>{name}</p>
+      </div>
+
+      <span
+        className={`text-[11px] font-semibold px-2.5 py-1 rounded-lg border flex-shrink-0 ${theme.badge}`}
+      >
+        {chaptersCount} {t ? "caps." : "chaps."}
+      </span>
+    </div>
+  );
+}
+
+// ─── Sticky Mascot Panel (desktop) ────────────────────────────────────────────
+
+function MascotPanel({
+  course,
+  theme,
+  lang,
+}: {
+  course: ReturnType<typeof courses.find> & object;
+  theme: (typeof PATH_THEME)[ThemeKey];
+  lang: string;
+}) {
+  const t = lang === "es";
+  const title = t ? course.titleEs : course.titleEn;
+  const description = t ? course.descriptionEs : course.descriptionEn;
+  const mascot = COURSE_MASCOTS[course.slug] ?? "/owl-logo.png";
+  const totalChaps = course.chapters.length;
+
+  return (
+    <aside
+      className="hidden lg:block"
+      aria-label={t ? "Panel del curso" : "Course panel"}
+    >
+      <div
+        className={`sticky top-24 rounded-3xl bg-gradient-to-b ${theme.mascotBg} border ${theme.mascotBorder} p-6 text-center overflow-hidden`}
+      >
+        {/* Mascot illustration */}
+        <div className="relative mx-auto w-44 h-44 mb-4">
+          <div
+            className="absolute inset-4 rounded-full opacity-20 blur-xl"
+            style={{
+              background: `radial-gradient(circle, var(--node-accent, #3b82f6), transparent)`,
+            }}
+            aria-hidden="true"
+          />
+          <img
+            src={mascot}
+            alt=""
+            aria-hidden="true"
+            className="relative z-10 w-full h-full object-contain animate-float-slow select-none"
+            loading="lazy"
+          />
+        </div>
+
+        {/* Course info */}
+        <h2 className={`font-extrabold text-base leading-snug mb-1.5 ${theme.unitText}`}>
+          {title}
+        </h2>
+        <p className="text-sm text-muted-foreground leading-relaxed mb-4 line-clamp-2">
+          {description}
+        </p>
+
+        {/* Stats */}
+        <div className={`rounded-xl ${theme.progressBg} p-3 mb-4 text-center`}>
+          <p
+            className={`text-2xl font-extrabold tabular-nums ${theme.unitText}`}
+            style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.04em" }}
+          >
+            {totalChaps}
+          </p>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground/70">
+            {t ? "capítulos" : "chapters"}
+          </p>
+        </div>
+
+        {/* Free badge */}
+        <div className="flex items-center justify-center gap-1.5 text-xs font-semibold text-muted-foreground">
+          <GraduationCap className="w-3.5 h-3.5" aria-hidden="true" />
+          {t ? "100% gratuito · sin registro" : "100% free · no sign-up"}
+        </div>
+      </div>
+    </aside>
+  );
+}
+
+// ─── Main component ───────────────────────────────────────────────────────────
 
 const CoursePage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -71,12 +352,62 @@ const CoursePage = () => {
 
   const course = courses.find((c) => c.slug === slug);
 
-  // ── 404 state ────────────────────────────────────────────────────────────
+  // ── Dynamic SEO meta + Course JSON-LD ─────────────────────────────────────
+  const courseJsonLd = course
+    ? {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "@id": `https://espanolsinfronteras.org/curso/${course.slug}`,
+        name: course.titleEs,
+        alternateName: course.titleEn,
+        description: course.descriptionEs,
+        url: `https://espanolsinfronteras.org/curso/${course.slug}`,
+        provider: {
+          "@type": "EducationalOrganization",
+          "@id": "https://espanolsinfronteras.org/#organization",
+          name: "Español Sin Fronteras",
+        },
+        isAccessibleForFree: true,
+        numberOfCredits: course.chapters.length,
+        hasCourseInstance: {
+          "@type": "CourseInstance",
+          courseMode: "online",
+          courseWorkload: `PT${course.chapters.length * 30}M`,
+        },
+        breadcrumb: {
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Inicio", item: "https://espanolsinfronteras.org/" },
+            { "@type": "ListItem", position: 2, name: "Cursos", item: "https://espanolsinfronteras.org/#cursos" },
+            { "@type": "ListItem", position: 3, name: course.titleEs, item: `https://espanolsinfronteras.org/curso/${course.slug}` },
+          ],
+        },
+      }
+    : undefined;
+
+  useSEOMeta(
+    course
+      ? `${t ? course.titleEs : course.titleEn} | Español Sin Fronteras`
+      : "Curso no encontrado | Español Sin Fronteras",
+    course
+      ? `${t ? course.descriptionEs : course.descriptionEn} ${course.chapters.length} ${t ? "capítulos gratuitos. Sin registro." : "free chapters. No sign-up."}`
+      : undefined,
+    courseJsonLd,
+  );
+
   if (!course) {
     return (
       <div className="flex min-h-[70vh] items-center justify-center px-5">
         <div className="text-center max-w-sm">
-          <p className="text-6xl font-extrabold text-primary/20 mb-4" aria-hidden="true">404</p>
+          <img
+            src="/owl-logo.png"
+            alt=""
+            aria-hidden
+            className="w-20 h-20 object-contain mx-auto mb-4 opacity-30"
+          />
+          <p className="text-6xl font-extrabold text-primary/20 mb-4" aria-hidden="true">
+            404
+          </p>
           <h1 className="text-xl font-bold text-foreground mb-2">
             {t ? "Curso no encontrado" : "Course not found"}
           </h1>
@@ -93,47 +424,51 @@ const CoursePage = () => {
     );
   }
 
-  const title       = t ? course.titleEs       : course.titleEn;
+  const title = t ? course.titleEs : course.titleEn;
   const description = t ? course.descriptionEs : course.descriptionEn;
-  const color       = COLOR_MAP[course.colorClass] ?? COLOR_MAP.blue;
-  const Icon        = courseIconMap[course.icon];
+  const theme = PATH_THEME[course.colorClass as ThemeKey] ?? PATH_THEME.blue;
+  const Icon = courseIconMap[course.icon];
+  const mascot = COURSE_MASCOTS[course.slug] ?? "/owl-logo.png";
+
+  const unitNames = UNIT_NAMES[course.slug] ?? [];
+  const UNIT_SIZE = 6;
+  const units = groupIntoUnits(course.chapters, UNIT_SIZE);
 
   return (
     <article aria-label={title}>
-      {/* ── Course header ───────────────────────────────────────────────── */}
-      <header className={`${color.header} border-b border-border py-14 px-5 relative overflow-hidden`}>
-        {/* Subtle corner decoration */}
+      {/* ── Course header ─────────────────────────────────────────────────── */}
+      <header
+        className={`bg-gradient-to-b ${theme.headerBg} border-b border-border/60 pt-10 pb-0 px-5 relative overflow-hidden`}
+      >
+        {/* Decorative gradient blob */}
         <div
-          className="absolute top-0 right-0 w-72 h-72 rounded-bl-full opacity-[0.04]"
-          style={{ background: color.accent }}
+          className={`absolute -top-32 -right-32 w-96 h-96 rounded-full opacity-[0.07] blur-3xl bg-gradient-to-br ${theme.headerGrad}`}
           aria-hidden="true"
         />
 
         <div className="container-page relative z-10">
           {/* Breadcrumb */}
-          <nav aria-label={t ? "Navegación de migas" : "Breadcrumb"} className="mb-8">
-            <ol className="flex items-center gap-1.5 text-sm">
+          <nav aria-label={t ? "Navegación de migas" : "Breadcrumb"} className="mb-7">
+            <ol className="flex items-center gap-1.5 text-sm flex-wrap">
               <li>
-                <Link
-                  to="/"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
+                <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors">
                   {t ? "Inicio" : "Home"}
                 </Link>
               </li>
               <li aria-hidden="true">
-                <ChevronRight className="w-3.5 h-3.5 text-muted-foreground/50" />
+                <svg viewBox="0 0 16 16" className="w-3 h-3 text-muted-foreground/40 fill-current mx-0.5">
+                  <path d="M5.293 3.293a1 1 0 011.414 0L11.414 8l-4.707 4.707a1 1 0 01-1.414-1.414L8.586 8 5.293 4.707a1 1 0 010-1.414z" />
+                </svg>
               </li>
               <li>
-                <Link
-                  to="/#cursos"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
+                <Link to="/#cursos" className="text-muted-foreground hover:text-foreground transition-colors">
                   {t ? "Cursos" : "Courses"}
                 </Link>
               </li>
               <li aria-hidden="true">
-                <ChevronRight className="w-3.5 h-3.5 text-muted-foreground/50" />
+                <svg viewBox="0 0 16 16" className="w-3 h-3 text-muted-foreground/40 fill-current mx-0.5">
+                  <path d="M5.293 3.293a1 1 0 011.414 0L11.414 8l-4.707 4.707a1 1 0 01-1.414-1.414L8.586 8 5.293 4.707a1 1 0 010-1.414z" />
+                </svg>
               </li>
               <li className="text-foreground font-medium" aria-current="page">
                 {title}
@@ -141,102 +476,126 @@ const CoursePage = () => {
             </ol>
           </nav>
 
-          {/* Back link (visible on mobile) */}
-          <Link
-            to="/#cursos"
-            className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors mb-6 group md:hidden"
-          >
-            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" aria-hidden="true" />
-            {t ? "Todos los cursos" : "All courses"}
-          </Link>
-
-          {/* Course meta */}
-          <div className="flex items-start gap-5">
+          {/* Course identity row */}
+          <div className="flex items-start gap-5 pb-10">
+            {/* Icon */}
             <div
-              className={`w-16 h-16 bg-gradient-to-br ${color.icon} rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0`}
+              className={`w-16 h-16 bg-gradient-to-br ${theme.iconGrad} rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0`}
               aria-hidden="true"
             >
               {Icon && <Icon className="w-7 h-7 text-white" strokeWidth={2} />}
             </div>
 
-            <div>
-              <h1 className="text-2xl md:text-3xl font-extrabold text-foreground tracking-tight mb-1.5">
+            <div className="flex-1 min-w-0">
+              <h1 className="text-2xl md:text-[1.75rem] font-extrabold text-foreground tracking-tight mb-1.5 leading-tight">
                 {title}
               </h1>
-              <p className="text-muted-foreground text-[15px] max-w-lg mb-4">
+              <p className="text-muted-foreground text-[15px] max-w-lg mb-4 leading-relaxed">
                 {description}
               </p>
-              <span className={`badge-pill ${color.badge}`}>
-                <BookOpen className="w-3.5 h-3.5" aria-hidden="true" />
-                {course.chapters.length} {t ? "capítulos" : "chapters"}
-              </span>
+              <div className="flex flex-wrap items-center gap-2">
+                <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold border shrink-0 ${theme.badge}`}>
+                  <BookOpen className="w-3.5 h-3.5" aria-hidden="true" />
+                  {course.chapters.length} {t ? "capítulos" : "chapters"}
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold border border-border bg-secondary text-muted-foreground shrink-0">
+                  <GraduationCap className="w-3.5 h-3.5" aria-hidden="true" />
+                  {t ? "100% gratis" : "100% free"}
+                </span>
+              </div>
+            </div>
+
+            {/* Mobile mascot (hidden on desktop — desktop gets sticky aside) */}
+            <div className="lg:hidden flex-shrink-0 -mt-2">
+              <img
+                src={mascot}
+                alt=""
+                aria-hidden="true"
+                className="w-20 h-20 object-contain animate-float-slow"
+                loading="eager"
+              />
             </div>
           </div>
         </div>
       </header>
 
-      {/* ── Chapter list ────────────────────────────────────────────────── */}
-      <section className="py-14 px-5" aria-labelledby="chapters-heading">
-        <div className="container-page max-w-3xl">
-          <h2
-            id="chapters-heading"
-            className="text-base font-bold text-foreground flex items-center gap-3 mb-6"
-          >
-            <span
-              className="w-1 h-5 rounded-full"
-              style={{ background: color.accent }}
-              aria-hidden="true"
-            />
-            {t ? "Capítulos del curso" : "Course chapters"}
+      {/* ── Learning path + sticky mascot ─────────────────────────────────── */}
+      <section className="py-12 px-5 bg-white" aria-labelledby="path-heading">
+        <div className="container-page">
+          <h2 id="path-heading" className="sr-only">
+            {t ? `Ruta de aprendizaje — ${title}` : `Learning path — ${title}`}
           </h2>
 
-          <ol className="grid gap-2.5" aria-label={t ? `Capítulos de ${title}` : `Chapters of ${title}`}>
-            {course.chapters.map((ch) => {
-              const href = getChapterHref(ch.href);
-              const external = isExternal(ch.href);
+          <div className="lg:grid lg:grid-cols-[1fr_300px] lg:gap-14 items-start">
+            {/* ── LEFT: chapter path ─────────────────────────────────────── */}
+            <div>
+              {units.map((unitChapters, unitIndex) => {
+                const unitName =
+                  unitNames[unitIndex] ??
+                  (t ? `Unidad ${unitIndex + 1}` : `Unit ${unitIndex + 1}`);
 
-              return (
-                <li key={ch.id}>
-                  <a
-                    href={href}
-                    target={external ? "_blank" : "_self"}
-                    rel={external ? "noopener noreferrer" : undefined}
-                    className="chapter-card"
-                    aria-label={`${t ? "Capítulo" : "Chapter"} ${ch.id}: ${ch.title}${external ? (t ? " (abre en nueva pestaña)" : " (opens in new tab)") : ""}`}
-                  >
-                    <span className="chapter-number" aria-hidden="true">
-                      {ch.id}
-                    </span>
-                    <span className="flex-1 min-w-0">
-                      <span className="font-semibold text-foreground text-sm">
-                        {ch.title}
-                      </span>
-                    </span>
-                    {external ? (
-                      <ExternalLink className="w-3.5 h-3.5 text-muted-foreground/30 group-hover:text-primary flex-shrink-0 transition-colors" aria-hidden="true" />
-                    ) : (
-                      <ChevronRight className="w-4 h-4 text-muted-foreground/30 flex-shrink-0 transition-all group-hover:text-primary group-hover:translate-x-0.5" aria-hidden="true" />
-                    )}
-                  </a>
-                </li>
-              );
-            })}
-          </ol>
+                let globalStart = 0;
+                for (let u = 0; u < unitIndex; u++) {
+                  globalStart += units[u].length;
+                }
+
+                return (
+                  <div key={unitIndex}>
+                    <UnitHeader
+                      index={unitIndex}
+                      name={unitName}
+                      chaptersCount={unitChapters.length}
+                      theme={theme}
+                      lang={lang}
+                    />
+
+                    <ol
+                      className="mt-4"
+                      aria-label={`${t ? "Capítulos de" : "Chapters of"} ${unitName}`}
+                    >
+                      {unitChapters.map((ch, chIndex) => {
+                        const isLastInUnit = chIndex === unitChapters.length - 1;
+                        const isLastOverall =
+                          unitIndex === units.length - 1 && isLastInUnit;
+                        const globalIdx = globalStart + chIndex;
+
+                        return (
+                          <li key={ch.id} className="list-none">
+                            <ChapterNode
+                              chapter={ch}
+                              theme={theme}
+                              isLast={isLastOverall}
+                              lang={lang}
+                              globalIndex={globalIdx}
+                            />
+                          </li>
+                        );
+                      })}
+                    </ol>
+                  </div>
+                );
+              })}
+
+              {/* Back link */}
+              <div className="mt-10 pt-8 border-t border-border/60">
+                <Link
+                  to="/#cursos"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors group"
+                >
+                  <ArrowLeft
+                    className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform"
+                    aria-hidden="true"
+                  />
+                  {t ? "Ver todos los cursos" : "See all courses"}
+                </Link>
+              </div>
+            </div>
+
+            {/* ── RIGHT: sticky mascot panel (desktop) ─────────────────── */}
+            {course && <MascotPanel course={course} theme={theme} lang={lang} />}
+          </div>
         </div>
       </section>
-
-      {/* ── Back CTA ────────────────────────────────────────────────────── */}
-      <div className="px-5 pb-16">
-        <div className="container-page max-w-3xl">
-          <Link
-            to="/#cursos"
-            className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors group"
-          >
-            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" aria-hidden="true" />
-            {t ? "Ver todos los cursos" : "See all courses"}
-          </Link>
-        </div>
-      </div>
     </article>
   );
 };
