@@ -191,7 +191,7 @@ function Footer() {
             © {year} Español Sin Fronteras. {t ? "Todos los derechos reservados." : "All rights reserved."}
           </p>
           <p className="text-white/15 text-xs">
-            {t ? "Hecho con ❤️ desde Lima, Perú" : "Made with ❤️ from Lima, Peru"}
+            {t ? "Hecho con ❤️ desde Perú" : "Made with ❤️ from Peru"}
           </p>
         </div>
       </div>

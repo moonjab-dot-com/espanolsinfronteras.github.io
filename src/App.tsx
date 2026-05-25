@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { LanguageProvider } from "@/context/LanguageContext";
 import Layout from "@/components/layout/Layout";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import HomePage from "@/pages/HomePage";
 import CoursePage from "@/pages/CoursePage";
 import NotFound from "@/pages/NotFound";
@@ -28,6 +29,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <LanguageProvider>
           <Layout>
             <Routes>
