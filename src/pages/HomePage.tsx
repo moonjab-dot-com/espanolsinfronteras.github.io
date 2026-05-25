@@ -186,6 +186,7 @@ function HeroSection() {
                 width={260}
                 height={260}
                 loading="eager"
+                fetchPriority="high"
               />
 
               {/* Floating subject pills */}
@@ -653,6 +654,8 @@ function GallerySection() {
                     alt={t ? captionEs : captionEn}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
+                    width={800}
+                    height={600}
                   />
                 </div>
                 <div className="px-5 py-4 border-t border-border">
@@ -703,7 +706,6 @@ function FAQSection() {
 
         <div
           className="max-w-2xl mx-auto border border-border rounded-2xl overflow-hidden divide-y divide-border"
-          role="list"
           aria-label={t ? "Preguntas frecuentes" : "Frequently asked questions"}
         >
           {faqItems.map((item, i) => {
@@ -715,7 +717,7 @@ function FAQSection() {
 
             return (
               <Reveal key={i} delay={i * 50}>
-                <div role="listitem" className="faq-item">
+                <div className="faq-item">
                   <button
                     id={triggerId}
                     className="faq-trigger px-6"
