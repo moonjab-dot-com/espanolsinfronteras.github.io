@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/context/LanguageContext";
-import { courses, testimonials, faqItems, socialLinks } from "@/data/courses";
+import { courses, testimonials, faqItems, socialLinks, partners } from "@/data/courses";
 import {
   ArrowRight, BookOpen, ChevronDown, ChevronRight,
-  ExternalLink, GraduationCap, Globe, Heart,
+  ExternalLink, GraduationCap, Globe, Handshake, Heart,
   Mail, MessageCircle, Quote, Sparkles,
 } from "lucide-react";
 import { courseIconMap } from "@/lib/course-icons";
@@ -916,6 +916,63 @@ function ContactSection() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+// PARTNERS / ALIANZAS
+// ─────────────────────────────────────────────────────────────────────────────
+
+function PartnersSection() {
+  const { lang } = useLanguage();
+  const t = lang === "es";
+
+  return (
+    <section
+      className="section-padding bg-white"
+      id="alianzas"
+      aria-labelledby="alianzas-heading"
+    >
+      <div className="container-page">
+        <Reveal>
+          <div className="text-center mb-12">
+            <p className="section-eyebrow">
+              <Handshake className="w-3.5 h-3.5" aria-hidden="true" />
+              {t ? "Alianzas" : "Partners"}
+            </p>
+            <h2 id="alianzas-heading" className="text-3xl md:text-4xl font-extrabold text-foreground">
+              {t ? "Organizaciones que " : "Organizations that "}
+              <span className="bg-gradient-to-r from-primary to-teal-500 bg-clip-text text-transparent">
+                {t ? "creen en la misión" : "believe in the mission"}
+              </span>
+            </h2>
+            <p className="text-muted-foreground text-base max-w-sm mx-auto mt-3">
+              {t
+                ? "Trabajamos con organizaciones que comparten nuestra visión de educación accesible para todos."
+                : "We work with organizations that share our vision of accessible education for all."}
+            </p>
+          </div>
+        </Reveal>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
+          {partners.map((partner, i) => (
+            <Reveal key={partner.name} delay={i * 55}>
+              <div className="group flex flex-col items-center gap-3 p-5 rounded-2xl border border-border bg-white hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 text-center h-full">
+                <div
+                  className={`w-14 h-14 rounded-2xl border flex items-center justify-center font-extrabold text-xs tracking-tight flex-shrink-0 ${partner.color}`}
+                  aria-hidden="true"
+                >
+                  {partner.abbr}
+                </div>
+                <p className="text-[13px] font-semibold text-foreground leading-snug group-hover:text-primary transition-colors">
+                  {t ? partner.nameEs : partner.name}
+                </p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 // PAGE COMPOSITION
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -925,6 +982,7 @@ const HomePage = () => (
     <CoursesSection />
     <ImpactSection />
     <MissionSection />
+    <PartnersSection />
     <MascotShowcaseSection />
     <GallerySection />
     <MiCuentoSection />

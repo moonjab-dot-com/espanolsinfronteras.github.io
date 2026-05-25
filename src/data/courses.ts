@@ -255,6 +255,24 @@ export const faqItems = [
   },
 ];
 
+export interface Partner {
+  name: string;
+  nameEs: string;
+  abbr: string;
+  color: string;
+}
+
+export const partners: Partner[] = [
+  { name: "Financial Literacy HQ", nameEs: "Financial Literacy HQ", abbr: "FLHQ", color: "bg-emerald-50 text-emerald-600 border-emerald-100" },
+  { name: "UpWright Youth",        nameEs: "UpWright Youth",        abbr: "UWY",  color: "bg-blue-50 text-blue-600 border-blue-100"       },
+  { name: "UpWard Bound",          nameEs: "UpWard Bound",          abbr: "UB",   color: "bg-violet-50 text-violet-600 border-violet-100"  },
+  { name: "SpanTheWorld",          nameEs: "SpanTheWorld",          abbr: "STW",  color: "bg-teal-50 text-teal-600 border-teal-100"        },
+  { name: "Eternal Growth",        nameEs: "Eternal Growth",        abbr: "EG",   color: "bg-amber-50 text-amber-600 border-amber-100"     },
+  { name: "Investment & Economics Club", nameEs: "Investment & Economics Club", abbr: "IEC", color: "bg-green-50 text-green-600 border-green-100" },
+  { name: "Vertex",                nameEs: "Vertex",                abbr: "VX",   color: "bg-indigo-50 text-indigo-600 border-indigo-100"  },
+  { name: "Next Fellow",           nameEs: "Next Fellow",           abbr: "NF",   color: "bg-rose-50 text-rose-600 border-rose-100"        },
+];
+
 export const socialLinks = [
   { name: "Instagram", url: "https://www.instagram.com/espanol_sin_fronteras_org", handle: "@espanol_sin_fronteras_org" },
   { name: "TikTok",    url: "https://www.tiktok.com/@espanolsinfronteras.org", handle: "@espanolsinfronteras.org" },
