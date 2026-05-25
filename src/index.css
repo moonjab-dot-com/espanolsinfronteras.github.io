@@ -387,6 +387,32 @@
   flex-shrink: 0;
 }
 
+/* ─── Brand Scroller ─────────────────────────────────────────────────────────
+   Infinite marquee animation used by BrandScroller (/components/ui).
+   GPU-accelerated via will-change: transform.
+   Duration controlled by the --marquee-duration CSS custom property
+   set inline by the component. */
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.animate-marquee {
+  animation: marquee var(--marquee-duration, 36s) linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse var(--marquee-duration, 36s) linear infinite;
+  will-change: transform;
+}
+
 /* ─── Reduced Motion ─────────────────────────────────────────────────────────*/
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-up,
@@ -396,6 +422,13 @@
   .animate-pulse-glow {
     animation: none !important;
     opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Marquee: fully stopped — component renders a static grid instead */
+  .animate-marquee,
+  .animate-marquee-reverse {
+    animation: none !important;
     transform: none !important;
   }
 
