@@ -42,14 +42,14 @@
       "name": "Educación Financiera",
       "short_name": "Finanzas",
       "description": "Aprende finanzas personales gratis",
-      "url": "/#curso/finanzas",
+      "url": "/curso/finanzas",
       "icons": [{ "src": "/icon-96.png", "sizes": "96x96" }]
     },
     {
       "name": "Programación",
       "short_name": "Programación",
       "description": "HTML, CSS, JavaScript, Python y Ciberseguridad",
-      "url": "/#curso/programacion",
+      "url": "/curso/programacion",
       "icons": [{ "src": "/icon-96.png", "sizes": "96x96" }]
     }
   ]

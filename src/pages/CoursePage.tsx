@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useLanguage } from "@/context/LanguageContext";
 import { courses } from "@/data/courses";
@@ -7,6 +7,23 @@ import { ArrowLeft, BookOpen, ExternalLink, GraduationCap } from "lucide-react";
 import { courseIconMap } from "@/lib/course-icons";
 import { COURSE_MASCOTS, UNIT_NAMES } from "@/lib/course-mascots";
 import { useSEOMeta } from "@/hooks/useSEOMeta";
+
+const COURSE_LANGUAGE: Record<string, string> = {
+  ingles: "en",
+  "global-finance": "en",
+};
+
+const COURSE_TOPICS: Record<string, string[]> = {
+  espanol:          ["gramática española", "ortografía", "vocabulario", "morfología", "sintaxis", "comunicación verbal"],
+  finanzas:         ["ahorro personal", "presupuesto", "inversión", "impuestos", "sistema financiero", "emprendimiento"],
+  programacion:     ["HTML", "CSS", "JavaScript", "Python", "DOM", "programación web"],
+  matematicas:      ["aritmética", "geometría", "probabilidad", "medidas y magnitudes", "volúmenes"],
+  ciencias:         ["física", "movimiento rectilíneo", "caída libre", "química", "biología celular", "átomos"],
+  ciberseguridad:   ["ciberseguridad", "protección digital", "seguridad informática", "respuesta a incidentes"],
+  ingles:           ["present perfect", "past simple", "past continuous", "English grammar", "question forms"],
+  "herencia-peruana": ["historia del Perú", "cultura inca", "gastronomía peruana", "geografía peruana", "tradiciones peruanas"],
+  "global-finance": ["budgeting", "investing", "saving", "credit management", "income generation"],
+};
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -394,37 +411,54 @@ const CoursePage = () => {
   const course = courses.find((c) => c.slug === slug);
 
   // ── Dynamic SEO meta + Course JSON-LD ─────────────────────────────────────
-  const courseJsonLd = course
-    ? {
-        "@context": "https://schema.org",
-        "@type": "Course",
-        "@id": `https://espanolsinfronteras.org/curso/${course.slug}`,
-        name: course.titleEs,
-        alternateName: course.titleEn,
-        description: course.descriptionEs,
-        url: `https://espanolsinfronteras.org/curso/${course.slug}`,
-        provider: {
-          "@type": "EducationalOrganization",
-          "@id": "https://espanolsinfronteras.org/#organization",
-          name: "Español Sin Fronteras",
+  const courseJsonLd = useMemo(() => {
+    if (!course) return undefined;
+    return {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "@id": `https://espanolsinfronteras.org/curso/${course.slug}`,
+      name: course.titleEs,
+      alternateName: course.titleEn,
+      description: course.descriptionEs,
+      url: `https://espanolsinfronteras.org/curso/${course.slug}`,
+      provider: {
+        "@type": "EducationalOrganization",
+        "@id": "https://espanolsinfronteras.org/#organization",
+        name: "Español Sin Fronteras",
+      },
+      isAccessibleForFree: true,
+      inLanguage: COURSE_LANGUAGE[course.slug] ?? "es",
+      educationalLevel: course.slug === "ingles" ? "intermediate" : "beginner",
+      teaches: [
+        ...(COURSE_TOPICS[course.slug] ?? []),
+        ...course.chapters.map((ch) => ch.title),
+      ],
+      audience: {
+        "@type": "EducationalAudience",
+        educationalRole: "student",
+        audienceType: "Students and self-learners worldwide",
+      },
+      numberOfCredits: course.chapters.length,
+      hasCourseInstance: {
+        "@type": "CourseInstance",
+        courseMode: "online",
+        courseWorkload: `PT${course.chapters.length * 30}M`,
+        instructor: {
+          "@type": "Person",
+          "@id": "https://espanolsinfronteras.org/#salvador-b",
+          name: "Salvador B.",
         },
-        isAccessibleForFree: true,
-        numberOfCredits: course.chapters.length,
-        hasCourseInstance: {
-          "@type": "CourseInstance",
-          courseMode: "online",
-          courseWorkload: `PT${course.chapters.length * 30}M`,
-        },
-        breadcrumb: {
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Inicio", item: "https://espanolsinfronteras.org/" },
-            { "@type": "ListItem", position: 2, name: "Cursos", item: "https://espanolsinfronteras.org/#cursos" },
-            { "@type": "ListItem", position: 3, name: course.titleEs, item: `https://espanolsinfronteras.org/curso/${course.slug}` },
-          ],
-        },
-      }
-    : undefined;
+      },
+      breadcrumb: {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Inicio", item: "https://espanolsinfronteras.org/" },
+          { "@type": "ListItem", position: 2, name: "Cursos", item: "https://espanolsinfronteras.org/#cursos" },
+          { "@type": "ListItem", position: 3, name: course.titleEs, item: `https://espanolsinfronteras.org/curso/${course.slug}` },
+        ],
+      },
+    };
+  }, [course]);
 
   useSEOMeta(
     course
