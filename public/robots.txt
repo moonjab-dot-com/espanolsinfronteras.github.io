@@ -1,7 +1,7 @@
 # ============================================================
 # robots.txt — Español Sin Fronteras
 # https://espanolsinfronteras.org/
-# Updated: 2026-05-24
+# Updated: 2026-05-25
 # ============================================================
 
 User-agent: *
@@ -31,6 +31,27 @@ User-agent: Bingbot
 Allow: /
 
 User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Gemini
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Amazonbot
 Allow: /
 
 # ── Block training-only scrapers ─────────────────────────────

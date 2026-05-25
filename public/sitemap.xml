@@ -5,7 +5,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://espanolsinfronteras.org/</loc>
-    <lastmod>2026-05-24</lastmod>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://espanolsinfronteras.org/"/>
@@ -14,14 +14,86 @@
   </url>
 
   <!-- Course pages -->
-  <url><loc>https://espanolsinfronteras.org/curso/espanol</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://espanolsinfronteras.org/curso/finanzas</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://espanolsinfronteras.org/curso/programacion</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://espanolsinfronteras.org/curso/matematicas</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://espanolsinfronteras.org/curso/ciencias</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://espanolsinfronteras.org/curso/ciberseguridad</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://espanolsinfronteras.org/curso/ingles</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://espanolsinfronteras.org/curso/herencia-peruana</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://espanolsinfronteras.org/curso/global-finance</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url>
+    <loc>https://espanolsinfronteras.org/curso/espanol</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://espanolsinfronteras.org/curso/espanol"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://espanolsinfronteras.org/curso/espanol"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://espanolsinfronteras.org/curso/espanol"/>
+  </url>
+  <url>
+    <loc>https://espanolsinfronteras.org/curso/finanzas</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://espanolsinfronteras.org/curso/finanzas"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://espanolsinfronteras.org/curso/finanzas"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://espanolsinfronteras.org/curso/finanzas"/>
+  </url>
+  <url>
+    <loc>https://espanolsinfronteras.org/curso/programacion</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://espanolsinfronteras.org/curso/programacion"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://espanolsinfronteras.org/curso/programacion"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://espanolsinfronteras.org/curso/programacion"/>
+  </url>
+  <url>
+    <loc>https://espanolsinfronteras.org/curso/matematicas</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://espanolsinfronteras.org/curso/matematicas"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://espanolsinfronteras.org/curso/matematicas"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://espanolsinfronteras.org/curso/matematicas"/>
+  </url>
+  <url>
+    <loc>https://espanolsinfronteras.org/curso/ciencias</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://espanolsinfronteras.org/curso/ciencias"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://espanolsinfronteras.org/curso/ciencias"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://espanolsinfronteras.org/curso/ciencias"/>
+  </url>
+  <url>
+    <loc>https://espanolsinfronteras.org/curso/ciberseguridad</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://espanolsinfronteras.org/curso/ciberseguridad"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://espanolsinfronteras.org/curso/ciberseguridad"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://espanolsinfronteras.org/curso/ciberseguridad"/>
+  </url>
+  <url>
+    <loc>https://espanolsinfronteras.org/curso/ingles</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://espanolsinfronteras.org/curso/ingles"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://espanolsinfronteras.org/curso/ingles"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://espanolsinfronteras.org/curso/ingles"/>
+  </url>
+  <url>
+    <loc>https://espanolsinfronteras.org/curso/herencia-peruana</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://espanolsinfronteras.org/curso/herencia-peruana"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://espanolsinfronteras.org/curso/herencia-peruana"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://espanolsinfronteras.org/curso/herencia-peruana"/>
+  </url>
+  <url>
+    <loc>https://espanolsinfronteras.org/curso/global-finance</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://espanolsinfronteras.org/curso/global-finance"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://espanolsinfronteras.org/curso/global-finance"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://espanolsinfronteras.org/curso/global-finance"/>
+  </url>
 
 </urlset>
