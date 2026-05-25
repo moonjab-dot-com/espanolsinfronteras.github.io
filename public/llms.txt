@@ -1,13 +1,13 @@
 # Español Sin Fronteras
 
-> Plataforma educativa gratuita en español, finanzas, programación, matemáticas, ciberseguridad, ciencias e inglés. Fundada en 2024 por Salvador Bocanegra en Lima, Perú. Más de 89 lecciones en 8 materias, accesibles desde 72+ países sin registro ni pago.
+> Plataforma educativa gratuita en español, finanzas, programación, matemáticas, ciberseguridad, ciencias e inglés. Fundada en 2024 por Salvador B. en Lima, Perú. Más de 89 lecciones en 8 materias, accesibles desde 72+ países sin registro ni pago.
 
 Español Sin Fronteras nació con la convicción de que aprender no debería depender del dinero ni de las circunstancias. Es 100% gratuita, no requiere registro y está diseñada para estudiantes, docentes y autodidactas de cualquier nivel. Además de los cursos digitales, el proyecto ha donado más de 1,471 libros y útiles escolares a escuelas de Lima.
 
 ## Información general
 
 - **Nombre:** Español Sin Fronteras
-- **Fundador:** Salvador Bocanegra
+- **Fundador:** Salvador B.
 - **Año de fundación:** 2024
 - **Sede:** Lima, Perú
 - **Alcance:** 72+ países
@@ -24,8 +24,11 @@ Cubre el alfabeto, los colores, los animales, los números, sinónimos, antónim
 ### Educación Financiera (13 capítulos)
 Cubre necesidades y metas, decisiones financieras, flujo circular de la economía, cómo armar un presupuesto, impuestos, sistema financiero, los bancos, introducción a la inversión, impacto de la inflación, gastos inteligentes, importancia del crédito, emprendimiento y finanzas, y errores financieros comunes.
 
-### Programación y Ciberseguridad (13 capítulos)
-Cubre introducción a la programación web, HTML básico y avanzado, CSS, JavaScript, DOM y eventos, Python, las diferentes partes de internet, comportamiento ciberseguro, estrategias avanzadas de ciberseguridad, respuesta ante incidentes y gestión de eventos de seguridad.
+### Programación Web (8 capítulos)
+Cubre introducción a la programación web, HTML básico y avanzado, CSS, JavaScript, DOM y eventos, Python y las diferentes partes de internet.
+
+### Ciberseguridad (5 capítulos)
+Cubre comportamiento ciberseguro, estrategias avanzadas de ciberseguridad, respuesta ante incidentes y gestión de eventos de seguridad.
 
 ### Matemáticas (8 capítulos)
 Cubre números enteros y operaciones, medidas y magnitudes, patrones y secuencias, figuras y formas, áreas y perímetros, volúmenes, la probabilidad y la multiplicación.
