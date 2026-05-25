@@ -9,6 +9,9 @@ import {
 } from "lucide-react";
 import { courseIconMap } from "@/lib/course-icons";
 import { COURSE_MASCOTS } from "@/lib/course-mascots";
+import FlowArt, { FlowSection } from "@/components/ui/story-scroll";
+import ScrollCardStack from "@/components/ui/scroll-card";
+import ScrollFAQAccordion from "@/components/ui/scroll-faqaccordion";
 
 // ─── Scroll-reveal hook ───────────────────────────────────────────────────────
 
@@ -94,6 +97,20 @@ const COLOR_MAP = {
     masGlow:  "from-amber-100/60 to-orange-100/30",
   },
 } as const;
+
+// ─── Alliance marquee data ────────────────────────────────────────────────────
+
+const ALLIANCE_ROW1 = [
+  "UNAM", "PUCP", "UBA", "Universidad de Chile", "U. de Los Andes",
+  "UCR", "ESPOL", "USP", "U. Complutense", "UTN", "UDLAP", "UNMSM",
+];
+
+const ALLIANCE_ROW2 = [
+  "🇲🇽 México", "🇵🇪 Perú", "🇦🇷 Argentina", "🇨🇱 Chile", "🇨🇴 Colombia",
+  "🇧🇷 Brasil", "🇪🇸 España", "🇺🇸 EE.UU.", "🇨🇷 Costa Rica", "🇪🇨 Ecuador",
+  "🇻🇪 Venezuela", "🇬🇹 Guatemala", "🇩🇴 R. Dominicana", "🇧🇴 Bolivia",
+];
+
 
 // ─────────────────────────────────────────────────────────────────────────────
 // HERO SECTION
@@ -392,88 +409,332 @@ function ImpactSection() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// MISSION / STORY SECTION
+// ALLIANCES / GLOBAL COMMUNITY
 // ─────────────────────────────────────────────────────────────────────────────
 
-function MissionSection() {
+function AlliancesSection() {
+  const { lang } = useLanguage();
+  const t = lang === "es";
+
+  // Duplicate each row for seamless infinite loop
+  const row1 = [...ALLIANCE_ROW1, ...ALLIANCE_ROW1];
+  const row2 = [...ALLIANCE_ROW2, ...ALLIANCE_ROW2];
+
+  return (
+    <section
+      className="bg-[hsl(222,47%,8%)] py-16 overflow-hidden"
+      aria-labelledby="alliances-heading"
+    >
+      <div className="container-page mb-10">
+        <Reveal>
+          <div className="text-center">
+            <p className="section-eyebrow">
+              <Globe className="w-3.5 h-3.5" aria-hidden="true" />
+              {t ? "Comunidad educativa global" : "Global educational community"}
+            </p>
+            <h2
+              id="alliances-heading"
+              className="text-2xl sm:text-3xl font-extrabold text-white mb-3"
+            >
+              {t
+                ? "Aprendices de todo el mundo"
+                : "Learners from around the world"}
+            </h2>
+            <p className="text-white/40 text-sm max-w-sm mx-auto leading-relaxed">
+              {t
+                ? "Estudiantes de universidades e instituciones en más de 72 países."
+                : "Students from universities and institutions in over 72 countries."}
+            </p>
+          </div>
+        </Reveal>
+      </div>
+
+      {/* Row 1 — universities, scrolling left */}
+      <div
+        className="marquee-wrapper marquee-mask overflow-hidden py-2.5"
+        aria-hidden="true"
+      >
+        <div
+          className="flex animate-marquee"
+          style={{ width: "max-content", gap: "1rem" }}
+        >
+          {row1.map((name, i) => (
+            <span
+              key={i}
+              className="flex-shrink-0 px-5 py-2.5 rounded-xl whitespace-nowrap text-sm font-semibold border border-white/8 bg-white/[0.04] text-white/55"
+            >
+              {name}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Row 2 — countries with flags, scrolling right */}
+      <div
+        className="marquee-wrapper marquee-mask overflow-hidden py-2.5 mt-3"
+        aria-hidden="true"
+      >
+        <div
+          className="flex animate-marquee-reverse"
+          style={{ width: "max-content", gap: "1rem" }}
+        >
+          {row2.map((name, i) => (
+            <span
+              key={i}
+              className="flex-shrink-0 px-5 py-2.5 rounded-xl whitespace-nowrap text-sm font-semibold border border-white/8 bg-white/[0.04] text-white/65"
+            >
+              {name}
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// STORY SCROLL SECTION — immersive 3-panel narrative (replaces MissionSection)
+// ─────────────────────────────────────────────────────────────────────────────
+
+function StoryScrollSection() {
   const { lang } = useLanguage();
   const t = lang === "es";
 
   return (
-    <section
-      className="section-padding bg-white"
-      id="historia"
-      aria-labelledby="historia-heading"
-    >
-      <div className="container-page">
-        <div className="max-w-3xl mx-auto">
-          <Reveal>
-            <div className="text-center mb-12">
-              <p className="section-eyebrow">
-                <Heart className="w-3.5 h-3.5" aria-hidden="true" />
-                {t ? "Nuestra misión" : "Our mission"}
+    <div id="historia" aria-label={t ? "Nuestra historia" : "Our story"}>
+      <FlowArt aria-label={t ? "La historia de Español Sin Fronteras" : "The story of Español Sin Fronteras"}>
+
+        {/* Panel 1 — The challenge */}
+        <FlowSection
+          aria-label={t ? "El desafío" : "The challenge"}
+          style={{ background: "hsl(222,47%,8%)" }}
+        >
+          <div className="flex flex-col justify-between h-full min-h-screen pt-[clamp(4rem,10vw,6vw)] pb-[4vw] px-[4vw]">
+            <div>
+              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/35 mb-4">
+                {t ? "El desafío" : "The challenge"}
               </p>
-              <h2 id="historia-heading" className="text-3xl md:text-4xl font-extrabold text-foreground">
-                {t ? "La historia detrás de ESF" : "The story behind ESF"}
+              <h2
+                className="text-4xl sm:text-5xl lg:text-[4rem] font-extrabold text-white leading-[1.05] max-w-2xl"
+                style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.03em" }}
+              >
+                {t
+                  ? "Millones quieren aprender. Pocos pueden pagarlo."
+                  : "Millions want to learn. Few can afford it."}
               </h2>
             </div>
-          </Reveal>
-
-          <Reveal delay={120}>
-            <blockquote className="relative text-xl md:text-2xl font-bold text-foreground leading-[1.4] text-center mb-12 px-8">
-              <Quote className="absolute top-0 left-0 w-8 h-8 text-primary/20" aria-hidden="true" />
-              <span>
+            <div className="max-w-lg">
+              <p className="text-white/50 text-[17px] leading-relaxed">
+                {t
+                  ? "En América Latina, el acceso a educación de calidad sigue siendo un privilegio. Salvador lo vivió de cerca — y decidió cambiar eso."
+                  : "In Latin America, access to quality education remains a privilege. Salvador saw it firsthand — and decided to change that."}
+              </p>
+            </div>
+            <div className="flex items-end justify-between">
+              <blockquote className="text-white/30 text-sm italic max-w-xs">
                 {t
                   ? '"Nadie debería quedarse sin estudiar por falta de tiempo o dinero."'
                   : '"No one should miss out on education due to lack of time or money."'}
-              </span>
-              <footer className="mt-4 text-base text-muted-foreground font-normal">— Salvador B., {t ? "Fundador" : "Founder"}</footer>
-            </blockquote>
-          </Reveal>
-
-          <Reveal delay={200}>
-            <div className="rounded-2xl border border-border bg-secondary/30 p-8 md:p-10 space-y-4 text-[15px] text-muted-foreground leading-[1.85]">
-              {t ? (
-                <>
-                  <p>
-                    <strong className="text-foreground font-semibold">Español Sin Fronteras</strong> nació con una idea clara: aprender no debería depender del dinero ni de las circunstancias.
-                  </p>
-                  <p>
-                    En 2024, Salvador decidió convertir esa idea en acción, creando una plataforma 100% gratuita donde cualquier persona puede aprender español, finanzas, programación, matemáticas, ciencias e inglés. Hoy cuenta con más de{" "}
-                    <strong className="text-foreground font-semibold">89 capítulos</strong> diseñados para ser prácticos, accesibles y útiles en la vida real.
-                  </p>
-                  <p>
-                    Desde entonces, la plataforma ha llegado a usuarios en más de{" "}
-                    <strong className="text-foreground font-semibold">72 países</strong>, demostrando que las ganas de aprender no tienen fronteras.
-                  </p>
-                  <p>
-                    Además, el proyecto también busca generar impacto fuera de la pantalla: se han donado más de{" "}
-                    <strong className="text-foreground font-semibold">1471 libros</strong>, útiles escolares en escuelas de Lima y se han organizado actividades para apoyar y motivar a niños. 🎒🎁
-                  </p>
-                </>
-              ) : (
-                <>
-                  <p>
-                    <strong className="text-foreground font-semibold">Español Sin Fronteras</strong> was born with a clear idea: learning shouldn't depend on money or circumstances.
-                  </p>
-                  <p>
-                    In 2024, Salvador decided to turn that idea into action, creating a 100% free platform where anyone can learn Spanish, finance, programming, math, science, and English. Today it has more than{" "}
-                    <strong className="text-foreground font-semibold">89 chapters</strong> designed to be practical, accessible, and useful in real life.
-                  </p>
-                  <p>
-                    Since then, the platform has reached users in more than{" "}
-                    <strong className="text-foreground font-semibold">72 countries</strong>, proving that the desire to learn has no borders.
-                  </p>
-                  <p>
-                    The project also seeks to create impact beyond the screen: more than{" "}
-                    <strong className="text-foreground font-semibold">1,471 books</strong> and school supplies have been donated to schools in Lima, and activities have been organized to support and motivate children. 🎒🎁
-                  </p>
-                </>
-              )}
+                <footer className="mt-1 not-italic text-white/20">— Salvador B., {t ? "Fundador" : "Founder"}</footer>
+              </blockquote>
+              <img src="/OWL_INVESTIGADOR.png" alt="" aria-hidden="true"
+                className="w-24 h-24 object-contain opacity-20" loading="lazy" />
             </div>
-          </Reveal>
-        </div>
+          </div>
+        </FlowSection>
+
+        {/* Panel 2 — The solution */}
+        <FlowSection
+          aria-label={t ? "La solución" : "The solution"}
+          style={{ background: "hsl(221,83%,53%)" }}
+        >
+          <div className="flex flex-col justify-between h-full min-h-screen pt-[clamp(4rem,10vw,6vw)] pb-[4vw] px-[4vw]">
+            <div>
+              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/50 mb-4">
+                {t ? "La solución" : "The solution"}
+              </p>
+              <h2
+                className="text-4xl sm:text-5xl lg:text-[4rem] font-extrabold text-white leading-[1.05] max-w-2xl"
+                style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.03em" }}
+              >
+                {t
+                  ? "Una plataforma 100% gratuita. Para siempre."
+                  : "A 100% free platform. Forever."}
+              </h2>
+            </div>
+            <div className="grid sm:grid-cols-3 gap-6 max-w-2xl">
+              {[
+                { v: "89+", l: t ? "Capítulos" : "Chapters" },
+                { v: "9",   l: t ? "Materias" : "Subjects"  },
+                { v: "$0",  l: t ? "Costo siempre" : "Cost always" },
+              ].map(({ v, l }) => (
+                <div key={l} className="rounded-2xl bg-white/10 px-6 py-5">
+                  <span
+                    className="block text-4xl font-extrabold text-white"
+                    style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.04em" }}
+                  >{v}</span>
+                  <span className="text-white/60 text-sm font-semibold uppercase tracking-[0.12em]">{l}</span>
+                </div>
+              ))}
+            </div>
+            <div className="flex items-end justify-between">
+              <p className="text-white/50 text-[15px] leading-relaxed max-w-sm">
+                {t
+                  ? "Sin registro. Sin suscripción. Sin excepciones. El conocimiento debería ser un derecho, no un producto."
+                  : "No sign-up. No subscription. No exceptions. Knowledge should be a right, not a product."}
+              </p>
+              <img src="/OWL_WITH_SPAIN_FLAG.png" alt="" aria-hidden="true"
+                className="w-24 h-24 object-contain opacity-20" loading="lazy" />
+            </div>
+          </div>
+        </FlowSection>
+
+        {/* Panel 3 — The impact */}
+        <FlowSection
+          aria-label={t ? "El impacto" : "The impact"}
+          style={{ background: "hsl(156,64%,28%)" }}
+        >
+          <div className="flex flex-col justify-between h-full min-h-screen pt-[clamp(4rem,10vw,6vw)] pb-[4vw] px-[4vw]">
+            <div>
+              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/50 mb-4">
+                {t ? "El impacto" : "The impact"}
+              </p>
+              <h2
+                className="text-4xl sm:text-5xl lg:text-[4rem] font-extrabold text-white leading-[1.05] max-w-2xl"
+                style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.03em" }}
+              >
+                {t
+                  ? "72 países. 1,471 libros. Un movimiento."
+                  : "72 countries. 1,471 books. A movement."}
+              </h2>
+            </div>
+            <div className="max-w-lg">
+              <p className="text-white/60 text-[17px] leading-relaxed">
+                {t
+                  ? "La plataforma llegó a usuarios en más de 72 países. Y fuera de la pantalla, se han donado más de 1,471 libros y útiles escolares a niños en Lima."
+                  : "The platform reached users in over 72 countries. And beyond the screen, over 1,471 books and school supplies have been donated to children in Lima."}
+              </p>
+            </div>
+            <div className="flex items-end justify-between">
+              <a href="#cursos" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-emerald-800 font-bold text-sm hover:bg-white/90 transition-colors">
+                {t ? "Explorar cursos" : "Explore courses"}
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </a>
+              <img src="/OWL_WITH_THE_EARTH.png" alt="" aria-hidden="true"
+                className="w-24 h-24 object-contain opacity-20" loading="lazy" />
+            </div>
+          </div>
+        </FlowSection>
+
+      </FlowArt>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// STACKING CARDS — subject showcase (replaces PrinciplesSection)
+// ─────────────────────────────────────────────────────────────────────────────
+
+function StackingCardsSection() {
+  const { lang } = useLanguage();
+  const t = lang === "es";
+
+  const cards = [
+    {
+      id: "card-espanol",
+      meta: t ? "Nivel básico → avanzado" : "Basic → Advanced level",
+      title: t ? "Español" : "Spanish",
+      description: t
+        ? "Domina el español desde cero. Gramática, vocabulario y comunicación en la vida real. 100% gratuito, sin registro."
+        : "Master Spanish from scratch. Grammar, vocabulary, and real-life communication. 100% free, no sign-up.",
+      color: "hsl(221,83%,53%)",
+      owl: "/OWL_WITH_SPAIN_FLAG.png",
+    },
+    {
+      id: "card-finanzas",
+      meta: t ? "Finanzas personales" : "Personal finance",
+      title: t ? "Finanzas" : "Finance",
+      description: t
+        ? "Aprende a manejar tu dinero, ahorrar, invertir y construir libertad financiera. Conceptos claros, sin jerga."
+        : "Learn to manage your money, save, invest, and build financial freedom. Clear concepts, no jargon.",
+      color: "hsl(156,64%,32%)",
+      owl: "/OWL_INVESTIGADOR_WITH_BOOK.png",
+    },
+    {
+      id: "card-programacion",
+      meta: t ? "Python, JS, HTML & más" : "Python, JS, HTML & more",
+      title: t ? "Programación" : "Coding",
+      description: t
+        ? "Desde HTML hasta Python. Aprende a programar con proyectos reales y ejemplos prácticos paso a paso."
+        : "From HTML to Python. Learn to code with real projects and practical step-by-step examples.",
+      color: "hsl(262,83%,52%)",
+      owl: "/OWL_CODING.png",
+    },
+    {
+      id: "card-ciencias",
+      meta: t ? "Física, Química, Biología" : "Physics, Chemistry, Biology",
+      title: t ? "Ciencias" : "Science",
+      description: t
+        ? "Explora el universo desde los átomos hasta las estrellas. Ciencia clara, apasionante y accesible para todos."
+        : "Explore the universe from atoms to stars. Clear, exciting, and accessible science for everyone.",
+      color: "hsl(172,66%,30%)",
+      owl: "/OWL_SCIENCE.png",
+    },
+    {
+      id: "card-matematicas",
+      meta: t ? "Aritmética → Cálculo" : "Arithmetic → Calculus",
+      title: t ? "Matemáticas" : "Math",
+      description: t
+        ? "Las matemáticas no son difíciles — solo necesitas el enfoque correcto. Aprende con ejemplos de la vida real."
+        : "Math isn't hard — you just need the right approach. Learn with real-life examples.",
+      color: "hsl(38,92%,46%)",
+      owl: "/OWL_NUMBER_ONE.png",
+    },
+  ];
+
+  const sideContent = (
+    <div className="text-center px-6">
+      <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-muted-foreground mb-3">
+        {t ? "Nuestros principios" : "Our principles"}
+      </p>
+      <h2
+        className="text-2xl font-extrabold text-foreground mb-4 leading-tight"
+        style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.03em" }}
+      >
+        {t ? "Por qué ESF funciona" : "Why ESF works"}
+      </h2>
+      <p className="text-muted-foreground text-sm leading-relaxed">
+        {t
+          ? "Cinco materias. Un compromiso: educación gratuita, práctica y sin barreras para todos."
+          : "Five subjects. One commitment: free, practical, barrier-free education for everyone."}
+      </p>
+      <div className="mt-8" aria-hidden="true">
+        <img src="/OWL_INVESTIGADOR.png" alt=""
+          className="w-24 h-24 object-contain mx-auto opacity-50 animate-float-slow" loading="lazy" />
       </div>
+    </div>
+  );
+
+  return (
+    <section
+      className="bg-[hsl(220,16%,97%)] py-16"
+      aria-labelledby="principles-heading"
+    >
+      <div className="text-center mb-12 px-4">
+        <Reveal>
+          <p className="section-eyebrow">
+            <Sparkles className="w-3.5 h-3.5" aria-hidden="true" />
+            {t ? "Nuestras materias" : "Our subjects"}
+          </p>
+          <h2
+            id="principles-heading"
+            className="text-3xl md:text-4xl font-extrabold text-foreground"
+          >
+            {t ? "Todo lo que puedes aprender" : "Everything you can learn"}
+          </h2>
+        </Reveal>
+      </div>
+      <ScrollCardStack cards={cards} sideContent={sideContent} />
     </section>
   );
 }
@@ -673,86 +934,34 @@ function GallerySection() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// FAQ
+// FAQ — GSAP-pinned scroll accordion (replaces FAQSection)
 // ─────────────────────────────────────────────────────────────────────────────
 
-function FAQSection() {
+function ScrollFAQSection() {
   const { lang } = useLanguage();
   const t = lang === "es";
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const toggle = useCallback((i: number) => {
-    setOpenIndex((prev) => (prev === i ? null : i));
-  }, []);
+  const items = faqItems.map((item, i) => ({
+    id: `faq-${i}`,
+    question: t ? item.questionEs : item.questionEn,
+    answer: t ? item.answerEs : item.answerEn,
+  }));
 
   return (
     <section
-      className="section-padding bg-[hsl(220,16%,97%)]"
+      className="bg-[hsl(220,16%,97%)]"
       id="faq"
       aria-labelledby="faq-heading"
     >
-      <div className="container-page">
-        <Reveal>
-          <div className="text-center mb-12">
-            <p className="section-eyebrow">
-              <MessageCircle className="w-3.5 h-3.5" aria-hidden="true" />
-              {t ? "Preguntas frecuentes" : "FAQ"}
-            </p>
-            <h2 id="faq-heading" className="text-3xl md:text-4xl font-extrabold text-foreground">
-              {t ? "¿Tienes dudas?" : "Have questions?"}
-            </h2>
-          </div>
-        </Reveal>
-
-        <div
-          className="max-w-2xl mx-auto border border-border rounded-2xl overflow-hidden divide-y divide-border"
-          aria-label={t ? "Preguntas frecuentes" : "Frequently asked questions"}
-        >
-          {faqItems.map((item, i) => {
-            const isOpen = openIndex === i;
-            const question = t ? item.questionEs : item.questionEn;
-            const answer = t ? item.answerEs : item.answerEn;
-            const id = `faq-answer-${i}`;
-            const triggerId = `faq-trigger-${i}`;
-
-            return (
-              <Reveal key={i} delay={i * 50}>
-                <div className="faq-item">
-                  <button
-                    id={triggerId}
-                    className="faq-trigger px-6"
-                    onClick={() => toggle(i)}
-                    aria-expanded={isOpen}
-                    aria-controls={id}
-                  >
-                    <span>{question}</span>
-                    <div
-                      className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
-                        isOpen
-                          ? "bg-primary text-white rotate-180"
-                          : "bg-secondary text-muted-foreground"
-                      }`}
-                    >
-                      <ChevronDown className="w-4 h-4" aria-hidden="true" />
-                    </div>
-                  </button>
-
-                  <div
-                    id={id}
-                    role="region"
-                    aria-labelledby={triggerId}
-                    className={`faq-content px-6 transition-all duration-300 ${
-                      isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 !pb-0"
-                    }`}
-                  >
-                    {answer}
-                  </div>
-                </div>
-              </Reveal>
-            );
-          })}
-        </div>
-      </div>
+      <ScrollFAQAccordion
+        items={items}
+        heading={t ? "¿Tienes dudas?" : "Have questions?"}
+        subheading={
+          t
+            ? "Todo lo que necesitas saber sobre Español Sin Fronteras."
+            : "Everything you need to know about Español Sin Fronteras."
+        }
+      />
     </section>
   );
 }
@@ -924,11 +1133,13 @@ const HomePage = () => (
     <HeroSection />
     <CoursesSection />
     <ImpactSection />
-    <MissionSection />
+    <AlliancesSection />
+    <StoryScrollSection />
     <MascotShowcaseSection />
+    <StackingCardsSection />
     <GallerySection />
     <MiCuentoSection />
-    <FAQSection />
+    <ScrollFAQSection />
     <TestimonialsSection />
     <ContactSection />
   </>
