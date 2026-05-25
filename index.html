@@ -39,6 +39,7 @@
   <meta name="twitter:description" content="89+ lecciones gratuitas en español, finanzas, programación, matemáticas y más. Sin registro, sin costo." />
   <meta name="twitter:image"       content="https://espanolsinfronteras.org/owl-logo.png" />
   <meta name="twitter:image:alt"   content="Español Sin Fronteras — Búho mascota" />
+  <meta name="twitter:creator"     content="@espanol_sin_fronteras_org" />
 
   <!-- ── JSON-LD Structured Data ──────────────────────────────────────────── -->
   <script type="application/ld+json">
@@ -57,14 +58,14 @@
           "width": 400,
           "height": 400
         },
-        "image": "https://espanolsinfronteras.org/owl-logo.png",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://espanolsinfronteras.org/owl-logo.png",
+          "caption": "Español Sin Fronteras — Plataforma educativa gratuita"
+        },
         "description": "Plataforma educativa 100% gratuita con 89+ lecciones en español, finanzas, programación, matemáticas, ciberseguridad, ciencias e inglés para estudiantes de 72+ países, sin necesidad de registro.",
         "foundingDate": "2024",
-        "founder": {
-          "@type": "Person",
-          "name": "Salvador B.",
-          "jobTitle": "Fundador y Director"
-        },
+        "founder": { "@id": "https://espanolsinfronteras.org/#salvador-b" },
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Lima",
@@ -87,17 +88,127 @@
           "@type": "OfferCatalog",
           "name": "Cursos educativos gratuitos",
           "itemListElement": [
-            { "@type": "Course", "name": "Comunicación en Español", "description": "28 capítulos gratuitos para mejorar escritura, lectura y comunicación en español.", "url": "https://espanolsinfronteras.org/curso/espanol", "provider": { "@id": "https://espanolsinfronteras.org/#organization" }, "isAccessibleForFree": true, "inLanguage": "es" },
-            { "@type": "Course", "name": "Educación Financiera", "description": "13 capítulos sobre ahorro, inversiones y finanzas personales.", "url": "https://espanolsinfronteras.org/curso/finanzas", "provider": { "@id": "https://espanolsinfronteras.org/#organization" }, "isAccessibleForFree": true, "inLanguage": "es" },
-            { "@type": "Course", "name": "Programación Web", "description": "8 capítulos desde HTML y CSS hasta JavaScript y Python.", "url": "https://espanolsinfronteras.org/curso/programacion", "provider": { "@id": "https://espanolsinfronteras.org/#organization" }, "isAccessibleForFree": true, "inLanguage": "es" },
-            { "@type": "Course", "name": "Matemáticas", "description": "8 capítulos: números, geometría, probabilidad y más.", "url": "https://espanolsinfronteras.org/curso/matematicas", "provider": { "@id": "https://espanolsinfronteras.org/#organization" }, "isAccessibleForFree": true, "inLanguage": "es" },
-            { "@type": "Course", "name": "Ciencias", "description": "9 capítulos de física, química y biología.", "url": "https://espanolsinfronteras.org/curso/ciencias", "provider": { "@id": "https://espanolsinfronteras.org/#organization" }, "isAccessibleForFree": true, "inLanguage": "es" },
-            { "@type": "Course", "name": "Ciberseguridad", "description": "5 capítulos para proteger tu información y dominar la seguridad digital.", "url": "https://espanolsinfronteras.org/curso/ciberseguridad", "provider": { "@id": "https://espanolsinfronteras.org/#organization" }, "isAccessibleForFree": true, "inLanguage": "es" },
-            { "@type": "Course", "name": "Inglés", "description": "5 capítulos de gramática, vocabulario y conversación en inglés.", "url": "https://espanolsinfronteras.org/curso/ingles", "provider": { "@id": "https://espanolsinfronteras.org/#organization" }, "isAccessibleForFree": true, "inLanguage": "en" },
-            { "@type": "Course", "name": "Herencia Peruana", "description": "9 capítulos sobre la riqueza cultural e histórica del Perú.", "url": "https://espanolsinfronteras.org/curso/herencia-peruana", "provider": { "@id": "https://espanolsinfronteras.org/#organization" }, "isAccessibleForFree": true, "inLanguage": "es" },
-            { "@type": "Course", "name": "Global Finance Series", "description": "5 módulos en inglés sobre finanzas globales, presupuesto e inversión.", "url": "https://espanolsinfronteras.org/curso/global-finance", "provider": { "@id": "https://espanolsinfronteras.org/#organization" }, "isAccessibleForFree": true, "inLanguage": "en" }
+            {
+              "@type": "Course",
+              "name": "Comunicación en Español",
+              "description": "28 capítulos gratuitos para mejorar escritura, lectura y comunicación en español. Cubre gramática, morfología, ortografía, sintaxis y vocabulario.",
+              "url": "https://espanolsinfronteras.org/curso/espanol",
+              "provider": { "@id": "https://espanolsinfronteras.org/#organization" },
+              "isAccessibleForFree": true,
+              "inLanguage": "es",
+              "educationalLevel": "beginner",
+              "teaches": ["gramática española", "ortografía", "vocabulario", "morfología", "sintaxis", "comunicación verbal"],
+              "audience": { "@type": "EducationalAudience", "educationalRole": "student" }
+            },
+            {
+              "@type": "Course",
+              "name": "Educación Financiera",
+              "description": "13 capítulos sobre ahorro, inversiones y finanzas personales. Incluye presupuesto, impuestos, sistema financiero y emprendimiento.",
+              "url": "https://espanolsinfronteras.org/curso/finanzas",
+              "provider": { "@id": "https://espanolsinfronteras.org/#organization" },
+              "isAccessibleForFree": true,
+              "inLanguage": "es",
+              "educationalLevel": "beginner",
+              "teaches": ["ahorro personal", "presupuesto", "inversión", "impuestos", "sistema financiero", "emprendimiento"],
+              "audience": { "@type": "EducationalAudience", "educationalRole": "student" }
+            },
+            {
+              "@type": "Course",
+              "name": "Programación Web",
+              "description": "8 capítulos desde HTML y CSS hasta JavaScript y Python. Ideal para aprender a programar desde cero.",
+              "url": "https://espanolsinfronteras.org/curso/programacion",
+              "provider": { "@id": "https://espanolsinfronteras.org/#organization" },
+              "isAccessibleForFree": true,
+              "inLanguage": "es",
+              "educationalLevel": "beginner",
+              "teaches": ["HTML", "CSS", "JavaScript", "Python", "DOM", "programación web"],
+              "audience": { "@type": "EducationalAudience", "educationalRole": "student" }
+            },
+            {
+              "@type": "Course",
+              "name": "Matemáticas",
+              "description": "8 capítulos: números enteros, geometría, probabilidad, áreas, perímetros y volúmenes.",
+              "url": "https://espanolsinfronteras.org/curso/matematicas",
+              "provider": { "@id": "https://espanolsinfronteras.org/#organization" },
+              "isAccessibleForFree": true,
+              "inLanguage": "es",
+              "educationalLevel": "beginner",
+              "teaches": ["aritmética", "geometría", "probabilidad", "medidas y magnitudes", "volúmenes"],
+              "audience": { "@type": "EducationalAudience", "educationalRole": "student" }
+            },
+            {
+              "@type": "Course",
+              "name": "Ciencias",
+              "description": "9 capítulos de física, química y biología: movimiento rectilíneo, caída libre, átomos y células.",
+              "url": "https://espanolsinfronteras.org/curso/ciencias",
+              "provider": { "@id": "https://espanolsinfronteras.org/#organization" },
+              "isAccessibleForFree": true,
+              "inLanguage": "es",
+              "educationalLevel": "beginner",
+              "teaches": ["física", "movimiento rectilíneo", "caída libre", "química", "biología celular", "átomos"],
+              "audience": { "@type": "EducationalAudience", "educationalRole": "student" }
+            },
+            {
+              "@type": "Course",
+              "name": "Ciberseguridad",
+              "description": "5 capítulos para proteger tu información y dominar la seguridad digital: comportamiento seguro, estrategias avanzadas y respuesta a incidentes.",
+              "url": "https://espanolsinfronteras.org/curso/ciberseguridad",
+              "provider": { "@id": "https://espanolsinfronteras.org/#organization" },
+              "isAccessibleForFree": true,
+              "inLanguage": "es",
+              "educationalLevel": "beginner",
+              "teaches": ["ciberseguridad", "protección digital", "seguridad informática", "respuesta a incidentes"],
+              "audience": { "@type": "EducationalAudience", "educationalRole": "student" }
+            },
+            {
+              "@type": "Course",
+              "name": "Inglés",
+              "description": "5 capítulos de gramática inglesa: present perfect, past simple, past continuous y formas de preguntar en inglés.",
+              "url": "https://espanolsinfronteras.org/curso/ingles",
+              "provider": { "@id": "https://espanolsinfronteras.org/#organization" },
+              "isAccessibleForFree": true,
+              "inLanguage": "en",
+              "educationalLevel": "intermediate",
+              "teaches": ["present perfect", "past simple", "past continuous", "English grammar", "question forms"],
+              "audience": { "@type": "EducationalAudience", "educationalRole": "student" }
+            },
+            {
+              "@type": "Course",
+              "name": "Herencia Peruana",
+              "description": "9 capítulos sobre la riqueza cultural e histórica del Perú: el Imperio Inca, gastronomía, música, arte y tradiciones peruanas.",
+              "url": "https://espanolsinfronteras.org/curso/herencia-peruana",
+              "provider": { "@id": "https://espanolsinfronteras.org/#organization" },
+              "isAccessibleForFree": true,
+              "inLanguage": "es",
+              "educationalLevel": "beginner",
+              "teaches": ["historia del Perú", "cultura inca", "gastronomía peruana", "geografía peruana", "tradiciones peruanas"],
+              "audience": { "@type": "EducationalAudience", "educationalRole": "student" }
+            },
+            {
+              "@type": "Course",
+              "name": "Global Finance Series",
+              "description": "5 English-language modules on global finance: budgeting, investing, saving, credit, and making money. In partnership with Financial Literacy HQ.",
+              "url": "https://espanolsinfronteras.org/curso/global-finance",
+              "provider": { "@id": "https://espanolsinfronteras.org/#organization" },
+              "isAccessibleForFree": true,
+              "inLanguage": "en",
+              "educationalLevel": "beginner",
+              "teaches": ["budgeting", "investing", "saving", "credit management", "income generation"],
+              "audience": { "@type": "EducationalAudience", "educationalRole": "student" }
+            }
           ]
         }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://espanolsinfronteras.org/#salvador-b",
+        "name": "Salvador B.",
+        "givenName": "Salvador",
+        "jobTitle": "Fundador y Director",
+        "worksFor": { "@id": "https://espanolsinfronteras.org/#organization" },
+        "nationality": { "@type": "Country", "name": "Peru" },
+        "knowsAbout": ["educación gratuita", "comunicación en español", "educación financiera", "programación web", "pedagogía digital", "impacto social"],
+        "url": "https://espanolsinfronteras.org/#historia"
       },
       {
         "@type": "WebSite",
@@ -106,12 +217,7 @@
         "name": "Español Sin Fronteras",
         "description": "Plataforma educativa gratuita en español, finanzas, programación, matemáticas, ciencias e inglés",
         "publisher": { "@id": "https://espanolsinfronteras.org/#organization" },
-        "inLanguage": ["es", "en"],
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": { "@type": "EntryPoint", "urlTemplate": "https://espanolsinfronteras.org/#cursos" },
-          "query-input": "required name=search_term_string"
-        }
+        "inLanguage": ["es", "en"]
       },
       {
         "@type": "WebPage",
@@ -122,6 +228,8 @@
         "isPartOf": { "@id": "https://espanolsinfronteras.org/#website" },
         "about": { "@id": "https://espanolsinfronteras.org/#organization" },
         "inLanguage": ["es", "en"],
+        "datePublished": "2024-01-01",
+        "dateModified": "2026-05-25",
         "breadcrumb": {
           "@type": "BreadcrumbList",
           "itemListElement": [
@@ -133,10 +241,46 @@
         "@type": "FAQPage",
         "@id": "https://espanolsinfronteras.org/#faq",
         "mainEntity": [
-          { "@type": "Question", "name": "¿Qué es Español Sin Fronteras?", "acceptedAnswer": { "@type": "Answer", "text": "Español Sin Fronteras es una plataforma educativa 100% gratuita con 89+ lecciones en español, finanzas, programación, matemáticas, ciberseguridad, ciencias e inglés, accesibles sin registro desde 72+ países." } },
-          { "@type": "Question", "name": "¿Cuánto cuesta usar Español Sin Fronteras?", "acceptedAnswer": { "@type": "Answer", "text": "Completamente gratuito. Sin registro, sin costos ocultos. Todo el contenido disponible libremente para siempre." } },
-          { "@type": "Question", "name": "¿Puedo usar los materiales en clase?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, todos los recursos están diseñados para usarse libremente en clases presenciales o virtuales y pueden compartirse con estudiantes sin restricciones." } },
-          { "@type": "Question", "name": "¿Cómo puedo sugerir nuevos temas?", "acceptedAnswer": { "@type": "Answer", "text": "Escríbenos a espanolsinfronteras1@gmail.com o a través de nuestras redes sociales en Instagram, TikTok, Facebook o LinkedIn." } }
+          {
+            "@type": "Question",
+            "name": "¿Qué es Español Sin Fronteras?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Español Sin Fronteras es una plataforma educativa 100% gratuita con 89+ lecciones en español, finanzas, programación, matemáticas, ciberseguridad, ciencias e inglés, accesibles sin registro desde 72+ países." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuánto cuesta usar Español Sin Fronteras?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Completamente gratuito. Sin registro, sin costos ocultos. Todo el contenido disponible libremente para siempre." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Puedo usar los materiales en clase?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sí, todos los recursos están diseñados para usarse libremente en clases presenciales o virtuales y pueden compartirse con estudiantes sin restricciones." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo puedo sugerir nuevos temas?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Escríbenos a espanolsinfronteras1@gmail.com o a través de nuestras redes sociales en Instagram, TikTok, Facebook o LinkedIn." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo aprender español gratis sin registrarse?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Visita espanolsinfronteras.org para acceder a 28 capítulos gratuitos de Comunicación en Español sin necesidad de crear una cuenta. Los temas incluyen el alfabeto, los colores, los números, gramática, morfología, tildación, sintaxis y más. No se requiere registro, pago ni instalación de aplicaciones." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué materias enseña Español Sin Fronteras además de español?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Además de Comunicación en Español (28 capítulos), la plataforma ofrece: Educación Financiera (13 capítulos), Programación Web con HTML, CSS, JavaScript y Python (8 capítulos), Matemáticas (8 capítulos), Ciencias con física, química y biología (9 capítulos), Ciberseguridad (5 capítulos), Inglés (5 capítulos), Herencia Peruana (9 capítulos) y Global Finance Series en inglés (5 módulos). Todo completamente gratuito." }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the best free website to learn Spanish?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Español Sin Fronteras (espanolsinfronteras.org) offers 28 free Spanish language chapters covering grammar, vocabulary, morphology, syntax, and communication — with no sign-up or payment required. It is accessible from 72+ countries and designed for students, teachers, and self-learners of all backgrounds." }
+          },
+          {
+            "@type": "Question",
+            "name": "How can I learn Spanish online for free without creating an account?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Español Sin Fronteras provides 28 completely free Spanish lessons at espanolsinfronteras.org with no account, no payment, and no download needed. Topics include the alphabet, numbers, colors, grammar, morphology, syntax, and verbal communication. The platform is 100% free and works on any device." }
+          }
         ]
       }
     ]
