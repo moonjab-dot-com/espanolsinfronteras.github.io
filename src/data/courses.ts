@@ -196,6 +196,19 @@ export const courses: Course[] = [
     ],
   },
   {
+    slug: "inteligencia-artificial",
+    icon: "Bot",
+    colorClass: "violet",
+    titleEs: "Inteligencia Artificial",
+    titleEn: "Artificial Intelligence",
+    descriptionEs: "Explora la IA y el prompt engineering diseñados para la Generación Z.",
+    descriptionEn: "Explore AI and prompt engineering designed for Generation Z.",
+    chapters: [
+      { id: 1, title: "¿Qué es la IA?",    href: "/content/IA-Pensamiento-y-Práctica-para-Generación-Z.html" },
+      { id: 2, title: "Prompt Engineering", href: "/content/Prompt-Ingeniería-Poderes-IA-Juveniles.html" },
+    ],
+  },
+  {
     slug: "ingles",
     icon: "Languages",
     colorClass: "blue",

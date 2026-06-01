@@ -95,5 +95,14 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://espanolsinfronteras.org/curso/global-finance"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://espanolsinfronteras.org/curso/global-finance"/>
   </url>
+  <url>
+    <loc>https://espanolsinfronteras.org/curso/inteligencia-artificial</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://espanolsinfronteras.org/curso/inteligencia-artificial"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://espanolsinfronteras.org/curso/inteligencia-artificial"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://espanolsinfronteras.org/curso/inteligencia-artificial"/>
+  </url>
 
 </urlset>

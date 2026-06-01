@@ -5,6 +5,7 @@
  * lucide-react bundle (1000+ icons → ~700KB). This gives a ~95% reduction.
  */
 import {
+  Bot,
   Calculator,
   Code,
   DollarSign,
@@ -18,6 +19,7 @@ import {
 import type { LucideIcon } from "lucide-react";
 
 export const courseIconMap: Record<string, LucideIcon> = {
+  Bot,
   Calculator,
   Code,
   DollarSign,
