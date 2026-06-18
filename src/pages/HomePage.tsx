@@ -132,8 +132,8 @@ function HeroSection() {
 
             <p className="animate-fade-up delay-150 text-[17px] text-white/55 leading-relaxed mb-10 max-w-[480px]">
               {t
-                ? "Plataforma educativa gratuita con 89+ lecciones en español, finanzas, programación, matemáticas y más. Sin registro, sin costo, para siempre."
-                : "Free educational platform with 89+ lessons covering Spanish, finance, programming, math, and more. No sign-up, no cost, forever."}
+                ? "Plataforma educativa gratuita con 197+ lecciones en español, finanzas, programación, matemáticas y más. Sin registro, sin costo, para siempre."
+                : "Free educational platform with 197+ lessons covering Spanish, finance, programming, math, and more. No sign-up, no cost, forever."}
             </p>
 
             <div className="animate-fade-up delay-225 flex flex-wrap gap-3 mb-14">
@@ -149,9 +149,9 @@ function HeroSection() {
             {/* Stats */}
             <div className="animate-fade-up delay-300 flex gap-8 border-t border-white/8 pt-8">
               {[
-                { v: "89+", l: t ? "Lecciones" : "Lessons" },
-                { v: "72+", l: t ? "Países" : "Countries" },
-                { v: "9",   l: t ? "Materias" : "Subjects"  },
+                { v: "197+", l: t ? "Lecciones" : "Lessons" },
+                { v: "72+",  l: t ? "Países" : "Countries" },
+                { v: "10",   l: t ? "Materias" : "Subjects"  },
               ].map(({ v, l }) => (
                 <div key={l} className="flex flex-col gap-0.5">
                   <span className="text-2xl font-extrabold text-white tabular-nums" style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.04em" }}>
@@ -243,8 +243,8 @@ function CoursesSection() {
             </h2>
             <p className="text-muted-foreground text-base max-w-sm mx-auto">
               {t
-                ? "9 materias, 89+ capítulos. Todo 100% gratuito, sin registro."
-                : "9 subjects, 89+ chapters. All 100% free, no sign-up."}
+                ? "10 materias, 197+ capítulos. Todo 100% gratuito, sin registro."
+                : "10 subjects, 197+ chapters. All 100% free, no sign-up."}
             </p>
           </div>
         </Reveal>
@@ -330,7 +330,7 @@ function ImpactSection() {
       icon: Globe,
     },
     {
-      value: "89+",
+      value: "197+",
       labelEs: "Lecciones",
       labelEn: "Lessons",
       descEs: "Capítulos gratuitos y accesibles",
@@ -338,7 +338,7 @@ function ImpactSection() {
       icon: BookOpen,
     },
     {
-      value: "9",
+      value: "10",
       labelEs: "Materias",
       labelEn: "Subjects",
       descEs: "Español, finanzas, STEM y más",
@@ -441,7 +441,7 @@ function MissionSection() {
                   </p>
                   <p>
                     En 2024, Salvador decidió convertir esa idea en acción, creando una plataforma 100% gratuita donde cualquier persona puede aprender español, finanzas, programación, matemáticas, ciencias e inglés. Hoy cuenta con más de{" "}
-                    <strong className="text-foreground font-semibold">89 capítulos</strong> diseñados para ser prácticos, accesibles y útiles en la vida real.
+                    <strong className="text-foreground font-semibold">197 capítulos</strong> diseñados para ser prácticos, accesibles y útiles en la vida real.
                   </p>
                   <p>
                     Desde entonces, la plataforma ha llegado a usuarios en más de{" "}
@@ -459,7 +459,7 @@ function MissionSection() {
                   </p>
                   <p>
                     In 2024, Salvador decided to turn that idea into action, creating a 100% free platform where anyone can learn Spanish, finance, programming, math, science, and English. Today it has more than{" "}
-                    <strong className="text-foreground font-semibold">89 chapters</strong> designed to be practical, accessible, and useful in real life.
+                    <strong className="text-foreground font-semibold">197 chapters</strong> designed to be practical, accessible, and useful in real life.
                   </p>
                   <p>
                     Since then, the platform has reached users in more than{" "}
