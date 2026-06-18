@@ -90,6 +90,25 @@
       document.head.appendChild(canonical);
     }
     canonical.setAttribute("href", window.location.href.split("?")[0]);
+
+    // Open Graph tags for rich social sharing
+    var ogTags = {
+      "og:title":       document.title,
+      "og:description": metaDesc ? metaDesc.getAttribute("content") : "",
+      "og:url":         window.location.href.split("?")[0],
+      "og:image":       "https://espanolsinfronteras.org/owl-logo.png",
+      "og:type":        "article",
+      "og:site_name":   "Español Sin Fronteras",
+    };
+    Object.keys(ogTags).forEach(function(prop) {
+      var el = document.querySelector('meta[property="' + prop + '"]');
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute("property", prop);
+        document.head.appendChild(el);
+      }
+      el.setAttribute("content", ogTags[prop]);
+    });
   }
 
   /* ── Inject nav bar styles ──────────────────────────────────────────────── */
@@ -291,6 +310,9 @@
     '<div class="esf-score-actions">',
       '<button id="esf-return-btn">' + T.back + "</button>",
       '<button id="esf-retry-btn">' + (isEn ? "Try Again" : "Intentar de Nuevo") + "</button>",
+      '<button id="esf-share-btn" style="background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;border:none;">',
+        (isEn ? "🔗 Share my result" : "🔗 Compartir mi resultado"),
+      "</button>",
     "</div>",
   ].join("");
   lessonWrapper.appendChild(scoreZone);
@@ -381,5 +403,19 @@
   document.getElementById("esf-review-btn").addEventListener("click", reviewAnswers);
   document.getElementById("esf-return-btn").addEventListener("click", showLesson);
   document.getElementById("esf-retry-btn").addEventListener("click", retry);
+  document.getElementById("esf-share-btn").addEventListener("click", function () {
+    var chapterTitle = (document.querySelector("h1") || {}).textContent || "";
+    var scoreNum = document.getElementById("esf-score-num").textContent || "?";
+    var courseUrl = "https://espanolsinfronteras.org/curso/" + (slug || "");
+    var shareText = isEn
+      ? "I scored " + scoreNum + "/10 on the quiz \"" + chapterTitle + "\" at Español Sin Fronteras 🎓✨ Try it free: " + courseUrl
+      : "Saqué " + scoreNum + "/10 en el quiz \"" + chapterTitle + "\" en Español Sin Fronteras 🎓✨ Pruébalo gratis: " + courseUrl;
+    if (navigator.share) {
+      navigator.share({ title: "Español Sin Fronteras", text: shareText, url: courseUrl }).catch(function(){});
+    } else {
+      var wa = "https://wa.me/?text=" + encodeURIComponent(shareText);
+      window.open(wa, "_blank", "noopener");
+    }
+  });
 
 })();
