@@ -36,6 +36,21 @@
     "ingles":                   { es: "Inglés",                       en: "English" },
   };
 
+  /* ── Favicon injection ──────────────────────────────────────────────────── */
+  if (!document.querySelector('link[rel="icon"]')) {
+    var fav = document.createElement("link");
+    fav.rel  = "icon";
+    fav.type = "image/png";
+    fav.href = "/owl-logo.png";
+    document.head.appendChild(fav);
+  }
+  if (!document.querySelector('link[rel="apple-touch-icon"]')) {
+    var aFav = document.createElement("link");
+    aFav.rel  = "apple-touch-icon";
+    aFav.href = "/owl-logo.png";
+    document.head.appendChild(aFav);
+  }
+
   /* ── Detect course from .course-tag div ─────────────────────────────────── */
   var courseTag  = document.querySelector(".course-tag");
   var courseText = courseTag ? courseTag.textContent.toLowerCase().split("·")[0].trim() : "";
