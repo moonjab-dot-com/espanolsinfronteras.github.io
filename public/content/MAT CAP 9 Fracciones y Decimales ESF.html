@@ -259,5 +259,23 @@ Problema 3 — Mezcla de pintura:
     </ul>
   </div>
 </div>
+<script>
+window.QUIZ_DATA = {
+  lang: "es",
+  questions: [
+    { q: "¿Cuál es el tipo de fracción donde el numerador es mayor o igual al denominador?", options: ["Fracción propia", "Fracción impropia", "Número mixto", "Fracción unitaria"], correct: 1, feedback: "Una fracción impropia tiene el numerador ≥ denominador, como 7/4 o 9/2. En cambio, una fracción propia tiene el numerador menor que el denominador." },
+    { q: "¿Cuál es la fracción equivalente a 3/4 con denominador 20?", options: ["6/20", "9/20", "15/20", "12/20"], correct: 2, feedback: "Para convertir 3/4 a denominador 20 se multiplica numerador y denominador por 5: (3×5)/(4×5) = 15/20." },
+    { q: "¿Cuánto es 2/3 + 1/4?", options: ["3/7", "8/12", "11/12", "3/12"], correct: 2, feedback: "El mínimo común denominador de 3 y 4 es 12. Entonces: 8/12 + 3/12 = 11/12." },
+    { q: "¿Cuánto es 5/6 − 1/4?", options: ["4/2", "7/12", "1/2", "2/3"], correct: 1, feedback: "El mínimo común denominador es 12: 10/12 − 3/12 = 7/12." },
+    { q: "¿Cuánto es (3/5) × (10/9)?", options: ["30/45", "2/3", "13/14", "6/9"], correct: 1, feedback: "Se multiplican numeradores y denominadores: (3×10)/(5×9) = 30/45 = 2/3 al simplificar." },
+    { q: "¿Cuánto es (7/8) ÷ (7/4)?", options: ["49/32", "1/2", "2", "7/2"], correct: 1, feedback: "Dividir es multiplicar por el recíproco: (7/8) × (4/7) = 28/56 = 1/2." },
+    { q: "¿Cuál es el decimal equivalente a 3/8?", options: ["0,38", "0,375", "0,25", "0,3"], correct: 1, feedback: "Dividiendo 3 ÷ 8 = 0,375. Es un decimal exacto (terminado) porque 8 = 2³." },
+    { q: "¿Cuál es la fracción equivalente al decimal 0,6?", options: ["6/100", "3/5", "2/3", "6/9"], correct: 1, feedback: "0,6 = 6/10 = 3/5 simplificando (dividiendo numerador y denominador entre 2)." },
+    { q: "Al convertir 11/4 a número mixto, ¿cuál es el resultado?", options: ["2¾", "3¼", "2¼", "1¾"], correct: 0, feedback: "11 ÷ 4 = 2 con residuo 3, por lo tanto 11/4 = 2 + 3/4 = 2¾." },
+    { q: "¿Cuáles de estas fracciones son equivalentes entre sí? 2/3, 4/6, 8/12", options: ["Solo 2/3 y 4/6", "Solo 4/6 y 8/12", "Las tres son equivalentes", "Ninguna es equivalente"], correct: 2, feedback: "Todas representan el mismo valor: 2/3 = 4/6 (×2/2) = 8/12 (×4/4). Las fracciones equivalentes se obtienen multiplicando numerador y denominador por el mismo número." }
+  ]
+};
+</script>
+<script src="quiz-engine.js"></script>
 </body>
 </html>

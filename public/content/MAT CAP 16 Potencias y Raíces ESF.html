@@ -220,5 +220,23 @@
     </ul>
   </div>
 </div>
+<script>
+window.QUIZ_DATA = {
+  lang: "es",
+  questions: [
+    { q: "¿Cuánto es 2⁵?", options: ["10", "16", "32", "64"], correct: 2, feedback: "2⁵ = 2×2×2×2×2 = 32. La base es 2 y el exponente 5 indica cuántas veces se multiplica la base por sí misma." },
+    { q: "¿Cuánto es x³ · x⁴ usando las leyes de exponentes?", options: ["x¹²", "x⁷", "x⁸", "2x⁷"], correct: 1, feedback: "Ley del producto con misma base: aᵐ · aⁿ = aᵐ⁺ⁿ. Por lo tanto x³ · x⁴ = x³⁺⁴ = x⁷." },
+    { q: "¿Cuánto es (2³)⁴?", options: ["2⁷", "2¹²", "8⁴", "6⁴"], correct: 1, feedback: "Ley de la potencia de una potencia: (aᵐ)ⁿ = aᵐⁿ. Por lo tanto (2³)⁴ = 2³×⁴ = 2¹² = 4096." },
+    { q: "¿Cuánto es 5⁰?", options: ["0", "5", "1", "Indefinido"], correct: 2, feedback: "Todo número (distinto de cero) elevado al exponente 0 es igual a 1: a⁰ = 1. Por ejemplo, 5⁰ = 1, 100⁰ = 1, (−7)⁰ = 1." },
+    { q: "¿Cuánto es 3⁻²?", options: ["−9", "−6", "1/9", "1/6"], correct: 2, feedback: "Exponente negativo: a⁻ⁿ = 1/aⁿ. Por lo tanto 3⁻² = 1/3² = 1/9." },
+    { q: "¿Cuánto es √144?", options: ["11", "12", "13", "14"], correct: 1, feedback: "√144 = 12, porque 12² = 144. La raíz cuadrada es la operación inversa de elevar al cuadrado." },
+    { q: "¿Cuánto es ∛27?", options: ["3", "4", "9", "√3"], correct: 0, feedback: "∛27 = 3, porque 3³ = 27. La raíz cúbica busca el número que multiplicado por sí mismo tres veces da el radicando." },
+    { q: "¿Cómo se escribe 16^(1/2) como raíz?", options: ["∛16", "√16", "16²", "√(1/2)"], correct: 1, feedback: "El exponente fraccionario a^(1/n) equivale a la raíz n-ésima: a^(1/2) = √a. Por lo tanto 16^(1/2) = √16 = 4." },
+    { q: "Expresa 4,7 × 10³ en notación estándar.", options: ["0,0047", "470", "4.700", "47.000"], correct: 2, feedback: "4,7 × 10³ = 4,7 × 1000 = 4.700. En notación científica, el exponente positivo indica cuántos lugares se mueve el decimal hacia la derecha." },
+    { q: "¿Cuánto es (x⁶) / (x²)?", options: ["x⁴", "x³", "x⁸", "1"], correct: 0, feedback: "Ley del cociente con misma base: aᵐ / aⁿ = aᵐ⁻ⁿ. Por lo tanto x⁶ / x² = x⁶⁻² = x⁴." }
+  ]
+};
+</script>
+<script src="quiz-engine.js"></script>
 </body>
 </html>

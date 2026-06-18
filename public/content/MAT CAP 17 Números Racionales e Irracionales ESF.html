@@ -209,5 +209,23 @@
     </ul>
   </div>
 </div>
+<script>
+window.QUIZ_DATA = {
+  lang: "es",
+  questions: [
+    { q: "¿Cuál de los siguientes números es irracional?", options: ["3/7", "0,25", "√2", "−5"], correct: 2, feedback: "√2 ≈ 1,41421356... es irracional: su decimal es infinito y no periódico, por lo que no puede expresarse como fracción p/q de enteros." },
+    { q: "¿Qué conjunto numérico contiene a todos los demás?", options: ["ℕ (Naturales)", "ℤ (Enteros)", "ℚ (Racionales)", "ℂ (Complejos)"], correct: 3, feedback: "La jerarquía es ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ ⊂ ℂ. Los números complejos contienen a todos los demás conjuntos como subconjuntos." },
+    { q: "¿Cuál es la definición de número racional?", options: ["Todo número entero", "Todo número expresable como p/q con p, q enteros y q ≠ 0", "Todo decimal finito", "Todo número positivo"], correct: 1, feedback: "Un número racional es cualquier número expresable como p/q donde p y q son enteros y q ≠ 0. Incluye enteros, fracciones y decimales finitos o periódicos." },
+    { q: "¿Cuál de estos decimales representa un número racional?", options: ["3,14159265... (π)", "0,333333... (1/3)", "1,41421356... (√2)", "2,71828182... (e)"], correct: 1, feedback: "0,3333... = 1/3 es racional porque es un decimal periódico (el dígito 3 se repite infinitamente). Los decimales periódicos siempre son racionales." },
+    { q: "¿A qué conjunto pertenece el número −7?", options: ["Solo ℕ", "Solo ℤ", "ℤ y también ℚ y ℝ", "Solo ℝ"], correct: 2, feedback: "−7 es entero (ℤ), por tanto también racional (ℚ = ℤ incluido) y real (ℝ). La jerarquía ℤ ⊂ ℚ ⊂ ℝ asegura que pertenece a todos estos conjuntos." },
+    { q: "¿Qué es la unidad imaginaria i?", options: ["i = √1", "i = √−1", "i = −1", "i = 1/i"], correct: 1, feedback: "La unidad imaginaria se define como i = √(−1), es decir, i² = −1. Permite definir los números complejos de la forma a + bi." },
+    { q: "¿Cuánto es i²?", options: ["1", "i", "−i", "−1"], correct: 3, feedback: "Por definición, i = √(−1), por lo que i² = (√(−1))² = −1. Esta es la propiedad fundamental que define la unidad imaginaria." },
+    { q: "¿Cuál de estos números es real pero irracional?", options: ["22/7", "√9", "π", "0,75"], correct: 2, feedback: "π ≈ 3,14159... es irracional: su expansión decimal es infinita y no periódica. No puede expresarse como fracción exacta de enteros, aunque 22/7 es una aproximación." },
+    { q: "La prueba de que √2 es irracional se basa en:", options: ["Mostrar que su decimal termina", "Demostración por contradicción (suponer que es racional lleva a una contradicción)", "Calcularlo con una computadora", "El teorema de Pitágoras directamente"], correct: 1, feedback: "La prueba clásica supone que √2 = p/q (con p/q ya simplificada) y demuestra que tanto p como q son pares, lo cual contradice la suposición de que la fracción estaba simplificada." },
+    { q: "¿Cuál es la forma estándar de un número complejo?", options: ["a × bi", "a − bi únicamente", "a + bi", "i + a"], correct: 2, feedback: "La forma estándar de un número complejo es a + bi, donde a es la parte real y b es la parte imaginaria, con i = √(−1). Por ejemplo: 3 + 4i, 2 − 5i." }
+  ]
+};
+</script>
+<script src="quiz-engine.js"></script>
 </body>
 </html>

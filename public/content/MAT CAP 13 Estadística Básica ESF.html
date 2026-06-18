@@ -222,5 +222,23 @@
     </ul>
   </div>
 </div>
+<script>
+window.QUIZ_DATA = {
+  lang: "es",
+  questions: [
+    { q: "Para el conjunto {4, 7, 7, 9, 13}, ¿cuál es la media (promedio)?", options: ["7", "8", "9", "13"], correct: 1, feedback: "Media = (4 + 7 + 7 + 9 + 13) / 5 = 40 / 5 = 8." },
+    { q: "Para el conjunto {3, 5, 7, 9, 11}, ¿cuál es la mediana?", options: ["5", "6", "7", "9"], correct: 2, feedback: "Datos ya ordenados: {3, 5, 7, 9, 11}. Con 5 datos (impar), la mediana es el valor central, el 3.° elemento: 7." },
+    { q: "Para el conjunto {2, 4, 4, 6, 8, 4}, ¿cuál es la moda?", options: ["2", "4", "6", "8"], correct: 1, feedback: "La moda es el valor que más se repite. El número 4 aparece tres veces, más que cualquier otro valor." },
+    { q: "¿Cuál es el rango del conjunto {15, 22, 8, 31, 19}?", options: ["16", "19", "23", "31"], correct: 2, feedback: "Rango = valor máximo − valor mínimo = 31 − 8 = 23. El rango mide la dispersión total de los datos." },
+    { q: "¿Qué rama de la estadística se encarga de resumir y describir datos existentes?", options: ["Estadística inferencial", "Estadística descriptiva", "Estadística paramétrica", "Estadística bayesiana"], correct: 1, feedback: "La estadística descriptiva resume y describe datos ya existentes mediante medidas como la media, mediana, moda y desviación estándar, sin hacer inferencias sobre poblaciones mayores." },
+    { q: "¿Cuál es la diferencia entre datos cuantitativos discretos y continuos?", options: ["Los discretos son mayores", "Los continuos son contables y los discretos no", "Los discretos son contables; los continuos pueden tomar cualquier valor en un intervalo", "No hay diferencia"], correct: 2, feedback: "Los datos discretos toman valores contables separados (número de hijos: 0, 1, 2...). Los continuos pueden tomar cualquier valor en un intervalo (altura: 1,75 m; 1,753 m...)." },
+    { q: "En un diagrama de caja (boxplot), ¿qué representa la línea central dentro de la caja?", options: ["La media", "La mediana", "La moda", "El rango"], correct: 1, feedback: "En un diagrama de caja, la línea dentro de la caja representa la mediana (Q2), que divide los datos en dos mitades iguales." },
+    { q: "Si se suma una constante k a todos los datos de un conjunto, ¿qué le ocurre a la media?", options: ["No cambia", "Se multiplica por k", "Aumenta en k", "Se divide entre k"], correct: 2, feedback: "Si se suma k a todos los datos, la media también aumenta en k. Las medidas de dispersión (rango, desviación estándar) permanecen iguales." },
+    { q: "¿Qué tipo de dato es el 'país de origen' de una persona?", options: ["Cuantitativo discreto", "Cuantitativo continuo", "Cualitativo ordinal", "Cualitativo nominal"], correct: 3, feedback: "El país de origen es una categoría sin orden inherente entre categorías, lo que lo hace un dato cualitativo nominal. No tiene sentido ordenar países." },
+    { q: "¿Qué gráfica es más adecuada para mostrar cómo cambia una variable a lo largo del tiempo?", options: ["Diagrama de barras", "Histograma", "Gráfica de línea", "Diagrama circular"], correct: 2, feedback: "La gráfica de línea es ideal para mostrar tendencias a lo largo del tiempo, ya que conecta puntos cronológicos y revela la evolución de una variable." }
+  ]
+};
+</script>
+<script src="quiz-engine.js"></script>
 </body>
 </html>

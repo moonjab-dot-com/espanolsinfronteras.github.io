@@ -301,5 +301,23 @@ cargarPerfilUsuario(1);</div>
     </ul>
   </div>
 </div>
+<script>
+window.QUIZ_DATA = {
+  lang: "es",
+  questions: [
+    { q: "¿Por qué JavaScript necesita asincronía si es single-threaded?", options: ["Para ejecutar código en paralelo en múltiples hilos", "Para evitar que operaciones lentas bloqueen la interfaz de usuario", "Para mejorar la velocidad de cálculos matemáticos", "Para soportar múltiples usuarios simultáneamente"], correct: 1, feedback: "JavaScript es de un solo hilo, pero las operaciones lentas (redes, archivos) tardan tiempo. La asincronía permite que el código continúe ejecutándose mientras espera, evitando que la página se congele." },
+    { q: "¿Cuáles son los tres estados posibles de una Promesa?", options: ["loading, success, error", "pending, fulfilled, rejected", "waiting, resolved, failed", "start, running, done"], correct: 1, feedback: "Una Promesa puede estar en estado pending (pendiente, esperando resultado), fulfilled (cumplida con éxito) o rejected (rechazada con un error)." },
+    { q: "¿Qué problema principal resuelven las Promesas respecto a los callbacks?", options: ["Hacen el código más rápido", "Eliminan el 'callback hell' o pirámide de la fatalidad", "Permiten usar múltiples hilos", "Eliminan la necesidad de manejar errores"], correct: 1, feedback: "Las Promesas permiten encadenar operaciones asíncronas de forma plana con `.then()`, evitando la anidación profunda de callbacks que genera código imposible de mantener." },
+    { q: "¿Qué hace `Promise.all([p1, p2, p3])`?", options: ["Ejecuta las promesas una por una en secuencia", "Espera a que todas las promesas terminen; falla si alguna falla", "Retorna el resultado de la promesa más rápida", "Ignora los errores de las promesas individuales"], correct: 1, feedback: "`Promise.all()` ejecuta todas las promesas en paralelo y resuelve con un array de resultados cuando todas terminan. Si cualquiera es rechazada, toda la operación falla." },
+    { q: "¿Qué palabra clave se usa para marcar una función como asíncrona?", options: ["`await`", "`async`", "`promise`", "`defer`"], correct: 1, feedback: "La palabra clave `async` antes de la definición de una función la convierte en asíncrona. Una función `async` siempre retorna una Promesa implícitamente." },
+    { q: "¿Qué devuelve `fetch()` en JavaScript?", options: ["Directamente el JSON de la respuesta", "Una Promesa que resuelve con el objeto Response", "Un string con el cuerpo de la respuesta", "El código de estado HTTP"], correct: 1, feedback: "`fetch()` retorna una Promesa que resuelve con un objeto `Response`. Para obtener el JSON debes llamar `response.json()`, que también retorna una Promesa." },
+    { q: "¿Por qué se debe verificar `response.ok` después de un `fetch()`?", options: ["Para saber si el servidor está en línea", "Porque fetch() no lanza error en respuestas 4xx o 5xx automáticamente", "Para confirmar que el JSON es válido", "Para reintentar la solicitud automáticamente"], correct: 1, feedback: "`fetch()` solo rechaza la Promesa ante errores de red. Las respuestas HTTP con código 404 o 500 se consideran éxito desde la perspectiva de fetch; debes comprobar `response.ok` manualmente." },
+    { q: "¿Cuál es la ventaja de `await Promise.all([...])` sobre múltiples `await` secuenciales?", options: ["Es más fácil de escribir", "Ejecuta las operaciones en paralelo, reduciendo el tiempo total", "Maneja errores automáticamente", "Evita usar try/catch"], correct: 1, feedback: "Con `await` secuencial, cada operación espera a que termine la anterior. Con `await Promise.all()` todas se inician a la vez y se espera a que terminen todas, reduciendo el tiempo total." },
+    { q: "¿Cómo se maneja un error en una función `async/await`?", options: ["Con el método `.catch()` únicamente", "Con un bloque `try/catch`", "Con el evento `onerror`", "Los errores se ignoran automáticamente"], correct: 1, feedback: "Dentro de funciones `async`, el manejo de errores se hace con `try/catch`, igual que en código síncrono. Esto hace el código más legible que encadenar `.catch()` en promesas." },
+    { q: "¿Qué diferencia hay entre `Promise.race()` y `Promise.all()`?", options: ["No hay diferencia, son equivalentes", "race() resuelve con la primera promesa que termine; all() espera a todas", "all() falla si alguna falla; race() nunca falla", "race() ejecuta las promesas en secuencia"], correct: 1, feedback: "`Promise.race()` resuelve (o rechaza) tan pronto como la primera promesa del array termine, mientras que `Promise.all()` espera a que todas las promesas se completen." }
+  ]
+};
+</script>
+<script src="quiz-engine.js"></script>
 </body>
 </html>

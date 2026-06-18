@@ -251,5 +251,23 @@
     </ul>
   </div>
 </div>
+<script>
+window.QUIZ_DATA = {
+  lang: "es",
+  questions: [
+    { q: "¿Qué representa la derivada de una función en un punto?", options: ["El área bajo la curva en ese punto", "La pendiente de la recta tangente en ese punto", "El valor máximo de la función", "La distancia recorrida"], correct: 1, feedback: "La derivada f'(x) en un punto representa la pendiente de la recta tangente a la curva en ese punto, lo cual equivale a la tasa de cambio instantánea." },
+    { q: "¿Cuánto es el límite lím(x→2) de (3x + 1)?", options: ["5", "6", "7", "8"], correct: 2, feedback: "Como f(x) = 3x + 1 es continua en x = 2, el límite es igual al valor de la función: lím(x→2)(3x+1) = 3(2)+1 = 7." },
+    { q: "Usando la regla de la potencia, ¿cuál es la derivada de f(x) = x⁴?", options: ["4x³", "4x⁴", "x³", "4x⁵"], correct: 0, feedback: "Regla de la potencia: d/dx(xⁿ) = n·xⁿ⁻¹. Para f(x) = x⁴: f'(x) = 4·x³." },
+    { q: "¿Cuál es la derivada de la función constante f(x) = 7?", options: ["7", "7x", "1", "0"], correct: 3, feedback: "La derivada de cualquier constante es cero: d/dx(c) = 0. Una constante no cambia, su tasa de cambio es siempre 0." },
+    { q: "¿Cuál es la derivada de f(x) = 3x² + 2x − 5?", options: ["6x + 2", "3x + 2", "6x² + 2", "6x − 5"], correct: 0, feedback: "Derivando término a término: d/dx(3x²) = 6x, d/dx(2x) = 2, d/dx(−5) = 0. Por lo tanto f'(x) = 6x + 2." },
+    { q: "¿Qué concepto matemático resuelve el problema de la velocidad instantánea?", options: ["La proporción", "La integral definida", "El límite y la derivada", "La raíz cuadrada"], correct: 2, feedback: "La velocidad instantánea se obtiene tomando el límite de la velocidad media cuando el intervalo de tiempo tiende a cero: v(t) = lím(Δt→0) Δx/Δt, que es la definición de derivada." },
+    { q: "¿En qué punto una función f(x) = x² − 4x tiene un mínimo local?", options: ["x = 0", "x = 2", "x = 4", "x = −2"], correct: 1, feedback: "Se iguala la derivada a cero: f'(x) = 2x − 4 = 0 → x = 2. Como f''(x) = 2 > 0, es un mínimo. El valor mínimo es f(2) = 4 − 8 = −4." },
+    { q: "¿Qué interpreta geométricamente la integral definida ∫ₐᵇ f(x) dx?", options: ["La pendiente de la curva", "El área bajo la curva entre x=a y x=b", "El valor máximo de f en [a,b]", "La longitud de la curva"], correct: 1, feedback: "La integral definida ∫ₐᵇ f(x) dx representa el área neta entre la curva y el eje x en el intervalo [a, b]. Es el concepto central del cálculo integral." },
+    { q: "Según el Teorema Fundamental del Cálculo, la derivada e integral son:", options: ["Operaciones independientes sin relación", "Operaciones inversas entre sí", "Iguales para toda función", "Solo aplicables a funciones lineales"], correct: 1, feedback: "El Teorema Fundamental del Cálculo establece que la derivación y la integración son operaciones inversas: d/dx [∫ₐˣ f(t)dt] = f(x). Esto unifica el cálculo diferencial e integral." },
+    { q: "¿Cuál es la derivada de f(x) = x³ evaluada en x = 2?", options: ["6", "8", "12", "24"], correct: 2, feedback: "f'(x) = 3x². Evaluando en x = 2: f'(2) = 3(2²) = 3×4 = 12. Esto representa la pendiente de la tangente a y = x³ en el punto (2, 8)." }
+  ]
+};
+</script>
+<script src="quiz-engine.js"></script>
 </body>
 </html>

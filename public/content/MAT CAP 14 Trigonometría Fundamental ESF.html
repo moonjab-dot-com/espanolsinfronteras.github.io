@@ -228,5 +228,23 @@
     </ul>
   </div>
 </div>
+<script>
+window.QUIZ_DATA = {
+  lang: "es",
+  questions: [
+    { q: "En un triángulo rectángulo con catetos 3 y 4, ¿cuánto mide la hipotenusa?", options: ["5", "6", "7", "√7"], correct: 0, feedback: "Teorema de Pitágoras: c² = 3² + 4² = 9 + 16 = 25, por lo tanto c = √25 = 5. Este es el triple pitagórico 3-4-5." },
+    { q: "¿Cuál es la definición del seno de un ángulo en un triángulo rectángulo?", options: ["Cateto adyacente / Hipotenusa", "Hipotenusa / Cateto opuesto", "Cateto opuesto / Hipotenusa", "Cateto opuesto / Cateto adyacente"], correct: 2, feedback: "El seno (sin) de un ángulo = cateto opuesto / hipotenusa. El nemotécnico SOH-CAH-TOA ayuda: S = Opuesto/Hipotenusa." },
+    { q: "¿Cuánto es sen(30°)?", options: ["√3/2", "1/2", "√2/2", "1"], correct: 1, feedback: "sen(30°) = 1/2. Es uno de los ángulos notables fundamentales: sen(30°) = 1/2, cos(30°) = √3/2, tan(30°) = 1/√3." },
+    { q: "¿Cuánto es cos(60°)?", options: ["√3/2", "√2/2", "1/2", "1"], correct: 2, feedback: "cos(60°) = 1/2. Nótese que sen(30°) = cos(60°) = 1/2, lo cual refleja la identidad sen(θ) = cos(90°−θ)." },
+    { q: "¿Cuánto es tan(45°)?", options: ["0", "√2/2", "√3", "1"], correct: 3, feedback: "tan(45°) = sen(45°)/cos(45°) = (√2/2)/(√2/2) = 1. A 45° el triángulo rectángulo isósceles tiene catetos iguales, por eso la tangente es 1." },
+    { q: "¿Cuántos grados equivalen a π radianes?", options: ["90°", "270°", "180°", "360°"], correct: 2, feedback: "La conversión fundamental es π rad = 180°. A partir de esta relación: 1 rad = 180°/π ≈ 57,3° y 1° = π/180 rad." },
+    { q: "En el círculo unitario, ¿qué coordenada del punto corresponde al coseno del ángulo?", options: ["La coordenada y", "La coordenada x", "El radio del círculo", "El arco del ángulo"], correct: 1, feedback: "En el círculo unitario (radio = 1), cada punto es (cos θ, sen θ): la coordenada x es el coseno y la coordenada y es el seno del ángulo θ." },
+    { q: "¿Cuál es la identidad pitagórica fundamental de la trigonometría?", options: ["sen²θ − cos²θ = 1", "sen²θ + cos²θ = 1", "tan²θ + 1 = cos²θ", "senθ × cosθ = 1"], correct: 1, feedback: "La identidad fundamental es sen²θ + cos²θ = 1. Se deriva directamente del Teorema de Pitágoras aplicado al círculo unitario: x² + y² = r² con r = 1." },
+    { q: "En un triángulo rectángulo, si la hipotenusa mide 13 y un cateto mide 5, ¿cuánto mide el otro cateto?", options: ["8", "10", "12", "√194"], correct: 2, feedback: "Por Pitágoras: 5² + b² = 13² → 25 + b² = 169 → b² = 144 → b = 12. Este es el triple pitagórico 5-12-13." },
+    { q: "¿Cuántos radianes equivalen a 270°?", options: ["π/2", "π", "3π/4", "3π/2"], correct: 3, feedback: "270° × (π/180°) = 270π/180 = 3π/2. También se puede pensar: 270° = 3/4 de 360°, y una vuelta completa = 2π, entonces 3/4 × 2π = 3π/2." }
+  ]
+};
+</script>
+<script src="quiz-engine.js"></script>
 </body>
 </html>

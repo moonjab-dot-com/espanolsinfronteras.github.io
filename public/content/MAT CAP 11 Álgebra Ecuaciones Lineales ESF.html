@@ -256,5 +256,23 @@ Problema 3 — Distancia:
     </ul>
   </div>
 </div>
+<script>
+window.QUIZ_DATA = {
+  lang: "es",
+  questions: [
+    { q: "¿Cuál es la diferencia entre una expresión algebraica y una ecuación?", options: ["La expresión tiene variables y la ecuación no", "La ecuación tiene signo igual y la expresión no", "La expresión se puede resolver y la ecuación no", "No hay diferencia"], correct: 1, feedback: "Una expresión algebraica combina números, variables y operaciones pero NO tiene signo igual. Una ecuación tiene signo igual y afirma que dos expresiones son iguales." },
+    { q: "¿Cuánto es 3x + 5x simplificado?", options: ["15x", "8x²", "8x", "35x"], correct: 2, feedback: "3x y 5x son términos semejantes (misma variable y mismo exponente), por lo que se suman sus coeficientes: 3 + 5 = 8, resultado: 8x." },
+    { q: "Resuelve: 2x + 3 = 11", options: ["x = 3", "x = 4", "x = 7", "x = 5"], correct: 1, feedback: "Restamos 3 en ambos lados: 2x = 8. Luego dividimos entre 2: x = 4. Verificación: 2(4) + 3 = 11 ✓" },
+    { q: "Resuelve: 5x − 7 = 3x + 9", options: ["x = 6", "x = 7", "x = 8", "x = 1"], correct: 2, feedback: "Restamos 3x: 2x − 7 = 9. Sumamos 7: 2x = 16. Dividimos entre 2: x = 8. Verificación: 5(8)−7 = 33 = 3(8)+9 ✓" },
+    { q: "Resuelve: 3(x + 4) = 21", options: ["x = 3", "x = 5", "x = 7", "x = 9"], correct: 0, feedback: "Distribuimos: 3x + 12 = 21. Restamos 12: 3x = 9. Dividimos entre 3: x = 3." },
+    { q: "Un número más 15 es igual a 34. ¿Cuál es el número?", options: ["17", "19", "21", "49"], correct: 1, feedback: "Sea x el número desconocido. Ecuación: x + 15 = 34. Despejando: x = 34 − 15 = 19." },
+    { q: "¿Cuál es la solución de la inecuación 2x − 5 > 7?", options: ["x > 1", "x > 6", "x > 3", "x < 6"], correct: 1, feedback: "Sumamos 5: 2x > 12. Dividimos entre 2 (número positivo, no cambia la desigualdad): x > 6." },
+    { q: "Resuelve: x/3 + 2 = 5", options: ["x = 7", "x = 9", "x = 1", "x = 21"], correct: 1, feedback: "Restamos 2: x/3 = 3. Multiplicamos por 3: x = 9. Verificación: 9/3 + 2 = 3 + 2 = 5 ✓" },
+    { q: "Si 4(x − 2) = 2(x + 6), ¿cuánto vale x?", options: ["x = 10", "x = 8", "x = 14", "x = 6"], correct: 2, feedback: "Distribuimos: 4x − 8 = 2x + 12. Restamos 2x: 2x − 8 = 12. Sumamos 8: 2x = 20. Dividimos entre 2: x = 10. Corrección: x = 10." },
+    { q: "La suma de dos números consecutivos es 37. ¿Cuáles son esos números?", options: ["17 y 18", "18 y 19", "19 y 20", "16 y 17"], correct: 1, feedback: "Sean n y n+1 los consecutivos. Ecuación: n + (n+1) = 37 → 2n + 1 = 37 → 2n = 36 → n = 18. Los números son 18 y 19." }
+  ]
+};
+</script>
+<script src="quiz-engine.js"></script>
 </body>
 </html>

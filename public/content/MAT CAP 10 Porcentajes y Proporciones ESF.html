@@ -281,5 +281,23 @@ Productividad:
     </ul>
   </div>
 </div>
+<script>
+window.QUIZ_DATA = {
+  lang: "es",
+  questions: [
+    { q: "¿Qué porcentaje es 45 de 180?", options: ["20%", "25%", "30%", "40%"], correct: 1, feedback: "Porcentaje = (45 / 180) × 100 = 0,25 × 100 = 25%." },
+    { q: "¿Cuánto es el 30% de 250?", options: ["75", "80", "85", "90"], correct: 0, feedback: "Parte = 250 × (30 / 100) = 250 × 0,30 = 75." },
+    { q: "Un artículo cuesta $80 con un descuento del 15%. ¿Cuánto se paga?", options: ["$64", "$68", "$72", "$74"], correct: 1, feedback: "Descuento = 80 × 0,15 = $12. Precio final = 80 − 12 = $68." },
+    { q: "Un precio sube de $50 a $65. ¿Cuál es el porcentaje de aumento?", options: ["25%", "30%", "35%", "15%"], correct: 1, feedback: "Aumento = (65 − 50) / 50 × 100 = 15 / 50 × 100 = 30%." },
+    { q: "Si 40 es el 8% de cierta cantidad, ¿cuál es esa cantidad?", options: ["400", "500", "320", "450"], correct: 1, feedback: "Total = Parte / (Porcentaje/100) = 40 / 0,08 = 500." },
+    { q: "¿Qué significa que dos razones forman una proporción?", options: ["Que se suman al mismo valor", "Que son iguales entre sí", "Que tienen el mismo numerador", "Que sus denominadores se anulan"], correct: 1, feedback: "Una proporción es la igualdad de dos razones: a/b = c/d. La propiedad fundamental es que el producto de extremos es igual al producto de medios: a·d = b·c." },
+    { q: "Si 3 kg de manzanas cuestan $7,50, ¿cuánto cuestan 5 kg (proporción directa)?", options: ["$10,00", "$12,00", "$12,50", "$13,50"], correct: 2, feedback: "Razón: $7,50 / 3 kg = $2,50/kg. Para 5 kg: 5 × $2,50 = $12,50." },
+    { q: "Un automóvil recorre 240 km en 3 horas. ¿Cuántas horas necesita para recorrer 400 km a la misma velocidad?", options: ["4 h", "5 h", "6 h", "4,5 h"], correct: 1, feedback: "Velocidad = 240/3 = 80 km/h. Tiempo = 400/80 = 5 horas." },
+    { q: "Si se invierten $1.200 al 5% de interés simple anual, ¿cuánto interés genera en 3 años?", options: ["$150", "$180", "$200", "$360"], correct: 1, feedback: "Interés simple = Capital × Tasa × Tiempo = 1200 × 0,05 × 3 = $180." },
+    { q: "Un precio baja de $120 a $90. ¿Cuál es el porcentaje de descuento?", options: ["20%", "25%", "30%", "33%"], correct: 1, feedback: "Descuento % = (120 − 90) / 120 × 100 = 30 / 120 × 100 = 25%." }
+  ]
+};
+</script>
+<script src="quiz-engine.js"></script>
 </body>
 </html>

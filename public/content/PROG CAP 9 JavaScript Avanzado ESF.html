@@ -423,5 +423,23 @@ console.log(Math.max(...nums)); // 9</div>
     </ul>
   </div>
 </div>
+<script>
+window.QUIZ_DATA = {
+  lang: "es",
+  questions: [
+    { q: "¿Cuál de los siguientes tipos de función ES hoisted en JavaScript?", options: ["Expresión de función", "Función flecha", "Declaración de función", "IIFE"], correct: 2, feedback: "Las declaraciones de función son elevadas (hoisted), por lo que puedes llamarlas antes de que aparezcan en el código. Las expresiones y funciones flecha no son hoisted." },
+    { q: "¿Qué diferencia principal tienen las funciones flecha respecto a las funciones normales?", options: ["Son más lentas de ejecutar", "No tienen su propio `this`, heredan el del ámbito exterior", "No pueden recibir parámetros", "No pueden retornar valores"], correct: 1, feedback: "Las funciones flecha no tienen su propio contexto `this`; heredan el `this` del ámbito donde fueron definidas. Esta es la razón por la que son ideales en callbacks dentro de métodos." },
+    { q: "¿Qué tipo de alcance tienen las variables declaradas con `let` y `const`?", options: ["Alcance global", "Alcance de función", "Alcance de bloque", "Alcance dinámico"], correct: 2, feedback: "`let` y `const` tienen alcance de bloque, lo que significa que solo existen dentro del bloque `{}` donde se declaran, a diferencia de `var` que tiene alcance de función." },
+    { q: "¿Qué es un closure en JavaScript?", options: ["Una función que no retorna ningún valor", "Una función que recuerda las variables del entorno en el que fue creada", "Un bloque de código que se ejecuta una sola vez", "Una función que solo puede llamarse una vez"], correct: 1, feedback: "Un closure es una función que mantiene acceso a las variables del entorno en el que fue creada, incluso después de que ese entorno haya terminado de ejecutarse." },
+    { q: "En el patrón módulo con IIFE, ¿para qué sirve la función que se invoca inmediatamente?", options: ["Para mejorar el rendimiento del código", "Para crear un alcance privado y evitar contaminar el ámbito global", "Para hacer que el código sea asíncrono", "Para exportar funciones automáticamente"], correct: 1, feedback: "Una IIFE crea un alcance privado: las variables declaradas dentro no son accesibles desde fuera, lo que evita contaminar el espacio de nombres global." },
+    { q: "¿Qué retorna `[1, 2, 3, 4].filter(x => x > 2)`?", options: ["[1, 2]", "[3, 4]", "[2, 3, 4]", "[1]"], correct: 1, feedback: "`filter()` retorna un nuevo array con los elementos que pasan la condición. Solo 3 y 4 son mayores que 2, por lo que el resultado es `[3, 4]`." },
+    { q: "¿Cuál es la diferencia entre el operador rest `...` y el operador spread `...`?", options: ["Son exactamente lo mismo en todos los contextos", "Rest recopila múltiples valores en un array; Spread expande un array en valores individuales", "Rest solo funciona con objetos; Spread solo con arrays", "Rest es para ES5 y Spread para ES6"], correct: 1, feedback: "Aunque comparten la misma sintaxis `...`, rest recopila argumentos en un array (en parámetros de función), mientras que spread expande arrays u objetos (al llamar funciones o construir literales)." },
+    { q: "¿Qué devuelve `[1, 2, 3].map(x => x * 2)`?", options: ["6", "[2, 4, 6]", "[1, 4, 9]", "undefined"], correct: 1, feedback: "`map()` aplica la función a cada elemento y retorna un nuevo array con los resultados. Multiplicar cada elemento por 2 produce `[2, 4, 6]`." },
+    { q: "¿Qué valor tiene `this` dentro de una función flecha usada como callback?", options: ["El objeto global (window)", "El objeto que llama la función", "El `this` del ámbito donde la función flecha fue definida", "undefined siempre"], correct: 2, feedback: "Las funciones flecha no crean su propio contexto `this`; capturan el `this` léxico del entorno en que fueron escritas, lo que las hace ideales para callbacks dentro de métodos de objetos." },
+    { q: "¿Cuál es el valor inicial del acumulador en `[5, 10, 15].reduce((acc, val) => acc + val, 0)`?", options: ["5", "undefined", "0", "1"], correct: 2, feedback: "El segundo argumento de `reduce()` es el valor inicial del acumulador. En este caso es `0`, así que la suma comienza desde cero y resulta en 30." }
+  ]
+};
+</script>
+<script src="quiz-engine.js"></script>
 </body>
 </html>
