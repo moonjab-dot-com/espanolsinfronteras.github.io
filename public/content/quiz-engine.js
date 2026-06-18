@@ -38,34 +38,30 @@
 
   /* ── Copy protection ───────────────────────────────────────────────────── */
   (function() {
-    // Disable text selection via CSS
+    // user-select:none on content only — interactive elements MUST stay clickable
     var noSelectStyle = document.createElement("style");
     noSelectStyle.textContent =
-      "body,*{-webkit-user-select:none!important;-moz-user-select:none!important;" +
-      "-ms-user-select:none!important;user-select:none!important;}" +
-      // Allow selection inside quiz options so radio labels work
-      ".esf-option label{user-select:none!important;}";
+      "body{-webkit-user-select:none;-moz-user-select:none;user-select:none;}" +
+      "button,input,label,a,select,textarea," +
+      ".esf-option,.esf-option *,#esf-top-nav,#esf-top-nav *{" +
+      "-webkit-user-select:none;user-select:none;pointer-events:auto!important;}" +
+      // Drag-selection highlight off
+      "::selection{background:transparent;}::-moz-selection{background:transparent;}";
     document.head.appendChild(noSelectStyle);
 
-    // Block right-click
-    document.addEventListener("contextmenu", function(e) { e.preventDefault(); }, true);
+    // Block copy/cut on keyboard — don't touch contextmenu (breaks mobile taps)
+    document.addEventListener("copy", function(e) { e.preventDefault(); }, true);
+    document.addEventListener("cut",  function(e) { e.preventDefault(); }, true);
 
-    // Block copy/cut/drag
-    document.addEventListener("copy",      function(e) { e.preventDefault(); }, true);
-    document.addEventListener("cut",       function(e) { e.preventDefault(); }, true);
-    document.addEventListener("dragstart", function(e) { e.preventDefault(); }, true);
+    // Prevent dragging text out of the page
+    document.addEventListener("dragstart", function(e) {
+      if (e.target.tagName !== "A" && e.target.tagName !== "IMG") e.preventDefault();
+    }, true);
 
-    // Block Ctrl+C / Ctrl+X / Ctrl+A / Ctrl+P / Ctrl+S / Cmd equivalents
+    // Block Ctrl+C / Ctrl+X / Ctrl+A / Ctrl+U — leave Ctrl+P/S so menus work
     document.addEventListener("keydown", function(e) {
       var ctrl = e.ctrlKey || e.metaKey;
-      if (ctrl && (e.key === "c" || e.key === "C" ||
-                   e.key === "x" || e.key === "X" ||
-                   e.key === "a" || e.key === "A" ||
-                   e.key === "p" || e.key === "P" ||
-                   e.key === "s" || e.key === "S" ||
-                   e.key === "u" || e.key === "U")) {
-        e.preventDefault();
-      }
+      if (ctrl && "cCxXaAuU".indexOf(e.key) !== -1) e.preventDefault();
     }, true);
   })();
 
