@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ética en la Inteligencia Artificial | Español Sin Fronteras</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.8; }
+    .wrapper { max-width: 860px; margin: 0 auto; background: #fff; padding: 60px 72px; min-height: 100vh; }
+    .course-tag { font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #7c3aed; margin-bottom: 12px; }
+    h1 { font-size: 2rem; font-weight: 700; color: #0f172a; margin-bottom: 8px; line-height: 1.3; }
+    .subtitle { font-size: 1.05rem; color: #64748b; margin-bottom: 40px; font-style: italic; }
+    hr { border: none; border-top: 2px solid #ddd6fe; margin: 32px 0; }
+    h2 { font-size: 1.35rem; font-weight: 700; color: #1e293b; margin: 36px 0 16px; }
+    h3 { font-size: 1.1rem; font-weight: 700; color: #7c3aed; margin: 24px 0 10px; }
+    p { margin-bottom: 16px; font-size: 1rem; }
+    ul, ol { margin: 16px 0 16px 24px; }
+    li { margin-bottom: 8px; font-size: 1rem; }
+    .highlight-box { background: #f5f3ff; border-left: 4px solid #7c3aed; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .example { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin: 20px 0; font-family: 'Courier New', monospace; font-size: 0.9rem; }
+    table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.95rem; }
+    th { background: #7c3aed; color: white; padding: 12px 16px; text-align: left; font-family: Arial, sans-serif; font-weight: 600; }
+    td { padding: 11px 16px; border-bottom: 1px solid #e2e8f0; }
+    tr:nth-child(even) td { background: #f8fafc; }
+    .summary { background: #0f172a; color: #e2e8f0; border-radius: 12px; padding: 28px 32px; margin: 40px 0 0; }
+    .summary h2 { color: #fff; margin-top: 0; }
+    .summary li { color: #cbd5e1; }
+    @media (max-width: 640px) { .wrapper { padding: 32px 24px; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="course-tag">Inteligencia Artificial · Capítulo 8</div>
+  <h1>Ética en la Inteligencia Artificial: Los Dilemas del Poder Algorítmico</h1>
+  <p class="subtitle">Cuando los algoritmos deciden sobre empleos, préstamos, libertad y diagnósticos médicos, la ética deja de ser filosofía abstracta y se convierte en una cuestión urgente de justicia.</p>
+  <hr>
+
+  <h2>Por Qué la Ética en la IA Importa Ahora</h2>
+  <p>Durante décadas, la inteligencia artificial fue un tema de laboratorio. Hoy, los algoritmos toman o influyen en decisiones que afectan directamente la vida de miles de millones de personas: qué candidatos pasan el primer filtro de selección de empleo, si un préstamo hipotecario es aprobado, cuánto tiempo pasa una persona en prisión preventiva, qué contenido político ves en tus redes sociales, o si un sistema de diagnóstico detecta tu cáncer a tiempo.</p>
+
+  <p>La diferencia entre una decisión humana sesgada y una algorítmica sesgada es la escala. Un juez humano con prejuicios afecta a los casos que él o ella atiende. Un algoritmo sesgado desplegado a nivel nacional afecta a millones de personas simultáneamente, con una velocidad y consistencia que ningún humano podría igualar. La escala amplifica tanto los beneficios como los daños.</p>
+
+  <h2>Sesgos en Sistemas de IA: Casos Documentados</h2>
+
+  <h3>COMPAS: Predicción de Reincidencia y Sesgo Racial</h3>
+  <p>COMPAS (Correctional Offender Management Profiling for Alternative Sanctions) es un algoritmo usado en tribunales de Estados Unidos para predecir la probabilidad de que un acusado reincida en delitos, influyendo en decisiones de libertad condicional y sentencias. En 2016, ProPublica realizó un análisis exhaustivo de los resultados en Broward County, Florida:</p>
+
+  <div class="highlight-box">
+    <strong>Hallazgos del análisis de ProPublica (2016):</strong>
+    <ul style="margin-top: 8px;">
+      <li>Acusados negros fueron etiquetados de alto riesgo y no reincidieron al doble de tasa que los acusados blancos (falsos positivos: 44.9% vs 23.5%)</li>
+      <li>Acusados blancos fueron etiquetados de bajo riesgo y sí reincidieron a mayor tasa que los negros (falsos negativos: 47.7% vs 28.0%)</li>
+      <li>El algoritmo era un predictor apenas mejor que el azar (AUC = 0.70)</li>
+      <li>La empresa Northpointe (ahora Equivant) nunca reveló el código fuente ni la metodología</li>
+    </ul>
+  </div>
+
+  <p>La controversia de COMPAS ilustra múltiples problemas simultáneamente: sesgo en los datos de entrenamiento (histórico de arrestos que ya refleja sesgos policiales), falta de transparencia (caja negra propietaria), y consecuencias reales devastadoras para personas reales. Un hombre en Wisconsin apeló su sentencia argumentando que no podía impugnar el algoritmo que la había influenciado, porque nadie podía explicar cómo funcionaba.</p>
+
+  <h3>La Herramienta de Reclutamiento de Amazon</h3>
+  <p>Amazon construyó entre 2014 y 2017 un sistema de IA para filtrar currículos. El sistema aprendió de los patrones de contratación históricos de Amazon — que en tecnología son predominantemente masculinos. El sistema aprendió a penalizar currículos que contenían la palabra "mujeres" (como en "club de ajedrez femenino" o "universidad femenina") y a preferir verbos activos típicamente usados por hombres en sus currículos ("ejecuté", "lideré") sobre verbos más descriptivos. Amazon descubrió el problema en 2015 y abandonó el proyecto en 2017, pero el caso se hizo público en 2018.</p>
+
+  <h3>Reconocimiento Facial: Disparidades de Precisión</h3>
+  <p>El estudio "Gender Shades" (Buolamwini y Gebru, MIT Media Lab, 2018) evaluó sistemas de reconocimiento facial comerciales de IBM, Microsoft y Face++. Como se mencionó en el capítulo anterior, la tasa de error variaba dramáticamente según el tono de piel y el género. Más preocupante: estos sistemas se estaban usando activamente para identificación policial. En 2020, Robert Williams, un hombre negro en Michigan, fue arrestado erróneamente basándose en una coincidencia falsa de reconocimiento facial. Pasó 30 horas detenido antes de que el error se descubriera.</p>
+
+  <h2>Tipos de Sesgo Algorítmico</h2>
+
+  <table>
+    <tr>
+      <th>Tipo de sesgo</th>
+      <th>Descripción</th>
+      <th>Ejemplo</th>
+    </tr>
+    <tr>
+      <td>Sesgo en los datos</td>
+      <td>Los datos de entrenamiento no representan bien a toda la población o reflejan inequidades históricas</td>
+      <td>Datasets de imágenes médicas con mayoría de pacientes de piel clara</td>
+    </tr>
+    <tr>
+      <td>Sesgo de medición</td>
+      <td>La variable que se mide como proxy del objetivo real está sesgada</td>
+      <td>Usar arrestos previos (sesgado por prácticas policiales) como proxy de propensión al crimen</td>
+    </tr>
+    <tr>
+      <td>Sesgo de agregación</td>
+      <td>Un modelo entrenado en toda la población falla en subgrupos específicos</td>
+      <td>Modelos de predicción de diabetes entrenados mayormente en datos de hombres</td>
+    </tr>
+    <tr>
+      <td>Sesgo de evaluación</td>
+      <td>El conjunto de prueba no refleja la distribución real de uso</td>
+      <td>Evaluar un sistema de traducción solo en texto formal cuando se usará en redes sociales</td>
+    </tr>
+    <tr>
+      <td>Sesgo de despliegue</td>
+      <td>El modelo funciona bien en condiciones de laboratorio pero falla en el contexto real de uso</td>
+      <td>Sistema de diagnóstico entrenado en hospitales universitarios desplegado en clínicas rurales</td>
+    </tr>
+    <tr>
+      <td>Sesgo emergente</td>
+      <td>El sesgo surge de la interacción entre el algoritmo y el comportamiento humano en respuesta a él</td>
+      <td>Algoritmos de recomendación que llevan a cámaras de eco ideológicas</td>
+    </tr>
+  </table>
+
+  <h2>Privacidad y Vigilancia</h2>
+  <p>La IA potencia capacidades de vigilancia sin precedente histórico. El <strong>capitalismo de vigilancia</strong> (término acuñado por la académica Shoshana Zuboff) describe el modelo de negocio de empresas como Google y Facebook: extraer datos de comportamiento de usuarios, procesarlos con IA para inferir deseos, temores y vulnerabilidades, y venderlos a anunciantes para modificar el comportamiento.</p>
+
+  <p>En China, el sistema de "crédito social" del gobierno usa reconocimiento facial, análisis de comunicaciones y monitoreo de comportamiento financiero para asignar puntuaciones a los ciudadanos. Puntuaciones bajas pueden resultar en prohibiciones para viajar en avión o tren, acceso limitado a escuelas de calidad para los hijos, o publicación pública del nombre en listas de "deshonestos". En 2018, el sistema bloqueó más de 17.5 millones de compras de billetes de avión y 5.5 millones de compras de tren.</p>
+
+  <h2>Transparencia y Explicabilidad</h2>
+  <p>El <strong>problema de la caja negra</strong>: los modelos de deep learning más precisos son típicamente los menos explicables. Una red neuronal profunda puede tener miles de millones de parámetros; no existe una manera sencilla de explicar por qué produjo una decisión específica. Esto es problemático cuando esa decisión afecta a personas.</p>
+
+  <p>Dos técnicas principales para explicabilidad post-hoc (explicar decisiones de modelos ya entrenados):</p>
+
+  <div class="highlight-box">
+    <strong>LIME (Local Interpretable Model-agnostic Explanations):</strong> Para explicar una predicción específica, LIME genera perturbaciones del input (ligeras variaciones) y observa cómo cambia la predicción. Ajusta un modelo simple (ej: regresión lineal) que approxima el comportamiento del modelo complejo localmente alrededor de ese punto. El resultado es una explicación en términos de qué características importaron para esa decisión particular.<br><br>
+    <strong>SHAP (SHapley Additive exPlanations):</strong> Basado en teoría de juegos cooperativos. Calcula la contribución marginal de cada característica a la predicción, promediando sobre todas las posibles coaliciones de características. Produce explicaciones más consistentes matemáticamente que LIME pero es computacionalmente más costoso.
+  </div>
+
+  <p>El <strong>Reglamento General de Protección de Datos (GDPR)</strong> de la Unión Europea (2018) establece en su Artículo 22 el "derecho a explicación" para decisiones automatizadas que tienen efectos legales o significativos sobre una persona. Esto convierte la explicabilidad de la IA en un requisito legal en Europa.</p>
+
+  <h2>Responsabilidad: ¿Quién Responde Cuando la IA Falla?</h2>
+  <p>En 2018, un vehículo autónomo de Uber atropelló y mató a Elaine Herzberg en Tempe, Arizona — la primera muerte peatonal documentada causada por un vehículo autónomo. ¿Quién era responsable? ¿La empresa Uber? ¿La operadora del vehículo que miraba un programa en su teléfono? ¿Los ingenieros que diseñaron el sistema de detección? ¿Los reguladores que permitieron las pruebas en vías públicas? Esta cadena de responsabilidad difusa es uno de los problemas legales y éticos más complejos que plantea la IA.</p>
+
+  <h2>IA y Cambio Climático</h2>
+  <p>El entrenamiento de modelos de IA de gran escala tiene una huella de carbono significativa. Un estudio de Emma Strubell et al. (2019) estimó que entrenar un solo modelo de NLP de grande escala emite aproximadamente 284 toneladas de CO₂ — equivalente a cinco vidas enteras de un estadounidense promedio en términos de emisiones de transporte. Entrenar GPT-3 se estimó en 552 toneladas de CO₂. Sin embargo, la inferencia (usar el modelo después de entrenado) escala a miles de millones de consultas diarias, multiplicando ese impacto.</p>
+
+  <p>Al mismo tiempo, la IA está siendo aplicada para combatir el cambio climático: optimización de redes eléctricas, diseño de materiales para baterías de próxima generación, modelado climático de alta resolución y optimización de rutas de transporte para reducir emisiones. El balance neto es incierto y depende de decisiones de política energética en los centros de datos.</p>
+
+  <h2>Marcos Regulatorios</h2>
+  <table>
+    <tr>
+      <th>Marco</th>
+      <th>Región</th>
+      <th>Enfoque clave</th>
+    </tr>
+    <tr>
+      <td>EU AI Act (2024)</td>
+      <td>Unión Europea</td>
+      <td>Clasificación por riesgo: inaceptable (prohibido), alto riesgo (regulado), limitado y mínimo</td>
+    </tr>
+    <tr>
+      <td>Executive Order on AI (2023)</td>
+      <td>Estados Unidos</td>
+      <td>Estándares de seguridad, evaluación de riesgos, protección de privacidad; sin fuerza de ley formal</td>
+    </tr>
+    <tr>
+      <td>Regulaciones IA de China</td>
+      <td>China</td>
+      <td>Requisitos de etiquetado para IA generativa, control estatal de datos, prohibición de contenido que amenace el orden social</td>
+    </tr>
+    <tr>
+      <td>GDPR Art. 22</td>
+      <td>Unión Europea</td>
+      <td>Derecho a explicación en decisiones automatizadas con efectos legales; derecho a revisión humana</td>
+    </tr>
+  </table>
+
+  <p>El <strong>EU AI Act</strong> clasifica los sistemas de IA en cuatro categorías de riesgo. Sistemas de "riesgo inaceptable" están prohibidos: puntuación social por gobiernos, manipulación subliminal, explotación de vulnerabilidades de grupos específicos. Sistemas de "alto riesgo" (IA en crédito, empleo, educación, infraestructura crítica, justicia penal) requieren evaluación de conformidad, registro en una base de datos europea y supervisión humana obligatoria.</p>
+
+  <h2>Armas Autónomas</h2>
+  <p>Los sistemas de armas autónomas letales (LAWS, "killer robots") que pueden seleccionar y atacar objetivos sin intervención humana representan uno de los debates éticos más urgentes. Más de 30 países, incluyendo Austria, Brasil y Nueva Zelanda, apoyan un tratado internacional para prohibirlos. Estados Unidos, Rusia, Israel y China se oponen. El argumento en contra: delegar decisiones letales a una máquina viola principios fundamentales del derecho internacional humanitario, que requiere distinción entre combatientes y civiles, proporcionalidad y precaución — juicios contextuales que los algoritmos actuales no pueden realizar de forma confiable.</p>
+
+  <h2>Lo Que Puedes Hacer Como Ciudadano Digital</h2>
+  <ul>
+    <li><strong>Exige explicaciones:</strong> Si una decisión que te afecta fue tomada o influida por un algoritmo, tienes derecho a saber cómo (al menos en la UE). Ejerce ese derecho.</li>
+    <li><strong>Sé crítico con los datos:</strong> Pregunta siempre con qué datos fue entrenado un sistema y si esos datos representan a toda la población afectada.</li>
+    <li><strong>Participa en el debate público:</strong> Las decisiones sobre regulación de IA son decisiones políticas que afectan a todos. Informarse y participar es una responsabilidad ciudadana.</li>
+    <li><strong>Aprende sobre tus derechos digitales:</strong> GDPR en Europa, leyes de protección de datos en tu país, derechos sobre datos biométricos.</li>
+    <li><strong>Apoya la transparencia:</strong> Favorece a empresas y gobiernos que publican auditorías de sus sistemas de IA y son transparentes sobre sus limitaciones.</li>
+  </ul>
+
+  <div class="summary">
+    <h2>Resumen del Capítulo</h2>
+    <ul>
+      <li>Los algoritmos de IA toman decisiones a escala que amplifican tanto beneficios como perjuicios; el sesgo en sistemas como COMPAS (doble tasa de falsos positivos para acusados negros) y la herramienta de reclutamiento de Amazon muestran que los daños no son teóricos sino documentados y medibles.</li>
+      <li>El sesgo algorítmico surge de múltiples fuentes: datos de entrenamiento que reflejan inequidades históricas, variables proxy sesgadas, modelos que no representan subgrupos, evaluaciones inadecuadas y efectos emergentes de la interacción algoritmo-comportamiento humano.</li>
+      <li>La explicabilidad es técnicamente difícil (los modelos más precisos son los menos interpretables) pero legalmente requerida en Europa (GDPR Art. 22); LIME y SHAP son las técnicas principales para generar explicaciones post-hoc.</li>
+      <li>La responsabilidad cuando la IA falla es difusa — empresa, operador, ingeniero, regulador — y los marcos legales actuales no están preparados para asignarla claramente; el caso de la muerte peatonal de Uber (2018) ilustra este vacío.</li>
+      <li>Entrenar GPT-3 emitió aproximadamente 552 toneladas de CO₂; el impacto climático de la IA de gran escala es real aunque la IA también ofrece herramientas para combatir el cambio climático.</li>
+      <li>El EU AI Act (2024) es el marco regulatorio más completo del mundo, prohibiendo usos de "riesgo inaceptable" (como puntuación social gubernamental) y exigiendo conformidad, registro y supervisión humana para sistemas de "alto riesgo".</li>
+      <li>Como ciudadano digital, puedes exigir explicaciones sobre decisiones algorítmicas, ejercer tus derechos de protección de datos, participar en el debate regulatorio y favorecer organizaciones que practiquen transparencia y auditoría de sus sistemas de IA.</li>
+    </ul>
+  </div>
+</div>
+<script>
+window.QUIZ_DATA = {
+  lang: "es",
+  questions: [
+    { q: "¿Cuál es la diferencia principal entre una decisión humana sesgada y una algorítmica sesgada?", options: ["Las decisiones algorítmicas siempre son más justas", "La escala: un algoritmo sesgado desplegado nacionalmente afecta a millones simultáneamente con una velocidad que ningún humano puede igualar", "Las decisiones humanas son más rápidas", "Las decisiones algorítmicas no pueden ser cuestionadas legalmente"], correct: 1, feedback: "Un juez humano con prejuicios afecta sus propios casos; un algoritmo sesgado desplegado a nivel nacional afecta a millones de personas simultáneamente, amplificando tanto beneficios como daños." },
+    { q: "¿Qué reveló el análisis de ProPublica sobre el algoritmo COMPAS?", options: ["Que el algoritmo era perfecto y sin sesgos", "Que los acusados negros fueron etiquetados de alto riesgo y no reincidieron al doble de tasa que los blancos (44.9% vs 23.5% falsos positivos)", "Que el algoritmo solo funcionaba en delitos financieros", "Que COMPAS fue desarrollado por la policía de Nueva York"], correct: 1, feedback: "ProPublica (2016) encontró que COMPAS generaba falsos positivos de alto riesgo para acusados negros al 44.9% versus 23.5% para blancos, con un desempeño apenas mejor que el azar (AUC=0.70)." },
+    { q: "¿Por qué Amazon abandonó su herramienta de reclutamiento con IA en 2017?", options: ["Porque era demasiado costosa de mantener", "Porque aprendió a penalizar currículos con la palabra 'mujeres' al entrenarse con el histórico de contrataciones predominantemente masculino de Amazon", "Porque los candidatos contratados mediante IA renunciaban antes", "Porque la precisión era inferior al proceso manual"], correct: 1, feedback: "El sistema aprendió de patrones de contratación históricos sesgados hacia hombres, penalizando palabras como 'club de ajedrez femenino' y prefiriendo verbos típicamente masculinos en los currículos." },
+    { q: "¿Qué tipo de sesgo ocurre cuando la variable utilizada como proxy ya refleja inequidades históricas?", options: ["Sesgo de agregación", "Sesgo de medición", "Sesgo de despliegue", "Sesgo emergente"], correct: 1, feedback: "El sesgo de medición ocurre cuando la variable proxy está sesgada, como usar arrestos previos (que reflejan sesgos policiales) como proxy de propensión al crimen." },
+    { q: "¿Qué establece el Artículo 22 del GDPR europeo sobre decisiones algorítmicas?", options: ["Que todas las decisiones deben ser tomadas por IA para eliminar el sesgo humano", "El derecho a explicación y revisión humana para decisiones automatizadas con efectos legales o significativos sobre una persona", "Que los datos personales no pueden usarse para entrenar modelos de IA", "Que las empresas deben publicar el código fuente de sus algoritmos"], correct: 1, feedback: "El GDPR Art. 22 establece el 'derecho a explicación' para decisiones automatizadas que tienen efectos legales o significativos, convirtiendo la explicabilidad de la IA en un requisito legal en Europa." },
+    { q: "¿Qué técnica de explicabilidad calcula la contribución marginal de cada característica usando teoría de juegos cooperativos?", options: ["LIME", "SHAP", "Grad-CAM", "PCA"], correct: 1, feedback: "SHAP (SHapley Additive exPlanations) está basado en teoría de juegos cooperativos y calcula la contribución marginal de cada característica promediando sobre todas las posibles coaliciones, produciendo explicaciones matemáticamente consistentes." },
+    { q: "¿Cuántas toneladas de CO2 se estimó que emitió el entrenamiento de GPT-3?", options: ["5 toneladas", "52 toneladas", "552 toneladas", "5,200 toneladas"], correct: 2, feedback: "Entrenar GPT-3 se estimó en aproximadamente 552 toneladas de CO2, equivalente a muchas vidas enteras de un estadounidense promedio en términos de emisiones de transporte." },
+    { q: "¿Qué tipo de sistemas de IA prohíbe el EU AI Act (2024) como 'riesgo inaceptable'?", options: ["Sistemas de recomendación de películas y música", "Sistemas de puntuación social por gobiernos, manipulación subliminal y explotación de vulnerabilidades de grupos específicos", "Sistemas de detección de spam en correo electrónico", "Sistemas de traducción automática y asistentes virtuales"], correct: 1, feedback: "El EU AI Act clasifica como riesgo inaceptable (prohibido) la puntuación social gubernamental, la manipulación subliminal y la explotación de vulnerabilidades, como sistemas que violan derechos fundamentales." },
+    { q: "¿Qué le ocurrió a Robert Williams en Michigan en 2020 relacionado con la IA?", options: ["Fue contratado erróneamente como ingeniero de IA", "Fue arrestado erróneamente basándose en una coincidencia falsa de reconocimiento facial; pasó 30 horas detenido", "Su solicitud de crédito fue rechazada por un algoritmo sesgado", "Fue despedido de su trabajo por un sistema de evaluación de IA"], correct: 1, feedback: "Robert Williams, un hombre negro en Michigan, fue arrestado erróneamente en 2020 basándose en una coincidencia falsa de reconocimiento facial, pasando 30 horas detenido antes de que se descubriera el error." },
+    { q: "¿Qué describe el término 'capitalismo de vigilancia' acuñado por Shoshana Zuboff?", options: ["El negocio de vender cámaras de seguridad a empresas", "El modelo de negocio de extraer datos de comportamiento de usuarios, procesarlos con IA para inferir vulnerabilidades y venderlos a anunciantes para modificar el comportamiento", "La vigilancia policial mediante drones con IA", "El espionaje industrial entre empresas tecnológicas"], correct: 1, feedback: "El capitalismo de vigilancia (Zuboff) describe cómo empresas como Google y Facebook extraen datos de comportamiento, usan IA para inferir deseos y temores, y los venden a anunciantes para modificar el comportamiento humano." }
+  ]
+};
+</script>
+<script src="quiz-engine.js"></script>
+</body>
+</html>

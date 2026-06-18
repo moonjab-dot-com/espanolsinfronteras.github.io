@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IA Responsable: Sesgos, Transparencia y Justicia Algorítmica | Español Sin Fronteras</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.8; }
+    .wrapper { max-width: 860px; margin: 0 auto; background: #fff; padding: 60px 72px; min-height: 100vh; }
+    .course-tag { font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #7c3aed; margin-bottom: 12px; }
+    h1 { font-size: 2rem; font-weight: 700; color: #0f172a; margin-bottom: 8px; line-height: 1.3; }
+    .subtitle { font-size: 1.05rem; color: #64748b; margin-bottom: 40px; font-style: italic; }
+    hr { border: none; border-top: 2px solid #ddd6fe; margin: 32px 0; }
+    h2 { font-size: 1.35rem; font-weight: 700; color: #1e293b; margin: 36px 0 16px; }
+    h3 { font-size: 1.1rem; font-weight: 700; color: #7c3aed; margin: 24px 0 10px; }
+    p { margin-bottom: 16px; font-size: 1rem; }
+    ul, ol { margin: 16px 0 16px 24px; }
+    li { margin-bottom: 8px; font-size: 1rem; }
+    .highlight-box { background: #f5f3ff; border-left: 4px solid #7c3aed; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .example { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin: 20px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.95rem; }
+    th { background: #7c3aed; color: white; padding: 12px 16px; text-align: left; font-family: Arial, sans-serif; font-weight: 600; }
+    td { padding: 11px 16px; border-bottom: 1px solid #e2e8f0; }
+    tr:nth-child(even) td { background: #f8fafc; }
+    .summary { background: #0f172a; color: #e2e8f0; border-radius: 12px; padding: 28px 32px; margin: 40px 0 0; }
+    .summary h2 { color: #fff; margin-top: 0; }
+    .summary li { color: #cbd5e1; }
+    @media (max-width: 640px) { .wrapper { padding: 32px 24px; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="course-tag">Inteligencia Artificial · Capítulo 19</div>
+  <h1>IA Responsable: Sesgos, Transparencia y Justicia Algorítmica</h1>
+  <p class="subtitle">Cuando los algoritmos toman decisiones sobre libertad, crédito, empleo y salud, la justicia matemática no es opcional: es una obligación ética y social</p>
+  <hr>
+
+  <h2>Las Apuestas: IA Tomando Decisiones que Importan</h2>
+  <p>Cada día, sistemas de inteligencia artificial toman o informan decisiones que afectan profundamente la vida de millones de personas: si un acusado obtiene libertad bajo fianza o permanece detenido, si una solicitud de préstamo es aprobada o rechazada, si un currículum llega a manos de un reclutador o es filtrado automáticamente, si un paciente recibe atención urgente o es enviado a casa. Estas no son decisiones triviales de recomendación de películas. Son decisiones con consecuencias reales y a menudo irreversibles.</p>
+  <p>La promesa de los algoritmos era eliminar el sesgo humano —la fatiga, el prejuicio consciente e inconsciente, la variabilidad de criterio entre decisores. La realidad documentada es más compleja: los algoritmos no eliminan el sesgo, lo automatizan y lo escalan. Un juez sesgado afecta a las personas que comparecen ante él; un algoritmo sesgado afecta a millones simultáneamente con velocidad y apariencia de objetividad matemática.</p>
+
+  <h2>Daños Documentados con Estadísticas</h2>
+
+  <h3>COMPAS: predicción de reincidencia y discriminación racial</h3>
+  <p>COMPAS (Correctional Offender Management Profiling for Alternative Sanctions) es un algoritmo ampliamente usado en el sistema judicial de Estados Unidos para predecir la probabilidad de reincidencia de acusados, informando decisiones de libertad bajo fianza, sentencias y libertad condicional. En 2016, ProPublica publicó un análisis que se convirtió en referencia fundamental del campo:</p>
+
+  <div class="highlight-box">
+    <strong>Resultados del análisis de ProPublica sobre COMPAS (2016):</strong>
+    <ul>
+      <li>Los acusados afroamericanos tenían una tasa de <strong>falso positivo</strong> (clasificados como alto riesgo cuando no reincidieron) del <strong>44,9%</strong></li>
+      <li>Los acusados blancos tenían una tasa de falso positivo de solo el <strong>23,5%</strong></li>
+      <li>Los acusados blancos tenían mayor tasa de <strong>falso negativo</strong> (clasificados como bajo riesgo cuando sí reincidieron): 47,7% vs 28,0%</li>
+      <li>La empresa Northpointe (hoy Equivant) argumentó que el modelo estaba "calibrado": para un mismo score de riesgo, la probabilidad de reincidencia era similar entre razas</li>
+      <li>Investigadores de Carnegie Mellon demostraron matemáticamente que estas dos propiedades —calibración igual + tasas de error iguales— son <strong>matemáticamente incompatibles</strong> cuando las tasas de reincidencia base difieren entre grupos</li>
+    </ul>
+  </div>
+
+  <h3>Amazon: el algoritmo de reclutamiento que penalizaba a mujeres</h3>
+  <p>Reuters reveló en octubre de 2018 que Amazon desarrolló y posteriormente descartó un sistema de IA para screening de currículums. El sistema fue entrenado sobre una década de contrataciones históricas de Amazon —predominantemente masculinas en roles de ingeniería— y aprendió a penalizar implícitamente indicadores de género femenino. El sistema penalizaba CVs que contenían la palabra "mujeres" (como en "directora de club de mujeres en STEM") y rebajaba la puntuación de graduadas de dos universidades femeninas históricas. Amazon descubrió el problema en 2015, intentó correcciones que no funcionaron completamente, y abandonó el sistema en 2017 sin haberlo desplegado en producción.</p>
+
+  <h3>Reconocimiento facial: error diferencial por género y raza</h3>
+  <p>Joy Buolamwini del MIT Media Lab y Timnit Gebru publicaron en 2018 "Gender Shades", un estudio que evaluó sistemas comerciales de reconocimiento facial de IBM, Microsoft y Face++. Los resultados revelaron disparidades dramáticas:</p>
+
+  <table>
+    <tr><th>Grupo demográfico</th><th>Tasa de error (media de 3 sistemas)</th></tr>
+    <tr><td>Hombres de piel clara</td><td>0,8%</td></tr>
+    <tr><td>Mujeres de piel clara</td><td>8,1%</td></tr>
+    <tr><td>Hombres de piel oscura</td><td>12,0%</td></tr>
+    <tr><td>Mujeres de piel oscura</td><td>34,7%</td></tr>
+  </table>
+
+  <p>Las razones son técnicas pero tienen raíz social: los datasets de entrenamiento para reconocimiento facial (IJB-A, Adience) contenían mayoritariamente rostros de personas blancas y masculinas. Los modelos optimizaron su rendimiento en los grupos más representados en los datos.</p>
+
+  <h3>Pulsioximetría y COVID-19: sesgo con consecuencias letales</h3>
+  <p>Un estudio publicado en el New England Journal of Medicine en diciembre de 2020 documentó que los pulsioxímetros —dispositivos que miden la saturación de oxígeno en sangre mediante luz infrarroja y son estándar en todos los hospitales del mundo— sobreestiman sistemáticamente la saturación en pacientes con piel más oscura. Los algoritmos de calibración de estos dispositivos fueron desarrollados décadas antes principalmente con sujetos de piel clara. Durante la pandemia de COVID-19, este sesgo tuvo consecuencias documentadas: pacientes afroamericanos e hispanos llegaban a unidades de cuidado intensivo con hipoxemia más severa que los pacientes blancos con lecturas similares del pulsioxímetro, porque las lecturas incorrectas retrasaban la escalada del tratamiento.</p>
+
+  <h2>Taxonomía del Sesgo Algorítmico</h2>
+
+  <table>
+    <tr><th>Tipo de sesgo</th><th>Origen</th><th>Ejemplo</th></tr>
+    <tr><td>Sesgo preexistente</td><td>Desigualdades históricas en los datos de entrenamiento</td><td>Modelo de crédito entrenado en datos históricos refleja discriminación crediticia pasada</td></tr>
+    <tr><td>Sesgo de medición</td><td>El proxy medido no captura bien el concepto real</td><td>Usar arrestos (no crímenes) como proxy de criminalidad — los arrestos son sesgados racialmente</td></tr>
+    <tr><td>Sesgo de agregación</td><td>Un modelo único para grupos heterogéneos</td><td>Modelo médico entrenado en mayoría caucásica aplicado a poblaciones diversas</td></tr>
+    <tr><td>Sesgo de evaluación</td><td>Benchmark de evaluación no representa todos los grupos</td><td>Dataset de test de reconocimiento facial predominantemente masculino y blanco</td></tr>
+    <tr><td>Sesgo emergente</td><td>Retroalimentación del sistema crea loops que amplifican desigualdades</td><td>Sistema predictivo policial que dirige más patrullaje a áreas históricamente vigiladas → más arrestos → confirma el modelo</td></tr>
+  </table>
+
+  <h2>El Teorema de Imposibilidad de la Justicia Algorítmica</h2>
+  <p>Uno de los resultados más importantes y perturbadores de la justicia algorítmica es el teorema de imposibilidad demostrado formalmente por Alexandra Chouldechova en 2017: cuando las tasas base de un resultado difieren entre grupos (por ejemplo, la tasa de reincidencia real es diferente entre grupos raciales en el sistema penal estadounidense, en parte como consecuencia de la desigualdad sistémica), es matemáticamente imposible satisfacer simultáneamente tres criterios de equidad razonables.</p>
+
+  <div class="highlight-box">
+    <strong>Las tres definiciones incompatibles de justicia algorítmica (cuando las tasas base difieren):</strong>
+    <ol>
+      <li><strong>Paridad demográfica:</strong> igual proporción de individuos de cada grupo recibe la decisión favorable (el mismo % de cada grupo es clasificado como "bajo riesgo").</li>
+      <li><strong>Odds igualizados:</strong> igual tasa de verdaderos positivos Y falsos positivos entre grupos (igual sensibilidad y especificidad para todos los grupos).</li>
+      <li><strong>Calibración:</strong> el mismo score de riesgo corresponde a la misma probabilidad real de resultado en todos los grupos.</li>
+    </ol>
+    Ningún modelo puede satisfacer las tres simultáneamente cuando las tasas base difieren. La decisión de cuál definición priorizar es inevitablemente una decisión de valores, no técnica.
+  </div>
+
+  <h2>Métodos de Explicabilidad: Abrir la Caja Negra</h2>
+
+  <h3>LIME: explicaciones locales lineales</h3>
+  <p>LIME (Local Interpretable Model-agnostic Explanations), propuesto por Ribeiro et al. en 2016, genera explicaciones de predicciones individuales perturbando el input localmente y ajustando un modelo lineal simple que imita el comportamiento del modelo complejo en esa vecindad local.</p>
+
+  <div class="example">
+    <strong>Ejemplo de explicación LIME para rechazo de préstamo:</strong><br><br>
+    Decisión: Préstamo RECHAZADO (probabilidad de default: 73%)<br><br>
+    Factores que contribuyeron al rechazo:<br>
+    — Ingresos mensuales &lt; $2.000: +32% a la probabilidad de default<br>
+    — 2 pagos atrasados en últimos 12 meses: +28% a la probabilidad de default<br>
+    — Ratio deuda/ingreso &gt; 0.45: +19% a la probabilidad de default<br><br>
+    Factores que atenuaron el rechazo:<br>
+    — Tiempo en empleo actual &gt; 3 años: -12% a la probabilidad de default<br><br>
+    Contrafactual: "Si sus ingresos fueran $3.500/mes y no tuviera pagos atrasados, el préstamo habría sido APROBADO."
+  </div>
+
+  <h3>SHAP: valores de Shapley de la teoría de juegos</h3>
+  <p>SHAP (SHapley Additive exPlanations), desarrollado por Lundberg y Lee en 2017, aplica los valores de Shapley de la teoría de juegos cooperativos para distribuir la predicción de un modelo entre sus características de forma que sea justa, eficiente y consistente. La intuición: imagina que cada característica es un "jugador" en un juego cooperativo; el valor de Shapley calcula la contribución marginal promedio de cada jugador considerando todas las posibles coaliciones.</p>
+  <p>SHAP tiene ventajas sobre LIME: las explicaciones son globalmente consistentes (se pueden agregar para entender el comportamiento del modelo completo), tienen propiedades matemáticas deseables, y existen implementaciones eficientes para árboles de decisión (TreeSHAP, en O(TLD²) donde T=árboles, L=hojas, D=profundidad).</p>
+
+  <h3>Explicaciones contrafactuales</h3>
+  <p>Las explicaciones contrafactuales responden directamente a la pregunta que más importa al afectado: "¿Qué debería cambiar para obtener una decisión diferente?" Son más accionables que las explicaciones basadas en importancia de características. "Tu solicitud fue rechazada. Si tu puntuación de crédito fuera 20 puntos mayor y no tuvieras deudas de tarjeta, sería aprobada" da al solicitante un camino claro de acción.</p>
+
+  <h2>El Reglamento Europeo de IA (EU AI Act, 2024)</h2>
+  <p>El Reglamento de IA de la Unión Europea, aprobado en 2024, es la primera regulación comprehensiva de IA en el mundo y establece un marco basado en riesgo.</p>
+
+  <table>
+    <tr><th>Categoría de riesgo</th><th>Ejemplos</th><th>Requisitos regulatorios</th></tr>
+    <tr><td>Riesgo inaceptable (PROHIBIDO)</td><td>Puntuación social por gobiernos, reconocimiento facial en tiempo real en espacios públicos (con excepciones), manipulación subliminal</td><td>Prohibición absoluta, sin excepciones para los primeros dos</td></tr>
+    <tr><td>Alto riesgo</td><td>IA en crédito, contratación, educación, justicia penal, infraestructura crítica</td><td>Evaluación de conformidad, registro, gestión de riesgos, supervisión humana, datos de alta calidad</td></tr>
+    <tr><td>Riesgo limitado</td><td>Chatbots, deepfakes, sistemas de recomendación</td><td>Obligaciones de transparencia: el usuario debe saber que interactúa con IA</td></tr>
+    <tr><td>Riesgo mínimo</td><td>Filtros de spam, videojuegos con IA</td><td>Sin obligaciones específicas; códigos de conducta voluntarios</td></tr>
+  </table>
+
+  <h2>Mitigaciones Técnicas del Sesgo</h2>
+  <p>Además de los marcos regulatorios, existen intervenciones técnicas para reducir el sesgo en modelos de ML. Ninguna es perfecta y todas implican trade-offs:</p>
+  <ul>
+    <li><strong>Reponderación de datos:</strong> asignar mayor peso a instancias subrepresentadas durante el entrenamiento. Simple de implementar pero puede reducir la precisión general.</li>
+    <li><strong>Debiasing adversarial:</strong> entrenar simultáneamente un clasificador principal y un discriminador que intenta predecir el atributo sensible (raza, género) a partir de las representaciones internas. El clasificador aprende representaciones que el discriminador no puede usar para predicciones de atributos sensibles.</li>
+    <li><strong>Restricciones de equidad como regularización:</strong> añadir términos de penalización a la función de pérdida que penalizan disparidades entre grupos. Permite balancear precisión vs. equidad como un hiperparámetro.</li>
+    <li><strong>Modelos separados por subgrupo:</strong> entrenar y optimizar modelos distintos para diferentes grupos demográficos. Puede mejorar la equidad pero aumenta la complejidad y puede violar leyes anti-discriminación.</li>
+    <li><strong>Auditorías de equidad pre-despliegue:</strong> evaluación sistemática de métricas de equidad en datasets de test estratificados por grupo antes de desplegar.</li>
+  </ul>
+
+  <h2>Diseño Participativo: Involucrar a las Comunidades Afectadas</h2>
+  <p>Una de las lecciones más importantes del campo es que las soluciones técnicas al sesgo son insuficientes sin la participación de las comunidades que serán afectadas por los sistemas. El diseño participativo (participatory design) involucra a estas comunidades desde las primeras etapas: definición del problema, recolección de datos, evaluación del modelo y definición de criterios de éxito.</p>
+  <p>Ejemplos concretos: cuando Google desarrolló modelos de diagnóstico de enfermedades de la piel en África, trabajó con dermatólogos africanos y pacientes locales para garantizar que el dataset de entrenamiento y los criterios de evaluación fueran representativos de las condiciones locales. Cuando la ciudad de Auckland (Nueva Zelanda) desplegó un sistema de predicción de abandono escolar, involucró a comunidades Māori —el grupo con mayor riesgo según el modelo— en el diseño de las intervenciones, no solo en la validación del algoritmo.</p>
+
+  <h2>La Base de Datos de Incidentes de IA</h2>
+  <p>aiincidents.org es una base de datos colaborativa que documenta más de 600 incidentes de IA del mundo real: desde vehículos autónomos que atropellaron peatones hasta algoritmos de moderación que censuran lenguajes minoritarios, pasando por sistemas de reconocimiento facial que identificaron incorrectamente a sospechosos inocentes. Esta base de datos es una herramienta invaluable para aprender de fallos reales y evitar repetirlos.</p>
+
+  <h2>Tu Rol: Qué Hacer Cuando Encuentras IA Sesgada</h2>
+  <p>Como usuario, profesional o ciudadano, no eres un observador pasivo del despliegue de IA. Las acciones concretas que puedes tomar incluyen:</p>
+  <ol>
+    <li><strong>Documentar y reportar:</strong> si sospechas que un sistema de IA tomó una decisión sesgada contra ti o alguien que conoces, documenta el caso. Muchas regulaciones (EU AI Act, Equal Credit Opportunity Act en EEUU) ofrecen mecanismos de reclamación.</li>
+    <li><strong>Preguntar cómo se tomó la decisión:</strong> en muchos países, tienes derecho a solicitar una explicación de decisiones automatizadas que te afectan (GDPR Art. 22 en Europa).</li>
+    <li><strong>Buscar auditorías independientes:</strong> como empleado o contratista, puedes abogar por auditorías de equidad de los sistemas de IA que tu organización usa o desarrolla.</li>
+    <li><strong>Educarte y educar:</strong> la alfabetización en IA responsable es una forma de poder ciudadano. Compartir este conocimiento amplifica su impacto.</li>
+  </ol>
+
+  <div class="summary">
+    <h2>Resumen del Capítulo</h2>
+    <ul>
+      <li>COMPAS (2016) clasificó a afroamericanos como alto riesgo de reincidencia a tasa doble que blancos (44,9% vs 23,5% falsos positivos); el reconocimiento facial tiene tasas de error 43× mayores en mujeres de piel oscura vs hombres de piel clara.</li>
+      <li>El teorema de Chouldechova (2017) demuestra que paridad demográfica, odds igualizados y calibración son matemáticamente incompatibles cuando las tasas base difieren entre grupos — la elección de definición de equidad es una decisión de valores.</li>
+      <li>Los sesgos pueden ser preexistentes (datos históricos inequitativos), de medición (proxies imperfectos), de agregación (modelo único para grupos heterogéneos), de evaluación o emergentes (loops de retroalimentación).</li>
+      <li>LIME (explicaciones locales lineales), SHAP (valores de Shapley), y explicaciones contrafactuales son los principales métodos para hacer explicables las decisiones de IA de alto impacto.</li>
+      <li>El EU AI Act (2024) prohíbe puntuación social gubernamental y reconocimiento facial masivo en tiempo real; exige evaluación de conformidad para IA de alto riesgo (crédito, contratación, justicia).</li>
+      <li>Las mitigaciones técnicas (reponderación, debiasing adversarial, restricciones de equidad) son necesarias pero insuficientes sin diseño participativo que involucre a las comunidades afectadas.</li>
+      <li>Como ciudadano, tienes derecho a explicaciones de decisiones automatizadas (GDPR Art. 22) y canales de reclamación; la alfabetización en IA responsable es una forma de poder democrático.</li>
+    </ul>
+  </div>
+</div>
+<script>
+window.QUIZ_DATA = {
+  lang: "es",
+  questions: [
+    { q: "Según el análisis de ProPublica (2016) sobre el algoritmo COMPAS, ¿cuál era la tasa de falsos positivos para acusados afroamericanos comparada con la de acusados blancos?", options: ["44,9% para afroamericanos vs 23,5% para blancos", "23,5% para afroamericanos vs 44,9% para blancos", "Ambos grupos tenían tasas iguales del 34%", "Los acusados blancos tenían mayor tasa de falsos positivos"], correct: 0, feedback: "Los acusados afroamericanos tenían una tasa de falso positivo del 44,9% (clasificados como alto riesgo cuando no reincidieron) comparada con el 23,5% de los acusados blancos, revelando una disparidad racial significativa." },
+    { q: "¿Por qué fue descartado el sistema de screening de currículums de Amazon en 2017?", options: ["Era demasiado lento para procesar grandes volúmenes de CVs", "Penalizaba sistemáticamente CVs con indicadores de género femenino por haber sido entrenado en contrataciones históricas masculinas", "Tenía una tasa de error técnica del 50%", "El costo de operación era demasiado alto"], correct: 1, feedback: "El sistema aprendió a penalizar la palabra 'mujeres' y a rebajar puntuaciones de graduadas de universidades femeninas porque fue entrenado sobre una década de contrataciones históricas predominantemente masculinas en ingeniería." },
+    { q: "En el estudio 'Gender Shades' (2018), ¿cuál era la tasa de error de reconocimiento facial para mujeres de piel oscura?", options: ["0,8%", "8,1%", "12,0%", "34,7%"], correct: 3, feedback: "El estudio de Buolamwini y Gebru reveló que los sistemas comerciales de reconocimiento facial tenían una tasa de error del 34,7% para mujeres de piel oscura, comparada con apenas el 0,8% para hombres de piel clara." },
+    { q: "¿Qué demuestra el teorema de imposibilidad de Chouldechova (2017)?", options: ["Que ningún modelo de IA puede ser completamente justo", "Que paridad demográfica, odds igualizados y calibración son matemáticamente incompatibles cuando las tasas base difieren entre grupos", "Que los modelos de IA siempre discriminan intencionalmente", "Que la justicia algorítmica es imposible de medir"], correct: 1, feedback: "Chouldechova demostró formalmente que cuando las tasas base difieren entre grupos, es matemáticamente imposible satisfacer simultáneamente paridad demográfica, odds igualizados y calibración. La elección entre estas definiciones es inevitablemente una decisión de valores." },
+    { q: "¿Qué es el 'sesgo emergente' en sistemas de IA?", options: ["Un sesgo que aparece después de actualizar el modelo", "Loops de retroalimentación que amplifican desigualdades, como sistemas predictivos policiales que generan más arrestos en áreas ya vigiladas", "Un error técnico en el código del modelo", "Un sesgo que emerge solo cuando el modelo procesa texto en otro idioma"], correct: 1, feedback: "El sesgo emergente ocurre por retroalimentación: un sistema predictivo policial que dirige patrullaje a áreas históricamente vigiladas genera más arrestos allí, lo cual 'confirma' el modelo, creando un loop que amplifica desigualdades preexistentes." },
+    { q: "¿Qué tipo de explicaciones de IA responden directamente a la pregunta '¿qué debería cambiar para obtener una decisión diferente?'", options: ["Explicaciones SHAP", "Explicaciones LIME", "Explicaciones contrafactuales", "Explicaciones de importancia de características"], correct: 2, feedback: "Las explicaciones contrafactuales son las más accionables para el afectado: 'Si tu puntuación de crédito fuera 20 puntos mayor y no tuvieras deudas de tarjeta, el préstamo sería aprobado', dando un camino claro de acción." },
+    { q: "¿Qué tipo de IA prohíbe absolutamente el EU AI Act de 2024?", options: ["Los chatbots y asistentes virtuales", "La puntuación social gubernamental y el reconocimiento facial masivo en tiempo real en espacios públicos", "Los sistemas de recomendación de contenido", "Los algoritmos de precios dinámicos"], correct: 1, feedback: "El EU AI Act prohíbe absolutamente la puntuación social por gobiernos y el reconocimiento facial masivo en tiempo real en espacios públicos, clasificándolos como riesgo inaceptable sin excepciones." },
+    { q: "¿Cuál es la diferencia entre LIME y SHAP para la explicabilidad de modelos?", options: ["LIME es para imágenes y SHAP es para texto", "LIME genera explicaciones locales lineales por perturbación; SHAP aplica valores de Shapley de la teoría de juegos con consistencia matemática global", "LIME es más preciso que SHAP en todos los casos", "SHAP solo funciona con redes neuronales y LIME con árboles de decisión"], correct: 1, feedback: "LIME perturba el input localmente y ajusta un modelo lineal simple. SHAP aplica valores de Shapley de teoría de juegos, con la ventaja de que sus explicaciones son globalmente consistentes y tienen propiedades matemáticas deseables." },
+    { q: "¿Qué derecho otorga el GDPR artículo 22 a los ciudadanos europeos respecto a decisiones algorítmicas?", options: ["El derecho a vetar el uso de IA en decisiones que les afecten", "El derecho a solicitar una explicación de decisiones automatizadas que les afectan", "El derecho a acceder al código fuente del modelo que tomó la decisión", "El derecho a una indemnización automática por cualquier decisión de IA"], correct: 1, feedback: "El GDPR Art. 22 otorga a los ciudadanos europeos el derecho a solicitar una explicación de decisiones automatizadas que les afectan, siendo uno de los mecanismos de protección más importantes contra el sesgo algorítmico no explicado." },
+    { q: "¿Qué es el diseño participativo en el contexto de IA responsable?", options: ["Diseñar sistemas de IA de forma colaborativa entre ingenieros de diferentes empresas", "Involucrar a las comunidades afectadas por los sistemas de IA desde las primeras etapas del diseño", "Permitir que los usuarios voten sobre qué funcionalidades añadir al modelo", "Publicar el código de los modelos de IA para revisión pública"], correct: 1, feedback: "El diseño participativo involucra a las comunidades que serán afectadas por los sistemas desde la definición del problema, la recolección de datos y la evaluación del modelo, reconociendo que las soluciones técnicas al sesgo son insuficientes sin perspectivas comunitarias." }
+  ]
+};
+</script>
+<script src="quiz-engine.js"></script>
+</body>
+</html>

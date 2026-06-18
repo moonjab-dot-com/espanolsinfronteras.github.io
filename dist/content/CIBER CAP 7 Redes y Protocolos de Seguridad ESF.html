@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redes y Protocolos de Seguridad | Español Sin Fronteras</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.8; }
+    .wrapper { max-width: 860px; margin: 0 auto; background: #fff; padding: 60px 72px; min-height: 100vh; }
+    .course-tag { font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #7c3aed; margin-bottom: 12px; }
+    h1 { font-size: 2rem; font-weight: 700; color: #0f172a; margin-bottom: 8px; line-height: 1.3; }
+    .subtitle { font-size: 1.05rem; color: #64748b; margin-bottom: 40px; font-style: italic; }
+    hr { border: none; border-top: 2px solid #ddd6fe; margin: 32px 0; }
+    h2 { font-size: 1.35rem; font-weight: 700; color: #1e293b; margin: 36px 0 16px; }
+    h3 { font-size: 1.1rem; font-weight: 700; color: #7c3aed; margin: 24px 0 10px; }
+    p { margin-bottom: 16px; font-size: 1rem; }
+    ul, ol { margin: 16px 0 16px 24px; }
+    li { margin-bottom: 8px; font-size: 1rem; }
+    .highlight-box { background: #f5f3ff; border-left: 4px solid #7c3aed; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .warning-box { background: #fff7ed; border-left: 4px solid #ea580c; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .example { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin: 20px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.95rem; }
+    th { background: #7c3aed; color: white; padding: 12px 16px; text-align: left; font-family: Arial, sans-serif; font-weight: 600; }
+    td { padding: 11px 16px; border-bottom: 1px solid #e2e8f0; }
+    tr:nth-child(even) td { background: #f8fafc; }
+    .summary { background: #0f172a; color: #e2e8f0; border-radius: 12px; padding: 28px 32px; margin: 40px 0 0; }
+    .summary h2 { color: #fff; margin-top: 0; }
+    .summary li { color: #cbd5e1; }
+    @media (max-width: 640px) { .wrapper { padding: 32px 24px; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="course-tag">Ciberseguridad · Capítulo 7</div>
+  <h1>Redes y Protocolos de Seguridad: La Infraestructura de Internet</h1>
+  <p class="subtitle">Entender cómo viajan los datos a través de internet es el prerequisito para entender cómo los atacantes los interceptan — y cómo los defensores los protegen.</p>
+  <hr>
+
+  <h2>El Modelo OSI: Las 7 Capas de la Comunicación</h2>
+  <p>El modelo OSI (Open Systems Interconnection) divide la comunicación en red en 7 capas abstractas, cada una con responsabilidades específicas. Para los profesionales de seguridad, cada capa representa una superficie de ataque diferente.</p>
+
+  <table>
+    <tr><th>Capa</th><th>Nombre</th><th>Función</th><th>Amenazas de seguridad</th></tr>
+    <tr><td>7</td><td>Aplicación</td><td>Interfaz con software del usuario (HTTP, FTP, DNS)</td><td>Inyección SQL, XSS, phishing</td></tr>
+    <tr><td>6</td><td>Presentación</td><td>Cifrado, compresión, formato de datos</td><td>Ataques a cifrado débil (SSL antiguo)</td></tr>
+    <tr><td>5</td><td>Sesión</td><td>Gestión de sesiones entre aplicaciones</td><td>Secuestro de sesión, hijacking</td></tr>
+    <tr><td>4</td><td>Transporte</td><td>Control de flujo, segmentación (TCP/UDP)</td><td>SYN floods, escaneo de puertos</td></tr>
+    <tr><td>3</td><td>Red</td><td>Enrutamiento de paquetes (IP)</td><td>Spoofing de IP, ataques DDoS</td></tr>
+    <tr><td>2</td><td>Enlace de datos</td><td>Transferencia en la red local (MAC, Ethernet)</td><td>ARP poisoning, MAC flooding</td></tr>
+    <tr><td>1</td><td>Física</td><td>Medios físicos (cables, Wi-Fi, fibra)</td><td>Intercepción física, jamming</td></tr>
+  </table>
+
+  <h2>TCP/IP: El Lenguaje Real de Internet</h2>
+  <p>En la práctica, internet usa el modelo TCP/IP, que simplifica las 7 capas OSI en 4. TCP (Transmission Control Protocol) garantiza la entrega ordenada de datos mediante un proceso de tres pasos llamado three-way handshake: SYN → SYN-ACK → ACK. Si un paquete se pierde, TCP lo retransmite automáticamente.</p>
+  <p>UDP (User Datagram Protocol) no garantiza la entrega — simplemente envía datos y no verifica si llegaron. Se usa para streaming de video, videollamadas y juegos en línea donde la velocidad importa más que la perfección.</p>
+
+  <h2>DNS: La Guía Telefónica de Internet</h2>
+  <p>El Sistema de Nombres de Dominio (DNS) traduce nombres legibles (google.com) a direcciones IP numéricas (142.250.80.14) que las computadoras usan realmente. Cuando escribes una URL, tu computadora consulta un servidor DNS para obtener la IP correspondiente.</p>
+
+  <div class="warning-box">
+    <strong>DNS Poisoning (Envenenamiento de DNS):</strong> Un atacante manipula las respuestas DNS para redirigir a las víctimas a sitios falsos. Si el servidor DNS de tu proveedor responde que "banco.com" tiene la IP 45.33.32.156 (controlada por el atacante), visitarás un sitio de phishing idéntico al banco real sin saberlo. La solución: DNSSEC firma criptográficamente las respuestas DNS para verificar su autenticidad. DNS-over-HTTPS (DoH) cifra las consultas DNS para que nadie en el camino pueda leerlas ni modificarlas.
+  </div>
+
+  <h2>Firewalls: La Primera Línea de Defensa</h2>
+  <p>Un firewall es un sistema que controla el tráfico de red entrante y saliente basándose en reglas predefinidas. Los tipos principales:</p>
+  <ul>
+    <li><strong>Firewall de filtrado de paquetes:</strong> Analiza cada paquete de forma independiente (IP origen/destino, puerto, protocolo). Rápido pero limitado — no ve el contexto.</li>
+    <li><strong>Firewall de inspección de estado (Stateful):</strong> Rastrea el estado de las conexiones activas. Sabe si un paquete entrante es respuesta a una solicitud interna legítima o una conexión no solicitada.</li>
+    <li><strong>Firewall de próxima generación (NGFW):</strong> Inspección profunda de paquetes, identificación de aplicaciones, prevención de intrusiones, filtrado de contenido. Productos como Palo Alto Networks, Fortinet, Cisco.</li>
+  </ul>
+
+  <div class="example">
+    <strong>Regla de firewall típica:</strong><br>
+    ALLOW TCP desde cualquier IP a servidor web en puerto 443 (HTTPS)<br>
+    ALLOW TCP desde cualquier IP a servidor web en puerto 80 (HTTP)<br>
+    DENY TCP desde cualquier IP a servidor web en puerto 3306 (MySQL — base de datos)<br>
+    DENY todo lo demás<br><br>
+    Este conjunto de reglas permite tráfico web legítimo pero bloquea acceso directo a la base de datos desde internet.
+  </div>
+
+  <h2>VPN: Túneles Seguros en Redes Públicas</h2>
+  <p>Una VPN (Virtual Private Network) crea un "túnel" cifrado entre tu dispositivo y un servidor VPN. Todo tu tráfico viaja dentro de ese túnel, invisible para cualquier observador en el camino (tu ISP, el administrador de la red pública, etc.).</p>
+
+  <h3>Cuándo una VPN ayuda realmente</h3>
+  <ul>
+    <li>Al usar Wi-Fi público en aeropuertos, hoteles o cafeterías — oculta tu tráfico de espías en la red local.</li>
+    <li>Para acceder a recursos corporativos internos desde fuera de la oficina.</li>
+    <li>Para eludir censura o restricciones geográficas.</li>
+  </ul>
+
+  <h3>Limitaciones importantes de las VPNs</h3>
+  <ul>
+    <li>La VPN no te hace anónimo — el proveedor VPN ve todo tu tráfico.</li>
+    <li>No te protege de malware, phishing ni ataques en el sitio web de destino.</li>
+    <li>Proveedores VPN gratuitos frecuentemente monetizan vendiendo tus datos — exactamente lo contrario de lo que buscas.</li>
+    <li>VPNs confiables: Mullvad, ProtonVPN (con auditorías de seguridad independientes y política de no logs verificada).</li>
+  </ul>
+
+  <h2>IDS vs IPS: Detectar y Prevenir</h2>
+  <table>
+    <tr><th>Sistema</th><th>Función</th><th>Acción</th><th>Ejemplo</th></tr>
+    <tr><td>IDS (Intrusion Detection System)</td><td>Monitorea y alerta sobre tráfico sospechoso</td><td>Solo alerta — no bloquea</td><td>Snort, Suricata (modo pasivo)</td></tr>
+    <tr><td>IPS (Intrusion Prevention System)</td><td>Monitorea y bloquea tráfico malicioso en tiempo real</td><td>Bloquea automáticamente</td><td>Snort, Suricata (modo activo), Palo Alto</td></tr>
+  </table>
+
+  <h2>Segmentación de Red y DMZ</h2>
+  <p>La segmentación de red divide la red en zonas con diferentes niveles de confianza y acceso. Una arquitectura típica de tres zonas:</p>
+  <ul>
+    <li><strong>Red externa (Internet):</strong> No confiable — cualquier atacante puede estar aquí.</li>
+    <li><strong>DMZ (Zona Desmilitarizada):</strong> Zona intermedia donde viven los servidores que necesitan ser accesibles desde internet (servidores web, mail). Separada de la red interna.</li>
+    <li><strong>Red interna:</strong> Alta confianza — servidores de bases de datos, sistemas internos críticos. Nunca directamente accesible desde internet.</li>
+  </ul>
+
+  <h2>Escaneo de Puertos: Lo Que los Atacantes Hacen Primero</h2>
+  <p>Antes de atacar un sistema, los atacantes realizan reconocimiento. El escaneo de puertos con Nmap es casi siempre el primer paso: identifica qué servicios están escuchando en qué puertos.</p>
+
+  <div class="example">
+    <strong>Ejemplo de salida de Nmap:</strong><br>
+    <code>nmap -sV 192.168.1.1</code><br><br>
+    PORT&nbsp;&nbsp;&nbsp;&nbsp; STATE SERVICE VERSION<br>
+    22/tcp&nbsp;&nbsp; open&nbsp; ssh&nbsp;&nbsp;&nbsp;&nbsp; OpenSSH 7.4<br>
+    80/tcp&nbsp;&nbsp; open&nbsp; http&nbsp;&nbsp;&nbsp; Apache 2.4.6<br>
+    443/tcp&nbsp; open&nbsp; https&nbsp;&nbsp; Apache 2.4.6<br>
+    3306/tcp open&nbsp; mysql&nbsp;&nbsp; MySQL 5.7.21<br><br>
+    Un atacante vería que MySQL está expuesto en el puerto 3306 — una configuración peligrosa. También vería las versiones de software para buscar vulnerabilidades conocidas (CVEs).
+  </div>
+
+  <h2>Protocolos Seguros vs. Inseguros</h2>
+  <table>
+    <tr><th>Inseguro (evitar)</th><th>Seguro (usar)</th><th>Diferencia clave</th></tr>
+    <tr><td>HTTP (puerto 80)</td><td>HTTPS (puerto 443)</td><td>HTTPS cifra todo el tráfico con TLS</td></tr>
+    <tr><td>Telnet (puerto 23)</td><td>SSH (puerto 22)</td><td>SSH cifra la sesión de administración remota</td></tr>
+    <tr><td>FTP (puerto 21)</td><td>SFTP / FTPS</td><td>SFTP cifra archivos y credenciales en tránsito</td></tr>
+    <tr><td>SMTP sin TLS</td><td>SMTP con STARTTLS / SMTPS</td><td>Cifra el correo en tránsito</td></tr>
+    <tr><td>DNS estándar</td><td>DNS over HTTPS (DoH)</td><td>Oculta las consultas DNS de observadores</td></tr>
+  </table>
+
+  <h2>Zero Trust: La Nueva Filosofía de Seguridad</h2>
+  <div class="highlight-box">
+    <strong>Principio Zero Trust:</strong> "Nunca confíes, siempre verifica." En el modelo tradicional de seguridad, una vez dentro de la red corporativa, se asumía confianza implícita. Con Zero Trust, cada solicitud de acceso se verifica independientemente, sin importar si proviene de dentro o fuera de la red. Esto es especialmente relevante con el trabajo remoto y la nube, donde el perímetro de red tradicional ya no existe.
+  </div>
+
+  <p>Los pilares de Zero Trust son: verificar explícitamente la identidad en cada acceso, usar el principio de menor privilegio (acceso mínimo necesario), y asumir siempre que hay una brecha (diseñar como si el atacante ya estuviera adentro).</p>
+
+  <div class="summary">
+    <h2>Resumen del Capítulo</h2>
+    <ul>
+      <li>El modelo OSI divide las redes en 7 capas — cada una es una superficie de ataque diferente que requiere controles específicos.</li>
+      <li>DNS es crítico pero frágil — el envenenamiento de DNS puede redirigir usuarios a sitios maliciosos; DNSSEC y DNS-over-HTTPS mitigan este riesgo.</li>
+      <li>Los firewalls de inspección de estado son el mínimo aceptable hoy; los NGFW añaden inspección profunda de paquetes e identificación de aplicaciones.</li>
+      <li>Las VPNs protegen el tráfico en redes públicas pero no garantizan anonimato — el proveedor VPN siempre puede ver tu tráfico; elige uno con auditorías independientes.</li>
+      <li>La segmentación de red y la DMZ limitan el daño de una intrusión — los servidores web no deben tener acceso directo a bases de datos.</li>
+      <li>Los protocolos inseguros (HTTP, Telnet, FTP) transmiten datos en texto plano — reemplazarlos con sus equivalentes cifrados es obligatorio.</li>
+      <li>Zero Trust reemplaza el modelo de "castillo y foso" — en la era del cloud y el trabajo remoto, no existe un perímetro de red confiable.</li>
+    </ul>
+  </div>
+</div>
+<script>
+window.QUIZ_DATA = {
+  lang: "es",
+  questions: [
+    { q: "¿Cuántas capas tiene el modelo OSI?", options: ["4", "5", "6", "7"], correct: 3, feedback: "El modelo OSI (Open Systems Interconnection) divide la comunicación en red en 7 capas: Física, Enlace de datos, Red, Transporte, Sesión, Presentación y Aplicación, cada una con responsabilidades específicas." },
+    { q: "¿Qué amenaza de seguridad se asocia principalmente con la capa de Red (capa 3) del modelo OSI?", options: ["Inyección SQL y XSS", "Secuestro de sesión (session hijacking)", "Spoofing de IP y ataques DDoS", "ARP poisoning y MAC flooding"], correct: 2, feedback: "La capa 3 (Red) gestiona el enrutamiento de paquetes mediante el protocolo IP. Las amenazas asociadas incluyen el spoofing de IP (falsificación de dirección IP de origen) y los ataques DDoS distribuidos." },
+    { q: "¿Qué problema de seguridad soluciona DNSSEC y DNS-over-HTTPS (DoH)?", options: ["El envenenamiento de DNS, donde respuestas falsas redirigen a sitios maliciosos", "Los ataques de fuerza bruta a contraseñas", "Las vulnerabilidades en el protocolo HTTPS", "El robo de cookies de sesión"], correct: 0, feedback: "DNSSEC firma criptográficamente las respuestas DNS para verificar su autenticidad, mientras que DNS-over-HTTPS cifra las consultas para que nadie pueda leerlas ni modificarlas en tránsito, combatiendo el envenenamiento de DNS." },
+    { q: "¿Cuál es la diferencia entre un firewall de inspección de estado (Stateful) y uno de filtrado de paquetes?", options: ["El Stateful es más lento porque no hace nada especial", "El Stateful rastrea el estado de las conexiones activas, sabiendo si un paquete es respuesta legítima a una solicitud interna", "El de filtrado de paquetes es más seguro porque revisa más datos", "No hay diferencia práctica entre ambos"], correct: 1, feedback: "El firewall Stateful rastrea el estado de las conexiones y puede distinguir si un paquete entrante es respuesta a una solicitud interna (legítima) o una conexión nueva no solicitada, a diferencia del filtrado simple que analiza cada paquete de forma independiente." },
+    { q: "¿Qué hace una VPN en términos de seguridad?", options: ["Elimina completamente el riesgo de malware y phishing", "Crea un túnel cifrado que oculta tu tráfico de observadores en la red", "Te hace completamente anónimo en internet", "Garantiza que el sitio web de destino es seguro"], correct: 1, feedback: "Una VPN crea un túnel cifrado entre tu dispositivo y el servidor VPN. Esto oculta tu tráfico de observadores en el camino (ISP, administradores de red pública), pero el proveedor VPN mismo puede ver el tráfico." },
+    { q: "¿Qué diferencia a un IPS de un IDS?", options: ["El IPS solo monitorea; el IDS bloquea activamente el tráfico malicioso", "El IDS bloquea en tiempo real; el IPS solo genera alertas", "El IPS bloquea automáticamente el tráfico malicioso; el IDS solo alerta sin bloquear", "Son idénticos en funcionalidad"], correct: 2, feedback: "El IDS (Intrusion Detection System) monitorea y genera alertas sobre tráfico sospechoso pero no actúa. El IPS (Intrusion Prevention System) bloquea automáticamente el tráfico malicioso en tiempo real." },
+    { q: "¿Cuál es el propósito de la DMZ (Zona Desmilitarizada) en arquitectura de red?", options: ["Almacenar los datos más confidenciales de la empresa", "Ser una zona intermedia donde viven servidores accesibles desde internet, aislados de la red interna", "Reemplazar al firewall principal", "Conectar directamente internet con la base de datos"], correct: 1, feedback: "La DMZ es una zona intermedia entre internet y la red interna donde se colocan servidores que necesitan ser accesibles desde internet (servidores web, mail). Están separados de la red interna para limitar el daño si son comprometidos." },
+    { q: "¿Qué herramienta usan frecuentemente los atacantes como primer paso de reconocimiento?", options: ["Metasploit Framework", "Wireshark", "Nmap (escaneo de puertos)", "Autopsy"], correct: 2, feedback: "Nmap es la herramienta estándar para escaneo de puertos y reconocimiento. Permite identificar qué servicios están escuchando en qué puertos y qué versiones de software usa el objetivo, orientando el ataque." },
+    { q: "¿Por qué se debe reemplazar Telnet por SSH?", options: ["SSH es más rápido que Telnet", "SSH cifra la sesión de administración remota; Telnet transmite todo en texto plano", "Telnet ya no es compatible con sistemas modernos", "SSH no requiere autenticación, facilitando el acceso"], correct: 1, feedback: "Telnet transmite todos los datos, incluyendo contraseñas, en texto plano. SSH (Secure Shell) cifra toda la sesión de administración remota, haciendo inútil cualquier intercepción del tráfico." },
+    { q: "¿Cuál es el principio central del modelo Zero Trust?", options: ["Confiar en todo tráfico que provenga de dentro de la red corporativa", "Nunca confíes, siempre verifica: cada solicitud de acceso se verifica independientemente sin importar su origen", "Bloquear todo el tráfico externo y permitir solo el interno", "Usar únicamente cifrado simétrico para todas las comunicaciones"], correct: 1, feedback: "Zero Trust se basa en 'Nunca confíes, siempre verifica'. Cada solicitud de acceso se verifica de forma independiente, sin importar si proviene de dentro o fuera de la red, siendo especialmente relevante con el trabajo remoto y la nube." }
+  ]
+};
+</script>
+<script src="quiz-engine.js"></script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introducción al Cálculo Diferencial | Español Sin Fronteras</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.8; }
+    .wrapper { max-width: 860px; margin: 0 auto; background: #fff; padding: 60px 72px; min-height: 100vh; }
+    .course-tag { font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #2563eb; margin-bottom: 12px; }
+    h1 { font-size: 2rem; font-weight: 700; color: #0f172a; margin-bottom: 8px; line-height: 1.3; }
+    .subtitle { font-size: 1.05rem; color: #64748b; margin-bottom: 40px; font-style: italic; }
+    hr { border: none; border-top: 2px solid #bfdbfe; margin: 32px 0; }
+    h2 { font-size: 1.35rem; font-weight: 700; color: #1e293b; margin: 36px 0 16px; }
+    h3 { font-size: 1.1rem; font-weight: 700; color: #2563eb; margin: 24px 0 10px; }
+    p { margin-bottom: 16px; font-size: 1rem; }
+    ul, ol { margin: 16px 0 16px 24px; }
+    li { margin-bottom: 8px; font-size: 1rem; }
+    .highlight-box { background: #eff6ff; border-left: 4px solid #2563eb; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .example { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin: 20px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.95rem; }
+    th { background: #2563eb; color: white; padding: 12px 16px; text-align: left; font-family: Arial, sans-serif; font-weight: 600; }
+    td { padding: 11px 16px; border-bottom: 1px solid #e2e8f0; }
+    tr:nth-child(even) td { background: #f8fafc; }
+    .summary { background: #0f172a; color: #e2e8f0; border-radius: 12px; padding: 28px 32px; margin: 40px 0 0; }
+    .summary h2 { color: #fff; margin-top: 0; }
+    .summary li { color: #cbd5e1; }
+    @media (max-width: 640px) { .wrapper { padding: 32px 24px; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="course-tag">Matemáticas · Capítulo 20</div>
+  <h1>Introducción al Cálculo Diferencial: El Estudio del Cambio</h1>
+  <p class="subtitle">De la velocidad media a la instantánea, de la recta secante a la tangente: cómo Newton y Leibniz inventaron el lenguaje matemático del movimiento y la optimización</p>
+  <hr>
+
+  <h2>La Motivación: ¿Qué Velocidad Tengo Ahora Mismo?</h2>
+  <p>Imagina que conduces un automóvil. El velocímetro en el tablero muestra "80 km/h". ¿Qué significa exactamente ese número? No es la velocidad promedio de tu viaje (eso lo calcularías como distancia total dividida por tiempo total). Es la velocidad <em>en ese instante</em>, en ese punto preciso del tiempo.</p>
+  <p>Calcular una velocidad promedio es sencillo: velocidad media = distancia / tiempo. Pero la velocidad instantánea parece imposible de calcular directamente: ¿cómo divides una distancia "cero" entre un tiempo "cero"? El cálculo diferencial, desarrollado independientemente por Isaac Newton y Gottfried Wilhelm Leibniz en la segunda mitad del siglo XVII, resolvió exactamente este problema mediante el concepto de límite.</p>
+
+  <h2>Límites: La Base del Cálculo</h2>
+  <p>Un límite describe el comportamiento de una función cuando su argumento se aproxima a un valor, sin necesariamente alcanzarlo.</p>
+
+  <div class="highlight-box">
+    <strong>Notación:</strong> lím(x→a) f(x) = L significa que f(x) se aproxima a L cuando x se aproxima a a (pero x ≠ a).<br><br>
+    <strong>Ejemplo intuitivo con tabla:</strong><br>
+    Para f(x) = (x²−1)/(x−1), evaluar cerca de x = 1:<br>
+    x = 0,9 → f(0,9) = (0,81−1)/(0,9−1) = (−0,19)/(−0,1) = 1,9<br>
+    x = 0,99 → f(0,99) = (0,9801−1)/(−0,01) = 1,99<br>
+    x = 0,999 → f(0,999) = 1,999<br>
+    x = 1,001 → f(1,001) = 2,001<br>
+    x = 1,01 → f(1,01) = 2,01<br><br>
+    Aunque f(1) = 0/0 (indeterminado), <strong>lím(x→1) (x²−1)/(x−1) = 2</strong><br>
+    (Algebraicamente: (x²−1)/(x−1) = (x+1)(x−1)/(x−1) = x+1 → cuando x→1, x+1→2)
+  </div>
+
+  <div class="example">
+    <strong>El límite clásico del cálculo: lím(x→0) sen(x)/x = 1</strong><br><br>
+    Este límite no puede calcularse por sustitución directa (0/0). Aproximación numérica:<br>
+    x = 0,1 rad → sen(0,1)/0,1 = 0,0998/0,1 = 0,998<br>
+    x = 0,01 → sen(0,01)/0,01 = 0,99998<br>
+    x = 0,001 → 0,9999998<br>
+    lím(x→0) sen(x)/x = <strong>1</strong><br><br>
+    Este límite es fundamental en trigonometría diferencial: sin él no podríamos derivar la función seno.
+  </div>
+
+  <h2>La Definición Formal de la Derivada</h2>
+  <p>La derivada de f en x es el límite de la tasa de cambio promedio cuando el intervalo de tiempo tiende a cero.</p>
+
+  <div class="highlight-box">
+    <strong>Definición formal de la derivada:</strong><br><br>
+    f'(x) = lím(h→0) [f(x+h) − f(x)] / h<br><br>
+    Interpretación geométrica: es la pendiente de la recta tangente a la curva y = f(x) en el punto (x, f(x)).<br>
+    Interpretación física: es la tasa de cambio instantánea de f respecto a x.
+  </div>
+
+  <div class="example">
+    <strong>Derivar f(x) = x² desde la definición:</strong><br><br>
+    f'(x) = lím(h→0) [(x+h)² − x²] / h<br><br>
+    Expandir (x+h)²:<br>
+    = lím(h→0) [x² + 2xh + h² − x²] / h<br>
+    = lím(h→0) [2xh + h²] / h<br>
+    = lím(h→0) h(2x + h) / h<br>
+    = lím(h→0) (2x + h)<br>
+    = <strong>2x</strong><br><br>
+    Por lo tanto, si f(x) = x², entonces f'(x) = 2x. En x = 3, la pendiente tangente es 2(3) = 6.
+  </div>
+
+  <div class="example">
+    <strong>Derivar f(x) = x³ desde la definición:</strong><br><br>
+    f'(x) = lím(h→0) [(x+h)³ − x³] / h<br><br>
+    Expandir (x+h)³ = x³ + 3x²h + 3xh² + h³:<br>
+    = lím(h→0) [x³ + 3x²h + 3xh² + h³ − x³] / h<br>
+    = lím(h→0) [3x²h + 3xh² + h³] / h<br>
+    = lím(h→0) (3x² + 3xh + h²)<br>
+    = <strong>3x²</strong>
+  </div>
+
+  <h2>Notaciones de la Derivada</h2>
+  <p>Existen varias notaciones equivalentes para la derivada, cada una con sus ventajas según el contexto:</p>
+  <ul>
+    <li><strong>f'(x)</strong> — notación de Lagrange (la más común en cursos de matemáticas)</li>
+    <li><strong>dy/dx</strong> — notación de Leibniz (enfatiza la razón de cambio; muy usada en física e ingeniería)</li>
+    <li><strong>ẋ</strong> (punto sobre la variable) — notación de Newton (usada en mecánica para derivadas respecto al tiempo)</li>
+    <li><strong>Df(x)</strong> — notación del operador diferencial</li>
+  </ul>
+
+  <h2>Reglas de Derivación</h2>
+
+  <h3>Regla de la constante y de la potencia</h3>
+  <div class="highlight-box">
+    <strong>d/dx(c) = 0</strong> (la derivada de una constante es cero — no cambia)<br>
+    <strong>d/dx(xⁿ) = nxⁿ⁻¹</strong> (Regla de la Potencia)<br><br>
+    Ejemplos:<br>
+    d/dx(x⁵) = 5x⁴<br>
+    d/dx(x) = 1x⁰ = 1<br>
+    d/dx(x^(1/2)) = (1/2)x^(−1/2) = 1/(2√x)<br>
+    d/dx(1/x) = d/dx(x⁻¹) = −x⁻² = −1/x²
+  </div>
+
+  <h3>Regla de la suma/diferencia y de la constante multiplicativa</h3>
+  <div class="example">
+    d/dx[f(x) + g(x)] = f'(x) + g'(x)<br>
+    d/dx[c·f(x)] = c·f'(x)<br><br>
+    Ejemplo: derivar h(x) = 3x⁴ − 5x² + 7x − 2<br>
+    h'(x) = 3·4x³ − 5·2x + 7·1 − 0<br>
+    h'(x) = <strong>12x³ − 10x + 7</strong>
+  </div>
+
+  <h3>Regla del producto</h3>
+  <div class="highlight-box">
+    <strong>(uv)' = u'v + uv'</strong><br><br>
+    Prueba (idea): si u y v cambian en Δu y Δv, el producto cambia en<br>
+    (u+Δu)(v+Δv) − uv = uΔv + vΔu + ΔuΔv<br>
+    Dividiendo entre Δx y tomando límite: (uv)' = u·v' + v·u' ■<br><br>
+    Ejemplo: derivar f(x) = x²·(3x + 1)<br>
+    u = x², u' = 2x; v = 3x+1, v' = 3<br>
+    f'(x) = 2x·(3x+1) + x²·3 = 6x² + 2x + 3x² = <strong>9x² + 2x</strong>
+  </div>
+
+  <h3>Regla del cociente</h3>
+  <div class="highlight-box">
+    <strong>(u/v)' = (u'v − uv') / v²</strong><br><br>
+    Mnemónico: "derivada del numerador por denominador menos numerador por derivada del denominador, todo sobre el denominador al cuadrado".<br><br>
+    Ejemplo: derivar f(x) = (x² + 1)/(2x − 3)<br>
+    u = x²+1, u' = 2x; v = 2x−3, v' = 2<br>
+    f'(x) = [2x·(2x−3) − (x²+1)·2] / (2x−3)²<br>
+    = [4x² − 6x − 2x² − 2] / (2x−3)²<br>
+    = <strong>(2x² − 6x − 2) / (2x−3)²</strong>
+  </div>
+
+  <h3>Regla de la cadena</h3>
+  <div class="highlight-box">
+    <strong>Si h(x) = f(g(x)), entonces h'(x) = f'(g(x))·g'(x)</strong><br><br>
+    Intuición: "derivada de la función exterior evaluada en la interior, por derivada de la interior".<br><br>
+    Ejemplos:<br>
+    d/dx[(x²+1)⁵] = 5(x²+1)⁴ · 2x = 10x(x²+1)⁴<br>
+    d/dx[sen(3x)] = cos(3x) · 3 = 3cos(3x)<br>
+    d/dx[e^(x²)] = e^(x²) · 2x = 2xe^(x²)<br>
+    d/dx[√(5x+1)] = (1/(2√(5x+1))) · 5 = 5/(2√(5x+1))
+  </div>
+
+  <h2>Derivadas de Funciones Elementales</h2>
+
+  <table>
+    <tr><th>Función f(x)</th><th>Derivada f'(x)</th><th>Observación</th></tr>
+    <tr><td>sen x</td><td>cos x</td><td>Demostrable con límite de sen(h)/h = 1</td></tr>
+    <tr><td>cos x</td><td>−sen x</td><td>El signo negativo es crucial</td></tr>
+    <tr><td>tan x</td><td>sec²x</td><td>Derivable de sen/cos con regla del cociente</td></tr>
+    <tr><td>eˣ</td><td>eˣ</td><td>Única función igual a su propia derivada</td></tr>
+    <tr><td>aˣ (a > 0)</td><td>aˣ · ln a</td><td>Generalización de eˣ</td></tr>
+    <tr><td>ln x</td><td>1/x</td><td>Solo para x > 0</td></tr>
+    <tr><td>logₐ x</td><td>1/(x · ln a)</td><td>Generalización del logaritmo natural</td></tr>
+  </table>
+
+  <h2>Significado Geométrico: Crecimiento y Decrecimiento</h2>
+
+  <div class="highlight-box">
+    <strong>El signo de f'(x) indica el comportamiento de f:</strong>
+    <ul>
+      <li>f'(x) > 0 en un intervalo → f es creciente en ese intervalo</li>
+      <li>f'(x) &lt; 0 en un intervalo → f es decreciente en ese intervalo</li>
+      <li>f'(x) = 0 en un punto → punto crítico (posible máximo, mínimo o punto de inflexión)</li>
+    </ul>
+    <strong>La segunda derivada f''(x) indica concavidad:</strong>
+    <ul>
+      <li>f''(x) > 0 → cóncava hacia arriba (como una taza)</li>
+      <li>f''(x) &lt; 0 → cóncava hacia abajo (como una montaña invertida)</li>
+      <li>f''(x) = 0 → posible punto de inflexión (cambio de concavidad)</li>
+    </ul>
+  </div>
+
+  <h2>Aplicación: Optimización</h2>
+
+  <div class="example">
+    <strong>Problema clásico: Cercar un rectángulo con perímetro fijo</strong><br><br>
+    Tienes 200 metros de malla para cercar un rectángulo rectangular. ¿Qué dimensiones maximizan el área?<br><br>
+    Variables: largo = l, ancho = a<br>
+    Restricción: 2l + 2a = 200 → l + a = 100 → l = 100 − a<br>
+    Función a maximizar: A = l · a = (100 − a) · a = 100a − a²<br><br>
+    Derivar e igualar a cero:<br>
+    dA/da = 100 − 2a = 0<br>
+    a = 50 metros<br>
+    l = 100 − 50 = 50 metros<br><br>
+    Verificar que es máximo (segunda derivada): d²A/da² = −2 &lt; 0 → máximo ✓<br><br>
+    <strong>El rectángulo de área máxima es el cuadrado de 50×50 = 2.500 m².</strong>
+  </div>
+
+  <div class="example">
+    <strong>Aplicación en física: movimiento de un proyectil</strong><br><br>
+    La posición de un automóvil es s(t) = t³ − 6t² + 9t (en metros, t en segundos).<br><br>
+    <strong>Velocidad instantánea</strong> v(t) = s'(t) = 3t² − 12t + 9<br>
+    <strong>Aceleración</strong> a(t) = v'(t) = s''(t) = 6t − 12<br><br>
+    ¿Cuándo el automóvil está en reposo (velocidad = 0)?<br>
+    3t² − 12t + 9 = 0 → t² − 4t + 3 = 0 → (t−1)(t−3) = 0<br>
+    t = 1 s y t = 3 s<br><br>
+    ¿Está acelerando o frenando en t = 2?<br>
+    v(2) = 3(4) − 24 + 9 = −3 m/s (velocidad negativa: va en retroceso)<br>
+    a(2) = 12 − 12 = 0 m/s² (aceleración nula en t=2)
+  </div>
+
+  <h2>Introducción al Cálculo Integral: La Antiderivada</h2>
+  <p>El cálculo diferencial y el integral son dos caras de la misma moneda, unidas por el Teorema Fundamental del Cálculo. Si la derivada "deshace" la integral, la integral "deshace" la derivada.</p>
+
+  <div class="highlight-box">
+    <strong>Antiderivada o integral indefinida:</strong><br>
+    Si F'(x) = f(x), entonces F es una antiderivada de f.<br>
+    Notación: ∫f(x)dx = F(x) + C (donde C es una constante arbitraria)<br><br>
+    Ejemplos básicos:<br>
+    ∫xⁿdx = xⁿ⁺¹/(n+1) + C (n ≠ −1) — la regla de la potencia invertida<br>
+    ∫cos(x)dx = sen(x) + C<br>
+    ∫eˣdx = eˣ + C<br>
+    ∫1/x dx = ln|x| + C<br><br>
+    <strong>Teorema Fundamental del Cálculo (enunciado):</strong><br>
+    ∫ₐᵇf(x)dx = F(b) − F(a) donde F'(x) = f(x)<br>
+    La integral definida de a a b calcula el área neta bajo la curva f(x) entre x=a y x=b.
+  </div>
+
+  <div class="summary">
+    <h2>Resumen del Capítulo</h2>
+    <ul>
+      <li>La derivada f'(x) = lím(h→0)[f(x+h)−f(x)]/h mide la tasa de cambio instantánea; geométricamente es la pendiente de la recta tangente en cada punto.</li>
+      <li>Desde la definición: d/dx(x²) = 2x y d/dx(x³) = 3x², que generaliza a la Regla de la Potencia: d/dx(xⁿ) = nxⁿ⁻¹.</li>
+      <li>Las reglas básicas (suma, producto, cociente, cadena) permiten derivar cualquier función elemental sin regresar a la definición de límite.</li>
+      <li>Funciones especiales: d/dx(eˣ) = eˣ (única función igual a su derivada), d/dx(ln x) = 1/x, d/dx(sen x) = cos x, d/dx(cos x) = −sen x.</li>
+      <li>El signo de f'(x) indica crecimiento/decrecimiento; los puntos donde f'(x)=0 son candidatos a máximos o mínimos. La segunda derivada f''(x) determina la concavidad.</li>
+      <li>Optimización: derivar la función objetivo, igualar a cero, resolver, verificar con segunda derivada. El cuadrado maximiza el área con perímetro fijo.</li>
+      <li>El Teorema Fundamental del Cálculo une diferenciación e integración: ∫ₐᵇf(x)dx = F(b)−F(a) calcula el área bajo la curva usando la antiderivada.</li>
+    </ul>
+  </div>
+</div>
+<script>
+window.QUIZ_DATA = {
+  lang: "es",
+  questions: [
+    { q: "¿Qué representa la derivada de una función en un punto?", options: ["El área bajo la curva en ese punto", "La pendiente de la recta tangente en ese punto", "El valor máximo de la función", "La distancia recorrida"], correct: 1, feedback: "La derivada f'(x) en un punto representa la pendiente de la recta tangente a la curva en ese punto, lo cual equivale a la tasa de cambio instantánea." },
+    { q: "¿Cuánto es el límite lím(x→2) de (3x + 1)?", options: ["5", "6", "7", "8"], correct: 2, feedback: "Como f(x) = 3x + 1 es continua en x = 2, el límite es igual al valor de la función: lím(x→2)(3x+1) = 3(2)+1 = 7." },
+    { q: "Usando la regla de la potencia, ¿cuál es la derivada de f(x) = x⁴?", options: ["4x³", "4x⁴", "x³", "4x⁵"], correct: 0, feedback: "Regla de la potencia: d/dx(xⁿ) = n·xⁿ⁻¹. Para f(x) = x⁴: f'(x) = 4·x³." },
+    { q: "¿Cuál es la derivada de la función constante f(x) = 7?", options: ["7", "7x", "1", "0"], correct: 3, feedback: "La derivada de cualquier constante es cero: d/dx(c) = 0. Una constante no cambia, su tasa de cambio es siempre 0." },
+    { q: "¿Cuál es la derivada de f(x) = 3x² + 2x − 5?", options: ["6x + 2", "3x + 2", "6x² + 2", "6x − 5"], correct: 0, feedback: "Derivando término a término: d/dx(3x²) = 6x, d/dx(2x) = 2, d/dx(−5) = 0. Por lo tanto f'(x) = 6x + 2." },
+    { q: "¿Qué concepto matemático resuelve el problema de la velocidad instantánea?", options: ["La proporción", "La integral definida", "El límite y la derivada", "La raíz cuadrada"], correct: 2, feedback: "La velocidad instantánea se obtiene tomando el límite de la velocidad media cuando el intervalo de tiempo tiende a cero: v(t) = lím(Δt→0) Δx/Δt, que es la definición de derivada." },
+    { q: "¿En qué punto una función f(x) = x² − 4x tiene un mínimo local?", options: ["x = 0", "x = 2", "x = 4", "x = −2"], correct: 1, feedback: "Se iguala la derivada a cero: f'(x) = 2x − 4 = 0 → x = 2. Como f''(x) = 2 > 0, es un mínimo. El valor mínimo es f(2) = 4 − 8 = −4." },
+    { q: "¿Qué interpreta geométricamente la integral definida ∫ₐᵇ f(x) dx?", options: ["La pendiente de la curva", "El área bajo la curva entre x=a y x=b", "El valor máximo de f en [a,b]", "La longitud de la curva"], correct: 1, feedback: "La integral definida ∫ₐᵇ f(x) dx representa el área neta entre la curva y el eje x en el intervalo [a, b]. Es el concepto central del cálculo integral." },
+    { q: "Según el Teorema Fundamental del Cálculo, la derivada e integral son:", options: ["Operaciones independientes sin relación", "Operaciones inversas entre sí", "Iguales para toda función", "Solo aplicables a funciones lineales"], correct: 1, feedback: "El Teorema Fundamental del Cálculo establece que la derivación y la integración son operaciones inversas: d/dx [∫ₐˣ f(t)dt] = f(x). Esto unifica el cálculo diferencial e integral." },
+    { q: "¿Cuál es la derivada de f(x) = x³ evaluada en x = 2?", options: ["6", "8", "12", "24"], correct: 2, feedback: "f'(x) = 3x². Evaluando en x = 2: f'(2) = 3(2²) = 3×4 = 12. Esto representa la pendiente de la tangente a y = x³ en el punto (2, 8)." }
+  ]
+};
+</script>
+<script src="quiz-engine.js"></script>
+</body>
+</html>

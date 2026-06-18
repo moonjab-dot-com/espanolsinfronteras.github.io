@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Optimización y Performance Web: Velocidad que Importa | Español Sin Fronteras</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.8; }
+    .wrapper { max-width: 860px; margin: 0 auto; background: #fff; padding: 60px 72px; min-height: 100vh; }
+    .course-tag { font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #0d9488; margin-bottom: 12px; }
+    h1 { font-size: 2rem; font-weight: 700; color: #0f172a; margin-bottom: 8px; line-height: 1.3; }
+    .subtitle { font-size: 1.05rem; color: #64748b; margin-bottom: 40px; font-style: italic; }
+    hr { border: none; border-top: 2px solid #99f6e4; margin: 32px 0; }
+    h2 { font-size: 1.35rem; font-weight: 700; color: #1e293b; margin: 36px 0 16px; }
+    h3 { font-size: 1.1rem; font-weight: 700; color: #0d9488; margin: 24px 0 10px; }
+    p { margin-bottom: 16px; font-size: 1rem; }
+    ul, ol { margin: 16px 0 16px 24px; }
+    li { margin-bottom: 8px; font-size: 1rem; }
+    .highlight-box { background: #f0fdfa; border-left: 4px solid #0d9488; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .example { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin: 20px 0; font-family: 'Courier New', monospace; font-size: 0.9rem; white-space: pre-wrap; }
+    table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.95rem; }
+    th { background: #0d9488; color: white; padding: 12px 16px; text-align: left; font-family: Arial, sans-serif; font-weight: 600; }
+    td { padding: 11px 16px; border-bottom: 1px solid #e2e8f0; }
+    tr:nth-child(even) td { background: #f8fafc; }
+    .summary { background: #0f172a; color: #e2e8f0; border-radius: 12px; padding: 28px 32px; margin: 40px 0 0; }
+    .summary h2 { color: #fff; margin-top: 0; }
+    .summary li { color: #cbd5e1; }
+    @media (max-width: 640px) { .wrapper { padding: 32px 24px; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="course-tag">Programación Web · Capítulo 18</div>
+  <h1>Optimización y Performance Web: Velocidad que Importa</h1>
+  <p class="subtitle">Aprende a medir y mejorar la velocidad de tu aplicación web, porque cada segundo de carga perdido cuesta usuarios y dinero.</p>
+  <hr>
+
+  <h2>1. Por Qué el Performance Importa</h2>
+  <p>Google encontró que el 53% de los usuarios abandona un sitio móvil si tarda más de 3 segundos en cargar. Amazon calculó que cada 100ms de latencia adicional cuesta 1% de ventas. La velocidad no es solo una preferencia — afecta directamente el posicionamiento en buscadores (SEO) y los ingresos.</p>
+
+  <h2>2. Core Web Vitals: Las Métricas que Google Mide</h2>
+  <div class="highlight-box">
+    Google usa tres métricas principales para evaluar la experiencia del usuario y afectan el ranking en búsquedas:<br><br>
+    <strong>LCP (Largest Contentful Paint):</strong> tiempo hasta que el elemento más grande es visible. Meta: &lt; 2.5s<br>
+    <strong>FID (First Input Delay):</strong> tiempo hasta que la página responde al primer clic. Meta: &lt; 100ms<br>
+    <strong>CLS (Cumulative Layout Shift):</strong> cuánto se mueven los elementos mientras carga. Meta: &lt; 0.1
+  </div>
+
+  <table>
+    <tr><th>Métrica</th><th>Bueno</th><th>Necesita mejora</th><th>Malo</th></tr>
+    <tr><td>LCP</td><td>&lt; 2.5s</td><td>2.5s – 4s</td><td>&gt; 4s</td></tr>
+    <tr><td>FID</td><td>&lt; 100ms</td><td>100ms – 300ms</td><td>&gt; 300ms</td></tr>
+    <tr><td>CLS</td><td>&lt; 0.1</td><td>0.1 – 0.25</td><td>&gt; 0.25</td></tr>
+  </table>
+
+  <h2>3. Herramientas de Medición</h2>
+  <ul>
+    <li><strong>Lighthouse</strong> (en Chrome DevTools → pestaña Lighthouse): auditoría completa de performance, accesibilidad, SEO y más.</li>
+    <li><strong>PageSpeed Insights</strong> (pagespeed.web.dev): análisis con datos reales de Chrome.</li>
+    <li><strong>WebPageTest</strong> (webpagetest.org): pruebas desde diferentes ubicaciones y conexiones.</li>
+    <li><strong>Chrome DevTools → Network:</strong> ver exactamente qué archivos se cargan y cuánto tardan.</li>
+    <li><strong>Chrome DevTools → Performance:</strong> grabar y analizar el runtime del browser.</li>
+  </ul>
+
+  <h2>4. Optimización de Imágenes</h2>
+  <p>Las imágenes representan típicamente el 60-70% del peso de una página web. Optimizarlas tiene el mayor impacto.</p>
+
+  <div class="example">&lt;!-- Formato moderno WebP (30-50% más pequeño que JPEG) con fallback --&gt;
+&lt;picture&gt;
+  &lt;source srcset="hero.webp" type="image/webp"&gt;
+  &lt;source srcset="hero.avif" type="image/avif"&gt;
+  &lt;img src="hero.jpg" alt="Imagen principal" width="1200" height="600"&gt;
+&lt;/picture&gt;
+
+&lt;!-- Lazy loading: solo cargar cuando está cerca del viewport --&gt;
+&lt;img src="foto.webp" alt="Foto" loading="lazy" decoding="async"&gt;
+
+&lt;!-- Responsive images: diferente tamaño según la pantalla --&gt;
+&lt;img
+  src="imagen-800.webp"
+  srcset="imagen-400.webp 400w,
+          imagen-800.webp 800w,
+          imagen-1200.webp 1200w"
+  sizes="(max-width: 640px) 400px,
+         (max-width: 1024px) 800px,
+         1200px"
+  alt="Imagen responsiva"
+  loading="lazy"
+&gt;
+
+&lt;!-- Siempre especificar width y height para evitar CLS --&gt;
+&lt;img src="logo.png" width="200" height="60" alt="Logo"&gt;</div>
+
+  <h2>5. Optimización de JavaScript</h2>
+
+  <h3>Code Splitting con React</h3>
+  <div class="example">// Sin code splitting: TODO el JS se carga al inicio
+import PaginaAdmin from "./PaginaAdmin";    // Cargado siempre
+import PaginaReportes from "./PaginaReportes"; // Cargado siempre
+
+// Con code splitting: solo se carga cuando el usuario navega allí
+import { lazy, Suspense } from "react";
+
+const PaginaAdmin = lazy(() => import("./PaginaAdmin"));
+const PaginaReportes = lazy(() => import("./PaginaReportes"));
+
+function App() {
+  return (
+    &lt;Suspense fallback={&lt;div&gt;Cargando...&lt;/div&gt;}&gt;
+      &lt;Routes&gt;
+        &lt;Route path="/admin" element={&lt;PaginaAdmin /&gt;} /&gt;
+        &lt;Route path="/reportes" element={&lt;PaginaReportes /&gt;} /&gt;
+      &lt;/Routes&gt;
+    &lt;/Suspense&gt;
+  );
+}
+// El bundle inicial puede reducirse un 50-80%</div>
+
+  <h3>defer y async en Scripts</h3>
+  <div class="example">&lt;!-- Sin atributo: bloquea el parser HTML hasta descargar y ejecutar --&gt;
+&lt;script src="app.js"&gt;&lt;/script&gt;
+
+&lt;!-- async: descarga en paralelo, ejecuta tan pronto como descarga --&gt;
+&lt;!-- Para scripts independientes (analytics, publicidad) --&gt;
+&lt;script async src="analytics.js"&gt;&lt;/script&gt;
+
+&lt;!-- defer: descarga en paralelo, ejecuta DESPUÉS del HTML completo --&gt;
+&lt;!-- Para scripts que necesitan el DOM listo --&gt;
+&lt;script defer src="app.js"&gt;&lt;/script&gt;</div>
+
+  <h2>6. Estrategias de Caché</h2>
+  <div class="example">// Express: configurar headers de caché
+
+// Activos estáticos (CSS, JS, imágenes con hash en el nombre)
+// El hash en el nombre garantiza que si cambia el archivo, cambia la URL
+app.use("/static", express.static("public", {
+  maxAge: "1y",  // Caché por 1 año — el hash asegura invalidación
+  immutable: true
+}));
+
+// API: no cachear respuestas dinámicas
+app.get("/api/datos", (req, res) => {
+  res.set("Cache-Control", "no-store");
+  res.json(datos);
+});
+
+// HTML: revalidar en cada visita
+app.get("/", (req, res) => {
+  res.set("Cache-Control", "no-cache");  // Revalida antes de usar caché
+  res.sendFile("index.html");
+});</div>
+
+  <div class="example">// Vite genera nombres con hash automáticamente:
+// app.js → app.a1b2c3d4.js
+// styles.css → styles.e5f6g7h8.css
+
+// Esto permite cache-busting automático:
+// - Si el archivo NO cambió → misma URL → se sirve desde caché
+// - Si el archivo SÍ cambió → URL diferente → se descarga nuevo</div>
+
+  <h2>7. Optimización de CSS</h2>
+  <div class="example">/* Critical CSS: estilos para lo visible "above the fold"
+   Inlinar en el HTML para evitar bloqueo de renderizado */
+
+/* En el &lt;head&gt; del HTML: */
+&lt;style&gt;
+  /* Solo estilos del header, hero y lo visible sin scroll */
+  body { font-family: sans-serif; margin: 0; }
+  .hero { background: #0f172a; color: white; padding: 60px; }
+&lt;/style&gt;
+
+/* El resto del CSS carga de forma no bloqueante: */
+&lt;link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'"&gt;
+&lt;noscript&gt;&lt;link rel="stylesheet" href="styles.css"&gt;&lt;/noscript&gt;</div>
+
+  <div class="example">// Tailwind CSS elimina el CSS no usado automáticamente (PurgeCSS):
+// tailwind.config.js
+module.exports = {
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  // Tailwind escanea estos archivos y elimina clases no usadas
+  // Un proyecto típico pasa de 3MB a menos de 20KB de CSS</div>
+
+  <h2>8. Prefetch y Preload</h2>
+  <div class="example">&lt;head&gt;
+  &lt;!-- Preload: recurso crítico que necesitarás PRONTO en esta página --&gt;
+  &lt;link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin&gt;
+  &lt;link rel="preload" href="/hero.webp" as="image"&gt;
+
+  &lt;!-- Prefetch: recurso que probablemente necesitarás en la PRÓXIMA página --&gt;
+  &lt;link rel="prefetch" href="/dashboard.js"&gt;
+
+  &lt;!-- Preconnect: establecer conexión TCP/TLS temprana con dominio externo --&gt;
+  &lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+  &lt;link rel="preconnect" href="https://api.ejemplo.com"&gt;
+&lt;/head&gt;</div>
+
+  <h2>9. Optimización de Consultas a Base de Datos</h2>
+  <div class="example">// ❌ Problema N+1: una consulta por cada usuario
+const usuarios = await db.query("SELECT * FROM usuarios");
+for (const usuario of usuarios) {
+  // Esto hace 1 + N consultas (N = número de usuarios)
+  usuario.pedidos = await db.query(
+    "SELECT * FROM pedidos WHERE usuario_id = ?",
+    [usuario.id]
+  );
+}
+
+// ✅ Solución: JOIN en una sola consulta
+const usuariosConPedidos = await db.query(`
+  SELECT u.*, p.id as pedido_id, p.total, p.fecha
+  FROM usuarios u
+  LEFT JOIN pedidos p ON u.id = p.usuario_id
+`);
+
+// O usando carga eager con un ORM como Prisma:
+const usuarios = await prisma.usuario.findMany({
+  include: { pedidos: true }  // Un solo query optimizado
+});</div>
+
+  <div class="summary">
+    <h2>Resumen del Capítulo</h2>
+    <ul>
+      <li>Los <strong>Core Web Vitals</strong> (LCP, FID, CLS) son las métricas de Google que afectan el SEO; mídelos con Lighthouse o PageSpeed Insights.</li>
+      <li>Las <strong>imágenes</strong> son el mayor peso de las páginas; usa WebP/AVIF, lazy loading, srcset responsivo y siempre especifica width/height.</li>
+      <li>El <strong>code splitting</strong> con React.lazy() divide el bundle y solo carga el código cuando el usuario lo necesita, reduciendo el tiempo de carga inicial.</li>
+      <li>La <strong>caché</strong> es la optimización más poderosa; usa nombres con hash para activos estáticos y headers Cache-Control correctos en el servidor.</li>
+      <li><code>defer</code> en scripts evita que bloqueen el renderizado del HTML; <code>preload</code> descarga recursos críticos anticipadamente.</li>
+      <li>Elimina CSS no utilizado (PurgeCSS/Tailwind) e inlina el CSS crítico en el HTML para evitar bloqueos de renderizado.</li>
+      <li>El problema <strong>N+1</strong> en consultas de base de datos es una causa frecuente de lentitud; resuélvelo con JOINs o carga eager en el ORM.</li>
+    </ul>
+  </div>
+</div>
+<script>
+window.QUIZ_DATA = {
+  lang: "es",
+  questions: [
+    { q: "¿Qué mide la métrica LCP (Largest Contentful Paint) de los Core Web Vitals?", options: ["El tiempo total que tarda en cargar todos los recursos de la página", "El tiempo hasta que el elemento visual más grande de la página es visible", "La cantidad de JavaScript que se ejecuta al cargar", "El número de solicitudes HTTP realizadas"], correct: 1, feedback: "LCP mide cuánto tarda en renderizarse el elemento de contenido más grande visible en el viewport (generalmente una imagen hero o un bloque de texto principal). La meta de Google es menos de 2.5 segundos." },
+    { q: "¿Qué formato de imagen moderno ofrece un 30-50% menos de tamaño que JPEG manteniendo calidad similar?", options: ["PNG", "GIF", "WebP", "BMP"], correct: 2, feedback: "WebP (y AVIF, aún más nuevo) ofrece compresión significativamente mejor que JPEG y PNG. Es soportado por todos los navegadores modernos. Se puede usar `<picture>` con fallback para máxima compatibilidad." },
+    { q: "¿Qué hace el atributo `loading=\"lazy\"` en una etiqueta `<img>`?", options: ["Hace que la imagen cargue más lentamente para ahorrar batería", "Pospone la carga de la imagen hasta que esté cerca del viewport del usuario", "Aplica un efecto de desenfoque mientras carga", "Carga la imagen en un hilo separado"], correct: 1, feedback: "El lazy loading nativo (`loading=\"lazy\"`) hace que el navegador solo descargue la imagen cuando el usuario está a punto de verla (al hacer scroll). Esto reduce significativamente el peso inicial de la página." },
+    { q: "¿Qué problema resuelve el 'code splitting' en aplicaciones React?", options: ["Reduce el número de componentes necesarios", "Divide el bundle JavaScript en partes que se cargan solo cuando el usuario las necesita, reduciendo el tiempo de carga inicial", "Elimina el código duplicado en los componentes", "Permite compartir código entre proyectos diferentes"], correct: 1, feedback: "Sin code splitting, todo el JavaScript se descarga al inicio. Con `React.lazy()`, el código de cada página o sección se divide en chunks separados que se descargan solo cuando el usuario navega a esa parte, reduciendo el bundle inicial hasta un 80%." },
+    { q: "¿Cuál es la diferencia entre los atributos `defer` y `async` en una etiqueta `<script>`?", options: ["Son equivalentes; solo cambia el nombre", "`async` ejecuta el script tan pronto descarga; `defer` espera a que el HTML esté completamente parseado", "`defer` es para scripts externos; `async` para scripts inline", "`async` solo funciona en Chrome; `defer` en todos los navegadores"], correct: 1, feedback: "Ambos descargan el script sin bloquear el parser HTML. La diferencia: `async` ejecuta el script en cuanto termina la descarga (sin orden garantizado); `defer` espera a que el HTML esté completamente procesado y respeta el orden." },
+    { q: "¿Qué es el problema 'N+1' en consultas de base de datos?", options: ["Una consulta que tarda más de N+1 segundos", "Ejecutar 1 consulta inicial y luego N consultas adicionales (una por cada registro), cuando un solo JOIN lo resolvería", "Una tabla con más de N+1 millones de registros", "Un índice que cubre N+1 columnas"], correct: 1, feedback: "El problema N+1 ocurre cuando se hace una consulta para obtener N registros y luego N consultas más para obtener datos relacionados de cada uno. Un solo JOIN o la carga eager del ORM resuelven esto con una sola consulta eficiente." },
+    { q: "¿Para qué sirve `rel=\"preload\"` en un elemento `<link>` del HTML?", options: ["Para precargar la siguiente página que el usuario visitará", "Para indicar al navegador que descargue un recurso crítico con alta prioridad antes de que sea necesario", "Para cargar el recurso de forma diferida", "Para establecer una conexión anticipada con un servidor externo"], correct: 1, feedback: "`preload` indica al navegador que descargue un recurso crítico para la página actual tan pronto como sea posible (antes de que el parser lo descubra en el HTML). Es ideal para fuentes y la imagen hero principal." },
+    { q: "¿Qué estrategia de caché es correcta para archivos JavaScript y CSS generados con hash en el nombre?", options: ["No cachearlos nunca (`no-store`)", "Cachearlos por 1 año (`max-age=31536000, immutable`)", "Cachearlos por solo 5 minutos", "Revalidarlos en cada visita"], correct: 1, feedback: "Los archivos con hash en el nombre (generados por Vite) pueden cachearse por 1 año con `immutable`. Si el contenido cambia, el hash cambia y la URL es diferente, forzando al navegador a descargar la versión nueva automáticamente." },
+    { q: "¿Qué métrica de Core Web Vitals mide los saltos de diseño inesperados en la página?", options: ["LCP (Largest Contentful Paint)", "FID (First Input Delay)", "CLS (Cumulative Layout Shift)", "TTFB (Time to First Byte)"], correct: 2, feedback: "CLS (Cumulative Layout Shift) mide cuánto se mueven los elementos mientras la página carga. Un CLS alto ocurre cuando imágenes sin dimensiones o anuncios empujan el contenido. Especificar `width` y `height` en imágenes previene CLS." },
+    { q: "¿Cómo elimina Tailwind CSS el CSS no utilizado automáticamente en producción?", options: ["Analizando el CSS en tiempo de ejecución en el navegador", "Escaneando los archivos fuente para encontrar solo las clases usadas y eliminar el resto (PurgeCSS)", "Comprimiendo todo el CSS con gzip", "Usando variables CSS en lugar de clases"], correct: 1, feedback: "Tailwind escanea los archivos especificados en `content` del config y genera solo el CSS de las clases que realmente aparecen en el código. Un proyecto típico pasa de 3MB de CSS potencial a menos de 20KB en producción." }
+  ]
+};
+</script>
+<script src="quiz-engine.js"></script>
+</body>
+</html>

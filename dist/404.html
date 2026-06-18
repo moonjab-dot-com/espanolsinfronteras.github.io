@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Español Sin Fronteras</title>
+  <!--
+    GitHub Pages SPA redirect trick (rafgraph/spa-github-pages).
+    Converts the URL path into a query parameter that index.html reads and
+    restores, allowing client-side routing to work on GitHub Pages.
+    pathSegmentsToKeep = 0 because we use a custom domain at root.
+  -->
+  <script>
+    var pathSegmentsToKeep = 0;
+    var l = window.location;
+    l.replace(
+      l.protocol + "//" + l.hostname + (l.port ? ":" + l.port : "") +
+      l.pathname.split("/").slice(0, 1 + pathSegmentsToKeep).join("/") + "/?/" +
+      l.pathname.slice(1).split("/").slice(pathSegmentsToKeep).join("/").replace(/&/g, "~and~") +
+      (l.search ? "&" + l.search.slice(1).replace(/&/g, "~and~") : "") +
+      l.hash
+    );
+  </script>
+</head>
+<body></body>
+</html>

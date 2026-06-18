@@ -3,8 +3,8 @@
 const BASE_URL = "https://espanolsinfronteras.org";
 
 const DEFAULT_TITLE     = "Español Sin Fronteras | Plataforma Educativa Gratuita";
-const DEFAULT_DESC      = "Aprende español, finanzas, programación, matemáticas, ciencias, ciberseguridad e inglés completamente gratis. Más de 237 lecciones en 14 materias accesibles desde 72+ países sin registro.";
-const DEFAULT_OG_DESC   = "Aprende español, finanzas, programación, matemáticas y más completamente gratis. 237+ lecciones en 14 materias desde 72+ países.";
+const DEFAULT_DESC      = "Aprende español, finanzas, programación, matemáticas, ciencias, ciberseguridad e inglés completamente gratis. Más de 217 lecciones en 12 materias accesibles desde 72+ países sin registro.";
+const DEFAULT_OG_DESC   = "Aprende español, finanzas, programación, matemáticas y más completamente gratis. 217+ lecciones en 12 materias desde 72+ países.";
 const DEFAULT_CANONICAL = `${BASE_URL}/`;
 
 /**

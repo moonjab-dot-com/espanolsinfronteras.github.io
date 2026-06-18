@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diseño Responsivo Avanzado: CSS Grid, Flexbox y Mobile-First | Español Sin Fronteras</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.8; }
+    .wrapper { max-width: 860px; margin: 0 auto; background: #fff; padding: 60px 72px; min-height: 100vh; }
+    .course-tag { font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #0d9488; margin-bottom: 12px; }
+    h1 { font-size: 2rem; font-weight: 700; color: #0f172a; margin-bottom: 8px; line-height: 1.3; }
+    .subtitle { font-size: 1.05rem; color: #64748b; margin-bottom: 40px; font-style: italic; }
+    hr { border: none; border-top: 2px solid #99f6e4; margin: 32px 0; }
+    h2 { font-size: 1.35rem; font-weight: 700; color: #1e293b; margin: 36px 0 16px; }
+    h3 { font-size: 1.1rem; font-weight: 700; color: #0d9488; margin: 24px 0 10px; }
+    p { margin-bottom: 16px; font-size: 1rem; }
+    ul, ol { margin: 16px 0 16px 24px; }
+    li { margin-bottom: 8px; font-size: 1rem; }
+    .highlight-box { background: #f0fdfa; border-left: 4px solid #0d9488; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .example { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin: 20px 0; font-family: 'Courier New', monospace; font-size: 0.9rem; white-space: pre-wrap; }
+    table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.95rem; }
+    th { background: #0d9488; color: white; padding: 12px 16px; text-align: left; font-family: Arial, sans-serif; font-weight: 600; }
+    td { padding: 11px 16px; border-bottom: 1px solid #e2e8f0; }
+    tr:nth-child(even) td { background: #f8fafc; }
+    .summary { background: #0f172a; color: #e2e8f0; border-radius: 12px; padding: 28px 32px; margin: 40px 0 0; }
+    .summary h2 { color: #fff; margin-top: 0; }
+    .summary li { color: #cbd5e1; }
+    @media (max-width: 640px) { .wrapper { padding: 32px 24px; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="course-tag">Programación Web · Capítulo 19</div>
+  <h1>Diseño Responsivo Avanzado: CSS Grid, Flexbox y Mobile-First</h1>
+  <p class="subtitle">Domina las herramientas modernas de CSS para crear layouts que se adaptan perfectamente a cualquier tamaño de pantalla.</p>
+  <hr>
+
+  <h2>1. Filosofía Mobile-First</h2>
+  <p>El enfoque <strong>mobile-first</strong> significa diseñar primero para pantallas pequeñas y luego añadir estilos para pantallas más grandes. Es la estrategia correcta porque:</p>
+  <ul>
+    <li>Más del 60% del tráfico web es móvil.</li>
+    <li>Obliga a priorizar el contenido esencial.</li>
+    <li>Los estilos base son más simples; se añade complejidad progresivamente.</li>
+    <li>Google indexa primero la versión móvil (Mobile-First Indexing).</li>
+  </ul>
+
+  <div class="example">/* ❌ Desktop-first: estilos base para desktop, se "reducen" */
+.contenedor { display: grid; grid-template-columns: 1fr 1fr 1fr; }
+@media (max-width: 768px) {
+  .contenedor { grid-template-columns: 1fr; } /* Sobrescribir */
+}
+
+/* ✅ Mobile-first: estilos base para móvil, se "expanden" */
+.contenedor { display: grid; grid-template-columns: 1fr; }
+@media (min-width: 768px) {
+  .contenedor { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 1024px) {
+  .contenedor { grid-template-columns: 1fr 1fr 1fr; }
+}</div>
+
+  <div class="example">&lt;!-- Viewport meta tag: OBLIGATORIO para diseño responsivo --&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;!-- Sin esto, móviles simulan una pantalla de 980px y hacen zoom out --&gt;</div>
+
+  <h2>2. CSS Flexbox en Profundidad</h2>
+  <p>Flexbox es ideal para layouts en <strong>una dimensión</strong> (fila o columna). Es perfecto para: navbars, listas de tarjetas, centrar elementos, distribuir espacio.</p>
+
+  <div class="example">/* Propiedades del CONTENEDOR flex */
+.nav {
+  display: flex;
+
+  /* Dirección del eje principal */
+  flex-direction: row;          /* row | row-reverse | column | column-reverse */
+
+  /* Alineación en el eje principal (horizontal si row) */
+  justify-content: space-between; /* flex-start | center | flex-end | space-between | space-around | space-evenly */
+
+  /* Alineación en el eje cruzado (vertical si row) */
+  align-items: center;          /* stretch | flex-start | center | flex-end | baseline */
+
+  /* Permitir que los items salten a la siguiente línea */
+  flex-wrap: wrap;              /* nowrap | wrap | wrap-reverse */
+
+  gap: 16px;                    /* Espacio entre items */
+}
+
+/* Propiedades de los ITEMS flex */
+.item {
+  flex-grow: 1;    /* Cuánto espacio extra tomar (0 = no crecer) */
+  flex-shrink: 1;  /* Cuánto encogerse si no hay espacio (0 = no encoger) */
+  flex-basis: 200px; /* Tamaño base antes de distribuir espacio extra */
+
+  /* Shorthand: grow shrink basis */
+  flex: 1 1 200px;
+  flex: 1;          /* Equivale a: 1 1 0 — crece y encoge igual */
+
+  /* Alineación individual (sobreescribe align-items del padre) */
+  align-self: flex-end;
+}</div>
+
+  <h3>Layouts Prácticos con Flexbox</h3>
+  <div class="example">/* Navbar clásico */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  height: 64px;
+}
+
+/* Centrar vertical y horizontalmente */
+.centrado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Tarjetas que ocupan igual espacio */
+.lista-tarjetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.tarjeta {
+  flex: 1 1 300px; /* Mínimo 300px, crecen para llenar espacio */
+  max-width: 400px;
+}
+
+/* Footer pegado al fondo (sticky footer) */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main { flex: 1; } /* Main ocupa todo el espacio disponible */
+footer { /* Footer queda al fondo */ }</div>
+
+  <h2>3. CSS Grid en Profundidad</h2>
+  <p>CSS Grid es ideal para layouts en <strong>dos dimensiones</strong> (filas Y columnas). Es perfecto para: layouts de página completa, galerías, dashboards.</p>
+
+  <div class="example">/* Grid básico */
+.galeria {
+  display: grid;
+
+  /* Definir columnas */
+  grid-template-columns: 200px 1fr 1fr;  /* Fija + dos flexibles */
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsivo */
+
+  /* Definir filas */
+  grid-template-rows: auto;    /* Altura automática */
+  grid-auto-rows: 200px;       /* Todas las filas: 200px */
+
+  /* Espaciado */
+  gap: 24px;
+  column-gap: 16px;
+  row-gap: 24px;
+}
+
+/* Colocar items en posiciones específicas */
+.destacado {
+  grid-column: 1 / 3;    /* Ocupa desde columna 1 hasta 3 */
+  grid-column: span 2;   /* Ocupa 2 columnas */
+  grid-row: span 2;      /* Ocupa 2 filas */
+}
+
+/* Nombrar áreas (muy legible) */
+.layout {
+  display: grid;
+  grid-template-areas:
+    "header  header  header"
+    "sidebar main    main  "
+    "footer  footer  footer";
+  grid-template-columns: 250px 1fr 1fr;
+  grid-template-rows: 64px 1fr 80px;
+  min-height: 100vh;
+}
+
+.header  { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.main    { grid-area: main; }
+.footer  { grid-area: footer; }</div>
+
+  <h3>Grid Responsivo: auto-fill y auto-fit</h3>
+  <div class="example">/* auto-fill: llena con tantas columnas como quepan */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+}
+/* En 800px de ancho: 3 columnas de 250px
+   En 600px de ancho: 2 columnas de 250px
+   En 300px de ancho: 1 columna
+   ¡Sin media queries! */
+
+/* auto-fit: igual que auto-fill pero colapsa columnas vacías */
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}</div>
+
+  <table>
+    <tr><th>Situación</th><th>Usar</th></tr>
+    <tr><td>Distribuir items en una fila o columna</td><td>Flexbox</td></tr>
+    <tr><td>Layout completo de página (header, sidebar, main, footer)</td><td>Grid</td></tr>
+    <tr><td>Galería de tarjetas responsiva</td><td>Grid con auto-fill/fit</td></tr>
+    <tr><td>Centrar un elemento</td><td>Flexbox (o Grid)</td></tr>
+    <tr><td>Componente con items que deben alinearse en dos ejes</td><td>Grid</td></tr>
+  </table>
+
+  <h2>4. Media Queries y Breakpoints</h2>
+  <div class="example">/* Sistema de breakpoints estándar (similar a Tailwind) */
+/* Mobile: 0px - 639px (base, sin media query) */
+
+@media (min-width: 640px) {
+  /* sm: tablets pequeñas */
+}
+
+@media (min-width: 768px) {
+  /* md: tablets */
+}
+
+@media (min-width: 1024px) {
+  /* lg: laptops */
+}
+
+@media (min-width: 1280px) {
+  /* xl: desktops */
+}
+
+/* También puedes consultar orientación */
+@media (orientation: landscape) { }
+
+/* Y preferencias del usuario */
+@media (prefers-color-scheme: dark) {
+  body { background: #0f172a; color: #e2e8f0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}</div>
+
+  <h2>5. CSS Custom Properties (Variables)</h2>
+  <div class="example">/* Definir variables en :root (alcance global) */
+:root {
+  --color-primario: #0d9488;
+  --color-texto: #1a1a2e;
+  --color-fondo: #f8f9fa;
+  --fuente-base: 'Georgia', serif;
+  --espaciado-sm: 8px;
+  --espaciado-md: 16px;
+  --espaciado-lg: 32px;
+  --radio-borde: 8px;
+  --sombra: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+/* Usar las variables */
+.boton {
+  background: var(--color-primario);
+  padding: var(--espaciado-sm) var(--espaciado-md);
+  border-radius: var(--radio-borde);
+  box-shadow: var(--sombra);
+}
+
+/* Sobrescribir para modo oscuro */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-texto: #e2e8f0;
+    --color-fondo: #0f172a;
+  }
+  /* El resto del CSS no necesita cambiar */
+}</div>
+
+  <h2>6. Tipografía Fluida con clamp()</h2>
+  <div class="example">/* clamp(mínimo, preferido, máximo) */
+/* El tamaño crece suavemente entre el mínimo y máximo */
+
+h1 {
+  /* En móvil: 1.5rem, crece hasta 3rem en desktop, fluidamente */
+  font-size: clamp(1.5rem, 4vw, 3rem);
+}
+
+p {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  line-height: 1.7;
+}
+
+.hero {
+  padding: clamp(40px, 8vw, 120px) clamp(24px, 5vw, 80px);
+}
+
+/* Sin clamp tendrías que hacer esto: */
+h1 { font-size: 1.5rem; }
+@media (min-width: 768px) { h1 { font-size: 2rem; } }
+@media (min-width: 1024px) { h1 { font-size: 3rem; } }</div>
+
+  <h2>7. Patrones Responsivos Modernos</h2>
+  <div class="example">/* Patrón: Sidebar + Contenido principal */
+.con-sidebar {
+  display: grid;
+  grid-template-columns: 1fr;  /* Móvil: una columna */
+}
+@media (min-width: 1024px) {
+  .con-sidebar {
+    grid-template-columns: 280px 1fr;  /* Desktop: sidebar fija + main */
+  }
+}
+
+/* Patrón: Holy Grail (header, footer, sidebar izq, sidebar der, main) */
+.holy-grail {
+  display: grid;
+  grid-template:
+    "header" auto
+    "main"   1fr
+    "footer" auto
+    / 1fr;
+  min-height: 100vh;
+}
+@media (min-width: 768px) {
+  .holy-grail {
+    grid-template:
+      "header  header  header"  auto
+      "sidebar main    aside"   1fr
+      "footer  footer  footer"  auto
+      / 200px  1fr     200px;
+  }
+}
+
+/* Patrón: Card grid perfectamente responsivo */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: clamp(16px, 3vw, 32px);
+}</div>
+
+  <div class="summary">
+    <h2>Resumen del Capítulo</h2>
+    <ul>
+      <li>El enfoque <strong>mobile-first</strong> diseña primero para móvil y expande con <code>min-width</code> media queries; es el estándar de la industria y requerido por Google.</li>
+      <li><strong>Flexbox</strong> maneja layouts unidimensionales (fila o columna): navbars, centrado, distribución de espacio con justify-content y align-items.</li>
+      <li><strong>CSS Grid</strong> maneja layouts bidimensionales: usa <code>grid-template-areas</code> para layouts de página legibles y <code>auto-fill/fit</code> para grids responsivos sin media queries.</li>
+      <li>Los <strong>breakpoints</strong> estándar son 640px, 768px, 1024px y 1280px; úsalos consistentemente y evita breakpoints arbitrarios.</li>
+      <li>Las <strong>CSS Custom Properties</strong> (variables) centralizan colores, espaciados y fuentes, facilitando cambios globales y la implementación de temas.</li>
+      <li><code>clamp(min, ideal, max)</code> crea tipografía y espaciados fluidos que se adaptan suavemente entre móvil y desktop sin media queries.</li>
+      <li>El patrón <code>minmax(min(100%, 320px), 1fr)</code> con auto-fill crea grids de tarjetas completamente responsivos con una sola línea de CSS.</li>
+    </ul>
+  </div>
+</div>
+<script>
+window.QUIZ_DATA = {
+  lang: "es",
+  questions: [
+    { q: "¿Cuál es la filosofía del enfoque 'mobile-first' en diseño responsivo?", options: ["Diseñar primero para desktop y luego reducir para móvil", "Diseñar primero para móvil y añadir estilos progresivamente para pantallas más grandes", "Crear dos versiones separadas del sitio: una móvil y una desktop", "Usar siempre JavaScript para detectar el dispositivo y mostrar diferente CSS"], correct: 1, feedback: "Mobile-first diseña los estilos base para pantallas pequeñas y usa `min-width` media queries para añadir complejidad en pantallas más grandes. Es el estándar de la industria porque el tráfico móvil supera el 60% y Google indexa primero la versión móvil." },
+    { q: "¿Cuándo es más apropiado usar Flexbox en lugar de CSS Grid?", options: ["Siempre; Flexbox es más moderno que Grid", "Para layouts en una sola dimensión (fila o columna): navbars, centrado, distribución de elementos", "Para layouts complejos de página completa con header, sidebar y footer", "Solo para botones y elementos pequeños"], correct: 1, feedback: "Flexbox es ideal para distribuir elementos en una sola dirección (una fila o una columna). CSS Grid es mejor para layouts bidimensionales donde necesitas controlar filas Y columnas simultáneamente." },
+    { q: "¿Qué hace `grid-template-columns: repeat(auto-fill, minmax(250px, 1fr))`?", options: ["Crea exactamente 3 columnas siempre", "Crea tantas columnas de mínimo 250px como quepan, creciendo para llenar el espacio disponible", "Crea columnas de ancho fijo de exactamente 250px", "Solo funciona si se especifican los items explícitamente"], correct: 1, feedback: "Esta combinación crea un grid responsivo sin media queries: `auto-fill` genera todas las columnas que quepan, y `minmax(250px, 1fr)` asegura que cada columna tenga al menos 250px pero puede crecer para llenar el espacio." },
+    { q: "¿Qué es imprescindible incluir en el HTML para que el diseño responsivo funcione en móviles?", options: ["Una media query para pantallas menores de 768px", "La etiqueta `<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">`", "Un archivo CSS separado para móviles", "La propiedad CSS `display: mobile`"], correct: 1, feedback: "Sin el viewport meta tag, los navegadores móviles simulan una pantalla de ~980px y hacen zoom out para mostrar el sitio completo, ignorando tus media queries. Esta etiqueta es absolutamente obligatoria para diseño responsivo." },
+    { q: "¿Qué propiedad CSS se usa para que un item flex ocupe todo el espacio disponible restante en el contenedor?", options: ["`flex-grow: 0`", "`flex: 1`", "`flex-shrink: 1`", "`align-self: stretch`"], correct: 1, feedback: "`flex: 1` es shorthand para `flex: 1 1 0`, que significa 'crece todo lo que puedas, encógete si hace falta, con tamaño base de 0'. Hace que el elemento ocupe todo el espacio disponible no tomado por otros items." },
+    { q: "¿Cómo se usa `grid-template-areas` para nombrar zonas del layout?", options: ["Asignando números a cada celda", "Asignando nombres en strings que representan filas, y luego usando `grid-area` en cada elemento", "Solo funciona con Grid de 2 columnas", "Los nombres deben coincidir exactamente con los selectores CSS"], correct: 1, feedback: "`grid-template-areas` define el layout con strings visuales (ej: `'header header' 'sidebar main'`). Luego cada elemento usa `grid-area: nombre` para posicionarse en su zona. Hace el código muy legible y fácil de reorganizar." },
+    { q: "¿Qué ventaja ofrece `clamp(1.5rem, 4vw, 3rem)` para el tamaño de fuente?", options: ["Fija el tamaño en exactamente 4vw siempre", "Crea tipografía fluida que crece suavemente entre 1.5rem (mínimo) y 3rem (máximo) según el ancho de pantalla", "Solo funciona en Chrome y Safari modernos", "Requiere JavaScript para calcular el valor"], correct: 1, feedback: "`clamp(min, ideal, max)` crea valores que se adaptan fluidamente: el valor ideal (4vw) crece con la pantalla pero nunca baja del mínimo ni supera el máximo. Reemplaza múltiples media queries con una sola declaración." },
+    { q: "¿Cuál es el breakpoint estándar de Tailwind CSS para pantallas de tablet (md)?", options: ["480px", "640px", "768px", "1024px"], correct: 2, feedback: "Tailwind usa breakpoints estándar: `sm` = 640px, `md` = 768px, `lg` = 1024px, `xl` = 1280px. El breakpoint `md` (768px) corresponde típicamente a tablets en orientación portrait." },
+    { q: "¿Cómo implementar un footer que siempre quede pegado al fondo de la página con Flexbox?", options: ["Usando `position: fixed` en el footer", "Aplicando `display: flex; flex-direction: column; min-height: 100vh` al body y `flex: 1` al main", "Usando `margin-top: auto` en el footer", "Solo es posible con CSS Grid, no con Flexbox"], correct: 1, feedback: "Con el body como contenedor flex en dirección column y min-height 100vh, y `flex: 1` en el main, el contenido principal se expande para llenar el espacio disponible, empujando el footer al fondo aunque haya poco contenido." },
+    { q: "¿Qué media query se usa correctamente en un enfoque mobile-first para estilos de tablet?", options: ["`@media (max-width: 768px)`", "`@media (min-width: 768px)`", "`@media (device: tablet)`", "`@media screen and (width: 768px)`"], correct: 1, feedback: "En mobile-first, los estilos base son para móvil sin media query. Se usa `min-width` para añadir estilos a pantallas más grandes. `@media (min-width: 768px)` aplica estilos desde tablet en adelante, expandiendo progresivamente." }
+  ]
+};
+</script>
+<script src="quiz-engine.js"></script>
+</body>
+</html>

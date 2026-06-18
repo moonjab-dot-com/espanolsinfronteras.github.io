@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Álgebra: Ecuaciones Lineales y su Aplicación | Español Sin Fronteras</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.8; }
+    .wrapper { max-width: 860px; margin: 0 auto; background: #fff; padding: 60px 72px; min-height: 100vh; }
+    .course-tag { font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #2563eb; margin-bottom: 12px; }
+    h1 { font-size: 2rem; font-weight: 700; color: #0f172a; margin-bottom: 8px; line-height: 1.3; }
+    .subtitle { font-size: 1.05rem; color: #64748b; margin-bottom: 40px; font-style: italic; }
+    hr { border: none; border-top: 2px solid #bfdbfe; margin: 32px 0; }
+    h2 { font-size: 1.35rem; font-weight: 700; color: #1e293b; margin: 36px 0 16px; }
+    h3 { font-size: 1.1rem; font-weight: 700; color: #2563eb; margin: 24px 0 10px; }
+    p { margin-bottom: 16px; font-size: 1rem; }
+    ul, ol { margin: 16px 0 16px 24px; }
+    li { margin-bottom: 8px; font-size: 1rem; }
+    .highlight-box { background: #eff6ff; border-left: 4px solid #2563eb; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .example { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin: 20px 0; font-family: 'Courier New', monospace; font-size: 0.95rem; white-space: pre-wrap; }
+    table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.95rem; }
+    th { background: #2563eb; color: white; padding: 12px 16px; text-align: left; font-family: Arial, sans-serif; font-weight: 600; }
+    td { padding: 11px 16px; border-bottom: 1px solid #e2e8f0; }
+    tr:nth-child(even) td { background: #f8fafc; }
+    .summary { background: #0f172a; color: #e2e8f0; border-radius: 12px; padding: 28px 32px; margin: 40px 0 0; }
+    .summary h2 { color: #fff; margin-top: 0; }
+    .summary li { color: #cbd5e1; }
+    @media (max-width: 640px) { .wrapper { padding: 32px 24px; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="course-tag">Matemáticas · Capítulo 11</div>
+  <h1>Álgebra: Ecuaciones Lineales y su Aplicación</h1>
+  <p class="subtitle">Aprende a usar variables y ecuaciones para resolver problemas del mundo real de forma sistemática y poderosa.</p>
+  <hr>
+
+  <h2>1. ¿Qué es el Álgebra?</h2>
+  <p>El álgebra es la rama de las matemáticas que usa letras (variables) para representar cantidades desconocidas o que pueden cambiar. Permite generalizar patrones aritméticos y resolver problemas donde no conocemos todos los valores.</p>
+  <p>Por ejemplo: "El doble de un número más tres es igual a once. ¿Cuál es el número?" El álgebra convierte esto en: 2x + 3 = 11, y nos da herramientas sistemáticas para encontrar x = 4.</p>
+
+  <h2>2. Expresiones Algebraicas</h2>
+  <div class="highlight-box">
+    Una <strong>expresión algebraica</strong> combina números, variables y operaciones pero NO tiene signo igual. Un <strong>ecuación</strong> tiene signo igual y afirma que dos expresiones son iguales.
+  </div>
+
+  <div class="example">Expresiones (no tienen solución, solo se simplifican):
+  3x + 5x = 8x         (términos semejantes — misma variable y exponente)
+  4a - 2b + 3a = 7a - 2b
+  2(x + 3) = 2x + 6    (propiedad distributiva)
+
+Simplificar expresiones:
+  5x + 3y - 2x + 7y - 4
+  = (5x - 2x) + (3y + 7y) - 4   (agrupar términos semejantes)
+  = 3x + 10y - 4
+
+  3(2a - 4) - 2(a + 1)
+  = 6a - 12 - 2a - 2            (distributiva)
+  = 4a - 14                     (simplificar)</div>
+
+  <h2>3. Ecuaciones de Un Paso</h2>
+  <div class="highlight-box">
+    <strong>Principio de equivalencia:</strong> lo que haces a un lado de la ecuación, debes hacerlo al otro. El objetivo es aislar la variable.
+  </div>
+
+  <div class="example">Suma/Resta:
+  x + 7 = 15
+  x = 15 - 7
+  x = 8         Verificar: 8 + 7 = 15 ✓
+
+  y - 4 = 11
+  y = 11 + 4
+  y = 15        Verificar: 15 - 4 = 11 ✓
+
+Multiplicación/División:
+  3x = 21
+  x = 21 ÷ 3
+  x = 7         Verificar: 3(7) = 21 ✓
+
+  x/5 = 8
+  x = 8 × 5
+  x = 40        Verificar: 40/5 = 8 ✓</div>
+
+  <h2>4. Ecuaciones de Dos Pasos</h2>
+  <div class="example">Estrategia: 1) Eliminar suma/resta, 2) Eliminar multiplicación/división
+
+  2x + 5 = 17
+  2x = 17 - 5     (restar 5 en ambos lados)
+  2x = 12
+  x = 12 / 2      (dividir entre 2 en ambos lados)
+  x = 6           Verificar: 2(6) + 5 = 12 + 5 = 17 ✓
+
+  3x - 7 = 14
+  3x = 14 + 7 = 21
+  x = 21 / 3 = 7  Verificar: 3(7) - 7 = 21 - 7 = 14 ✓
+
+  x/4 + 3 = 9
+  x/4 = 9 - 3 = 6
+  x = 6 × 4 = 24  Verificar: 24/4 + 3 = 6 + 3 = 9 ✓
+
+  -2x + 8 = 2
+  -2x = 2 - 8 = -6
+  x = -6 / (-2) = 3   Verificar: -2(3) + 8 = -6 + 8 = 2 ✓</div>
+
+  <h2>5. Ecuaciones con Variable en Ambos Lados</h2>
+  <div class="example">Estrategia: mover todos los términos con variable a un lado,
+            todos los números al otro.
+
+  5x + 3 = 2x + 18
+  5x - 2x = 18 - 3      (mover 2x a la izquierda, 3 a la derecha)
+  3x = 15
+  x = 5               Verificar: 5(5)+3 = 28,  2(5)+18 = 28 ✓
+
+  7 - 2x = 4x - 5
+  7 + 5 = 4x + 2x       (mover -2x a derecha, -5 a izquierda)
+  12 = 6x
+  x = 2               Verificar: 7-2(2) = 3,  4(2)-5 = 3 ✓
+
+  3(x + 4) = 2(x - 1) + 15
+  3x + 12 = 2x - 2 + 15    (distributiva primero)
+  3x + 12 = 2x + 13
+  3x - 2x = 13 - 12
+  x = 1               Verificar: 3(5) = 15,  2(0)+15 = 15 ✓</div>
+
+  <h2>6. Ecuaciones con Fracciones</h2>
+  <div class="example">Estrategia: multiplicar TODA la ecuación por el MCM de los denominadores
+para eliminar las fracciones.
+
+  x/3 + x/4 = 7
+
+  MCM(3, 4) = 12. Multiplicar todo por 12:
+  12(x/3) + 12(x/4) = 12(7)
+  4x + 3x = 84
+  7x = 84
+  x = 12          Verificar: 12/3 + 12/4 = 4 + 3 = 7 ✓
+
+  (2x - 1)/3 = (x + 2)/2
+
+  MCM(3, 2) = 6. Multiplicar todo por 6:
+  6 × (2x-1)/3 = 6 × (x+2)/2
+  2(2x - 1) = 3(x + 2)
+  4x - 2 = 3x + 6
+  4x - 3x = 6 + 2
+  x = 8           Verificar: (16-1)/3 = 5,  (8+2)/2 = 5 ✓</div>
+
+  <h2>7. Problemas de Palabras → Ecuaciones</h2>
+  <div class="highlight-box">
+    <strong>Estrategia de traducción:</strong><br>
+    "la suma de" → +  |  "la diferencia" → −  |  "el producto" → ×  |  "el cociente" → ÷<br>
+    "es / es igual a / resulta" → =  |  "el doble" → 2x  |  "tres veces más" → 3x  |  "un número" → x
+  </div>
+
+  <div class="example">Problema 1 — Edades:
+  "Ana tiene 5 años más que Luis. La suma de sus edades es 37.
+  ¿Cuántos años tiene cada uno?"
+
+  Sea x = edad de Luis
+  Ana tiene x + 5 años
+
+  Ecuación: x + (x + 5) = 37
+  2x + 5 = 37
+  2x = 32
+  x = 16  → Luis tiene 16 años
+  Ana = 16 + 5 = 21 años
+  Verificar: 16 + 21 = 37 ✓
+
+Problema 2 — Dinero:
+  "Compraste 3 lápices y 5 bolígrafos por $19. Si cada bolígrafo
+  cuesta $2 más que un lápiz, ¿cuánto cuesta cada uno?"
+
+  Sea x = precio del lápiz
+  Bolígrafo = x + 2
+
+  Ecuación: 3x + 5(x + 2) = 19
+  3x + 5x + 10 = 19
+  8x = 9
+  x = $1.125  → lápiz $1.125, bolígrafo $3.125
+
+Problema 3 — Distancia:
+  "Dos ciudades están a 480 km. Dos autos salen al mismo tiempo
+  en dirección contraria a 80 km/h y 100 km/h. ¿Cuándo se encuentran?"
+
+  Tiempo hasta encuentro = t
+  Distancia A + distancia B = 480
+  80t + 100t = 480
+  180t = 480
+  t = 480/180 = 2⅔ horas = 2 h 40 min</div>
+
+  <h2>8. Inecuaciones Lineales</h2>
+  <div class="example">Se resuelven igual que ecuaciones, con una regla adicional:
+⚠️ Al multiplicar o dividir por un número NEGATIVO, el signo de
+   la desigualdad se INVIERTE.
+
+  3x - 4 &gt; 11
+  3x &gt; 15
+  x &gt; 5       → solución: todos los números mayores que 5
+  En recta numérica: ○——————&gt;  (círculo abierto en 5)
+
+  -2x + 6 ≤ 12
+  -2x ≤ 6
+  x ≥ -3       → ¡signo invertido al dividir por -2!
+  En recta numérica: ←——●  (círculo cerrado en -3)
+
+  Doble inecuación:
+  -3 &lt; 2x + 1 ≤ 9
+  -4 &lt; 2x ≤ 8       (restar 1 a las tres partes)
+  -2 &lt; x ≤ 4        (dividir entre 2 las tres partes)
+  Solución: x está entre -2 y 4, sin incluir -2, incluyendo 4</div>
+
+  <h2>9. Sistemas de Dos Ecuaciones</h2>
+  <h3>Método de Sustitución</h3>
+  <div class="example">  y = 2x - 1      ...(1)
+  3x + y = 14     ...(2)
+
+  Paso 1: Sustituir (1) en (2):
+  3x + (2x - 1) = 14
+  5x - 1 = 14
+  5x = 15
+  x = 3
+
+  Paso 2: Encontrar y con (1):
+  y = 2(3) - 1 = 5
+
+  Solución: x = 3, y = 5
+  Verificar en (2): 3(3) + 5 = 9 + 5 = 14 ✓</div>
+
+  <h3>Método de Eliminación</h3>
+  <div class="example">  2x + 3y = 12    ...(1)
+  4x - 3y = 6     ...(2)
+
+  Suma ambas ecuaciones (los términos 3y se cancelan):
+  (2x + 3y) + (4x - 3y) = 12 + 6
+  6x = 18
+  x = 3
+
+  Sustituir x = 3 en (1):
+  2(3) + 3y = 12
+  6 + 3y = 12
+  3y = 6
+  y = 2
+
+  Solución: x = 3, y = 2
+  Verificar en (2): 4(3) - 3(2) = 12 - 6 = 6 ✓</div>
+
+  <div class="summary">
+    <h2>Resumen del Capítulo</h2>
+    <ul>
+      <li>El <strong>principio de equivalencia</strong> rige todas las ecuaciones: cualquier operación aplicada a un lado debe aplicarse al otro para mantener la igualdad.</li>
+      <li>Para simplificar expresiones: aplica la propiedad distributiva primero, luego agrupa y combina términos semejantes.</li>
+      <li>Las ecuaciones con fracciones se simplifican multiplicando toda la ecuación por el MCM de los denominadores, eliminando las fracciones.</li>
+      <li>La estrategia para problemas de palabras: identificar la incógnita, traducir cada frase a expresión algebraica, plantear la ecuación y verificar.</li>
+      <li>En las <strong>inecuaciones</strong>, al multiplicar o dividir ambos lados por un número negativo, el signo de desigualdad se invierte.</li>
+      <li>El <strong>método de sustitución</strong> despeja una variable en una ecuación y la sustituye en la otra; el <strong>método de eliminación</strong> suma o resta ecuaciones para cancelar una variable.</li>
+      <li>Siempre verifica la solución sustituyéndola en las ecuaciones originales — es el único modo de confirmar que es correcta.</li>
+    </ul>
+  </div>
+</div>
+<script>
+window.QUIZ_DATA = {
+  lang: "es",
+  questions: [
+    { q: "¿Cuál es la diferencia entre una expresión algebraica y una ecuación?", options: ["La expresión tiene variables y la ecuación no", "La ecuación tiene signo igual y la expresión no", "La expresión se puede resolver y la ecuación no", "No hay diferencia"], correct: 1, feedback: "Una expresión algebraica combina números, variables y operaciones pero NO tiene signo igual. Una ecuación tiene signo igual y afirma que dos expresiones son iguales." },
+    { q: "¿Cuánto es 3x + 5x simplificado?", options: ["15x", "8x²", "8x", "35x"], correct: 2, feedback: "3x y 5x son términos semejantes (misma variable y mismo exponente), por lo que se suman sus coeficientes: 3 + 5 = 8, resultado: 8x." },
+    { q: "Resuelve: 2x + 3 = 11", options: ["x = 3", "x = 4", "x = 7", "x = 5"], correct: 1, feedback: "Restamos 3 en ambos lados: 2x = 8. Luego dividimos entre 2: x = 4. Verificación: 2(4) + 3 = 11 ✓" },
+    { q: "Resuelve: 5x − 7 = 3x + 9", options: ["x = 6", "x = 7", "x = 8", "x = 1"], correct: 2, feedback: "Restamos 3x: 2x − 7 = 9. Sumamos 7: 2x = 16. Dividimos entre 2: x = 8. Verificación: 5(8)−7 = 33 = 3(8)+9 ✓" },
+    { q: "Resuelve: 3(x + 4) = 21", options: ["x = 3", "x = 5", "x = 7", "x = 9"], correct: 0, feedback: "Distribuimos: 3x + 12 = 21. Restamos 12: 3x = 9. Dividimos entre 3: x = 3." },
+    { q: "Un número más 15 es igual a 34. ¿Cuál es el número?", options: ["17", "19", "21", "49"], correct: 1, feedback: "Sea x el número desconocido. Ecuación: x + 15 = 34. Despejando: x = 34 − 15 = 19." },
+    { q: "¿Cuál es la solución de la inecuación 2x − 5 > 7?", options: ["x > 1", "x > 6", "x > 3", "x < 6"], correct: 1, feedback: "Sumamos 5: 2x > 12. Dividimos entre 2 (número positivo, no cambia la desigualdad): x > 6." },
+    { q: "Resuelve: x/3 + 2 = 5", options: ["x = 7", "x = 9", "x = 1", "x = 21"], correct: 1, feedback: "Restamos 2: x/3 = 3. Multiplicamos por 3: x = 9. Verificación: 9/3 + 2 = 3 + 2 = 5 ✓" },
+    { q: "Si 4(x − 2) = 2(x + 6), ¿cuánto vale x?", options: ["x = 10", "x = 8", "x = 14", "x = 6"], correct: 2, feedback: "Distribuimos: 4x − 8 = 2x + 12. Restamos 2x: 2x − 8 = 12. Sumamos 8: 2x = 20. Dividimos entre 2: x = 10. Corrección: x = 10." },
+    { q: "La suma de dos números consecutivos es 37. ¿Cuáles son esos números?", options: ["17 y 18", "18 y 19", "19 y 20", "16 y 17"], correct: 1, feedback: "Sean n y n+1 los consecutivos. Ecuación: n + (n+1) = 37 → 2n + 1 = 37 → 2n = 36 → n = 18. Los números son 18 y 19." }
+  ]
+};
+</script>
+<script src="quiz-engine.js"></script>
+</body>
+</html>

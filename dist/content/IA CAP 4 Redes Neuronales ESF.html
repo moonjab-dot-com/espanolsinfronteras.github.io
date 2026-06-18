@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redes Neuronales Artificiales | Español Sin Fronteras</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.8; }
+    .wrapper { max-width: 860px; margin: 0 auto; background: #fff; padding: 60px 72px; min-height: 100vh; }
+    .course-tag { font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #7c3aed; margin-bottom: 12px; }
+    h1 { font-size: 2rem; font-weight: 700; color: #0f172a; margin-bottom: 8px; line-height: 1.3; }
+    .subtitle { font-size: 1.05rem; color: #64748b; margin-bottom: 40px; font-style: italic; }
+    hr { border: none; border-top: 2px solid #ddd6fe; margin: 32px 0; }
+    h2 { font-size: 1.35rem; font-weight: 700; color: #1e293b; margin: 36px 0 16px; }
+    h3 { font-size: 1.1rem; font-weight: 700; color: #7c3aed; margin: 24px 0 10px; }
+    p { margin-bottom: 16px; font-size: 1rem; }
+    ul, ol { margin: 16px 0 16px 24px; }
+    li { margin-bottom: 8px; font-size: 1rem; }
+    .highlight-box { background: #f5f3ff; border-left: 4px solid #7c3aed; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .example { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin: 20px 0; font-family: 'Courier New', monospace; font-size: 0.9rem; }
+    table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.95rem; }
+    th { background: #7c3aed; color: white; padding: 12px 16px; text-align: left; font-family: Arial, sans-serif; font-weight: 600; }
+    td { padding: 11px 16px; border-bottom: 1px solid #e2e8f0; }
+    tr:nth-child(even) td { background: #f8fafc; }
+    .summary { background: #0f172a; color: #e2e8f0; border-radius: 12px; padding: 28px 32px; margin: 40px 0 0; }
+    .summary h2 { color: #fff; margin-top: 0; }
+    .summary li { color: #cbd5e1; }
+    @media (max-width: 640px) { .wrapper { padding: 32px 24px; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="course-tag">Inteligencia Artificial · Capítulo 4</div>
+  <h1>Redes Neuronales Artificiales: La Arquitectura del Aprendizaje Profundo</h1>
+  <p class="subtitle">Cómo la inspiración en el cerebro biológico produjo la tecnología más transformadora de nuestra era.</p>
+  <hr>
+
+  <h2>La Inspiración Biológica</h2>
+  <p>El cerebro humano contiene aproximadamente 86 mil millones de neuronas, cada una conectada a miles de otras mediante sinapsis. Cuando una neurona recibe suficiente estimulación de sus vecinas, "dispara" un impulso eléctrico que viaja a través del axón y activa a su vez a otras neuronas. Este mecanismo masivamente paralelo y distribuido es lo que nos permite reconocer rostros, aprender idiomas, componer música y resolver ecuaciones, todo con un consumo energético de apenas 20 vatios.</p>
+
+  <p>En la década de 1940, Warren McCulloch y Walter Pitts propusieron el primer modelo matemático de una neurona artificial. En 1957, Frank Rosenblatt inventó el <strong>perceptrón</strong>, el primer algoritmo de aprendizaje para una neurona artificial. Aunque aquel primer perceptrón solo podía resolver problemas linealmente separables, sus descendientes —las redes neuronales profundas modernas— son capaces de superar a los seres humanos en un número creciente de tareas.</p>
+
+  <h2>La Neurona Artificial</h2>
+  <p>Una neurona artificial es una función matemática que toma múltiples entradas, las pondera, las suma, y aplica una función de activación para producir una salida.</p>
+
+  <div class="example">
+Neurona artificial (formulación matemática):
+
+Entradas:    x₁, x₂, x₃  (ej: píxeles de una imagen)
+Pesos:       w₁, w₂, w₃  (valores aprendidos durante entrenamiento)
+Sesgo:       b            (desplazamiento, también aprendido)
+
+Suma ponderada:  z = w₁·x₁ + w₂·x₂ + w₃·x₃ + b
+
+Función de activación:  salida = f(z)
+
+Donde f puede ser: sigmoide, ReLU, tanh, etc.
+  </div>
+
+  <p>Los <strong>pesos</strong> (weights) son los parámetros más importantes: son los números que el algoritmo aprende durante el entrenamiento. Un peso grande y positivo significa "esta entrada es muy importante y correlaciona positivamente con la salida"; un peso negativo significa "cuando esta entrada es alta, la salida tiende a bajar". El <strong>sesgo</strong> (bias) permite que la función se desplace, dando al modelo más flexibilidad.</p>
+
+  <h2>Funciones de Activación</h2>
+  <p>Sin una función de activación no lineal, una red neuronal de múltiples capas seguiría siendo equivalente a una sola capa (la composición de funciones lineales es lineal). Las funciones de activación introducen la no linealidad que permite a las redes aprender patrones complejos.</p>
+
+  <table>
+    <tr>
+      <th>Función</th>
+      <th>Fórmula</th>
+      <th>Rango</th>
+      <th>Cuándo usarla</th>
+      <th>Problema</th>
+    </tr>
+    <tr>
+      <td>Sigmoide</td>
+      <td>1/(1+e⁻ᶻ)</td>
+      <td>(0, 1)</td>
+      <td>Capa de salida para clasificación binaria</td>
+      <td>Gradiente se desvanece en valores extremos</td>
+    </tr>
+    <tr>
+      <td>Tanh</td>
+      <td>(eᶻ - e⁻ᶻ)/(eᶻ + e⁻ᶻ)</td>
+      <td>(-1, 1)</td>
+      <td>Capas ocultas en RNNs</td>
+      <td>También sufre desvanecimiento de gradiente</td>
+    </tr>
+    <tr>
+      <td>ReLU</td>
+      <td>max(0, z)</td>
+      <td>[0, ∞)</td>
+      <td>Capas ocultas en la mayoría de redes modernas</td>
+      <td>Neuronas muertas (salida siempre cero)</td>
+    </tr>
+    <tr>
+      <td>Leaky ReLU</td>
+      <td>max(0.01z, z)</td>
+      <td>(-∞, ∞)</td>
+      <td>Alternativa a ReLU que evita neuronas muertas</td>
+      <td>El 0.01 es un hiperparámetro a ajustar</td>
+    </tr>
+    <tr>
+      <td>Softmax</td>
+      <td>eᶻⁱ/Σeᶻʲ</td>
+      <td>(0, 1), suma=1</td>
+      <td>Capa de salida para clasificación multiclase</td>
+      <td>Costosa computacionalmente con muchas clases</td>
+    </tr>
+  </table>
+
+  <p>La función <strong>ReLU</strong> (Rectified Linear Unit) dominó la última década por una razón simple: es computacionalmente barata (solo un máximo), no satura para valores positivos (lo que mitiga el problema de desvanecimiento de gradiente), y en la práctica produce redes que aprenden más rápido que con sigmoide o tanh.</p>
+
+  <div class="highlight-box">
+    <strong>El problema del gradiente que se desvanece (Vanishing Gradient):</strong> Durante el entrenamiento, los gradientes fluyen hacia atrás a través de las capas. Con funciones como la sigmoide, los gradientes se multiplican repetidamente por números pequeños (menores a 0.25) en cada capa. En redes profundas de 10+ capas, el gradiente que llega a las primeras capas es tan pequeño que prácticamente no hay aprendizaje. ReLU mitiga esto porque su derivada es exactamente 1 para entradas positivas, impidiendo que el gradiente se encoja.
+  </div>
+
+  <h2>Arquitectura de una Red Neuronal</h2>
+  <p>Una red neuronal se organiza en capas de neuronas donde cada neurona de una capa está conectada a todas las neuronas de la capa siguiente (arquitectura "densa" o "fully connected").</p>
+
+  <ul>
+    <li><strong>Capa de entrada (Input layer):</strong> Recibe los datos brutos. Si clasificas imágenes de 28×28 píxeles, la capa de entrada tiene 784 neuronas (una por píxel).</li>
+    <li><strong>Capas ocultas (Hidden layers):</strong> Procesan la información en representaciones cada vez más abstractas. Las primeras capas detectan características simples (bordes, colores); las capas más profundas detectan características complejas (formas, objetos).</li>
+    <li><strong>Capa de salida (Output layer):</strong> Produce la predicción final. Para clasificar entre 10 dígitos (0-9), la capa de salida tiene 10 neuronas con softmax.</li>
+  </ul>
+
+  <p>El número de capas ocultas y neuronas por capa son <strong>hiperparámetros</strong>: decisiones de diseño que el ingeniero elige antes del entrenamiento, no parámetros que la red aprende automáticamente.</p>
+
+  <h2>Propagación hacia Adelante (Forward Propagation)</h2>
+  <p>Veamos un ejemplo numérico simplificado. Supón una red con 2 entradas, 2 neuronas ocultas y 1 salida.</p>
+
+  <div class="example">
+Entrada: x = [0.5, 0.8]
+
+Pesos capa oculta (2×2):
+  w_oculta = [[0.3, -0.2],
+              [0.5,  0.1]]
+Sesgo oculto: b = [0.1, 0.2]
+
+Cálculo neurona oculta 1:
+  z₁ = 0.3×0.5 + 0.5×0.8 + 0.1 = 0.15 + 0.40 + 0.10 = 0.65
+  a₁ = ReLU(0.65) = 0.65
+
+Cálculo neurona oculta 2:
+  z₂ = -0.2×0.5 + 0.1×0.8 + 0.2 = -0.10 + 0.08 + 0.20 = 0.18
+  a₂ = ReLU(0.18) = 0.18
+
+Pesos capa salida: w_salida = [0.7, 0.9], sesgo = 0.0
+  z_out = 0.7×0.65 + 0.9×0.18 = 0.455 + 0.162 = 0.617
+  salida = sigmoide(0.617) ≈ 0.65  → probabilidad predicha: 65%
+  </div>
+
+  <h2>Retropropagación (Backpropagation)</h2>
+  <p>La retropropagación es el algoritmo que hace posible el entrenamiento de redes neuronales. Su esencia: calcular cuánto contribuyó cada peso al error final, y ajustar los pesos en la dirección que reduce ese error.</p>
+
+  <p>El proceso completo en cada iteración de entrenamiento:</p>
+  <ol>
+    <li><strong>Forward pass:</strong> Propaga los datos hacia adelante para obtener una predicción.</li>
+    <li><strong>Calcular la pérdida:</strong> Compara la predicción con el valor real usando una función de pérdida (ej: error cuadrático medio para regresión, entropía cruzada para clasificación).</li>
+    <li><strong>Backward pass:</strong> Usando la regla de la cadena del cálculo diferencial, calcula el gradiente de la pérdida respecto a cada peso en la red, empezando desde la capa de salida y yendo hacia atrás.</li>
+    <li><strong>Actualizar pesos:</strong> Cada peso se ajusta en la dirección opuesta al gradiente: w ← w − η·(∂L/∂w), donde η (eta) es la <strong>tasa de aprendizaje</strong> (learning rate).</li>
+  </ol>
+
+  <div class="highlight-box">
+    <strong>La tasa de aprendizaje (learning rate)</strong> es el hiperparámetro más crítico. Si es demasiado grande, los pesos saltan de un lado al otro y el entrenamiento no converge. Si es demasiado pequeña, el entrenamiento es extremadamente lento. Valores típicos: 0.001 a 0.1. Técnicas modernas como Adam, RMSprop y AdaGrad ajustan la tasa de aprendizaje automáticamente durante el entrenamiento.
+  </div>
+
+  <h2>Redes Neuronales Convolucionales (CNNs)</h2>
+  <p>Las redes totalmente conectadas (dense) tienen un problema crítico con las imágenes: una imagen de 224×224 píxeles en color tiene 224×224×3 = 150,528 entradas. Conectar eso a una capa de 1,000 neuronas ya requiere 150 millones de parámetros, solo en esa capa. Las CNNs resuelven este problema de forma elegante aprovechando la estructura espacial de las imágenes.</p>
+
+  <p>Las imágenes tienen propiedades que las redes densas ignoran: los píxeles cercanos están relacionados, un borde vertical se ve igual sin importar dónde esté en la imagen (invarianza a la traslación), y las características jerárquicas (bordes → formas → partes → objetos) son reutilizables.</p>
+
+  <h3>Componentes de una CNN</h3>
+  <ul>
+    <li><strong>Capa convolucional:</strong> Un filtro pequeño (ej: 3×3 píxeles) se desliza sobre toda la imagen, calculando el producto punto entre el filtro y cada región. Si el filtro detecta bordes verticales, produce una activación alta en todas las regiones de la imagen donde hay bordes verticales. Una sola capa convolucional puede tener 32, 64 o 128 filtros distintos, cada uno aprendiendo a detectar un patrón diferente.</li>
+    <li><strong>Capa de pooling:</strong> Reduce el tamaño espacial de los mapas de activación tomando el máximo (max pooling) o el promedio (average pooling) de regiones. Una región de 2×2 se reduce a 1 valor, comprimiendo la representación a la mitad.</li>
+    <li><strong>Capas convolucionales apiladas:</strong> Cada capa adicional detecta características más abstractas: la primera capa detecta bordes y colores; la segunda detecta texturas y curvas; la tercera detecta partes de objetos (ojos, ruedas); capas más profundas detectan objetos completos.</li>
+    <li><strong>Capas densas al final:</strong> Después de varias capas convolucionales y de pooling, las representaciones aprendidas se "aplanan" y se pasan a capas densas para la clasificación final.</li>
+  </ul>
+
+  <h2>Redes Neuronales Recurrentes (RNNs)</h2>
+  <p>Las CNNs son excelentes con datos espaciales (imágenes). Pero ¿qué pasa con datos secuenciales donde el orden importa: texto, audio, series temporales? Las RNNs están diseñadas para esto. A diferencia de las redes estándar, las RNNs tienen conexiones que "van hacia atrás": la salida de un paso de tiempo se retroalimenta como entrada al siguiente.</p>
+
+  <p>Esto les da una forma de "memoria": el estado oculto en el tiempo t contiene información sobre todo lo que ha procesado hasta ese momento. Sin embargo, las RNNs básicas sufren el problema del gradiente que se desvanece para secuencias largas: la información de pasos muy anteriores se "olvida" gradualmente.</p>
+
+  <h3>LSTM: Long Short-Term Memory</h3>
+  <p>Las LSTMs, propuestas por Hochreiter y Schmidhuber en 1997, resuelven el problema de las dependencias largas con un mecanismo de "puertas" (gates). Una celda LSTM tiene tres puertas:</p>
+  <ul>
+    <li><strong>Puerta de olvido (forget gate):</strong> Decide qué información del estado anterior descartar.</li>
+    <li><strong>Puerta de entrada (input gate):</strong> Decide qué nueva información almacenar en el estado.</li>
+    <li><strong>Puerta de salida (output gate):</strong> Decide qué parte del estado interno producir como salida.</li>
+  </ul>
+  <p>Este mecanismo permite a las LSTMs mantener información relevante durante cientos de pasos de tiempo, siendo el estándar para traducción automática, reconocimiento de voz y generación de texto durante gran parte de la década de 2010, hasta que los transformers las superaron en 2017.</p>
+
+  <h2>El Hardware del Deep Learning: Por Qué Importan las GPUs</h2>
+  <p>Una GPU (Graphics Processing Unit) puede realizar miles de operaciones matemáticas simples en paralelo. Originalmente diseñadas para renderizar gráficos de videojuegos, resultaron perfectas para el álgebra lineal masiva que requiere el deep learning. Una NVIDIA A100 (usada en centros de datos de IA) puede realizar 312 teraflops de cálculos en punto flotante (312 billones de operaciones por segundo). Una CPU moderna realiza apenas unos 100 gigaflops en las mismas condiciones.</p>
+
+  <p>Entrenar GPT-3 (175,000 millones de parámetros) requirió aproximadamente 355 años de tiempo de GPU (realizados en paralelo en miles de GPUs durante semanas). Este costo computacional es una de las razones por las que el acceso a modelos de IA de última generación está concentrado en pocas organizaciones.</p>
+
+  <h2>Arquitecturas Famosas y el Teorema de Aproximación Universal</h2>
+
+  <table>
+    <tr>
+      <th>Arquitectura</th>
+      <th>Año</th>
+      <th>Contribución clave</th>
+    </tr>
+    <tr>
+      <td>AlexNet</td>
+      <td>2012</td>
+      <td>Primera CNN profunda en ganar ImageNet; inició la era del deep learning</td>
+    </tr>
+    <tr>
+      <td>VGG-16</td>
+      <td>2014</td>
+      <td>Demostró que la profundidad (16-19 capas) mejora el rendimiento sistemáticamente</td>
+    </tr>
+    <tr>
+      <td>ResNet</td>
+      <td>2015</td>
+      <td>Conexiones residuales (skip connections) permitieron entrenar redes de 152+ capas</td>
+    </tr>
+    <tr>
+      <td>Transformer</td>
+      <td>2017</td>
+      <td>Mecanismo de atención; base de GPT, BERT y toda la IA generativa moderna</td>
+    </tr>
+    <tr>
+      <td>BERT</td>
+      <td>2018</td>
+      <td>Preentrenamiento bidireccional para comprensión del lenguaje natural</td>
+    </tr>
+    <tr>
+      <td>GPT-3</td>
+      <td>2020</td>
+      <td>175B parámetros; demostró generación de texto de calidad humana</td>
+    </tr>
+  </table>
+
+  <p>El <strong>Teorema de Aproximación Universal</strong> (Cybenko, 1989) establece que una red neuronal con al menos una capa oculta y un número suficiente de neuronas puede aproximar cualquier función continua con precisión arbitraria. Esto no significa que las redes sean mágicas —encontrar los pesos correctos sigue siendo el desafío— pero garantiza que en principio, la arquitectura tiene la capacidad expresiva suficiente para cualquier problema.</p>
+
+  <div class="summary">
+    <h2>Resumen del Capítulo</h2>
+    <ul>
+      <li>Una neurona artificial calcula una suma ponderada de sus entradas más un sesgo, y aplica una función de activación no lineal; los pesos y sesgos son los parámetros que la red aprende durante el entrenamiento.</li>
+      <li>ReLU (max(0,z)) domina como función de activación en capas ocultas porque evita el problema de desvanecimiento de gradiente y es computacionalmente eficiente; la sigmoide y softmax se reservan para capas de salida en clasificación.</li>
+      <li>La retropropagación calcula el gradiente de la pérdida respecto a cada peso usando la regla de la cadena, y el descenso de gradiente actualiza esos pesos iterativamente; la tasa de aprendizaje controla el tamaño de cada paso y es el hiperparámetro más crítico.</li>
+      <li>Las CNNs usan filtros convolucionales que se deslizan sobre imágenes detectando características espaciales jerárquicas (bordes → texturas → formas → objetos), reduciendo drásticamente el número de parámetros respecto a redes densas.</li>
+      <li>Las RNNs y LSTMs procesan secuencias manteniendo un estado oculto que actúa como memoria; las puertas de las LSTMs (olvido, entrada, salida) resuelven el problema de dependencias largas que afecta a las RNNs básicas.</li>
+      <li>Las GPUs son esenciales para el deep learning por su capacidad de realizar miles de operaciones matriciales en paralelo; entrenar GPT-3 requirió el equivalente a 355 años de tiempo de GPU.</li>
+      <li>El Teorema de Aproximación Universal garantiza que una red con suficientes neuronas puede aproximar cualquier función continua, pero encontrar los pesos correctos mediante el entrenamiento sigue siendo el desafío práctico central.</li>
+    </ul>
+  </div>
+</div>
+<script>
+window.QUIZ_DATA = {
+  lang: "es",
+  questions: [
+    { q: "¿Quién inventó el perceptrón en 1957?", options: ["Warren McCulloch", "Frank Rosenblatt", "Geoffrey Hinton", "Yann LeCun"], correct: 1, feedback: "Frank Rosenblatt inventó el perceptrón en 1957, el primer algoritmo de aprendizaje para una neurona artificial, aunque solo podía resolver problemas linealmente separables." },
+    { q: "¿Qué calcula una neurona artificial con sus entradas y pesos?", options: ["El producto vectorial de las entradas", "Una suma ponderada de las entradas más un sesgo, a la que aplica una función de activación", "La media aritmética de todas las entradas", "La distancia euclidiana entre vectores de entrada"], correct: 1, feedback: "Una neurona artificial calcula z = w1x1 + w2x2 + ... + b (suma ponderada más sesgo) y luego aplica una función de activación f(z) para producir su salida." },
+    { q: "¿Por qué la función ReLU domina como función de activación en capas ocultas?", options: ["Porque su salida siempre está entre 0 y 1", "Porque es computacionalmente barata y mitiga el problema de desvanecimiento de gradiente para valores positivos", "Porque fue la primera función de activación inventada", "Porque funciona mejor con datos de texto que con imágenes"], correct: 1, feedback: "ReLU (max(0,z)) domina porque es computacionalmente barata, no satura para valores positivos (su derivada es 1), lo que mitiga el problema de gradiente que se desvanece en redes profundas." },
+    { q: "¿Qué hiperparámetro controla el tamaño de cada paso en el descenso de gradiente?", options: ["El número de capas ocultas", "El tamaño del batch", "La tasa de aprendizaje (learning rate)", "El número de neuronas por capa"], correct: 2, feedback: "La tasa de aprendizaje (learning rate) controla el tamaño de cada actualización de pesos: si es muy grande, el entrenamiento no converge; si es muy pequeña, el entrenamiento es extremadamente lento." },
+    { q: "¿Qué problema resuelven las CNNs comparado con las redes densas para imágenes?", options: ["Las CNNs son más lentas pero más precisas", "Las CNNs reducen drásticamente el número de parámetros aprovechando la estructura espacial mediante filtros convolucionales compartidos", "Las CNNs solo funcionan con imágenes en blanco y negro", "Las CNNs no necesitan datos de entrenamiento"], correct: 1, feedback: "Una imagen de 224x224 en color tiene 150,528 entradas; conectarlas en capas densas requiere cientos de millones de parámetros. Las CNNs resuelven esto con filtros que se deslizan sobre la imagen, compartiendo pesos." },
+    { q: "¿Cuántos parámetros tiene GPT-3?", options: ["117 millones", "1,500 millones", "175,000 millones", "1 billón"], correct: 2, feedback: "GPT-3 tiene 175,000 millones de parámetros y demostró generación de texto de calidad humana. Entrenarlo requirió el equivalente a 355 años de tiempo de GPU." },
+    { q: "¿Qué afirma el Teorema de Aproximación Universal?", options: ["Que toda red neuronal converge siempre a la solución óptima", "Que una red con al menos una capa oculta y suficientes neuronas puede aproximar cualquier función continua", "Que las redes con más capas siempre son mejores", "Que el deep learning solo funciona con GPUs de última generación"], correct: 1, feedback: "El Teorema de Aproximación Universal (Cybenko, 1989) garantiza que una red con al menos una capa oculta puede aproximar cualquier función continua con precisión arbitraria, aunque encontrar los pesos correctos sigue siendo el desafío." },
+    { q: "¿Qué problema de las RNNs resuelven las LSTMs con su mecanismo de puertas?", options: ["El alto consumo de memoria GPU", "El problema del gradiente que se desvanece en secuencias largas, permitiendo mantener dependencias a largo alcance", "La lentitud del entrenamiento supervisado", "La incapacidad de procesar texto en varios idiomas"], correct: 1, feedback: "Las LSTMs, propuestas en 1997 por Hochreiter y Schmidhuber, resuelven el problema de dependencias largas en las RNNs mediante puertas de olvido, entrada y salida que controlan el flujo de información." },
+    { q: "¿Qué arquitectura de 2017 es la base de GPT, BERT y toda la IA generativa moderna?", options: ["ResNet", "VGG-16", "Transformer", "LSTM"], correct: 2, feedback: "El Transformer (2017) introdujo el mecanismo de atención que procesa todas las posiciones de una secuencia en paralelo; es la arquitectura base de GPT, BERT, Claude, Gemini y prácticamente todos los modelos modernos." },
+    { q: "¿Por qué las GPUs son esenciales para el Deep Learning?", options: ["Porque solo las GPUs pueden almacenar los modelos de gran tamaño", "Porque pueden realizar miles de operaciones matriciales en paralelo, siendo hasta 3,000 veces más rápidas que una CPU para álgebra lineal", "Porque las CPUs no soportan el lenguaje Python", "Porque las GPUs tienen mayor capacidad de almacenamiento que las CPUs"], correct: 1, feedback: "Una NVIDIA A100 puede realizar 312 teraflops (operaciones en punto flotante por segundo), mientras una CPU moderna realiza apenas 100 gigaflops para las mismas operaciones de álgebra lineal que requiere el deep learning." }
+  ]
+};
+</script>
+<script src="quiz-engine.js"></script>
+</body>
+</html>

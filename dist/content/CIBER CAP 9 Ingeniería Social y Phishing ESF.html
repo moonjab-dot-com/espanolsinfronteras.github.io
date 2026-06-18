@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ingeniería Social y Phishing: Manipulando a las Personas | Español Sin Fronteras</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.8; }
+    .wrapper { max-width: 860px; margin: 0 auto; background: #fff; padding: 60px 72px; min-height: 100vh; }
+    .course-tag { font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #7c3aed; margin-bottom: 12px; }
+    h1 { font-size: 2rem; font-weight: 700; color: #0f172a; margin-bottom: 8px; line-height: 1.3; }
+    .subtitle { font-size: 1.05rem; color: #64748b; margin-bottom: 40px; font-style: italic; }
+    hr { border: none; border-top: 2px solid #ddd6fe; margin: 32px 0; }
+    h2 { font-size: 1.35rem; font-weight: 700; color: #1e293b; margin: 36px 0 16px; }
+    h3 { font-size: 1.1rem; font-weight: 700; color: #7c3aed; margin: 24px 0 10px; }
+    p { margin-bottom: 16px; font-size: 1rem; }
+    ul, ol { margin: 16px 0 16px 24px; }
+    li { margin-bottom: 8px; font-size: 1rem; }
+    .highlight-box { background: #f5f3ff; border-left: 4px solid #7c3aed; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .warning-box { background: #fff7ed; border-left: 4px solid #ea580c; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .example { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin: 20px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.95rem; }
+    th { background: #7c3aed; color: white; padding: 12px 16px; text-align: left; font-family: Arial, sans-serif; font-weight: 600; }
+    td { padding: 11px 16px; border-bottom: 1px solid #e2e8f0; }
+    tr:nth-child(even) td { background: #f8fafc; }
+    .summary { background: #0f172a; color: #e2e8f0; border-radius: 12px; padding: 28px 32px; margin: 40px 0 0; }
+    .summary h2 { color: #fff; margin-top: 0; }
+    .summary li { color: #cbd5e1; }
+    @media (max-width: 640px) { .wrapper { padding: 32px 24px; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="course-tag">Ciberseguridad · Capítulo 9</div>
+  <h1>Ingeniería Social y Phishing: Manipulando a las Personas</h1>
+  <p class="subtitle">El ser humano es el eslabón más débil en la cadena de seguridad — y los atacantes lo saben y lo explotan sistemáticamente.</p>
+  <hr>
+
+  <h2>La Ingeniería Social: Hackear Mentes, no Máquinas</h2>
+  <p>Kevin Mitnick, uno de los hackers más famosos de la historia, afirmó que en la mayoría de sus intrusiones jamás necesitó explotar una vulnerabilidad técnica — simplemente llamaba por teléfono, se hacía pasar por alguien de confianza, y la gente le daba lo que necesitaba. La ingeniería social es la manipulación psicológica de personas para que realicen acciones o divulguen información confidencial.</p>
+
+  <div class="highlight-box">
+    <strong>Dato crítico:</strong> Según el informe Verizon DBIR 2023, el elemento humano estuvo involucrado en el 74% de todas las brechas de seguridad analizadas. La tecnología de seguridad puede ser perfecta — si un empleado hace clic en el enlace equivocado, todo se derrumba.
+  </div>
+
+  <h2>Los Principios Psicológicos que los Atacantes Explotan</h2>
+  <p>Robert Cialdini identificó en su libro "Influencia" (1984) seis principios de persuasión que los atacantes aplican deliberadamente:</p>
+
+  <table>
+    <tr><th>Principio</th><th>Cómo lo explotan los atacantes</th><th>Ejemplo en ataque</th></tr>
+    <tr><td><strong>Autoridad</strong></td><td>Fingir ser jefe, IT, banco, gobierno, policía</td><td>"Soy el CIO. Necesito tu contraseña de urgencia."</td></tr>
+    <tr><td><strong>Urgencia</strong></td><td>Crear presión de tiempo para impedir el razonamiento</td><td>"Tu cuenta será bloqueada en 24 horas si no actúas AHORA."</td></tr>
+    <tr><td><strong>Escasez</strong></td><td>Oportunidad única, limitada o irrepetible</td><td>"Solo 3 usuarios recibirán esta oferta exclusiva."</td></tr>
+    <tr><td><strong>Reciprocidad</strong></td><td>Dar algo primero para crear obligación de devolver</td><td>Enviar un regalo antes de pedir información sensible.</td></tr>
+    <tr><td><strong>Prueba social</strong></td><td>"Todos lo hacen" — reducir la barrera de resistencia</td><td>"El 90% de nuestros clientes ya actualizaron sus datos."</td></tr>
+    <tr><td><strong>Simpatía</strong></td><td>Crear relación antes de hacer la solicitud</td><td>Semanas de conversación antes del fraude romántico.</td></tr>
+  </table>
+
+  <h2>Phishing: El Ataque Más Común del Mundo</h2>
+  <p>El phishing es el envío masivo de comunicaciones fraudulentas que parecen provenir de fuentes confiables, con el objetivo de robar credenciales, información personal o instalar malware.</p>
+
+  <h3>Anatomía de un Email de Phishing</h3>
+  <div class="example">
+    <strong>Email de phishing típico — análisis de señales de alerta:</strong><br><br>
+    <em>De:</em> seguridad@banco-popular-alerts.com <span style="color:#dc2626">← Dominio falso, no es banco.com</span><br>
+    <em>Para:</em> cliente@gmail.com<br>
+    <em>Asunto:</em> ⚠️ URGENTE: Actividad sospechosa en tu cuenta <span style="color:#dc2626">← Urgencia artificial + emoji para llamar atención</span><br><br>
+    Estimado cliente, <span style="color:#dc2626">← No usa tu nombre — enviado masivamente</span><br><br>
+    Hemos detectado acceso no autorizado a tu cuenta. Para proteger tus fondos, debes verificar tu identidad INMEDIATAMENTE haciendo clic en el enlace de abajo. Si no lo haces en las próximas 24 horas, tu cuenta será suspendida.<br><br>
+    <span style="color:#dc2626">← Urgencia + amenaza + llamada a acción</span><br><br>
+    [VERIFICAR MI CUENTA AHORA] <span style="color:#dc2626">← El link apunta a banco-popular-secure.netlify.app — no al banco real</span><br><br>
+    Banco Popular S.A. — Departamento de Seguridad
+  </div>
+
+  <h3>Tipos de Phishing</h3>
+  <table>
+    <tr><th>Tipo</th><th>Descripción</th><th>Objetivo</th></tr>
+    <tr><td>Phishing masivo</td><td>Correos genéricos enviados a millones de personas</td><td>Credenciales de banca, Amazon, Netflix</td></tr>
+    <tr><td>Spear phishing</td><td>Ataque personalizado usando información específica de la víctima</td><td>Empleados específicos con acceso a sistemas</td></tr>
+    <tr><td>Whaling</td><td>Spear phishing dirigido a ejecutivos de alto nivel (CEO, CFO)</td><td>Transferencias bancarias millonarias, secretos corporativos</td></tr>
+    <tr><td>Smishing</td><td>Phishing por SMS</td><td>"Tu paquete DHL está detenido, paga $2 para liberarlo"</td></tr>
+    <tr><td>Vishing</td><td>Phishing por voz (llamadas telefónicas)</td><td>Soporte técnico falso, IRS falso, banco falso</td></tr>
+    <tr><td>Quishing</td><td>Phishing mediante códigos QR maliciosos</td><td>QR en restaurantes, estacionamientos, emails</td></tr>
+  </table>
+
+  <h2>Spear Phishing: Personalización que Engaña a Expertos</h2>
+  <div class="example">
+    <strong>Caso real — ataque a RSA Security (2011):</strong><br>
+    RSA, una de las empresas de ciberseguridad más respetadas del mundo, fue comprometida mediante un email de spear phishing enviado a 4 empleados de bajo perfil. El asunto era "Plan de reclutamiento 2011" y el adjunto era una hoja de Excel que contenía un exploit de Adobe Flash. Un solo empleado abrió el adjunto. Los atacantes obtuvieron acceso a los sistemas internos y robaron información sobre el sistema SecurID — tokens de autenticación usados por el Departamento de Defensa de EE.UU., entre otros clientes. Si RSA fue víctima de spear phishing, cualquier organización puede serlo.
+  </div>
+
+  <h2>Business Email Compromise (BEC): El Fraude del CEO</h2>
+  <p>El BEC es una sofisticada forma de spear phishing donde los atacantes comprometen o suplantan el email de un ejecutivo para ordenar transferencias bancarias fraudulentas. El FBI reportó que entre 2016 y 2023 el BEC causó pérdidas superiores a $50,000 millones de dólares a nivel mundial — es el cibercrimen con mayor impacto económico.</p>
+
+  <div class="warning-box">
+    <strong>Escenario típico de BEC:</strong><br>
+    1. El atacante monitorea el email corporativo (comprometido o falsificado) durante semanas.<br>
+    2. Aprende sobre proveedores, flujos de pago, estilo de comunicación del CEO.<br>
+    3. En el momento exacto de una transacción real, envía un email urgente desde un dominio casi idéntico (empresa.com vs empresa-corp.com) instruyendo al área financiera a cambiar el número de cuenta bancaria del proveedor a una cuenta del atacante.<br>
+    4. La transferencia se realiza y el dinero desaparece en minutos a través de varias cuentas mula.<br><br>
+    Caso real: Toyota Boshoku (2019) perdió $37 millones en una sola transferencia BEC.
+  </div>
+
+  <h2>Pretexting: Construir una Historia Falsa</h2>
+  <p>El pretexting implica crear un escenario ficticio (pretexto) para extraer información. Un atacante puede llamar al banco haciéndose pasar por el titular de la cuenta, usando información pública (nombre, fecha de nacimiento, dirección obtenida de redes sociales) para pasar las preguntas de verificación.</p>
+
+  <h2>Baiting: El USB Abandonado</h2>
+  <p>El baiting usa la curiosidad humana como arma. La técnica más documentada: dejar USBs infectadas en estacionamientos de empresas objetivo. Estudios (University of Illinois, 2016) encontraron que el 45% de las USBs "encontradas" son conectadas por empleados. Una vez conectada, el malware se instala automáticamente.</p>
+
+  <h2>Tailgating: La Puerta que Alguien Sostiene</h2>
+  <p>El tailgating (o piggybacking) consiste en seguir físicamente a un empleado autorizado a través de una puerta de acceso restringido, aprovechando la cortesía humana de "sostener la puerta". Es una de las técnicas de ingeniería social físicas más efectivas y simples.</p>
+
+  <h2>Cómo Verificar Solicitudes Sospechosas</h2>
+  <ol>
+    <li><strong>Verifica por canal alternativo:</strong> Si recibes un email urgente de tu banco pidiendo datos, cierra el email y llama al número oficial del banco (no el del email). Nunca uses los datos de contacto del propio mensaje sospechoso.</li>
+    <li><strong>No respondas a la urgencia artificial:</strong> Las organizaciones legítimas rara vez te exigen actuar en "24 horas" o te amenazan con consecuencias inmediatas.</li>
+    <li><strong>Verifica el dominio cuidadosamente:</strong> paypa1.com (con el número 1), banco-seguro.co, microsoft-support.net son dominios fraudulentos.</li>
+    <li><strong>Llama directamente al remitente:</strong> Si tu CEO te pide por email una transferencia urgente, llámalo directamente al número que ya conoces.</li>
+    <li><strong>Usa la duda como defensa:</strong> Si algo se siente raro, probablemente lo es. La presión para actuar rápido sin verificar es siempre sospechosa.</li>
+  </ol>
+
+  <h2>Programas de Concienciación en Seguridad</h2>
+  <p>Las organizaciones reducen drásticamente el riesgo de ingeniería social mediante programas de entrenamiento continuos y simulaciones de phishing. Plataformas como KnowBe4 y Proofpoint envían emails de phishing simulados a empleados — los que hacen clic reciben entrenamiento inmediato. Estudios muestran que este enfoque reduce las tasas de clic en phishing de un 30% inicial a menos del 5% después de 12 meses de entrenamiento.</p>
+
+  <div class="summary">
+    <h2>Resumen del Capítulo</h2>
+    <ul>
+      <li>El elemento humano está involucrado en el 74% de todas las brechas — la ingeniería social explota psicología, no tecnología.</li>
+      <li>Los seis principios de Cialdini (autoridad, urgencia, escasez, reciprocidad, prueba social, simpatía) son las palancas que los atacantes usan sistemáticamente.</li>
+      <li>El phishing masivo es la amenaza más común; el spear phishing y el whaling son más peligrosos por su personalización — incluso empresas de ciberseguridad como RSA han caído.</li>
+      <li>El Business Email Compromise ha generado pérdidas superiores a $50,000 millones globalmente — cualquier solicitud de transferencia inusual debe verificarse por teléfono.</li>
+      <li>El smishing (SMS) y el vishing (voz) son vectores crecientes — el número que aparece en pantalla puede ser falsificado (spoofing).</li>
+      <li>Para verificar cualquier solicitud sospechosa: usa un canal completamente diferente al del mensaje (llama al número oficial conocido, nunca al del email).</li>
+      <li>Las simulaciones de phishing con entrenamiento inmediato reducen la vulnerabilidad humana del 30% al 5% en 12 meses — el entrenamiento continuo funciona.</li>
+    </ul>
+  </div>
+</div>
+<script>
+window.QUIZ_DATA = {
+  lang: "es",
+  questions: [
+    { q: "¿Qué porcentaje de las brechas de seguridad involucró el elemento humano según el informe Verizon DBIR 2023?", options: ["24%", "44%", "74%", "94%"], correct: 2, feedback: "Según el informe Verizon DBIR 2023, el elemento humano estuvo involucrado en el 74% de todas las brechas de seguridad analizadas, confirmando que las personas son el eslabón más débil de la cadena de seguridad." },
+    { q: "¿Cuál de los principios de Cialdini explotan los atacantes cuando dicen 'Tu cuenta será bloqueada en 24 horas si no actúas AHORA'?", options: ["Reciprocidad", "Simpatía", "Prueba social", "Urgencia"], correct: 3, feedback: "El principio de urgencia crea presión de tiempo artificial para impedir el razonamiento calmado. Al amenazar con consecuencias inmediatas, el atacante busca que la víctima actúe impulsivamente sin verificar la legitimidad del mensaje." },
+    { q: "¿Qué diferencia al spear phishing del phishing masivo?", options: ["El spear phishing usa SMS; el phishing masivo usa email", "El spear phishing está personalizado con información específica de la víctima; el phishing masivo es genérico y masivo", "El spear phishing es menos peligroso por ser más fácil de detectar", "El spear phishing solo ataca empresas; el phishing masivo solo ataca personas individuales"], correct: 1, feedback: "El spear phishing usa información específica de la víctima (nombre, cargo, proyectos actuales) para crear mensajes altamente convincentes. El ataque a RSA Security de 2011, que comprometió tokens de autenticación del Departamento de Defensa, comenzó con un spear phishing." },
+    { q: "¿Qué es el 'whaling'?", options: ["Un ataque de denegación de servicio usando grandes volúmenes de tráfico", "Phishing masivo enviado a millones de usuarios simultáneamente", "Spear phishing dirigido específicamente a ejecutivos de alto nivel (CEO, CFO) para obtener transferencias millonarias", "Un tipo de malware que infecta dispositivos IoT"], correct: 2, feedback: "El whaling es spear phishing que apunta a los peces gordos: ejecutivos de alto nivel. El objetivo es conseguir transferencias bancarias millonarias o secretos corporativos. El Business Email Compromise (BEC) es una variante que causó $50,000 millones en pérdidas globales." },
+    { q: "¿Qué es el 'smishing'?", options: ["Phishing a través de mensajes SMS", "Un ataque a redes Wi-Fi públicas", "El uso de ingeniería social en persona en la oficina", "Phishing a través de llamadas de voz"], correct: 0, feedback: "El smishing es phishing realizado por SMS. Un ejemplo típico: 'Tu paquete DHL está detenido, paga $2 para liberarlo'. El enlace en el SMS lleva a un sitio falso que roba datos personales o bancarios." },
+    { q: "¿Qué técnica de ingeniería social se describe cuando un atacante deja USBs infectadas en el estacionamiento de una empresa?", options: ["Tailgating", "Vishing", "Pretexting", "Baiting"], correct: 3, feedback: "El baiting usa la curiosidad humana como arma. Estudios encontraron que el 45% de USBs 'encontradas' son conectadas por empleados. Una vez conectada, el malware se instala automáticamente aprovechando la curiosidad de la persona." },
+    { q: "¿Cómo se define el 'Business Email Compromise' (BEC)?", options: ["Un virus que infecta los servidores de correo corporativo", "Sofisticado ataque donde se compromete o suplanta el email de un ejecutivo para ordenar transferencias bancarias fraudulentas", "Phishing masivo que llega a todos los empleados de una empresa simultáneamente", "El robo de credenciales de email mediante keyloggers"], correct: 1, feedback: "El BEC es spear phishing sofisticado donde los atacantes monitorean comunicaciones corporativas, aprenden sobre flujos de pago y en el momento clave ordenan transferencias a cuentas del atacante. Causó pérdidas superiores a $50,000 millones entre 2016 y 2023." },
+    { q: "¿Cuál es la forma correcta de verificar una solicitud urgente de tu banco por email?", options: ["Responder al email preguntando si es legítimo", "Hacer clic en el enlace del email y revisar que el sitio tenga HTTPS", "Cerrar el email, buscar el número oficial del banco en su sitio web, y llamar directamente", "Reenviar el email al departamento de IT de la empresa"], correct: 2, feedback: "La verificación correcta siempre usa un canal completamente diferente al del mensaje sospechoso. Nunca uses los datos de contacto del propio email; el número en el email puede llevar al atacante. Busca el número oficial en el sitio real del banco y llama." },
+    { q: "¿Qué es el 'tailgating' en el contexto de la ingeniería social?", options: ["El rastreo de la actividad en redes sociales de una víctima", "Seguir físicamente a un empleado autorizado a través de una puerta de acceso restringido aprovechando la cortesía humana", "Enviar emails que simulan llegar de un compañero de trabajo", "Instalar malware en los dispositivos de personas cercanas"], correct: 1, feedback: "El tailgating (o piggybacking) es una técnica de ingeniería social física: seguir a un empleado autorizado por una puerta de acceso restringido. La cortesía humana de 'sostener la puerta' es la vulnerabilidad que se explota." },
+    { q: "¿Cuánto reducen las simulaciones de phishing con entrenamiento inmediato la tasa de clics en mensajes fraudulentos?", options: ["Del 30% inicial a menos del 5% tras 12 meses de entrenamiento", "Del 30% inicial a aproximadamente el 20% tras 12 meses", "Del 10% inicial al 8% tras 6 meses", "Las simulaciones no tienen efecto medible en el comportamiento"], correct: 0, feedback: "Plataformas como KnowBe4 demuestran que el entrenamiento continuo con simulaciones reduce las tasas de clic en phishing del 30% inicial a menos del 5% después de 12 meses, convirtiendo la educación en la defensa más efectiva contra la ingeniería social." }
+  ]
+};
+</script>
+<script src="quiz-engine.js"></script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cryptocurrency and Blockchain: Understanding Digital Assets | Español Sin Fronteras</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.8; }
+    .wrapper { max-width: 860px; margin: 0 auto; background: #fff; padding: 60px 72px; min-height: 100vh; }
+    .course-tag { font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #059669; margin-bottom: 12px; }
+    h1 { font-size: 2rem; font-weight: 700; color: #0f172a; margin-bottom: 8px; line-height: 1.3; }
+    .subtitle { font-size: 1.05rem; color: #64748b; margin-bottom: 40px; font-style: italic; }
+    hr { border: none; border-top: 2px solid #a7f3d0; margin: 32px 0; }
+    h2 { font-size: 1.35rem; font-weight: 700; color: #1e293b; margin: 36px 0 16px; }
+    h3 { font-size: 1.1rem; font-weight: 700; color: #059669; margin: 24px 0 10px; }
+    p { margin-bottom: 16px; font-size: 1rem; }
+    ul, ol { margin: 16px 0 16px 24px; }
+    li { margin-bottom: 8px; font-size: 1rem; }
+    .highlight-box { background: #ecfdf5; border-left: 4px solid #059669; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .example { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin: 20px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.95rem; }
+    th { background: #059669; color: white; padding: 12px 16px; text-align: left; font-family: Arial, sans-serif; font-weight: 600; }
+    td { padding: 11px 16px; border-bottom: 1px solid #e2e8f0; }
+    tr:nth-child(even) td { background: #f8fafc; }
+    .summary { background: #0f172a; color: #e2e8f0; border-radius: 12px; padding: 28px 32px; margin: 40px 0 0; }
+    .summary h2 { color: #fff; margin-top: 0; }
+    .summary li { color: #cbd5e1; }
+    @media (max-width: 640px) { .wrapper { padding: 32px 24px; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="course-tag">Global Finance · Chapter 10</div>
+  <h1>Cryptocurrency and Blockchain: Understanding Digital Assets</h1>
+  <p class="subtitle">How distributed ledgers work, what Bitcoin and Ethereum actually do, the risks of DeFi and NFTs, and how to participate safely.</p>
+  <hr>
+
+  <h2>Blockchain Fundamentals: The Technology Behind Everything</h2>
+  <p>To understand cryptocurrency, you must first understand the technology underlying it: the blockchain. A blockchain is a <strong>distributed ledger</strong> — a record of transactions that is simultaneously maintained by thousands of computers around the world rather than by a single central authority like a bank.</p>
+  <p>Traditional financial systems rely on trusted intermediaries. When you transfer money from your bank account, your bank updates its internal database, debiting your account and crediting another. You trust the bank not to manipulate this record. A blockchain eliminates the need for this trust by making the ledger public and distributed: every participant holds a complete copy, and all copies must agree.</p>
+
+  <div class="highlight-box">
+    <strong>How a Block Is Structured:</strong>
+    <ul style="margin-top:10px;">
+      <li><strong>Transaction data:</strong> A list of every transaction confirmed in that block (who sent how much to whom)</li>
+      <li><strong>Timestamp:</strong> When the block was created</li>
+      <li><strong>Hash of previous block:</strong> A unique cryptographic fingerprint of the block before it</li>
+      <li><strong>Its own hash:</strong> A fingerprint of its entire contents</li>
+    </ul>
+    Including the previous block's hash creates the "chain" — each block is cryptographically linked to every block before it. If you try to alter a transaction in block #500, that block's hash changes, breaking the link to block #501, which breaks #502, and so on through every subsequent block. To successfully alter history, you would need to recalculate all subsequent blocks faster than the entire rest of the network is generating new ones — computationally impossible with sufficient network size.
+  </div>
+
+  <h2>Bitcoin: The First Cryptocurrency</h2>
+  <p>On October 31, 2008, an anonymous person or group using the name Satoshi Nakamoto published a white paper titled "Bitcoin: A Peer-to-Peer Electronic Cash System." Nine pages long, it proposed a system for digital payments that required no banks, no governments, and no trusted intermediaries — only mathematics and cryptography.</p>
+
+  <h3>Bitcoin's Key Properties</h3>
+  <p><strong>Fixed supply:</strong> Only 21 million Bitcoin will ever exist. This hard cap is encoded in the protocol itself. As of 2024, approximately 19.7 million have been mined, with the remainder to be released gradually over the next century. Advocates argue this makes Bitcoin deflationary — unlike fiat currencies that central banks can print at will, Bitcoin's supply cannot be expanded by any authority.</p>
+  <p><strong>Mining:</strong> New bitcoins enter circulation through "mining" — a competitive process where computers race to solve a complex mathematical puzzle (finding a number that, when combined with the block's data and passed through the SHA-256 hash function, produces a result below a target value). The first computer to solve the puzzle adds the next block to the chain and receives a reward of newly created bitcoin plus transaction fees. This process requires enormous computational power and energy.</p>
+  <p><strong>The Halving:</strong> Every 210,000 blocks (approximately every 4 years), the block reward is cut in half — a mechanism Nakamoto built to reduce new supply over time and approach the 21 million cap asymptotically.</p>
+
+  <table>
+    <tr>
+      <th>Year</th>
+      <th>Halving Number</th>
+      <th>Block Reward</th>
+    </tr>
+    <tr><td>2009 (launch)</td><td>—</td><td>50 BTC per block</td></tr>
+    <tr><td>2012</td><td>1st</td><td>25 BTC</td></tr>
+    <tr><td>2016</td><td>2nd</td><td>12.5 BTC</td></tr>
+    <tr><td>2020</td><td>3rd</td><td>6.25 BTC</td></tr>
+    <tr><td>2024</td><td>4th</td><td>3.125 BTC</td></tr>
+    <tr><td>2028 (estimated)</td><td>5th</td><td>1.5625 BTC</td></tr>
+  </table>
+
+  <p><strong>Energy controversy:</strong> Bitcoin's proof-of-work consensus mechanism requires massive computational energy. The Bitcoin network's annual energy consumption is estimated at 120–150 TWh — comparable to the entire country of Argentina. Proponents argue this energy use secures a financial network processing trillions in transactions; critics argue it is environmentally irresponsible, especially when powered by fossil fuels.</p>
+
+  <h2>Ethereum and Smart Contracts</h2>
+  <p>In 2013, a 19-year-old Russian-Canadian programmer named Vitalik Buterin proposed extending blockchain beyond simple currency transfers. His idea: a blockchain with a Turing-complete programming language built in, allowing developers to deploy self-executing programs — "smart contracts" — that run automatically when predetermined conditions are met.</p>
+  <p>Ethereum launched in 2015. A smart contract on Ethereum is code that lives on the blockchain and executes automatically without any human intermediary. Consider an insurance contract: traditional insurance requires a company to assess claims and decide whether to pay. A parametric crop insurance smart contract could automatically pay a farmer when weather data shows rainfall below a threshold — no claims adjuster, no paperwork, no disputes.</p>
+
+  <div class="example">
+    <strong>The Merge: Ethereum's Environmental Revolution (September 2022)</strong><br><br>
+    For its first seven years, Ethereum used the same energy-intensive proof-of-work mining as Bitcoin. In September 2022, Ethereum executed "The Merge" — transitioning to proof-of-stake, where validators are chosen to create new blocks based on how much ETH they have "staked" (locked up as collateral) rather than how much computation they can perform.<br><br>
+    The result: Ethereum's energy consumption fell by approximately 99.95% overnight — from ~78 TWh per year to less than 0.01 TWh. The Merge is considered one of the most complex technical upgrades ever executed on a live financial network serving millions of users and billions in daily transaction volume.
+  </div>
+
+  <h2>Stablecoins: Bridging Crypto and Traditional Finance</h2>
+  <p>The extreme volatility of Bitcoin and Ethereum makes them impractical for everyday transactions. If Bitcoin can fall 20% in a week, businesses cannot accept it as payment without significant currency risk. Stablecoins solve this by pegging their value to a stable reference asset, usually the US dollar.</p>
+
+  <h3>Fiat-Backed Stablecoins</h3>
+  <p>Tether (USDT) and USD Coin (USDC) are the largest stablecoins. Each token is supposed to be backed 1:1 by US dollars or equivalent cash and treasury bills held in reserve. USDC, issued by Circle, publishes monthly attestations from accounting firms confirming its reserves. Tether has been more controversial regarding its reserve transparency, paying $41 million in fines to the CFTC in 2021 for misrepresenting its backing.</p>
+
+  <h3>Algorithmic Stablecoins and the Terra/Luna Collapse</h3>
+  <p>TerraUSD (UST) attempted to maintain its dollar peg through an algorithmic mechanism rather than held reserves. It was paired with a sister token called Luna; the system maintained UST's peg by allowing arbitrageurs to burn UST to mint Luna when UST traded below $1, and burn Luna to mint UST when UST traded above $1.</p>
+
+  <div class="example">
+    <strong>The Terra/Luna Death Spiral, May 2022</strong><br><br>
+    In early May 2022, large holders began selling UST, pushing its price below $1. The peg-restoration mechanism required minting massive amounts of Luna to absorb the selling pressure. But as more Luna was created, Luna's price fell — which required even more Luna to be minted, which drove Luna's price even lower. The feedback loop accelerated catastrophically.<br><br>
+    Within one week: UST fell from $1.00 to $0.10. Luna fell from $80 to $0.0002 — a 99.9997% collapse. Approximately $40 billion in investor wealth was destroyed. Three Arrows Capital, one of the largest crypto hedge funds, became insolvent as a result. The collapse triggered a cascade of failures across the crypto ecosystem including the bankruptcy of crypto lender Celsius and broker Voyager Digital.
+  </div>
+
+  <h2>Decentralized Finance (DeFi)</h2>
+  <p>DeFi refers to financial services — lending, borrowing, trading, earning interest — built on public blockchains (primarily Ethereum) and governed by smart contracts rather than financial institutions.</p>
+
+  <h3>Decentralized Exchanges (DEXs): Uniswap</h3>
+  <p>Traditional exchanges match buyers and sellers through order books. Uniswap, launched in 2018, pioneered the Automated Market Maker (AMM) model. Instead of an order book, Uniswap uses liquidity pools — smart contracts holding reserves of two tokens. The price is determined by a formula: x × y = k, where x and y are the quantities of each token and k is a constant. If someone buys token A (reducing its quantity), the formula automatically raises A's price and lowers B's price to maintain the constant k.</p>
+  <p>Liquidity providers deposit equal values of both tokens into the pool and earn a share of the 0.3% trading fee on every transaction. There is no company running Uniswap — the protocol runs autonomously on Ethereum smart contracts, processing billions in trading volume monthly.</p>
+
+  <h3>Lending Protocols</h3>
+  <p>Aave and Compound allow users to lend crypto assets to earn interest, or borrow against deposited collateral. These protocols are overcollateralized — to borrow $1,000 in USDC, you must deposit $1,500 in ETH as collateral. If ETH's price falls and your collateral ratio drops below the required level, your collateral is automatically liquidated by smart contract — no loan officer required.</p>
+
+  <h2>NFTs: What They Are and What Happened</h2>
+  <p>Non-Fungible Tokens (NFTs) use the ERC-721 standard on Ethereum to create provably unique digital assets. While all Bitcoin and Ether are identical (fungible — one bitcoin equals any other bitcoin), each NFT is unique and carries a record of ownership on the blockchain. An NFT can represent artwork, music, in-game items, or any digital file.</p>
+  <p>Between 2021 and early 2022, the NFT market experienced a speculative mania. Bored Ape Yacht Club (BAYC) NFTs — 10,000 cartoon apes generated with different trait combinations — sold for an average of $400,000 each at peak (approximately 150 ETH). Celebrities including Justin Bieber, Paris Hilton, and Eminem purchased apes. The total NFT market traded $25 billion in 2021.</p>
+  <p>By 2023, the market had collapsed approximately 97% from its peak. Most NFTs that sold for $10,000–$100,000 in 2021 are now worth under $100 or completely illiquid. The episode serves as a textbook study of speculative mania — unique doesn't mean valuable, and blockchain provenance doesn't guarantee future demand.</p>
+
+  <h2>Wallets: Storing Your Crypto</h2>
+  <table>
+    <tr>
+      <th>Type</th>
+      <th>Examples</th>
+      <th>Security Level</th>
+      <th>Best For</th>
+    </tr>
+    <tr>
+      <td>Hot Wallet (software)</td>
+      <td>MetaMask, Coinbase Wallet, Trust Wallet</td>
+      <td>Medium — connected to internet</td>
+      <td>Small amounts for active trading and DeFi</td>
+    </tr>
+    <tr>
+      <td>Cold Wallet (hardware)</td>
+      <td>Ledger, Trezor, Foundation Passport</td>
+      <td>Highest — private key stored offline</td>
+      <td>Long-term storage of significant amounts</td>
+    </tr>
+    <tr>
+      <td>Exchange Custody</td>
+      <td>Coinbase, Kraken, Binance</td>
+      <td>Varies — "not your keys, not your coins"</td>
+      <td>Convenience, but you don't control the keys</td>
+    </tr>
+  </table>
+
+  <div class="highlight-box">
+    <strong>The Seed Phrase:</strong> Every self-custody wallet generates a 12 or 24-word seed phrase at setup. This phrase is the master key to all funds in the wallet. Anyone who obtains your seed phrase can steal all your crypto instantly and irreversibly. Never store it digitally, never photograph it, never share it with anyone. Write it on paper (or engrave on metal) and store in a secure physical location. Approximately $100 billion in Bitcoin is estimated to be permanently lost due to lost seed phrases and forgotten passwords.
+  </div>
+
+  <h2>The FTX Collapse: Why "Not Your Keys, Not Your Coins" Matters</h2>
+  <p>FTX was the world's second-largest cryptocurrency exchange, founded by Sam Bankman-Fried (SBF), a 30-year-old MIT graduate who was celebrated as a visionary and appeared on magazine covers. FTX was valued at $32 billion and had celebrity investors including Sequoia Capital, the Ontario Teachers' Pension Plan, and Tom Brady.</p>
+  <p>In November 2022, reporting revealed that FTX had been secretly lending customer funds to its affiliated trading firm, Alameda Research, which had lost billions in risky bets. When FTX customers rushed to withdraw their funds, the exchange could not meet the demand — $8 billion in customer funds were missing. FTX filed for bankruptcy within days. SBF was arrested, extradited to the US, tried, and convicted on seven counts of fraud and conspiracy in November 2023, sentenced to 25 years in federal prison.</p>
+  <p>The lesson: any exchange holds your crypto on your behalf. If the exchange is dishonest or becomes insolvent, your funds are at risk. For significant holdings, self-custody in a hardware wallet is the only way to guarantee control.</p>
+
+  <h2>Cryptocurrency Taxes</h2>
+  <p>In the United States, the IRS treats cryptocurrency as property, not currency. Every taxable event — selling crypto for cash, trading one crypto for another, using crypto to purchase goods — triggers capital gains or losses. Key rules:</p>
+  <ul>
+    <li>Buy ETH at $1,000, sell at $3,000 = $2,000 capital gain (long-term if held 12+ months, short-term if less)</li>
+    <li>Trade ETH for BTC: the ETH trade is a taxable event at its market value at the time of the trade</li>
+    <li>Staking rewards and mining income = ordinary income at the market value when received</li>
+    <li>DeFi yield farming income = ordinary income</li>
+    <li>Gifting crypto: not taxable to the giver, recipient inherits cost basis</li>
+  </ul>
+  <p>Tracking cost basis across hundreds of transactions on multiple chains is extremely complex. Dedicated crypto tax software (CoinTracker, Koinly, TaxBit) is essential for active participants.</p>
+
+  <h2>Investment Considerations</h2>
+  <p>Bitcoin has experienced five drawdowns of 80% or more since its creation. An investor who bought at the 2017 peak of $19,783 waited until 2020 to break even. The 2021 peak of $69,000 was followed by a decline to $15,500 — a 77% loss in 14 months. These are not the characteristics of an asset suitable for capital that cannot afford to be locked up or lost.</p>
+  <p>The approval of spot Bitcoin ETFs by the SEC in January 2024 — including BlackRock's iShares Bitcoin Trust (IBIT), which gathered $50 billion in assets faster than any ETF in history — marked a significant moment of institutional legitimacy. But institutional participation does not eliminate volatility; it changes who is participating.</p>
+
+  <div class="summary">
+    <h2>Chapter Summary</h2>
+    <ul>
+      <li>A blockchain is a distributed ledger maintained by thousands of computers simultaneously; cryptographic linking of blocks makes past records practically impossible to alter.</li>
+      <li>Bitcoin has a hard cap of 21 million coins enforced by code; halvings reduce new supply every 4 years; proof-of-work mining consumes enormous energy (comparable to Argentina).</li>
+      <li>Ethereum's smart contracts enable DeFi applications like Uniswap (automated trading via x×y=k liquidity pools) and Aave (overcollateralized lending); The Merge cut Ethereum's energy use by 99.95%.</li>
+      <li>The TerraUSD collapse (May 2022) destroyed $40 billion in days through an algorithmic death spiral — a textbook warning about non-collateralized stablecoin mechanisms.</li>
+      <li>FTX's collapse proved exchange custody risk: $8 billion in customer funds were misappropriated; "not your keys, not your coins" is not just a slogan.</li>
+      <li>The IRS treats crypto as property — every trade, sale, or purchase is a taxable event; dedicated tax software is essential for active participants.</li>
+      <li>Bitcoin has had five 80%+ drawdowns; the 2024 BlackRock Bitcoin ETF approval signals institutional acceptance but does not eliminate extreme volatility.</li>
+    </ul>
+  </div>
+</div>
+<script>
+window.QUIZ_DATA = {
+  lang: "en",
+  questions: [
+    { q: "What makes it practically impossible to alter historical records on a blockchain?", options: ["All transactions are encrypted with military-grade passwords", "Each block contains a cryptographic hash of the previous block, so altering one block breaks the chain through every subsequent block", "A central authority verifies and locks all transactions after 24 hours", "Blockchain records are stored on satellites beyond physical reach"], correct: 1, feedback: "Each block contains a cryptographic hash (fingerprint) of the previous block. Altering a transaction in block #500 changes that block's hash, breaking the link to block #501, which breaks #502, and so on. Recalculating all subsequent blocks faster than the entire network is computationally impossible." },
+    { q: "What is the total maximum supply of Bitcoin that will ever exist?", options: ["100 million BTC", "21 million BTC", "50 million BTC", "There is no hard cap — supply is unlimited"], correct: 1, feedback: "Bitcoin has a hard cap of 21 million coins encoded in its protocol. As of 2024, approximately 19.7 million have been mined. The remaining supply will be released gradually through mining rewards over the next century." },
+    { q: "What happened to the Bitcoin block reward in 2024's fourth halving?", options: ["It increased from 6.25 to 12.5 BTC to attract more miners", "It decreased from 6.25 BTC to 3.125 BTC per block", "It was eliminated entirely, ending new Bitcoin creation", "It remained the same at 6.25 BTC until 2028"], correct: 1, feedback: "The 2024 halving reduced the block reward from 6.25 BTC to 3.125 BTC. Halvings occur every 210,000 blocks (approximately every 4 years) and reduce new supply over time, approaching the 21 million cap asymptotically." },
+    { q: "Who proposed Ethereum and what was its key innovation over Bitcoin?", options: ["Satoshi Nakamoto; Ethereum added anonymous transactions", "Vitalik Buterin; Ethereum added a Turing-complete programming language enabling smart contracts", "Charles Hoskinson; Ethereum added proof-of-stake consensus from launch", "Nick Szabo; Ethereum added faster transaction confirmation times"], correct: 1, feedback: "In 2013, 19-year-old Vitalik Buterin proposed extending blockchain beyond simple currency transfers with a Turing-complete programming language built in. This allows developers to deploy smart contracts — self-executing programs that run automatically when predetermined conditions are met." },
+    { q: "How much did Ethereum's energy consumption decrease after 'The Merge' in September 2022?", options: ["About 30%", "About 60%", "About 80%", "About 99.95%"], correct: 3, feedback: "The Merge transitioned Ethereum from energy-intensive proof-of-work mining to proof-of-stake, where validators are chosen based on staked ETH rather than computational power. Energy consumption fell by approximately 99.95% — from roughly 78 TWh per year to less than 0.01 TWh." },
+    { q: "What was the 'death spiral' mechanism that destroyed TerraUSD (UST) in May 2022?", options: ["A hack that drained the reserves backing UST dollar-for-dollar", "Algorithmic arbitrage required minting massive Luna to restore UST's peg, but more Luna supply crashed Luna's price, requiring even more Luna — a self-reinforcing collapse", "Regulators froze all TerraUSD transactions, preventing arbitrageurs from restoring the peg", "The collapse of Silicon Valley Bank where Terra held its dollar reserves"], correct: 1, feedback: "When UST fell below $1, the algorithm minted Luna to restore the peg. But massive Luna creation crashed Luna's price, requiring even more Luna to be minted, which crashed it further. Within one week, UST fell to $0.10 and Luna fell 99.9997%, destroying approximately $40 billion in investor value." },
+    { q: "What key lesson did the FTX collapse of November 2022 teach about cryptocurrency custody?", options: ["Hardware wallets are no safer than exchanges for storing cryptocurrency", "Self-custody in a hardware wallet is the only way to guarantee control; exchanges can misappropriate funds", "Only government-regulated banks should hold cryptocurrency on behalf of investors", "Multi-signature wallets are the safest custody solution for all investors"], correct: 1, feedback: "FTX secretly lent customer funds to its affiliated firm Alameda Research, losing billions. When customers tried to withdraw, $8 billion was missing. The lesson: any exchange holds crypto on your behalf. If dishonest or insolvent, your funds are at risk. 'Not your keys, not your coins.'" },
+    { q: "According to the IRS, how is cryptocurrency classified for tax purposes in the United States?", options: ["As foreign currency, subject to currency exchange tax rules", "As property — every taxable event (sale, trade, purchase) triggers capital gains or losses", "As a commodity, taxed only when converted to US dollars", "As a collectible, subject to a flat 28% tax rate"], correct: 1, feedback: "The IRS treats cryptocurrency as property. Every taxable event — selling for cash, trading one crypto for another, using crypto to purchase goods — triggers capital gains or losses. Even trading ETH for BTC is a taxable event at both legs of the trade." },
+    { q: "What type of wallet provides the highest security for storing cryptocurrency?", options: ["Hot wallet (software wallet connected to the internet)", "Exchange custody account at a regulated exchange", "Cold wallet (hardware wallet with private key stored offline)", "Mobile wallet app on a smartphone with biometric authentication"], correct: 2, feedback: "Cold wallets (hardware wallets like Ledger or Trezor) provide the highest security by storing the private key completely offline. Hot wallets are connected to the internet and thus more vulnerable. Exchange custody means you do not control the keys at all." },
+    { q: "What is the significance of the seed phrase generated when setting up a self-custody wallet?", options: ["It is a username that lets you log into your wallet from any device", "It is the master key to all funds in the wallet; anyone who obtains it can steal all your crypto instantly and irreversibly", "It is a recovery code that the wallet company stores and can use to restore your account", "It is a public address you share so others can send you cryptocurrency"], correct: 1, feedback: "The 12 or 24-word seed phrase is the master key to all funds in a self-custody wallet. Anyone who obtains it can drain your entire wallet immediately and irreversibly. It should never be stored digitally or shared. Approximately $100 billion in Bitcoin is permanently lost due to lost seed phrases." }
+  ]
+};
+</script>
+<script src="quiz-engine.js"></script>
+</body>
+</html>
