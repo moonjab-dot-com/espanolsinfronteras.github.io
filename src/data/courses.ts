@@ -348,9 +348,28 @@ export const courses: Course[] = [
       { id: 9,  title: "Historia Reciente y EE.UU. en el Mundo",      href: "/content/CIUDADANIA CAP 9 Historia Reciente y EE.UU. en el Mu ESF.html" },
       { id: 10, title: "El Proceso de Naturalización",                href: "/content/CIUDADANIA CAP 10 El Proceso de Naturalización ESF.html" },
     ],
+  },  {
+    slug: "economia",
+    icon: "BarChart2",
+    colorClass: "teal",
+    titleEs: "Economía",
+    titleEn: "Economics",
+    descriptionEs: "Domina los principios económicos esenciales: mercados, PIB, inflación, bancos centrales y finanzas personales.",
+    descriptionEn: "Master essential economic principles: markets, GDP, inflation, central banks, and personal finance.",
+    chapters: [
+      { id: 1,  title: "Oferta y Demanda",                          href: "/content/ECONOMIA CAP 1 Oferta y Demanda ESF.html" },
+      { id: 2,  title: "El PIB y el Crecimiento Económico",         href: "/content/ECONOMIA CAP 2 El PIB y el Crecimiento Economico ESF.html" },
+      { id: 3,  title: "Inflación y Poder Adquisitivo",             href: "/content/ECONOMIA CAP 3 Inflacion y Poder Adquisitivo ESF.html" },
+      { id: 4,  title: "El Banco Central y la Política Monetaria",  href: "/content/ECONOMIA CAP 4 El Banco Central y la Politica Monetaria ESF.html" },
+      { id: 5,  title: "El Desempleo",                              href: "/content/ECONOMIA CAP 5 El Desempleo ESF.html" },
+      { id: 6,  title: "Comercio Internacional",                    href: "/content/ECONOMIA CAP 6 Comercio Internacional ESF.html" },
+      { id: 7,  title: "Impuestos y el Presupuesto del Estado",     href: "/content/ECONOMIA CAP 7 Impuestos y Presupuesto del Estado ESF.html" },
+      { id: 8,  title: "Empresas y el Emprendimiento",              href: "/content/ECONOMIA CAP 8 Empresas y el Emprendimiento ESF.html" },
+      { id: 9,  title: "Sistemas Económicos del Mundo",             href: "/content/ECONOMIA CAP 9 Sistemas Economicos del Mundo ESF.html" },
+      { id: 10, title: "Economía Personal: Ahorro e Inversión",     href: "/content/ECONOMIA CAP 10 Economia Personal Ahorro e Inversion ESF.html" },
+    ],
   },
 ];
-
 // ─── Supporting Content ───────────────────────────────────────────────────────
 
 export const testimonials = [
