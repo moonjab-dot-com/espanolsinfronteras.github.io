@@ -226,10 +226,15 @@ function ChapterNode({
           >
             {chapter.title}
           </h3>
-          {external && (
+          {external ? (
             <span className="inline-flex items-center gap-1 text-[9px] text-muted-foreground/40 mt-0.5">
               <ExternalLink className="w-2.5 h-2.5" aria-hidden="true" />
               PDF
+            </span>
+          ) : (
+            <span className="inline-flex items-center gap-1 mt-1 px-1.5 py-0.5 rounded-full bg-violet-50 border border-violet-100 text-[9px] font-bold text-violet-500 tracking-wide uppercase">
+              <svg viewBox="0 0 10 10" className="w-2 h-2" fill="currentColor" aria-hidden="true"><path d="M5 1a4 4 0 100 8A4 4 0 005 1zm1.7 3.1L4.6 6.2a.5.5 0 01-.7 0l-.9-.9a.5.5 0 01.7-.7l.55.55 1.75-1.75a.5.5 0 01.7.7z"/></svg>
+              Quiz
             </span>
           )}
         </div>
@@ -449,6 +454,16 @@ const CoursePage = () => {
           name: "Salvador B.",
         },
       },
+      hasPart: course.chapters.map((ch) => ({
+        "@type": "LearningResource",
+        name: ch.title,
+        url: `https://espanolsinfronteras.org${ch.href}`,
+        isAccessibleForFree: true,
+        learningResourceType: "lesson",
+        teaches: ch.title,
+        inLanguage: COURSE_LANGUAGE[course.slug] ?? "es",
+        isPartOf: `https://espanolsinfronteras.org/curso/${course.slug}`,
+      })),
       breadcrumb: {
         "@type": "BreadcrumbList",
         itemListElement: [

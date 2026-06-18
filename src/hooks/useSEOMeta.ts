@@ -3,8 +3,8 @@ import { useEffect } from "react";
 const BASE_URL = "https://espanolsinfronteras.org";
 
 const DEFAULT_TITLE     = "Español Sin Fronteras | Plataforma Educativa Gratuita";
-const DEFAULT_DESC      = "Aprende español, finanzas, programación, matemáticas, ciencias, ciberseguridad e inglés completamente gratis. Más de 89 lecciones en 8 materias accesibles desde 72+ países sin registro.";
-const DEFAULT_OG_DESC   = "Aprende español, finanzas, programación, matemáticas y más completamente gratis. 89+ lecciones en 8 materias desde 72+ países.";
+const DEFAULT_DESC      = "Aprende español, finanzas, programación, matemáticas, ciencias, ciberseguridad e inglés completamente gratis. Más de 197 lecciones en 10 materias accesibles desde 72+ países sin registro.";
+const DEFAULT_OG_DESC   = "Aprende español, finanzas, programación, matemáticas y más completamente gratis. 197+ lecciones en 10 materias desde 72+ países.";
 const DEFAULT_CANONICAL = `${BASE_URL}/`;
 
 /**

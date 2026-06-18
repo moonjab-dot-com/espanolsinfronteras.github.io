@@ -117,7 +117,7 @@ function HeroSection() {
           <div>
             <div className="animate-fade-up inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/12 bg-white/5 text-white/75 text-xs font-semibold mb-8">
               <Sparkles className="w-3 h-3 text-amber-400 shrink-0" aria-hidden="true" />
-              {t ? "100% Gratuito · 72+ países · Sin registro" : "100% Free · 72+ countries · No sign-up"}
+              {t ? "100% Gratuito · 197+ lecciones · Quiz interactivo" : "100% Free · 197+ lessons · Interactive quiz"}
             </div>
 
             <h1 className="animate-fade-up delay-75 text-[2.75rem] sm:text-5xl lg:text-[3.5rem] font-extrabold text-white mb-5 leading-[1.06]">
