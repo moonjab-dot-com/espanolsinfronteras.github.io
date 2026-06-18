@@ -199,7 +199,7 @@
   <url><loc>https://espanolsinfronteras.org/content/ENGLISH%20CAP%2019%20American%20vs%20British%20English%20ESF.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://espanolsinfronteras.org/content/ENGLISH%20CAP%2020%20IELTS%20TOEFL%20Preparation%20ESF.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
-  <url><loc>https://espanolsinfronteras.org/curso/ciudadania-americana</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://espanolsinfronteras.org/curso/historia-americana</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://espanolsinfronteras.org/content/CIUDADANIA%20CAP%201%20Principios%20de%20la%20Democracia%20America%20ESF.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://espanolsinfronteras.org/content/CIUDADANIA%20CAP%202%20El%20Sistema%20Federal%20y%20los%2050%20Estados%20ESF.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://espanolsinfronteras.org/content/CIUDADANIA%20CAP%203%20El%20Congreso%3A%20La%20Rama%20Legislativa%20ESF.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -220,4 +220,15 @@
   <url><loc>https://espanolsinfronteras.org/content/ECONOMIA%20CAP%207%20Impuestos%20y%20Presupuesto%20del%20Estado%20ESF.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://espanolsinfronteras.org/content/ECONOMIA%20CAP%208%20Empresas%20y%20el%20Emprendimiento%20ESF.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://espanolsinfronteras.org/content/ECONOMIA%20CAP%209%20Sistemas%20Economicos%20del%20Mundo%20ESF.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://espanolsinfronteras.org/content/ECONOMIA%20CAP%2010%20Economia%20Personal%20Ahorro%20e%20Inversion%20ESF.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url></urlset>
+  <url><loc>https://espanolsinfronteras.org/content/ECONOMIA%20CAP%2010%20Economia%20Personal%20Ahorro%20e%20Inversion%20ESF.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://espanolsinfronteras.org/curso/mercados</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://espanolsinfronteras.org/content/MARKETS%20CAP%201%20Introduccion%20a%20los%20Mercados%20Financieros%20ESF.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://espanolsinfronteras.org/content/MARKETS%20CAP%202%20NYSE%20NASDAQ%20y%20las%20Grandes%20Bolsas%20ESF.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://espanolsinfronteras.org/content/MARKETS%20CAP%203%20Como%20Invertir%20en%20Acciones%20ESF.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://espanolsinfronteras.org/content/MARKETS%20CAP%204%20Bonos%20y%20Renta%20Fija%20ESF.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://espanolsinfronteras.org/content/MARKETS%20CAP%205%20ETFs%20y%20Fondos%20Indice%20ESF.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://espanolsinfronteras.org/content/MARKETS%20CAP%206%20El%20Mercado%20de%20Criptomonedas%20ESF.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://espanolsinfronteras.org/content/MARKETS%20CAP%207%20Analisis%20Tecnico%20ESF.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://espanolsinfronteras.org/content/MARKETS%20CAP%208%20Analisis%20Fundamental%20ESF.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://espanolsinfronteras.org/content/MARKETS%20CAP%209%20Riesgo%20y%20Diversificacion%20ESF.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://espanolsinfronteras.org/content/MARKETS%20CAP%2010%20Mercados%20en%202026%20Panorama%20Actual%20ESF.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url></urlset>
