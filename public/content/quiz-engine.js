@@ -133,6 +133,35 @@
     wrapper.style.paddingTop = "44px";
   }
 
+  /* ── Internal linking: "También te puede interesar" ────────────────────── */
+  var ALL_COURSES = [
+    { slug: "espanol",                 es: "Comunicación en Español", en: "Spanish Communication",   emoji: "🗣️" },
+    { slug: "finanzas",                es: "Educación Financiera",    en: "Financial Education",      emoji: "💰" },
+    { slug: "programacion",            es: "Programación Web",        en: "Web Programming",          emoji: "💻" },
+    { slug: "matematicas",             es: "Matemáticas",             en: "Mathematics",              emoji: "📐" },
+    { slug: "ciencias",                es: "Ciencias",                en: "Sciences",                 emoji: "🔬" },
+    { slug: "ciberseguridad",          es: "Ciberseguridad",          en: "Cybersecurity",            emoji: "🔐" },
+    { slug: "ingles",                  es: "Inglés",                  en: "English",                  emoji: "🇺🇸" },
+    { slug: "herencia-peruana",        es: "Herencia Peruana",        en: "Peruvian Heritage",        emoji: "🏛️" },
+    { slug: "inteligencia-artificial", es: "Inteligencia Artificial", en: "Artificial Intelligence",  emoji: "🤖" },
+    { slug: "global-finance",          es: "Global Finance",          en: "Global Finance",           emoji: "🌐" },
+  ];
+  var related = ALL_COURSES.filter(function(c) { return c.slug !== slug; }).slice(0, 4);
+  if (related.length && wrapper) {
+    var relDiv = document.createElement("div");
+    relDiv.style.cssText = "margin:40px 0 24px;padding:20px;background:#f8f7ff;border-radius:12px;border:1px solid #ede9fe;";
+    var relTitle = isEnPage ? "You might also enjoy" : "También te puede interesar";
+    relDiv.innerHTML = '<p style="font-size:13px;font-weight:700;color:#7c3aed;margin:0 0 12px;text-transform:uppercase;letter-spacing:0.06em;">' + relTitle + '</p>' +
+      '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;">' +
+      related.map(function(c) {
+        return '<a href="https://espanolsinfronteras.org/curso/' + c.slug + '" style="display:flex;align-items:center;gap:8px;padding:10px 14px;background:#fff;border:1px solid #ede9fe;border-radius:8px;font-size:13px;font-weight:600;color:#5b21b6;text-decoration:none;transition:box-shadow 0.15s;" onmouseover="this.style.boxShadow=\'0 2px 12px rgba(124,58,237,0.15)\'" onmouseout="this.style.boxShadow=\'none\'">' +
+          '<span style="font-size:18px;" aria-hidden="true">' + c.emoji + '</span>' +
+          '<span>' + (isEnPage ? c.en : c.es) + '</span></a>';
+      }).join("") +
+      '</div>';
+    wrapper.appendChild(relDiv);
+  }
+
   /* ── Quiz engine ────────────────────────────────────────────────────────── */
   var data = window.QUIZ_DATA;
   if (!data) return;

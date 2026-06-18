@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -7,8 +8,9 @@ import { LanguageProvider } from "@/context/LanguageContext";
 import Layout from "@/components/layout/Layout";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import HomePage from "@/pages/HomePage";
-import CoursePage from "@/pages/CoursePage";
-import NotFound from "@/pages/NotFound";
+
+const CoursePage = lazy(() => import("@/pages/CoursePage"));
+const NotFound   = lazy(() => import("@/pages/NotFound"));
 
 // ─── Query Client ─────────────────────────────────────────────────────────────
 
@@ -32,11 +34,13 @@ const App = () => (
         <ScrollToTop />
         <LanguageProvider>
           <Layout>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/curso/:slug" element={<CoursePage />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
+            <Suspense fallback={null}>
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/curso/:slug" element={<CoursePage />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
           </Layout>
         </LanguageProvider>
       </BrowserRouter>

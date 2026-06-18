@@ -36,6 +36,19 @@ export function useSEOMeta(
     if (ogDesc    && description) ogDesc.content     = description;
     if (ogUrl)                    ogUrl.content      = canonicalUrl;
 
+    // Inject per-page hreflang links (bilingual site — same URL for both languages)
+    const hreflangLinks: HTMLLinkElement[] = [];
+    for (const lang of ["es", "en", "x-default"] as const) {
+      if (!document.querySelector(`link[rel="alternate"][hreflang="${lang}"]`)) {
+        const l = document.createElement("link");
+        l.rel        = "alternate";
+        l.hreflang   = lang;
+        l.href       = canonicalUrl;
+        document.head.appendChild(l);
+        hreflangLinks.push(l);
+      }
+    }
+
     let script: HTMLScriptElement | null = null;
     if (jsonLd) {
       script = document.createElement("script");
@@ -57,6 +70,7 @@ export function useSEOMeta(
       if (ot) ot.content = DEFAULT_TITLE;
       if (od) od.content = DEFAULT_OG_DESC;
       if (ou) ou.content = DEFAULT_CANONICAL;
+      hreflangLinks.forEach(l => document.head.removeChild(l));
       if (script) document.head.removeChild(script);
     };
   }, [title, description, jsonLd]);
