@@ -36,6 +36,39 @@
     "ingles":                   { es: "Inglés",                       en: "English" },
   };
 
+  /* ── Copy protection ───────────────────────────────────────────────────── */
+  (function() {
+    // Disable text selection via CSS
+    var noSelectStyle = document.createElement("style");
+    noSelectStyle.textContent =
+      "body,*{-webkit-user-select:none!important;-moz-user-select:none!important;" +
+      "-ms-user-select:none!important;user-select:none!important;}" +
+      // Allow selection inside quiz options so radio labels work
+      ".esf-option label{user-select:none!important;}";
+    document.head.appendChild(noSelectStyle);
+
+    // Block right-click
+    document.addEventListener("contextmenu", function(e) { e.preventDefault(); }, true);
+
+    // Block copy/cut/drag
+    document.addEventListener("copy",      function(e) { e.preventDefault(); }, true);
+    document.addEventListener("cut",       function(e) { e.preventDefault(); }, true);
+    document.addEventListener("dragstart", function(e) { e.preventDefault(); }, true);
+
+    // Block Ctrl+C / Ctrl+X / Ctrl+A / Ctrl+P / Ctrl+S / Cmd equivalents
+    document.addEventListener("keydown", function(e) {
+      var ctrl = e.ctrlKey || e.metaKey;
+      if (ctrl && (e.key === "c" || e.key === "C" ||
+                   e.key === "x" || e.key === "X" ||
+                   e.key === "a" || e.key === "A" ||
+                   e.key === "p" || e.key === "P" ||
+                   e.key === "s" || e.key === "S" ||
+                   e.key === "u" || e.key === "U")) {
+        e.preventDefault();
+      }
+    }, true);
+  })();
+
   /* ── Favicon injection ──────────────────────────────────────────────────── */
   if (!document.querySelector('link[rel="icon"]')) {
     var fav = document.createElement("link");
