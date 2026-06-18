@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacking Ético y Pentesting: Atacar los Sistemas para Defenderlos | Español Sin Fronteras</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.8; }
+    .wrapper { max-width: 860px; margin: 0 auto; background: #fff; padding: 60px 72px; min-height: 100vh; }
+    .course-tag { font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #7c3aed; margin-bottom: 12px; }
+    h1 { font-size: 2rem; font-weight: 700; color: #0f172a; margin-bottom: 8px; line-height: 1.3; }
+    .subtitle { font-size: 1.05rem; color: #64748b; margin-bottom: 40px; font-style: italic; }
+    hr { border: none; border-top: 2px solid #ddd6fe; margin: 32px 0; }
+    h2 { font-size: 1.35rem; font-weight: 700; color: #1e293b; margin: 36px 0 16px; }
+    h3 { font-size: 1.1rem; font-weight: 700; color: #7c3aed; margin: 24px 0 10px; }
+    p { margin-bottom: 16px; font-size: 1rem; }
+    ul, ol { margin: 16px 0 16px 24px; }
+    li { margin-bottom: 8px; font-size: 1rem; }
+    .highlight-box { background: #f5f3ff; border-left: 4px solid #7c3aed; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .example { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin: 20px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.95rem; }
+    th { background: #7c3aed; color: white; padding: 12px 16px; text-align: left; font-family: Arial, sans-serif; font-weight: 600; }
+    td { padding: 11px 16px; border-bottom: 1px solid #e2e8f0; }
+    tr:nth-child(even) td { background: #f8fafc; }
+    .summary { background: #0f172a; color: #e2e8f0; border-radius: 12px; padding: 28px 32px; margin: 40px 0 0; }
+    .summary h2 { color: #fff; margin-top: 0; }
+    .summary li { color: #cbd5e1; }
+    @media (max-width: 640px) { .wrapper { padding: 32px 24px; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="course-tag">Ciberseguridad · Capítulo 14</div>
+  <h1>Hacking Ético y Pentesting: Atacar los Sistemas para Defenderlos</h1>
+  <p class="subtitle">Los mejores defensores son quienes piensan como atacantes. El hacking ético es la práctica de encontrar vulnerabilidades antes de que lo hagan los criminales — con autorización, metodología y responsabilidad.</p>
+  <hr>
+
+  <h2>El Espectro del Hacker</h2>
+  <p>La palabra "hacker" tiene una historia compleja. Originalmente significaba alguien que exploraba sistemas con curiosidad y creatividad. Hoy se usa para describir un espectro de perfiles muy diferentes, distinguidos principalmente por su motivación y legalidad:</p>
+
+  <table>
+    <tr><th>Tipo</th><th>Sombrero</th><th>Motivación</th><th>Legalidad</th><th>Ejemplo</th></tr>
+    <tr><td>Hacker ético / pentester</td><td>Blanco</td><td>Mejorar la seguridad</td><td>Totalmente legal (con contrato)</td><td>Consultor de seguridad contratado por un banco</td></tr>
+    <tr><td>Cibercriminal</td><td>Negro</td><td>Lucro, daño, espionaje</td><td>Ilegal</td><td>Grupo de ransomware LockBit</td></tr>
+    <tr><td>Investigador independiente</td><td>Gris</td><td>Curiosidad, reputación</td><td>Zona gris (sin autorización)</td><td>Alguien que encuentra vulnerabilidad y la reporta sin contrato</td></tr>
+    <tr><td>Hacktivista</td><td>Variable</td><td>Política, ideología</td><td>Generalmente ilegal</td><td>Anonymous atacando sitios de gobiernos</td></tr>
+    <tr><td>Patrocinado por Estado (APT)</td><td>Negro</td><td>Espionaje, sabotaje nacional</td><td>Ilegal internacionalmente</td><td>APT28/Fancy Bear (Rusia), APT41 (China), Lazarus (Corea del Norte)</td></tr>
+    <tr><td>Script kiddie</td><td>Negro</td><td>Diversión, ego</td><td>Ilegal</td><td>Adolescente usando herramientas sin entenderlas</td></tr>
+  </table>
+
+  <div class="highlight-box">
+    <strong>Los grupos APT (Advanced Persistent Threat) más conocidos:</strong> APT28 "Fancy Bear" (servicio de inteligencia militar ruso GRU, responsable del hackeo al DNC en 2016); APT41 (China, doble misión: espionaje estatal y lucro criminal); Lazarus Group (Corea del Norte, financió el programa nuclear con el robo de $625M en criptomonedas a Ronin Network en 2022).
+  </div>
+
+  <h2>Marco Legal: La Autorización Lo Es Todo</h2>
+  <p>La diferencia entre un hacker ético y un criminal informático es una sola cosa: <strong>autorización escrita</strong>. Las mismas técnicas, las mismas herramientas — pero sin un contrato firmado, eres un criminal.</p>
+
+  <h3>Computer Fraud and Abuse Act (CFAA) — EE.UU.</h3>
+  <p>La ley federal 18 U.S.C. § 1030 tipifica como delito federal el acceso no autorizado a sistemas informáticos. "No autorizado" se interpreta ampliamente — incluso acceder a partes de un sistema para las que no tienes permiso explícito puede considerarse violación. Las penas van de multas a 10-20 años de prisión para casos graves. Aaron Swartz fue perseguido bajo el CFAA por descargar artículos académicos de JSTOR a través de la red del MIT; enfrentaba hasta 35 años de prisión.</p>
+
+  <h3>Ley 30096 — Perú (Delitos Informáticos)</h3>
+  <p>Promulgada en 2013, tipifica el acceso ilícito a sistemas informáticos (Art. 2), interceptación de datos (Art. 7), fraude informático (Art. 8) y suplantación de identidad (Art. 9). Las penas van de 3 a 10 años de pena privativa de libertad según la gravedad.</p>
+
+  <h3>El contrato de pentesting: elementos esenciales</h3>
+  <ul>
+    <li><strong>Alcance (Scope):</strong> qué sistemas pueden atacarse (IPs, dominios, aplicaciones específicas). Todo lo que esté fuera del alcance no puede tocarse.</li>
+    <li><strong>Período:</strong> fechas y horarios en que se puede realizar el pentesting</li>
+    <li><strong>Reglas de Compromiso (Rules of Engagement):</strong> qué tipos de ataques están permitidos y cuáles están prohibidos (ej.: pruebas de denegación de servicio, ingeniería social a empleados)</li>
+    <li><strong>Contactos de emergencia:</strong> a quién llamar si se descubre una brecha activa o se causa interrupción accidental</li>
+    <li><strong>Confidencialidad:</strong> los hallazgos son confidenciales y propiedad del cliente</li>
+    <li><strong>Indemnización:</strong> el cliente indemniza al pentester si acciones autorizadas causan daños accidentales</li>
+  </ul>
+
+  <h2>Metodología PTES: El Estándar de Pentesting</h2>
+  <p>El Penetration Testing Execution Standard (PTES) define siete fases para un pentesting profesional y completo:</p>
+
+  <h3>Fase 1: Pre-engagement (Acuerdo Previo)</h3>
+  <p>Antes de lanzar una sola herramienta, se define todo el contrato: alcance, metodología, entregables, plazos, honorarios y procedimientos de escalación. El documento firmado es la protección legal de ambas partes.</p>
+
+  <h3>Fase 2: Recopilación de Inteligencia (OSINT)</h3>
+  <p>La Inteligencia de Fuentes Abiertas (Open Source Intelligence) es información públicamente disponible que un atacante real recopilaría antes de atacar. El objetivo: entender la infraestructura, las tecnologías usadas, las personas clave y las posibles vulnerabilidades — sin tocar aún los sistemas del objetivo.</p>
+
+  <h4>Técnicas OSINT principales:</h4>
+  <ul>
+    <li><strong>Google Dorking:</strong> usar operadores avanzados de búsqueda para encontrar información sensible expuesta públicamente. Ejemplos: <code>site:target.com filetype:pdf</code> (documentos PDF del sitio), <code>intext:"password" site:target.com</code> (páginas que mencionan "password"), <code>intitle:"index of" site:target.com</code> (directorios expuestos)</li>
+    <li><strong>Shodan:</strong> el "Google de los dispositivos conectados". Indexa todos los dispositivos con IP pública y sus puertos abiertos. Una búsqueda <code>org:"Target Corporation"</code> revela todos sus servidores públicos, versiones de software y configuraciones.</li>
+    <li><strong>LinkedIn:</strong> revelar la estructura organizacional, nombres de empleados (posibles objetivos de phishing), tecnologías usadas (los desarrolladores publican sus stacks en perfiles)</li>
+    <li><strong>Maltego:</strong> herramienta de análisis de relaciones y mapeo visual. Puede conectar automáticamente dominios, IPs, emails, personas y organizaciones.</li>
+    <li><strong>theHarvester:</strong> recopila automáticamente emails, subdominios, IPs y URLs asociados a un dominio objetivo desde múltiples fuentes (Google, Bing, LinkedIn, Shodan)</li>
+    <li><strong>Have I Been Pwned:</strong> verificar si emails corporativos aparecen en bases de datos de brechas — credenciales filtradas pueden ser reutilizadas para acceso inicial</li>
+  </ul>
+
+  <h3>Fase 3: Modelado de Amenazas</h3>
+  <p>Con la inteligencia recopilada, se construye un modelo: ¿quiénes serían los atacantes reales? ¿Qué activos son más valiosos para ellos? ¿Cuáles son los caminos de ataque más probables? Esto permite priorizar el pentesting hacia los vectores de mayor riesgo real.</p>
+
+  <h3>Fase 4: Análisis de Vulnerabilidades</h3>
+  <p>Escaneo sistemático de los sistemas en alcance para identificar vulnerabilidades conocidas:</p>
+  <ul>
+    <li><strong>Nessus / OpenVAS:</strong> escáneres de vulnerabilidades que identifican versiones de software desactualizadas, configuraciones inseguras y CVEs (vulnerabilidades conocidas) en los sistemas objetivo</li>
+    <li><strong>Nikto:</strong> escáner de servidores web que detecta configuraciones inseguras, archivos sensibles expuestos y cabeceras de seguridad faltantes</li>
+    <li><strong>Burp Suite:</strong> proxy de intercepción para aplicaciones web — permite inspeccionar, modificar y repetir solicitudes HTTP/HTTPS</li>
+  </ul>
+
+  <h3>Fase 5: Explotación</h3>
+  <p>Intentar activamente explotar las vulnerabilidades identificadas para demostrar que son explotables en la práctica, no solo en teoría:</p>
+  <ul>
+    <li><strong>Metasploit Framework:</strong> la plataforma de explotación más usada en el mundo. Contiene módulos para cientos de vulnerabilidades conocidas. El pentester selecciona el exploit, configura los parámetros (IP objetivo, puerto) y ejecuta. Un módulo exitoso da acceso al sistema.</li>
+    <li><strong>Pivoting:</strong> una vez comprometido un sistema interno, usarlo como trampolín para atacar sistemas en redes internas que no serían accesibles desde internet</li>
+    <li><strong>Evasión de detección:</strong> en red teams avanzados, el objetivo es actuar como un atacante real que intenta no ser detectado por el SIEM o el EDR</li>
+  </ul>
+
+  <h3>Fase 6: Post-explotación</h3>
+  <p>Simular lo que haría un atacante real después de obtener acceso inicial:</p>
+  <ul>
+    <li><strong>Escalada de privilegios:</strong> pasar de usuario normal a administrador/root</li>
+    <li><strong>Movimiento lateral:</strong> comprometer otros sistemas en la red interna usando las credenciales o el acceso obtenido</li>
+    <li><strong>Persistencia:</strong> instalar mecanismos para mantener el acceso aunque el sistema se reinicie (simula lo que haría un atacante real)</li>
+    <li><strong>Exfiltración simulada:</strong> demostrar que los datos más sensibles pudieron haberse extraído</li>
+  </ul>
+
+  <h3>Fase 7: Reporte</h3>
+  <p>El reporte es el producto final y el más valioso del pentesting:</p>
+
+  <div class="example">
+    <strong>Estructura de un reporte profesional de pentesting:</strong>
+    <p><strong>Resumen ejecutivo</strong> (para CEO, CISO, directorio): riesgo general en términos de negocio, impacto potencial en dinero y reputación, las 3 vulnerabilidades más críticas en lenguaje no técnico, inversión recomendada para remediar.</p>
+    <p><strong>Reporte técnico</strong> (para el equipo de seguridad e ingeniería): para cada vulnerabilidad encontrada — descripción técnica, evidencia (capturas de pantalla, logs, payload usado), puntuación CVSS v3, pasos exactos para reproducirla, pasos de remediación específicos, referencias (CVE, OWASP, CWE).</p>
+    <p><strong>Apéndices:</strong> metodología completa, herramientas usadas, cronología del ataque, datos crudos de escáneres.</p>
+  </div>
+
+  <h2>Bug Bounty: El Mercado del Hacking Ético</h2>
+  <p>Los programas de bug bounty permiten a cualquier investigador de seguridad buscar vulnerabilidades en los sistemas de una empresa y recibir recompensa económica por reportarlas responsablemente. Es el mercado libre aplicado a la ciberseguridad.</p>
+
+  <h3>Las plataformas principales</h3>
+  <ul>
+    <li><strong>HackerOne:</strong> la plataforma más grande, con más de 1 millón de hackers registrados. Ha pagado más de $300 millones en recompensas acumuladas. Google paga $31.3M anuales a través de su programa VRP (Vulnerability Reward Program).</li>
+    <li><strong>Bugcrowd:</strong> segunda plataforma más grande, fuerte en empresas de tamaño medio</li>
+    <li><strong>YesWeHack:</strong> líder europeo, con fuertes programas en Francia y España</li>
+  </ul>
+
+  <h3>Pagos reales</h3>
+  <ul>
+    <li>Vulnerabilidad crítica (RCE, autenticación bypass): $10,000–$100,000+</li>
+    <li>Google paga hasta $31,337 por vulnerabilidades en Chrome y hasta $150,000 por exploits de Chrome que afecten ChromeOS</li>
+    <li>Apple paga hasta $1,000,000 por exploits zero-click de iOS de clase Pegasus</li>
+    <li>Un investigador ganó $2 millones en recompensas en 2022 solo en el programa de bug bounties de Apple</li>
+  </ul>
+
+  <h3>Cómo empezar</h3>
+  <ol>
+    <li>Crea cuentas en HackerOne y Bugcrowd</li>
+    <li>Comienza con programas marcados como "beginner-friendly" que tienen alcance amplio</li>
+    <li>Lee el policy del programa cuidadosamente — respeta el alcance al 100%</li>
+    <li>Escribe reportes detallados y profesionales — la calidad del reporte determina la recompensa tanto como la vulnerabilidad</li>
+    <li>Incluye siempre: descripción, pasos para reproducir, impacto, evidencia (capturas), sugerencia de remediación</li>
+  </ol>
+
+  <h2>Ruta Profesional: Certificaciones y Aprendizaje</h2>
+
+  <table>
+    <tr><th>Certificación</th><th>Nivel</th><th>Costo aprox.</th><th>Descripción</th></tr>
+    <tr><td>CompTIA Security+</td><td>Entrada</td><td>$370</td><td>Fundamentos de seguridad, muy demandada como requisito base</td></tr>
+    <tr><td>eJPT (eLearnSecurity)</td><td>Entrada</td><td>$200</td><td>Primera certificación práctica de pentesting, muy accesible para principiantes</td></tr>
+    <tr><td>CEH (EC-Council)</td><td>Intermedio</td><td>$1,999</td><td>Reconocida por el DoD de EE.UU., más teórica que práctica</td></tr>
+    <tr><td>OSCP (Offensive Security)</td><td>Avanzado</td><td>$1,499</td><td>La más respetada en pentesting real. Examen de 24 horas explotando activamente máquinas. Sin ayuda externa.</td></tr>
+    <tr><td>CISSP (ISC2)</td><td>Gerencial</td><td>$699</td><td>Requiere 5 años de experiencia, estándar para arquitectos y directores de seguridad</td></tr>
+  </table>
+
+  <h3>Plataformas de práctica gratuitas o baratas</h3>
+  <ul>
+    <li><strong>TryHackMe:</strong> guiado, con caminos de aprendizaje estructurados, ideal para principiantes, desde el navegador</li>
+    <li><strong>HackTheBox:</strong> máquinas reales que hackear, nivel intermedio-avanzado, enorme comunidad</li>
+    <li><strong>PentesterLab:</strong> enfocado en vulnerabilidades web, con ejercicios por nivel</li>
+    <li><strong>PicoCTF:</strong> competencia CTF permanente creada por Carnegie Mellon, ideal para comenzar</li>
+  </ul>
+
+  <h3>Laboratorio casero con $0</h3>
+  <ul>
+    <li>VirtualBox (gratuito) o VMware Player (gratuito)</li>
+    <li>Kali Linux como máquina atacante (ISO gratuita, incluye todas las herramientas)</li>
+    <li>Metasploitable 2/3 como objetivo vulnerable (diseñada para ser hackeada)</li>
+    <li>DVWA (Damn Vulnerable Web Application) para práctica de vulnerabilidades web</li>
+    <li>pfSense para simular entornos de red más complejos</li>
+  </ul>
+
+  <div class="summary">
+    <h2>Resumen / Summary</h2>
+    <ul>
+      <li>El espectro del hacker va de white hat (ético, autorizado) a black hat (criminal); los grupos APT patrocinados por estados (Fancy Bear/Rusia, APT41/China, Lazarus/Corea del Norte) son las amenazas más sofisticadas.</li>
+      <li>La autorización escrita lo es todo: sin contrato firmado con alcance, reglas de compromiso y período definidos, las mismas técnicas de pentesting son delito bajo el CFAA (EE.UU.) o la Ley 30096 (Perú).</li>
+      <li>La metodología PTES tiene 7 fases: Pre-engagement → OSINT/Reconocimiento → Modelado de amenazas → Análisis de vulnerabilidades → Explotación → Post-explotación → Reporte.</li>
+      <li>OSINT con Google Dorking, Shodan, Maltego y theHarvester permite obtener información masiva sobre un objetivo sin tocar sus sistemas.</li>
+      <li>Los programas de bug bounty (HackerOne, Bugcrowd) han pagado más de $300M a investigadores independientes; Google paga $31.3M anuales y Apple hasta $1M por exploits zero-click de iOS.</li>
+      <li>La certificación OSCP (examen de 24 horas de explotación activa) es la más respetada en pentesting; TryHackMe y HackTheBox permiten practicar legalmente desde casa.</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

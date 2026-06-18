@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seguridad en la Nube: Protegiendo los Datos en AWS, Azure y GCP | Español Sin Fronteras</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.8; }
+    .wrapper { max-width: 860px; margin: 0 auto; background: #fff; padding: 60px 72px; min-height: 100vh; }
+    .course-tag { font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #7c3aed; margin-bottom: 12px; }
+    h1 { font-size: 2rem; font-weight: 700; color: #0f172a; margin-bottom: 8px; line-height: 1.3; }
+    .subtitle { font-size: 1.05rem; color: #64748b; margin-bottom: 40px; font-style: italic; }
+    hr { border: none; border-top: 2px solid #ddd6fe; margin: 32px 0; }
+    h2 { font-size: 1.35rem; font-weight: 700; color: #1e293b; margin: 36px 0 16px; }
+    h3 { font-size: 1.1rem; font-weight: 700; color: #7c3aed; margin: 24px 0 10px; }
+    p { margin-bottom: 16px; font-size: 1rem; }
+    ul, ol { margin: 16px 0 16px 24px; }
+    li { margin-bottom: 8px; font-size: 1rem; }
+    .highlight-box { background: #f5f3ff; border-left: 4px solid #7c3aed; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .example { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin: 20px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.95rem; }
+    th { background: #7c3aed; color: white; padding: 12px 16px; text-align: left; font-family: Arial, sans-serif; font-weight: 600; }
+    td { padding: 11px 16px; border-bottom: 1px solid #e2e8f0; }
+    tr:nth-child(even) td { background: #f8fafc; }
+    .summary { background: #0f172a; color: #e2e8f0; border-radius: 12px; padding: 28px 32px; margin: 40px 0 0; }
+    .summary h2 { color: #fff; margin-top: 0; }
+    .summary li { color: #cbd5e1; }
+    @media (max-width: 640px) { .wrapper { padding: 32px 24px; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="course-tag">Ciberseguridad · Capítulo 15</div>
+  <h1>Seguridad en la Nube: Protegiendo los Datos en AWS, Azure y GCP</h1>
+  <p class="subtitle">La nube ha transformado la infraestructura tecnológica — pero las misconfiguraciones son hoy la principal causa de brechas de datos. Aprende el modelo de responsabilidad compartida y cómo asegurar tus recursos en la nube.</p>
+  <hr>
+
+  <h2>El Modelo de Responsabilidad Compartida</h2>
+  <p>El concepto más importante en seguridad cloud es el <strong>modelo de responsabilidad compartida</strong>: el proveedor de nube (AWS, Azure, GCP) es responsable de la seguridad <em>de</em> la nube; el cliente es responsable de la seguridad <em>en</em> la nube. La línea exacta depende del modelo de servicio.</p>
+
+  <table>
+    <tr><th>Modelo</th><th>Cliente asegura</th><th>Proveedor asegura</th><th>Ejemplo</th></tr>
+    <tr><td><strong>IaaS</strong> (Infrastructure as a Service)</td><td>Sistema operativo, aplicaciones, datos, red virtual, identidades</td><td>Infraestructura física, red física, hipervisor, hardware</td><td>AWS EC2, Azure VMs, Google Compute Engine</td></tr>
+    <tr><td><strong>PaaS</strong> (Platform as a Service)</td><td>Aplicaciones, datos, identidades</td><td>Todo lo anterior + OS, runtime, middleware</td><td>AWS Elastic Beanstalk, Azure App Service, Google App Engine</td></tr>
+    <tr><td><strong>SaaS</strong> (Software as a Service)</td><td>Datos propios, acceso/identidades, configuración de uso</td><td>Todo lo anterior + aplicación completa</td><td>Microsoft 365, Salesforce, Google Workspace</td></tr>
+  </table>
+
+  <div class="highlight-box">
+    <strong>Error más común:</strong> Las empresas asumen que porque "están en la nube" el proveedor se encarga de todo. En IaaS, si no parcheas el sistema operativo de tu instancia EC2, si dejas el puerto 22 (SSH) abierto a internet, o si usas contraseñas débiles, eso es <em>tu</em> responsabilidad — y será <em>tu</em> brecha. AWS no te protege de tus propios errores de configuración.
+  </div>
+
+  <h2>Las Misconfiguraciones: La Causa #1 de Brechas en la Nube</h2>
+  <p>Según el Cloud Security Alliance, las misconfiguraciones (errores de configuración) son responsables del mayor porcentaje de incidentes de seguridad en la nube. Dos casos emblemáticos ilustran el problema:</p>
+
+  <h3>Capital One (2019) — $80 millones en multas, 100 millones de registros</h3>
+  <p>Una exempleada de Amazon Web Services explotó una misconfiguration en el Web Application Firewall (WAF) de Capital One. El WAF estaba mal configurado de forma que permitía realizar solicitudes a <strong>IMDS (Instance Metadata Service)</strong> — un servicio interno de AWS que proporciona credenciales temporales de IAM a las instancias EC2. A través de un ataque SSRF (Server-Side Request Forgery), la atacante hizo que el WAF le pidiera al IMDS las credenciales de IAM de la instancia y se las devolviera. Con esas credenciales temporales, accedió a más de 700 buckets de S3 que contenían datos de 100 millones de clientes norteamericanos. Capital One fue multada con $80 millones por la OCC.</p>
+
+  <h3>Twitch (2021) — Código fuente filtrado</h3>
+  <p>Un bucket de S3 con configuración de acceso público expuso el código fuente completo de Twitch, datos internos y documentos confidenciales. Los datos fueron publicados en 4chan en un archivo de 125 GB. El origen: un servidor mal configurado que permitía acceso público sin autenticación.</p>
+
+  <h3>Misconfiguraciones más comunes</h3>
+  <ul>
+    <li>Bucket S3 con acceso público de lectura (permite a cualquiera descargar todos los archivos)</li>
+    <li>Security groups con regla 0.0.0.0/0 en puertos críticos (SSH 22, RDP 3389) — abre esos puertos a todo internet</li>
+    <li>Roles IAM con permisos de AdministratorAccess otorgados a servicios que no lo necesitan</li>
+    <li>Credenciales de AWS hardcodeadas en código fuente subido a GitHub público</li>
+    <li>Contraseñas por defecto en bases de datos desplegadas en cloud</li>
+    <li>Versioning y logging de S3 desactivados (sin auditoría de quién accedió a qué)</li>
+    <li>IMDSv1 habilitado (vulnerable a SSRF como en Capital One; IMDSv2 requiere autenticación adicional)</li>
+  </ul>
+
+  <h2>Identity and Access Management (IAM) en AWS</h2>
+  <p>IAM es el sistema de control de acceso de AWS. Dominarlo es fundamental para la seguridad en la nube.</p>
+
+  <h3>Componentes de IAM</h3>
+  <ul>
+    <li><strong>Users:</strong> identidades para personas humanas. Cada usuario tiene credenciales propias (contraseña para consola, access keys para API).</li>
+    <li><strong>Groups:</strong> colecciones de usuarios que comparten los mismos permisos. Facilita la gestión a escala.</li>
+    <li><strong>Roles:</strong> identidades que pueden ser asumidas por servicios de AWS (como EC2 o Lambda) o por usuarios de otras cuentas. Los roles tienen credenciales temporales automáticamente rotadas.</li>
+    <li><strong>Policies:</strong> documentos JSON que definen qué acciones están permitidas o denegadas sobre qué recursos.</li>
+  </ul>
+
+  <div class="example">
+    <strong>Ejemplo de política IAM (principio de mínimo privilegio):</strong>
+    <pre style="background:#0f172a;color:#e2e8f0;padding:16px;border-radius:6px;font-size:0.85rem;overflow-x:auto;">{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:PutObject"
+      ],
+      "Resource": "arn:aws:s3:::mi-bucket-produccion/*"
+    }
+  ]
+}</pre>
+    <p>Esta política permite solo leer y escribir objetos en un bucket específico. No permite eliminar, listar todos los buckets, cambiar configuración ni nada más. Eso es el principio de mínimo privilegio en acción.</p>
+  </div>
+
+  <h3>Principio de Mínimo Privilegio</h3>
+  <p>Cada usuario, servicio o sistema debe tener exactamente los permisos que necesita para su función — ni uno más. Comenzar con cero permisos y añadir solo lo necesario, nunca al revés.</p>
+
+  <p>Herramientas para implementarlo:</p>
+  <ul>
+    <li><strong>IAM Access Analyzer:</strong> analiza los permisos y detecta accesos no utilizados o excesivos. Si un rol tiene permiso para 50 acciones pero solo usa 3, Access Analyzer te lo indica para que puedas restringirlo.</li>
+    <li><strong>AWS Organizations SCPs (Service Control Policies):</strong> guardianes a nivel de cuenta que definen el máximo de permisos posibles en toda la cuenta, sin importar qué digan las políticas IAM individuales.</li>
+  </ul>
+
+  <h2>Cifrado de Datos en la Nube</h2>
+
+  <h3>Cifrado en reposo (at rest)</h3>
+  <ul>
+    <li><strong>AWS S3:</strong> SSE-S3 (AWS gestiona las claves), SSE-KMS (tú controlas las claves en AWS KMS), SSE-C (tú provees las claves)</li>
+    <li><strong>AWS KMS (Key Management Service):</strong> servicio gestionado para crear, rotar y auditar claves de cifrado. Integrado con la mayoría de servicios AWS.</li>
+    <li>Las claves deben rotarse regularmente (KMS puede hacerlo automáticamente cada año)</li>
+  </ul>
+
+  <h3>Cifrado en tránsito (in transit)</h3>
+  <ul>
+    <li>Exigir TLS 1.2 o superior en todas las comunicaciones</li>
+    <li>AWS Certificate Manager (ACM) gestiona certificados TLS gratuitos para tus dominios</li>
+    <li>Deshabilitar protocolos obsoletos: TLS 1.0, TLS 1.1, SSL 3.0, SSL 2.0</li>
+    <li>En bases de datos RDS: exigir conexiones SSL/TLS obligatorias</li>
+  </ul>
+
+  <h2>Seguridad de Red en la Nube: VPC</h2>
+  <p>Una <strong>Virtual Private Cloud (VPC)</strong> es una red virtual privada aislada dentro de AWS. Permite controlar completamente el tráfico de red de tus recursos.</p>
+
+  <table>
+    <tr><th>Componente</th><th>Función</th><th>Analogía</th></tr>
+    <tr><td>VPC</td><td>Red privada aislada en AWS</td><td>Tu oficina privada dentro de un edificio compartido</td></tr>
+    <tr><td>Subred pública</td><td>Tiene ruta a Internet Gateway, accesible desde internet</td><td>Recepción de la oficina</td></tr>
+    <tr><td>Subred privada</td><td>Sin ruta directa a internet, solo accesible internamente</td><td>Sala de servidores interna</td></tr>
+    <tr><td>Security Group</td><td>Firewall a nivel de instancia, stateful (recuerda el estado de la conexión)</td><td>Guardia de seguridad por escritorio</td></tr>
+    <tr><td>Network ACL</td><td>Firewall a nivel de subred, stateless (evalúa cada paquete independientemente)</td><td>Guardia en la puerta de cada piso</td></tr>
+    <tr><td>VPC Flow Logs</td><td>Registra todo el tráfico que pasa por la VPC (qué IP, qué puerto, aceptado/rechazado)</td><td>Registro de visitantes del edificio</td></tr>
+  </table>
+
+  <h3>Regla de oro para security groups</h3>
+  <p>Nunca usar 0.0.0.0/0 (todo internet) para puertos de administración (SSH 22, RDP 3389). En su lugar: permitir solo las IPs específicas de tu empresa u oficina, o usar AWS Systems Manager Session Manager (que no requiere puertos abiertos).</p>
+
+  <h2>Seguridad de Contenedores y Kubernetes</h2>
+
+  <h3>Seguridad de imágenes Docker</h3>
+  <p>Los contenedores Docker se construyen sobre imágenes base que pueden contener vulnerabilidades conocidas. Prácticas esenciales:</p>
+  <ul>
+    <li>Escanear imágenes antes de desplegarlas con <strong>Trivy</strong> (gratuito, open source) o <strong>Clair</strong></li>
+    <li>Usar imágenes base mínimas (Alpine Linux en lugar de Ubuntu completo — menos superficie de ataque)</li>
+    <li>No ejecutar contenedores como root — usar usuario no privilegiado</li>
+    <li>Nunca incluir secretos (contraseñas, API keys) en la imagen Docker — usar variables de entorno o gestores de secretos</li>
+  </ul>
+
+  <h3>Kubernetes RBAC</h3>
+  <p>Kubernetes tiene su propio sistema de control de acceso basado en roles (RBAC). Los mismos principios de mínimo privilegio aplican: cada pod debe tener solo los permisos que necesita. Un pod de frontend no debe tener permisos para modificar la configuración del cluster.</p>
+
+  <h3>Gestión de secretos</h3>
+  <p>Los secretos (contraseñas de bases de datos, API keys, certificados) nunca deben estar en el código fuente ni en variables de entorno hardcodeadas en las definiciones de pods. Las alternativas correctas son:</p>
+  <ul>
+    <li><strong>Kubernetes Secrets:</strong> mejor que código, pero los secretos están codificados en base64 (no cifrados) por defecto en etcd</li>
+    <li><strong>HashiCorp Vault:</strong> la solución más robusta — gestión centralizada de secretos con rotación automática, auditoría completa y acceso dinámico (credenciales temporales generadas al momento)</li>
+    <li><strong>AWS Secrets Manager:</strong> servicio gestionado para secretos, con rotación automática integrada con RDS</li>
+  </ul>
+
+  <h2>Serverless Security: AWS Lambda</h2>
+  <p>Las funciones serverless (Lambda) tienen una superficie de ataque diferente:</p>
+  <ul>
+    <li><strong>Vulnerabilidades en dependencias:</strong> cada función Lambda tiene sus propias librerías. Deben escanearse con Snyk o AWS Inspector.</li>
+    <li><strong>Permisos excesivos:</strong> muchos desarrolladores asignan permisos de administrador a funciones Lambda por conveniencia. Cada función debe tener solo los permisos para sus acciones específicas.</li>
+    <li><strong>Event injection:</strong> si la función procesa input de usuarios (desde API Gateway, por ejemplo) sin validación, es vulnerable a inyección de código.</li>
+    <li><strong>Timeout y concurrencia:</strong> un atacante puede agotar el límite de concurrencia (DoS) o ejecutar funciones por períodos extremadamente cortos para evitar detección.</li>
+  </ul>
+
+  <h2>Monitoreo y Detección: Ver Todo lo que Pasa</h2>
+
+  <h3>AWS CloudTrail</h3>
+  <p>CloudTrail registra cada llamada a la API de AWS: quién hizo qué, cuándo, desde qué IP y con qué resultado. Es el log de auditoría fundamental de AWS. Sin CloudTrail activado, es imposible investigar un incidente de seguridad — no sabrás qué acciones tomó el atacante.</p>
+
+  <h3>AWS GuardDuty</h3>
+  <p>GuardDuty es el sistema de detección de amenazas de AWS basado en machine learning. Analiza automáticamente CloudTrail, VPC Flow Logs y DNS logs para detectar:</p>
+  <ul>
+    <li>Minería de criptomonedas (instancias EC2 con patrones de uso de CPU y red característicos de minería)</li>
+    <li>Uso de credenciales IAM comprometidas (credenciales usadas desde IPs maliciosas conocidas o ubicaciones inusuales)</li>
+    <li>Comunicación con servidores de comando y control (C2) de malware conocido</li>
+    <li>Escaneo de puertos interno (movimiento lateral en la VPC)</li>
+    <li>Acceso inusual a buckets S3</li>
+  </ul>
+
+  <h2>DevSecOps: Seguridad Integrada en el Desarrollo</h2>
+  <p>El modelo DevSecOps integra la seguridad en cada etapa del pipeline de CI/CD, en lugar de añadirla al final como auditoría:</p>
+
+  <ul>
+    <li><strong>SAST en CI (Static Application Security Testing):</strong> SonarQube o Semgrep analizan el código en cada pull request, detectando vulnerabilidades antes de que el código llegue a producción</li>
+    <li><strong>Escaneo de dependencias:</strong> Snyk verifica automáticamente que ninguna librería tenga CVEs conocidos</li>
+    <li><strong>Escaneo de contenedores:</strong> Trivy escanea imágenes Docker antes de subirlas al registro</li>
+    <li><strong>IaC security (Infrastructure as Code):</strong> Checkov escanea archivos Terraform o CloudFormation antes de aplicarlos, detectando misconfiguraciones como buckets S3 públicos o security groups abiertos</li>
+    <li><strong>Security gates:</strong> el pipeline falla automáticamente si se detectan vulnerabilidades críticas — el código no puede desplegarse sin resolverlas</li>
+  </ul>
+
+  <div class="example">
+    <strong>Frameworks de cumplimiento en cloud:</strong>
+    <ul>
+      <li><strong>SOC 2 Type II:</strong> auditoría de 6-12 meses que verifica controles de seguridad, disponibilidad, integridad, confidencialidad y privacidad. Requerida por clientes empresariales en EE.UU.</li>
+      <li><strong>PCI-DSS:</strong> obligatoria si procesas pagos con tarjeta. Requiere segmentación de red, cifrado y pruebas de penetración anuales.</li>
+      <li><strong>HIPAA:</strong> para datos de salud en EE.UU. AWS tiene un Business Associate Agreement (BAA) disponible.</li>
+      <li><strong>ISO 27001:</strong> estándar internacional de gestión de seguridad de la información. AWS Artifact proporciona los reportes de conformidad de AWS.</li>
+    </ul>
+  </div>
+
+  <div class="summary">
+    <h2>Resumen / Summary</h2>
+    <ul>
+      <li>El modelo de responsabilidad compartida define qué asegura el proveedor (infraestructura física, hipervisor) y qué asegura el cliente (OS, aplicaciones, datos, configuración) — la línea varía según IaaS, PaaS o SaaS.</li>
+      <li>Las misconfiguraciones son la causa #1 de brechas cloud: Capital One (2019) expuso 100M registros por un WAF mal configurado que permitía SSRF al servicio de metadatos de AWS; Twitch (2021) filtró su código fuente por un bucket S3 con acceso público.</li>
+      <li>IAM en AWS gestiona usuarios, grupos, roles y políticas JSON; el principio de mínimo privilegio exige comenzar con cero permisos y añadir solo lo estrictamente necesario; IAM Access Analyzer detecta permisos excesivos.</li>
+      <li>En redes cloud: usa VPCs con subredes públicas y privadas separadas, security groups restrictivos (nunca 0.0.0.0/0 en SSH/RDP), Network ACLs y VPC Flow Logs para auditoría completa del tráfico.</li>
+      <li>Los contenedores Docker deben escanearse con Trivy antes de desplegarse; los secretos nunca deben estar en el código — usar HashiCorp Vault o AWS Secrets Manager con rotación automática.</li>
+      <li>AWS CloudTrail registra cada llamada API (quién hizo qué y cuándo); GuardDuty detecta minería de criptomonedas, credenciales comprometidas y comunicación con C2 mediante machine learning.</li>
+      <li>DevSecOps integra SAST (SonarQube), escaneo de dependencias (Snyk), seguridad de IaC (Checkov) y security gates en el pipeline CI/CD — la seguridad como parte del desarrollo, no como auditoría final.</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

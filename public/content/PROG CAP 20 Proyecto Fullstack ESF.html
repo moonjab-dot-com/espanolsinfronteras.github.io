@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyecto Fullstack: De la Idea al Producto Final | Español Sin Fronteras</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.8; }
+    .wrapper { max-width: 860px; margin: 0 auto; background: #fff; padding: 60px 72px; min-height: 100vh; }
+    .course-tag { font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #0d9488; margin-bottom: 12px; }
+    h1 { font-size: 2rem; font-weight: 700; color: #0f172a; margin-bottom: 8px; line-height: 1.3; }
+    .subtitle { font-size: 1.05rem; color: #64748b; margin-bottom: 40px; font-style: italic; }
+    hr { border: none; border-top: 2px solid #99f6e4; margin: 32px 0; }
+    h2 { font-size: 1.35rem; font-weight: 700; color: #1e293b; margin: 36px 0 16px; }
+    h3 { font-size: 1.1rem; font-weight: 700; color: #0d9488; margin: 24px 0 10px; }
+    p { margin-bottom: 16px; font-size: 1rem; }
+    ul, ol { margin: 16px 0 16px 24px; }
+    li { margin-bottom: 8px; font-size: 1rem; }
+    .highlight-box { background: #f0fdfa; border-left: 4px solid #0d9488; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .example { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin: 20px 0; font-family: 'Courier New', monospace; font-size: 0.9rem; white-space: pre-wrap; }
+    table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.95rem; }
+    th { background: #0d9488; color: white; padding: 12px 16px; text-align: left; font-family: Arial, sans-serif; font-weight: 600; }
+    td { padding: 11px 16px; border-bottom: 1px solid #e2e8f0; }
+    tr:nth-child(even) td { background: #f8fafc; }
+    .summary { background: #0f172a; color: #e2e8f0; border-radius: 12px; padding: 28px 32px; margin: 40px 0 0; }
+    .summary h2 { color: #fff; margin-top: 0; }
+    .summary li { color: #cbd5e1; }
+    @media (max-width: 640px) { .wrapper { padding: 32px 24px; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="course-tag">Programación Web · Capítulo 20</div>
+  <h1>Proyecto Fullstack: De la Idea al Producto Final</h1>
+  <p class="subtitle">Integra todo lo aprendido construyendo un gestor de tareas completo — con autenticación, base de datos, API REST y frontend en React.</p>
+  <hr>
+
+  <h2>1. Planificación del Proyecto</h2>
+  <p>Antes de escribir una sola línea de código, debes entender qué estás construyendo. Un proyecto mal planificado genera código que hay que reescribir. Invertir tiempo en planificación ahorra semanas de trabajo.</p>
+
+  <h3>Requisitos del Proyecto: TaskFlow</h3>
+  <div class="highlight-box">
+    <strong>TaskFlow</strong> — gestor de tareas personal con autenticación.<br><br>
+    <strong>Funcionalidades:</strong> registro e inicio de sesión de usuarios, crear/leer/actualizar/eliminar tareas, marcar tareas como completadas, filtrar por estado (pendiente/completada), interfaz responsiva.
+  </div>
+
+  <h3>Decisiones de Stack Tecnológico</h3>
+  <table>
+    <tr><th>Capa</th><th>Tecnología</th><th>Razón</th></tr>
+    <tr><td>Frontend</td><td>React + Vite</td><td>SPA moderna, componentes reutilizables</td></tr>
+    <tr><td>Estilos</td><td>Tailwind CSS</td><td>Utilidades, sin CSS propio que mantener</td></tr>
+    <tr><td>Backend</td><td>Node.js + Express</td><td>JavaScript en ambos lados, simple</td></tr>
+    <tr><td>Base de datos</td><td>PostgreSQL</td><td>Relacional, gratuito en Render</td></tr>
+    <tr><td>Autenticación</td><td>JWT + bcrypt</td><td>Sin estado, estándar de la industria</td></tr>
+    <tr><td>Hosting Frontend</td><td>Vercel</td><td>Gratis, CI/CD automático</td></tr>
+    <tr><td>Hosting Backend</td><td>Render</td><td>Gratis, soporta Node.js y PostgreSQL</td></tr>
+  </table>
+
+  <h2>2. Diseño de la Base de Datos</h2>
+  <div class="example">-- Schema de la base de datos
+CREATE TABLE usuarios (
+    id            SERIAL PRIMARY KEY,
+    nombre        VARCHAR(100) NOT NULL,
+    email         VARCHAR(150) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    creado_en     TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE tareas (
+    id            SERIAL PRIMARY KEY,
+    usuario_id    INTEGER NOT NULL REFERENCES usuarios(id) ON DELETE CASCADE,
+    titulo        VARCHAR(300) NOT NULL,
+    descripcion   TEXT,
+    completada    BOOLEAN DEFAULT FALSE,
+    prioridad     VARCHAR(10) DEFAULT 'media' CHECK (prioridad IN ('alta','media','baja')),
+    fecha_limite  DATE,
+    creado_en     TIMESTAMP DEFAULT NOW(),
+    actualizado_en TIMESTAMP DEFAULT NOW()
+);
+
+-- Índice para consultas frecuentes por usuario
+CREATE INDEX idx_tareas_usuario ON tareas(usuario_id);
+CREATE INDEX idx_tareas_completada ON tareas(usuario_id, completada);</div>
+
+  <h2>3. Estructura del Proyecto</h2>
+  <div class="example">taskflow/
+├── backend/
+│   ├── src/
+│   │   ├── config/
+│   │   │   └── db.js           # Conexión a PostgreSQL
+│   │   ├── middleware/
+│   │   │   ├── auth.js         # Verificar JWT
+│   │   │   └── validar.js      # express-validator
+│   │   ├── routes/
+│   │   │   ├── auth.js         # /api/auth/register, /api/auth/login
+│   │   │   └── tareas.js       # /api/tareas CRUD
+│   │   └── controllers/
+│   │       ├── authController.js
+│   │       └── tareasController.js
+│   ├── .env
+│   ├── index.js
+│   └── package.json
+│
+└── frontend/
+    ├── src/
+    │   ├── components/
+    │   │   ├── TarjetaTarea.jsx
+    │   │   ├── FormularioTarea.jsx
+    │   │   └── Navbar.jsx
+    │   ├── pages/
+    │   │   ├── Login.jsx
+    │   │   ├── Registro.jsx
+    │   │   └── Dashboard.jsx
+    │   ├── context/
+    │   │   └── AuthContext.jsx
+    │   ├── hooks/
+    │   │   └── useTareas.js
+    │   ├── services/
+    │   │   └── api.js          # Configuración de axios
+    │   └── App.jsx
+    └── package.json</div>
+
+  <h2>4. Backend: Autenticación</h2>
+  <div class="example">// backend/src/controllers/authController.js
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const pool = require("../config/db");
+
+exports.registrar = async (req, res) => {
+  try {
+    const { nombre, email, password } = req.body;
+
+    // Verificar si el email ya existe
+    const existe = await pool.query(
+      "SELECT id FROM usuarios WHERE email = $1",
+      [email]
+    );
+    if (existe.rows.length > 0) {
+      return res.status(409).json({ error: "El email ya está registrado" });
+    }
+
+    // Hashear la contraseña
+    const hash = await bcrypt.hash(password, 12);
+
+    // Insertar usuario
+    const { rows } = await pool.query(
+      "INSERT INTO usuarios (nombre, email, password_hash) VALUES ($1, $2, $3) RETURNING id, nombre, email",
+      [nombre, email, hash]
+    );
+
+    // Generar token JWT
+    const token = jwt.sign(
+      { id: rows[0].id, email: rows[0].email },
+      process.env.JWT_SECRET,
+      { expiresIn: "7d" }
+    );
+
+    res.status(201).json({ token, usuario: rows[0] });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Error interno del servidor" });
+  }
+};
+
+exports.login = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    const { rows } = await pool.query(
+      "SELECT * FROM usuarios WHERE email = $1",
+      [email]
+    );
+
+    if (rows.length === 0) {
+      return res.status(401).json({ error: "Credenciales inválidas" });
+    }
+
+    const coincide = await bcrypt.compare(password, rows[0].password_hash);
+    if (!coincide) {
+      return res.status(401).json({ error: "Credenciales inválidas" });
+    }
+
+    const token = jwt.sign(
+      { id: rows[0].id, email: rows[0].email },
+      process.env.JWT_SECRET,
+      { expiresIn: "7d" }
+    );
+
+    res.json({ token, usuario: { id: rows[0].id, nombre: rows[0].nombre, email: rows[0].email } });
+  } catch (error) {
+    res.status(500).json({ error: "Error interno del servidor" });
+  }
+};</div>
+
+  <h2>5. Backend: CRUD de Tareas</h2>
+  <div class="example">// backend/src/controllers/tareasController.js
+const pool = require("../config/db");
+
+exports.listar = async (req, res) => {
+  const { completada } = req.query;
+  let query = "SELECT * FROM tareas WHERE usuario_id = $1";
+  const params = [req.usuario.id];
+
+  if (completada !== undefined) {
+    query += " AND completada = $2";
+    params.push(completada === "true");
+  }
+
+  query += " ORDER BY creado_en DESC";
+  const { rows } = await pool.query(query, params);
+  res.json(rows);
+};
+
+exports.crear = async (req, res) => {
+  const { titulo, descripcion, prioridad, fecha_limite } = req.body;
+  const { rows } = await pool.query(
+    "INSERT INTO tareas (usuario_id, titulo, descripcion, prioridad, fecha_limite) VALUES ($1,$2,$3,$4,$5) RETURNING *",
+    [req.usuario.id, titulo, descripcion, prioridad || "media", fecha_limite]
+  );
+  res.status(201).json(rows[0]);
+};
+
+exports.actualizar = async (req, res) => {
+  const { id } = req.params;
+  const { titulo, completada, prioridad } = req.body;
+
+  // Verificar que la tarea pertenece al usuario
+  const { rows } = await pool.query(
+    "UPDATE tareas SET titulo=$1, completada=$2, prioridad=$3, actualizado_en=NOW() WHERE id=$4 AND usuario_id=$5 RETURNING *",
+    [titulo, completada, prioridad, id, req.usuario.id]
+  );
+
+  if (rows.length === 0) return res.status(404).json({ error: "Tarea no encontrada" });
+  res.json(rows[0]);
+};
+
+exports.eliminar = async (req, res) => {
+  const { rows } = await pool.query(
+    "DELETE FROM tareas WHERE id=$1 AND usuario_id=$2 RETURNING id",
+    [req.params.id, req.usuario.id]
+  );
+  if (rows.length === 0) return res.status(404).json({ error: "Tarea no encontrada" });
+  res.json({ mensaje: "Tarea eliminada" });
+};</div>
+
+  <h2>6. Frontend: Context de Autenticación</h2>
+  <div class="example">// frontend/src/context/AuthContext.jsx
+import { createContext, useContext, useState, useEffect } from "react";
+import api from "../services/api";
+
+const AuthContext = createContext();
+
+export function AuthProvider({ children }) {
+  const [usuario, setUsuario] = useState(null);
+  const [cargando, setCargando] = useState(true);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+      const payload = JSON.parse(atob(token.split(".")[1]));
+      setUsuario(payload);
+    }
+    setCargando(false);
+  }, []);
+
+  const login = (token, userData) => {
+    localStorage.setItem("token", token);
+    api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    setUsuario(userData);
+  };
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    delete api.defaults.headers.common["Authorization"];
+    setUsuario(null);
+  };
+
+  return (
+    &lt;AuthContext.Provider value={{ usuario, login, logout, cargando }}&gt;
+      {children}
+    &lt;/AuthContext.Provider&gt;
+  );
+}
+
+export const useAuth = () => useContext(AuthContext);</div>
+
+  <h2>7. Frontend: Dashboard de Tareas</h2>
+  <div class="example">// frontend/src/pages/Dashboard.jsx
+import { useState, useEffect } from "react";
+import api from "../services/api";
+
+export default function Dashboard() {
+  const [tareas, setTareas] = useState([]);
+  const [filtro, setFiltro] = useState("todas");
+  const [nuevaTarea, setNuevaTarea] = useState("");
+
+  useEffect(() => {
+    cargarTareas();
+  }, [filtro]);
+
+  async function cargarTareas() {
+    const params = filtro !== "todas" ? `?completada=${filtro === "completadas"}` : "";
+    const { data } = await api.get(`/tareas${params}`);
+    setTareas(data);
+  }
+
+  async function agregarTarea(e) {
+    e.preventDefault();
+    if (!nuevaTarea.trim()) return;
+    const { data } = await api.post("/tareas", { titulo: nuevaTarea });
+    setTareas([data, ...tareas]);
+    setNuevaTarea("");
+  }
+
+  async function toggleTarea(tarea) {
+    const { data } = await api.put(`/tareas/${tarea.id}`, {
+      ...tarea,
+      completada: !tarea.completada
+    });
+    setTareas(tareas.map(t => t.id === data.id ? data : t));
+  }
+
+  async function eliminarTarea(id) {
+    await api.delete(`/tareas/${id}`);
+    setTareas(tareas.filter(t => t.id !== id));
+  }
+
+  return (
+    &lt;div className="max-w-2xl mx-auto p-6"&gt;
+      &lt;form onSubmit={agregarTarea} className="flex gap-2 mb-6"&gt;
+        &lt;input
+          value={nuevaTarea}
+          onChange={e =&gt; setNuevaTarea(e.target.value)}
+          placeholder="Nueva tarea..."
+          className="flex-1 border rounded px-4 py-2"
+        /&gt;
+        &lt;button type="submit" className="bg-teal-600 text-white px-6 py-2 rounded"&gt;
+          Agregar
+        &lt;/button&gt;
+      &lt;/form&gt;
+      {/* Filtros y lista de tareas */}
+    &lt;/div&gt;
+  );
+}</div>
+
+  <h2>8. Pruebas Básicas con Jest</h2>
+  <div class="example">// backend/tests/auth.test.js
+const request = require("supertest");
+const app = require("../index");
+
+describe("Autenticación", () => {
+  test("Registrar usuario nuevo retorna 201 y token", async () => {
+    const res = await request(app)
+      .post("/api/auth/register")
+      .send({
+        nombre: "Test User",
+        email: "test@ejemplo.com",
+        password: "Password123"
+      });
+
+    expect(res.statusCode).toBe(201);
+    expect(res.body).toHaveProperty("token");
+    expect(res.body.usuario.email).toBe("test@ejemplo.com");
+  });
+
+  test("Login con credenciales incorrectas retorna 401", async () => {
+    const res = await request(app)
+      .post("/api/auth/login")
+      .send({ email: "test@ejemplo.com", password: "incorrecta" });
+
+    expect(res.statusCode).toBe(401);
+  });
+
+  test("Crear tarea sin autenticación retorna 401", async () => {
+    const res = await request(app)
+      .post("/api/tareas")
+      .send({ titulo: "Mi tarea" });
+
+    expect(res.statusCode).toBe(401);
+  });
+});</div>
+
+  <h2>9. Despliegue del Proyecto Fullstack</h2>
+  <div class="example">## Pasos de despliegue:
+
+### Backend en Render:
+1. Crear cuenta en render.com
+2. New > Web Service > conectar repositorio GitHub
+3. Root Directory: backend/
+4. Build Command: npm install
+5. Start Command: npm start
+6. Añadir variables de entorno:
+   DATABASE_URL = (URL de Render PostgreSQL)
+   JWT_SECRET = (clave aleatoria larga)
+   NODE_ENV = production
+
+### Base de datos en Render:
+1. New > PostgreSQL
+2. Render te da la DATABASE_URL interna
+
+### Frontend en Vercel:
+1. Crear cuenta en vercel.com
+2. Importar repositorio
+3. Root Directory: frontend/
+4. Build Command: npm run build
+5. Output Directory: dist
+6. Añadir variable de entorno:
+   VITE_API_URL = https://tu-backend.onrender.com/api
+
+### En el frontend, usar la variable:
+const api = axios.create({
+  baseURL: import.meta.env.VITE_API_URL
+});</div>
+
+  <h2>10. Próximos Pasos Como Desarrollador</h2>
+  <ul>
+    <li><strong>TypeScript:</strong> añade tipos estáticos a JavaScript para detectar errores antes de ejecutar.</li>
+    <li><strong>Testing:</strong> aprende Vitest para frontend y Jest+Supertest para backend.</li>
+    <li><strong>ORM:</strong> explora Prisma para interactuar con bases de datos de forma más segura y productiva.</li>
+    <li><strong>Docker:</strong> containeriza tus aplicaciones para reproducibilidad en cualquier entorno.</li>
+    <li><strong>Next.js:</strong> React con SSR (Server Side Rendering), ideal para SEO y performance.</li>
+    <li><strong>Portfolio:</strong> sube este proyecto a GitHub y despliégalo — es tu tarjeta de presentación.</li>
+  </ul>
+
+  <div class="summary">
+    <h2>Resumen del Capítulo</h2>
+    <ul>
+      <li>Un proyecto fullstack integra frontend (React), backend (Express), base de datos (PostgreSQL) y autenticación (JWT + bcrypt) en una arquitectura cohesiva.</li>
+      <li>El <strong>diseño de la base de datos</strong> debe hacerse antes de escribir código; define tablas, relaciones, restricciones e índices desde el principio.</li>
+      <li>La <strong>autenticación JWT</strong> funciona en dos pasos: el usuario hace login y recibe un token, luego incluye ese token en todas las solicitudes posteriores.</li>
+      <li>El <strong>AuthContext</strong> en React centraliza el estado de autenticación y lo hace disponible en toda la aplicación sin prop drilling.</li>
+      <li>Siempre verifica que el recurso pertenece al usuario autenticado antes de permitir UPDATE o DELETE — nunca confíes solo en el ID de la URL.</li>
+      <li>Las <strong>pruebas automatizadas</strong> (Jest + Supertest) garantizan que la API funciona correctamente y previenen regresiones al hacer cambios.</li>
+      <li>El crecimiento como desarrollador viene de construir proyectos reales, publicarlos en GitHub y aprender TypeScript, testing y herramientas modernas como Prisma y Next.js.</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

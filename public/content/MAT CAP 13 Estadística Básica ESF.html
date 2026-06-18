@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estadística Básica | Español Sin Fronteras</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.8; }
+    .wrapper { max-width: 860px; margin: 0 auto; background: #fff; padding: 60px 72px; min-height: 100vh; }
+    .course-tag { font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #2563eb; margin-bottom: 12px; }
+    h1 { font-size: 2rem; font-weight: 700; color: #0f172a; margin-bottom: 8px; line-height: 1.3; }
+    .subtitle { font-size: 1.05rem; color: #64748b; margin-bottom: 40px; font-style: italic; }
+    hr { border: none; border-top: 2px solid #bfdbfe; margin: 32px 0; }
+    h2 { font-size: 1.35rem; font-weight: 700; color: #1e293b; margin: 36px 0 16px; }
+    h3 { font-size: 1.1rem; font-weight: 700; color: #2563eb; margin: 24px 0 10px; }
+    p { margin-bottom: 16px; font-size: 1rem; }
+    ul, ol { margin: 16px 0 16px 24px; }
+    li { margin-bottom: 8px; font-size: 1rem; }
+    .highlight-box { background: #eff6ff; border-left: 4px solid #2563eb; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .example { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin: 20px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.95rem; }
+    th { background: #2563eb; color: white; padding: 12px 16px; text-align: left; font-family: Arial, sans-serif; font-weight: 600; }
+    td { padding: 11px 16px; border-bottom: 1px solid #e2e8f0; }
+    tr:nth-child(even) td { background: #f8fafc; }
+    .summary { background: #0f172a; color: #e2e8f0; border-radius: 12px; padding: 28px 32px; margin: 40px 0 0; }
+    .summary h2 { color: #fff; margin-top: 0; }
+    .summary li { color: #cbd5e1; }
+    @media (max-width: 640px) { .wrapper { padding: 32px 24px; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="course-tag">Matemáticas · Capítulo 13</div>
+  <h1>Estadística Básica: Análisis e Interpretación de Datos</h1>
+  <p class="subtitle">Cómo recolectar, organizar, resumir y visualizar datos para extraer conclusiones válidas sobre el mundo</p>
+  <hr>
+
+  <h2>Introducción: Por Qué la Estadística es Esencial</h2>
+  <p>Vivimos en la era del dato. Cada decisión médica relevante se basa en estudios clínicos; cada política pública debería basarse en evidencia estadística; cada empresa toma decisiones de inversión analizando datos históricos. La estadística es el lenguaje en que el mundo resume su conocimiento empírico. Sin comprensión estadística, somos incapaces de evaluar si una afirmación está respaldada por evidencia o es meramente anecdótica.</p>
+  <p>La estadística se divide en dos grandes ramas: la <strong>estadística descriptiva</strong>, que resume y describe datos existentes, y la <strong>estadística inferencial</strong>, que usa muestras para hacer generalizaciones sobre poblaciones. Este capítulo se enfoca en la estadística descriptiva como fundamento indispensable.</p>
+
+  <h2>Tipos de Datos</h2>
+
+  <div class="highlight-box">
+    <strong>Clasificación de datos:</strong>
+    <ul>
+      <li><strong>Cuantitativos discretos:</strong> valores contables, separados por brechas claras. Ejemplos: número de hijos (0, 1, 2, 3...), número de autos, cantidad de estudiantes en un salón.</li>
+      <li><strong>Cuantitativos continuos:</strong> pueden tomar cualquier valor en un intervalo. Ejemplos: altura (1,75 m; 1,753 m...), temperatura, peso, tiempo.</li>
+      <li><strong>Cualitativos nominales:</strong> categorías sin orden inherente. Ejemplos: color de ojos, país de origen, tipo de sangre, género.</li>
+      <li><strong>Cualitativos ordinales:</strong> categorías con orden significativo pero sin distancias numéricas definidas. Ejemplos: nivel educativo (primaria &lt; secundaria &lt; universidad), satisfacción (muy malo, malo, regular, bueno, excelente).</li>
+    </ul>
+  </div>
+
+  <h2>Recolección de Datos: Censo vs. Muestreo</h2>
+  <p>Un <strong>censo</strong> mide a todos los individuos de la población de interés. Es ideal pero frecuentemente impractical: ¿cómo encuestarías a los 130 millones de mexicanos? ¿o analizarías la calidad de cada tornillo producido en una fábrica (el análisis lo destruiría)?</p>
+  <p>Un <strong>muestreo</strong> selecciona una parte representativa de la población. La clave es la representatividad —que la muestra refleje fielmente las características de la población— lo cual depende del método de selección.</p>
+
+  <table>
+    <tr><th>Método de muestreo</th><th>Descripción</th><th>Ventaja</th><th>Riesgo</th></tr>
+    <tr><td>Aleatorio simple</td><td>Cada individuo tiene igual probabilidad de ser seleccionado</td><td>Sin sesgo sistemático</td><td>Puede no cubrir subgrupos pequeños</td></tr>
+    <tr><td>Estratificado</td><td>Dividir en estratos (grupos) y muestrear proporcionalmente de cada uno</td><td>Garantiza representación de subgrupos</td><td>Requiere conocer los estratos de antemano</td></tr>
+    <tr><td>Por conglomerados</td><td>Seleccionar grupos (escuelas, barrios) y estudiar todos dentro del grupo</td><td>Económico cuando la población está geográficamente dispersa</td><td>Mayor varianza que el aleatorio simple</td></tr>
+    <tr><td>Por conveniencia</td><td>Seleccionar los más accesibles (estudiantes de tu clase)</td><td>Muy fácil y barato</td><td>Alto riesgo de sesgo de selección; resultados no generalizables</td></tr>
+  </table>
+
+  <h2>Medidas de Tendencia Central</h2>
+
+  <h3>Media aritmética</h3>
+  <p>La media (o promedio) es la suma de todos los valores dividida entre el número de observaciones.</p>
+
+  <div class="highlight-box">
+    <strong>Fórmula:</strong> x̄ = (x₁ + x₂ + ... + xₙ) / n = Σxᵢ / n
+  </div>
+
+  <div class="example">
+    <strong>Ejemplo completo:</strong> Notas de 10 estudiantes en un examen: 72, 85, 91, 68, 77, 83, 95, 70, 88, 61<br><br>
+    Paso 1 — Sumar todos los valores:<br>
+    72 + 85 + 91 + 68 + 77 + 83 + 95 + 70 + 88 + 61 = 790<br><br>
+    Paso 2 — Dividir entre n = 10:<br>
+    x̄ = 790 / 10 = <strong>79</strong><br><br>
+    La media del grupo es 79 puntos.<br><br>
+    <strong>Efecto de los valores extremos (outliers):</strong> Si el peor estudiante hubiera sacado 11 en lugar de 61, la media bajaría a (790 − 61 + 11)/10 = 74. La media es sensible a valores atípicos.
+  </div>
+
+  <h3>Mediana</h3>
+  <p>La mediana es el valor central cuando los datos están ordenados. Divide la distribución en dos mitades iguales.</p>
+
+  <div class="example">
+    <strong>Cálculo de la mediana con los mismos datos:</strong><br><br>
+    Paso 1 — Ordenar de menor a mayor:<br>
+    61, 68, 70, 72, 77, 83, 85, 88, 91, 95<br><br>
+    Paso 2 — n = 10 (par) → la mediana es el promedio de los valores en las posiciones n/2 y n/2+1:<br>
+    Posición 5: 77 | Posición 6: 83<br><br>
+    Mediana = (77 + 83) / 2 = <strong>80</strong><br><br>
+    Para n impar (ejemplo: 7 valores: 3, 5, 7, 9, 11, 13, 15) → posición central = (7+1)/2 = 4ª posición → Mediana = <strong>9</strong>
+  </div>
+
+  <h3>Moda</h3>
+  <p>La moda es el valor que aparece con mayor frecuencia. Una distribución puede ser <strong>unimodal</strong> (una sola moda), <strong>bimodal</strong> (dos modas) o <strong>multimodal</strong>.</p>
+
+  <div class="example">
+    <strong>Ejemplos:</strong><br>
+    Datos: 3, 5, 5, 7, 8, 9, 9, 9, 11 → Moda = <strong>9</strong> (aparece 3 veces)<br>
+    Datos: 2, 4, 4, 6, 8, 8, 10 → Modas = <strong>4 y 8</strong> (bimodal)<br>
+    Tallas de zapato en una tienda: la moda es la talla más vendida, independientemente de la media.
+  </div>
+
+  <div class="highlight-box">
+    <strong>¿Cuándo usar cada medida?</strong>
+    <ul>
+      <li><strong>Media:</strong> cuando los datos son simétricos y sin outliers extremos (calificaciones en un examen bien diseñado, alturas de personas adultas).</li>
+      <li><strong>Mediana:</strong> cuando hay outliers o distribuciones asimétricas. El ingreso familiar se reporta con mediana porque unos pocos millonarios elevarían artificialmente la media.</li>
+      <li><strong>Moda:</strong> para datos categóricos o discretos donde "el más común" es la pregunta relevante (color más popular, talla más vendida, opción más elegida en encuesta).</li>
+    </ul>
+  </div>
+
+  <h2>Medidas de Dispersión</h2>
+
+  <h3>Rango</h3>
+  <p>El rango es simplemente la diferencia entre el valor máximo y el mínimo: Rango = Máximo − Mínimo. En nuestro ejemplo: 95 − 61 = 34. El rango es fácil de calcular pero muy sensible a outliers y no usa la información de los valores intermedios.</p>
+
+  <h3>Varianza y desviación estándar</h3>
+  <p>La desviación estándar mide el "alejamiento típico" de los datos respecto a su media. Es la medida de dispersión más usada en estadística.</p>
+
+  <div class="highlight-box">
+    <strong>Fórmulas:</strong><br>
+    Varianza muestral: s² = Σ(xᵢ − x̄)² / (n−1)<br>
+    Desviación estándar muestral: s = √s²<br><br>
+    Nota: dividimos entre (n−1), no n, porque estamos estimando la varianza de una población a partir de una muestra (corrección de Bessel).
+  </div>
+
+  <div class="example">
+    <strong>Cálculo paso a paso con 5 valores simples: 4, 7, 13, 16, 10</strong><br><br>
+    Paso 1 — Calcular la media: x̄ = (4+7+13+16+10)/5 = 50/5 = 10<br><br>
+    Paso 2 — Calcular cada desviación (xᵢ − x̄) y su cuadrado:<br>
+    4 − 10 = −6 → (−6)² = 36<br>
+    7 − 10 = −3 → (−3)² = 9<br>
+    13 − 10 = 3 → 3² = 9<br>
+    16 − 10 = 6 → 6² = 36<br>
+    10 − 10 = 0 → 0² = 0<br><br>
+    Paso 3 — Sumar los cuadrados: 36 + 9 + 9 + 36 + 0 = 90<br><br>
+    Paso 4 — Dividir entre (n−1) = 4: s² = 90/4 = 22,5<br><br>
+    Paso 5 — Raíz cuadrada: s = √22,5 ≈ <strong>4,74</strong><br><br>
+    Interpretación: los valores se alejan, en promedio, 4,74 unidades de la media de 10.
+  </div>
+
+  <h2>Diagrama de Caja (Box Plot)</h2>
+  <p>El diagrama de caja resume visualmente la distribución usando cinco estadísticos: mínimo, Q1 (percentil 25), Q2 = mediana (percentil 50), Q3 (percentil 75) y máximo.</p>
+
+  <div class="example">
+    <strong>Construcción de box plot con datos: 3, 7, 8, 10, 14, 15, 18, 20, 24, 26</strong><br><br>
+    n = 10, datos ya ordenados.<br><br>
+    Mediana (Q2): promedio de posiciones 5 y 6 = (14+15)/2 = <strong>14,5</strong><br>
+    Q1: mediana de la mitad inferior {3,7,8,10,14} = <strong>8</strong><br>
+    Q3: mediana de la mitad superior {15,18,20,24,26} = <strong>20</strong><br>
+    IQR (rango intercuartílico) = Q3 − Q1 = 20 − 8 = <strong>12</strong><br><br>
+    Límites de bigotes:<br>
+    — Inferior: Q1 − 1,5×IQR = 8 − 18 = −10 → el dato más pequeño ≥ −10 es 3 → bigote en <strong>3</strong><br>
+    — Superior: Q3 + 1,5×IQR = 20 + 18 = 38 → el dato más grande ≤ 38 es 26 → bigote en <strong>26</strong><br><br>
+    No hay outliers en este dataset. Los outliers son puntos fuera de los bigotes, graficados como puntos individuales.
+  </div>
+
+  <h2>Visualización de Datos</h2>
+
+  <table>
+    <tr><th>Tipo de gráfico</th><th>Cuándo usar</th><th>Característica clave</th></tr>
+    <tr><td>Diagrama de barras</td><td>Datos categóricos (frecuencias por categoría)</td><td>Barras separadas; no hay orden implícito entre categorías nominales</td></tr>
+    <tr><td>Histograma</td><td>Datos cuantitativos continuos agrupados en intervalos</td><td>Barras contiguas; el área representa la frecuencia</td></tr>
+    <tr><td>Gráfico de pastel</td><td>Partes de un todo (cuando las categorías suman 100%)</td><td>Cada sector es proporcional a la frecuencia relativa</td></tr>
+    <tr><td>Diagrama de dispersión</td><td>Relación entre dos variables cuantitativas</td><td>Cada punto = una observación; permite ver correlación</td></tr>
+    <tr><td>Box plot</td><td>Comparar distribuciones entre grupos</td><td>Muestra mediana, cuartiles y outliers simultáneamente</td></tr>
+  </table>
+
+  <h2>Correlación: Relación Entre Variables</h2>
+  <p>El coeficiente de correlación de Pearson (r) mide la fuerza y dirección de la relación lineal entre dos variables cuantitativas. Su rango va de −1 a +1.</p>
+
+  <div class="highlight-box">
+    <strong>Interpretación del coeficiente r:</strong>
+    <ul>
+      <li>r = +1: correlación positiva perfecta (cuando X sube, Y sube exactamente en proporción)</li>
+      <li>r cercano a +1 (0,7 a 0,9): correlación positiva fuerte (altura vs. peso)</li>
+      <li>r cercano a 0 (−0,2 a +0,2): correlación débil o inexistente</li>
+      <li>r cercano a −1 (−0,7 a −0,9): correlación negativa fuerte (ejercicio aeróbico vs. frecuencia cardíaca en reposo)</li>
+      <li>r = −1: correlación negativa perfecta</li>
+    </ul>
+    <strong>Advertencia fundamental: correlación ≠ causalidad.</strong> Las ventas de helado y las muertes por ahogamiento están correlacionadas positivamente (r ≈ 0,85). Causa real: el calor del verano aumenta ambas independientemente.
+  </div>
+
+  <h2>Estadísticas Engañosas: Cómo Detectarlas</h2>
+  <p>El conocimiento estadístico no sirve solo para calcular sino para detectar cuando otros nos manipulan con números.</p>
+  <ul>
+    <li><strong>Ejes truncados:</strong> un gráfico de barras que empieza en 95% en lugar de 0% hace que diferencias pequeñas parezcan enormes. Siempre verifica si el eje Y empieza en cero.</li>
+    <li><strong>Períodos de tiempo cherry-picked:</strong> mostrar solo el período donde una tendencia favorable es más pronunciada, omitiendo el contexto más amplio.</li>
+    <li><strong>Porcentajes sin base:</strong> "nuestro producto reduce el riesgo en un 50%" — ¿del 2% al 1% o del 40% al 20%? La reducción absoluta importa tanto como la relativa.</li>
+    <li><strong>Confundir media con mediana:</strong> "el salario promedio en nuestra empresa es $80,000" puede ser técnicamente cierto si el CEO gana $2M mientras el 90% de los empleados gana $40,000.</li>
+  </ul>
+
+  <h2>Introducción a la Distribución Normal</h2>
+  <p>La distribución normal (la famosa "campana de Gauss") describe la distribución de muchas variables naturales: alturas, pesos, errores de medición, puntuaciones en tests estandarizados. Es simétrica alrededor de la media, y sus propiedades más importantes son:</p>
+
+  <div class="highlight-box">
+    <strong>La regla empírica (68-95-99,7):</strong>
+    <ul>
+      <li>El <strong>68%</strong> de los datos cae dentro de 1 desviación estándar de la media (entre μ−σ y μ+σ)</li>
+      <li>El <strong>95%</strong> cae dentro de 2 desviaciones estándar (entre μ−2σ y μ+2σ)</li>
+      <li>El <strong>99,7%</strong> cae dentro de 3 desviaciones estándar (entre μ−3σ y μ+3σ)</li>
+    </ul>
+    Ejemplo: si la altura media de adultos es 170 cm con σ = 8 cm, entonces el 95% mide entre 154 cm y 186 cm; solo el 0,3% mide menos de 146 cm o más de 194 cm.
+  </div>
+
+  <div class="summary">
+    <h2>Resumen del Capítulo</h2>
+    <ul>
+      <li>Los datos son cuantitativos (discretos o continuos) o cualitativos (nominales u ordinales); el tipo de dato determina qué estadísticos son apropiados.</li>
+      <li>La media es sensible a outliers; la mediana es robusta; la moda indica el valor más frecuente. La mediana es preferible para distribuciones asimétricas como ingresos.</li>
+      <li>La desviación estándar s = √[Σ(xᵢ−x̄)²/(n−1)] mide el alejamiento típico de los datos respecto a su media; es la medida de dispersión más informativa.</li>
+      <li>El diagrama de caja (box plot) resume Q1, mediana, Q3, IQR y outliers; los bigotes se extienden hasta Q1−1,5·IQR y Q3+1,5·IQR.</li>
+      <li>La correlación de Pearson r ∈ [−1, +1] mide la relación lineal entre dos variables; la correlación no implica causalidad (ejemplo clásico: helado y ahogamientos).</li>
+      <li>Las estadísticas pueden ser manipuladas mediante ejes truncados, períodos cherry-picked, porcentajes sin base y confusión de media con mediana.</li>
+      <li>La distribución normal sigue la regla 68-95-99,7: el 68%, 95% y 99,7% de los datos caen dentro de 1, 2 y 3 desviaciones estándar de la media.</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

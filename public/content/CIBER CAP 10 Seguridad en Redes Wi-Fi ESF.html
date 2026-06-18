@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seguridad en Redes Wi-Fi: Protegiendo tu Conexión Inalámbrica | Español Sin Fronteras</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.8; }
+    .wrapper { max-width: 860px; margin: 0 auto; background: #fff; padding: 60px 72px; min-height: 100vh; }
+    .course-tag { font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #7c3aed; margin-bottom: 12px; }
+    h1 { font-size: 2rem; font-weight: 700; color: #0f172a; margin-bottom: 8px; line-height: 1.3; }
+    .subtitle { font-size: 1.05rem; color: #64748b; margin-bottom: 40px; font-style: italic; }
+    hr { border: none; border-top: 2px solid #ddd6fe; margin: 32px 0; }
+    h2 { font-size: 1.35rem; font-weight: 700; color: #1e293b; margin: 36px 0 16px; }
+    h3 { font-size: 1.1rem; font-weight: 700; color: #7c3aed; margin: 24px 0 10px; }
+    p { margin-bottom: 16px; font-size: 1rem; }
+    ul, ol { margin: 16px 0 16px 24px; }
+    li { margin-bottom: 8px; font-size: 1rem; }
+    .highlight-box { background: #f5f3ff; border-left: 4px solid #7c3aed; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .warning-box { background: #fff7ed; border-left: 4px solid #ea580c; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .example { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin: 20px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.95rem; }
+    th { background: #7c3aed; color: white; padding: 12px 16px; text-align: left; font-family: Arial, sans-serif; font-weight: 600; }
+    td { padding: 11px 16px; border-bottom: 1px solid #e2e8f0; }
+    tr:nth-child(even) td { background: #f8fafc; }
+    .summary { background: #0f172a; color: #e2e8f0; border-radius: 12px; padding: 28px 32px; margin: 40px 0 0; }
+    .summary h2 { color: #fff; margin-top: 0; }
+    .summary li { color: #cbd5e1; }
+    @media (max-width: 640px) { .wrapper { padding: 32px 24px; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="course-tag">Ciberseguridad · Capítulo 10</div>
+  <h1>Seguridad en Redes Wi-Fi: Protegiendo tu Conexión Inalámbrica</h1>
+  <p class="subtitle">El Wi-Fi transmite tus datos por el aire — entender quién más puede captarlos y cómo impedirlo es seguridad básica en la era inalámbrica.</p>
+  <hr>
+
+  <h2>Cómo Funciona el Wi-Fi</h2>
+  <p>El Wi-Fi transmite datos mediante ondas de radio en frecuencias de 2.4 GHz y 5 GHz. Cualquier dispositivo dentro del alcance de la señal puede técnicamente "escuchar" las transmisiones — la criptografía es lo que impide que esas transmisiones sean inteligibles para quien las intercepte sin autorización.</p>
+
+  <table>
+    <tr><th>Frecuencia</th><th>Alcance</th><th>Velocidad</th><th>Penetración de paredes</th></tr>
+    <tr><td>2.4 GHz</td><td>Mayor (~50m interior)</td><td>Menor</td><td>Mejor — atraviesa paredes más fácilmente</td></tr>
+    <tr><td>5 GHz</td><td>Menor (~25m interior)</td><td>Mayor</td><td>Peor — más susceptible a obstáculos</td></tr>
+    <tr><td>6 GHz (Wi-Fi 6E)</td><td>El menor</td><td>El mayor</td><td>Muy limitada</td></tr>
+  </table>
+
+  <h2>Protocolos de Seguridad Wi-Fi: Una Evolución de Fracasos y Mejoras</h2>
+
+  <h3>WEP (Wired Equivalent Privacy) — Completamente Roto</h3>
+  <p>WEP fue el primer protocolo de seguridad Wi-Fi, introducido en 1997. Tenía fallas criptográficas fundamentales en su diseño: reutilizaba vectores de inicialización (IV) predecibles, haciendo que su cifrado fuera recuperable con herramientas disponibles públicamente en menos de un minuto. WEP debe considerarse equivalente a no tener contraseña. Si tu router muestra WEP como opción, actualiza el firmware o el router inmediatamente.</p>
+
+  <h3>WPA y WPA2 — El Estándar Actual</h3>
+  <p>WPA2 con AES (también llamado WPA2-CCMP) es el mínimo aceptable hoy. Fue obligatorio en dispositivos certificados por la Wi-Fi Alliance desde 2006. Sin embargo, en 2017 el ataque KRACK (Key Reinstallation Attack) demostró vulnerabilidades en el proceso de handshake de WPA2 — aunque las actualizaciones de firmware lo corrigieron en la mayoría de dispositivos.</p>
+
+  <h3>WPA3 — El Futuro</h3>
+  <p>Introducido en 2018, WPA3 mejora significativamente la seguridad:</p>
+  <ul>
+    <li><strong>SAE (Simultaneous Authentication of Equals):</strong> Reemplaza el handshake de 4 vías de WPA2 con un protocolo resistente a ataques de diccionario offline — incluso si alguien capturó el handshake, no puede usarlo para probar contraseñas sin límite.</li>
+    <li><strong>Forward Secrecy:</strong> Cada sesión usa claves únicas — si una sesión pasada es comprometida, las anteriores permanecen seguras.</li>
+    <li><strong>WPA3-Enterprise:</strong> Para redes corporativas, usa cifrado de 192 bits.</li>
+  </ul>
+
+  <div class="highlight-box">
+    <strong>Recomendación inmediata para tu router:</strong> Accede al panel de administración (típicamente 192.168.1.1 o 192.168.0.1), ve a la configuración de Wi-Fi y selecciona WPA3 si está disponible, o WPA2-AES como mínimo. Nunca "WEP", nunca "WPA-TKIP", nunca "Modo mixto" si puedes evitarlo.
+  </div>
+
+  <h2>El Ataque Evil Twin: Tu Wi-Fi Tiene un Gemelo Malvado</h2>
+  <p>Un atacante crea un punto de acceso Wi-Fi falso con el mismo nombre (SSID) que una red legítima — la Wi-Fi de un aeropuerto, un hotel, un café. Los dispositivos configurados para conectarse automáticamente a redes conocidas pueden conectarse al gemelo malvado sin que el usuario lo note.</p>
+
+  <div class="example">
+    <strong>Escenario de ataque Evil Twin en un café:</strong><br>
+    1. La red legítima del café se llama "CafeGrind_WiFi".<br>
+    2. El atacante (sentado en el café con una laptop) crea una red llamada "CafeGrind_WiFi" con señal más potente.<br>
+    3. Tu teléfono, configurado para conectar automáticamente, elige la señal más fuerte — la del atacante.<br>
+    4. El atacante actúa como proxy entre tú e internet — puedes navegar normalmente mientras él inspecciona tu tráfico no cifrado y roba credenciales de sitios sin HTTPS.<br>
+    5. Con herramientas como SSLstrip, puede intentar forzar a tu navegador a usar HTTP en lugar de HTTPS para sitios que lo permiten.
+  </div>
+
+  <h2>Ataques Man-in-the-Middle en Wi-Fi Público</h2>
+  <p>En un ataque MITM, el atacante se posiciona entre tu dispositivo y el servidor con el que te comunicas. En redes Wi-Fi públicas no cifradas (o con el Evil Twin), esto es técnicamente sencillo. El atacante puede:</p>
+  <ul>
+    <li>Leer todo el tráfico no cifrado (HTTP, emails sin TLS)</li>
+    <li>Inyectar contenido malicioso en páginas web</li>
+    <li>Capturar cookies de sesión (incluso si la contraseña fue ingresada en HTTPS)</li>
+    <li>Redirigir a sitios de phishing</li>
+  </ul>
+
+  <h2>Packet Sniffing: Escuchando la Red</h2>
+  <p>En redes no cifradas, las herramientas de packet sniffing (Wireshark es la más usada) capturan todo el tráfico que pasa por la red. En modo "promiscuo", una tarjeta de red Wi-Fi puede capturar paquetes no dirigidos a ella. Wireshark es una herramienta legítima de diagnóstico de redes — y también la favorita de los atacantes en redes públicas abiertas.</p>
+
+  <div class="warning-box">
+    <strong>Lo que un atacante ve en Wireshark en una red no cifrada:</strong><br>
+    — URLs completas de todos los sitios HTTP que visitas<br>
+    — Formularios enviados por HTTP (incluyendo usuarios y contraseñas)<br>
+    — Cookies de sesión (que permiten suplantar tu identidad sin necesitar la contraseña)<br>
+    — Contenido de emails enviados sin TLS<br><br>
+    En redes HTTPS modernas, solo ve el destino (el dominio), no el contenido. Esto refuerza por qué HTTPS en todos lados es crítico.
+  </div>
+
+  <h2>Asegurando tu Router Doméstico</h2>
+  <p>El router de tu hogar es la puerta de entrada a toda tu red. Una configuración descuidada expone todos tus dispositivos:</p>
+
+  <ol>
+    <li><strong>Cambia las credenciales por defecto:</strong> El usuario/contraseña admin/admin o admin/password son los primeros que los atacantes prueban. Cámbialo inmediatamente.</li>
+    <li><strong>Actualiza el firmware:</strong> Los fabricantes lanzan actualizaciones de seguridad — activa las actualizaciones automáticas si el router lo soporta.</li>
+    <li><strong>Deshabilita WPS:</strong> Wi-Fi Protected Setup tiene vulnerabilidades conocidas (el PIN de 8 dígitos se puede crackear por fuerza bruta en horas). Desactívalo en el panel de administración.</li>
+    <li><strong>Deshabilita la administración remota:</strong> No necesitas acceder a tu router desde internet. Si está activa, un atacante también puede.</li>
+    <li><strong>Red de invitados para dispositivos IoT:</strong> Tus cámaras, smart TVs y electrodomésticos inteligentes son frecuentemente inseguros. Ponlos en una red de invitados separada, aislada de tus computadoras y teléfonos.</li>
+    <li><strong>Revisa los dispositivos conectados:</strong> Periódicamente, revisa la lista de dispositivos en tu red. Un dispositivo desconocido puede indicar acceso no autorizado.</li>
+  </ol>
+
+  <h2>VPN en Wi-Fi Público: Tu Escudo</h2>
+  <p>Cuando uses Wi-Fi público, activa tu VPN antes de hacer cualquier cosa sensible. La VPN cifra todo tu tráfico desde tu dispositivo hasta el servidor VPN, haciendo inútil cualquier intercepción en la red local. Un atacante en la misma red Wi-Fi solo verá tráfico cifrado dirigido al servidor VPN — nada de contenido.</p>
+
+  <h2>HTTPS como Protección Parcial</h2>
+  <p>Incluso sin VPN, HTTPS protege el contenido de tus comunicaciones con sitios que lo implementan. Sin embargo, no oculta a qué sitios te conectas (el dominio es visible incluso en HTTPS), no te protege de un Evil Twin que podría servir un certificado SSL falso de un dominio similar, y no te protege si el sitio tiene una versión HTTP no segura a la que fuiste redirigido.</p>
+
+  <h2>Wi-Fi Corporativo: 802.1X</h2>
+  <p>Las redes empresariales usan el estándar 802.1X para autenticación de red: cada usuario se autentica individualmente con sus credenciales corporativas antes de obtener acceso, usando un servidor RADIUS como backend. Esto elimina la contraseña compartida (PSK) típica de redes domésticas — si un empleado deja la empresa, simplemente se deshabilita su cuenta, sin necesitar cambiar la contraseña de toda la red.</p>
+
+  <h2>Hotspot Móvil vs. Wi-Fi Público</h2>
+  <p>Si necesitas conectividad fuera de casa y no tienes VPN, el hotspot de tu teléfono móvil es significativamente más seguro que el Wi-Fi público de un aeropuerto o café. El tráfico viaja por la red celular (cifrada) en lugar de una red local potencialmente comprometida. El costo en datos móviles suele valer la mejora de seguridad para tareas sensibles.</p>
+
+  <div class="summary">
+    <h2>Resumen del Capítulo</h2>
+    <ul>
+      <li>WEP está completamente roto — si tu router lo usa, actualiza inmediatamente a WPA2-AES o WPA3.</li>
+      <li>Los ataques Evil Twin crean redes Wi-Fi falsas con el mismo nombre que redes legítimas — los dispositivos con conexión automática son especialmente vulnerables.</li>
+      <li>En redes Wi-Fi públicas no cifradas, un atacante con Wireshark puede capturar todo el tráfico HTTP, cookies de sesión y formularios enviados.</li>
+      <li>Para tu router doméstico: cambia las credenciales por defecto, actualiza el firmware, deshabilita WPS, y crea una red de invitados para dispositivos IoT.</li>
+      <li>Una VPN activa en Wi-Fi público cifra todo el tráfico desde tu dispositivo — el atacante en la red local solo ve tráfico cifrado inútil.</li>
+      <li>HTTPS protege el contenido pero no el destino de las conexiones — no es sustituto completo de una VPN en redes no confiables.</li>
+      <li>En entornos corporativos, 802.1X con autenticación individual elimina el riesgo de la contraseña compartida de red.</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

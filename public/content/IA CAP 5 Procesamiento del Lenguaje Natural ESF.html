@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Procesamiento del Lenguaje Natural (NLP) | Español Sin Fronteras</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.8; }
+    .wrapper { max-width: 860px; margin: 0 auto; background: #fff; padding: 60px 72px; min-height: 100vh; }
+    .course-tag { font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #7c3aed; margin-bottom: 12px; }
+    h1 { font-size: 2rem; font-weight: 700; color: #0f172a; margin-bottom: 8px; line-height: 1.3; }
+    .subtitle { font-size: 1.05rem; color: #64748b; margin-bottom: 40px; font-style: italic; }
+    hr { border: none; border-top: 2px solid #ddd6fe; margin: 32px 0; }
+    h2 { font-size: 1.35rem; font-weight: 700; color: #1e293b; margin: 36px 0 16px; }
+    h3 { font-size: 1.1rem; font-weight: 700; color: #7c3aed; margin: 24px 0 10px; }
+    p { margin-bottom: 16px; font-size: 1rem; }
+    ul, ol { margin: 16px 0 16px 24px; }
+    li { margin-bottom: 8px; font-size: 1rem; }
+    .highlight-box { background: #f5f3ff; border-left: 4px solid #7c3aed; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .example { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin: 20px 0; font-family: 'Courier New', monospace; font-size: 0.9rem; }
+    table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.95rem; }
+    th { background: #7c3aed; color: white; padding: 12px 16px; text-align: left; font-family: Arial, sans-serif; font-weight: 600; }
+    td { padding: 11px 16px; border-bottom: 1px solid #e2e8f0; }
+    tr:nth-child(even) td { background: #f8fafc; }
+    .summary { background: #0f172a; color: #e2e8f0; border-radius: 12px; padding: 28px 32px; margin: 40px 0 0; }
+    .summary h2 { color: #fff; margin-top: 0; }
+    .summary li { color: #cbd5e1; }
+    @media (max-width: 640px) { .wrapper { padding: 32px 24px; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="course-tag">Inteligencia Artificial · Capítulo 5</div>
+  <h1>Procesamiento del Lenguaje Natural (NLP): Cuando las Máquinas Entienden el Idioma</h1>
+  <p class="subtitle">El lenguaje humano es la forma de comunicación más compleja que existe; enseñárselo a una computadora es uno de los mayores desafíos de la IA.</p>
+  <hr>
+
+  <h2>¿Por Qué el Lenguaje es Tan Difícil para las Computadoras?</h2>
+  <p>Cuando lees la frase "Vi al hombre con el telescopio", tu cerebro la entiende sin esfuerzo, aunque es profundamente ambigua. ¿Usaste el telescopio para verlo? ¿O él llevaba el telescopio? Un humano resuelve esta ambiguedad en milisegundos usando contexto, conocimiento del mundo y modelos mentales sofisticados que desarrolló a lo largo de años. Para una computadora, esto es enormemente difícil.</p>
+
+  <p>El lenguaje humano presenta al menos seis tipos de complejidad que lo distinguen de cualquier lenguaje formal:</p>
+  <ul>
+    <li><strong>Ambigüedad léxica:</strong> La palabra "banco" puede ser una institución financiera, un asiento, o la orilla de un río. El contexto decide.</li>
+    <li><strong>Ambigüedad sintáctica:</strong> "El pollo está listo para comer" — ¿quién va a comer a quién?</li>
+    <li><strong>Correferencia:</strong> En "María le dijo a Ana que ella había ganado", ¿quién ganó?</li>
+    <li><strong>Sarcasmo e ironía:</strong> "¡Qué gran idea!" puede significar exactamente lo opuesto.</li>
+    <li><strong>Conocimiento implícito:</strong> "Pedro salió de la cárcel y buscó trabajo" implica que Pedro estaba preso antes, aunque no se dice explícitamente.</li>
+    <li><strong>Variación cultural y dialectal:</strong> El español de México, Argentina y España tiene vocabulario, expresiones y hasta gramática que difieren significativamente.</li>
+  </ul>
+
+  <h2>Enfoques Tradicionales de NLP</h2>
+  <p>Antes del deep learning, el NLP se basaba en representaciones estadísticas simples que ignoraban el significado profundo pero capturaban patrones superficiales útiles.</p>
+
+  <h3>Bolsa de Palabras (Bag of Words)</h3>
+  <p>Representa un documento como un vector de frecuencias de palabras, ignorando el orden. Un vocabulario de 10,000 palabras produce vectores de 10,000 dimensiones donde cada posición indica cuántas veces aparece esa palabra en el documento. Eficaz para clasificación de texto simple, pero pierde todo el contexto: "el perro muerde al hombre" y "el hombre muerde al perro" producen representaciones idénticas.</p>
+
+  <h3>TF-IDF</h3>
+  <p>Term Frequency-Inverse Document Frequency mejora la bolsa de palabras ponderando las palabras: una palabra que aparece mucho en un documento pero raramente en el corpus tiene un peso alto (es "característica" de ese documento). Palabras como "el", "de", "la" aparecen en todos los documentos y reciben peso bajo. TF-IDF fue el estándar en motores de búsqueda durante décadas.</p>
+
+  <h3>N-gramas</h3>
+  <p>Captura secuencias de n palabras consecutivas. Los bigramas (n=2) de "el gato come pescado" son: "el gato", "gato come", "come pescado". Añade algo de contexto local pero escala mal: el número de posibles bigramas es el cuadrado del vocabulario.</p>
+
+  <h2>Word Embeddings: Palabras como Vectores</h2>
+  <p>En 2013, un equipo de Google liderado por Tomas Mikolov publicó <strong>Word2Vec</strong>, que revolucionó el NLP. La idea central: en lugar de representar palabras como vectores dispersos de frecuencias, aprender representaciones densas de 100-300 dimensiones donde palabras con significados similares tienen vectores similares.</p>
+
+  <div class="highlight-box">
+    <strong>La magia de Word2Vec:</strong> El modelo se entrena para predecir palabras dado su contexto (o contexto dada la palabra). Como subproducto, aprende representaciones que capturan relaciones semánticas y sintácticas:<br><br>
+    vector("rey") - vector("hombre") + vector("mujer") ≈ vector("reina")<br>
+    vector("París") - vector("Francia") + vector("Alemania") ≈ vector("Berlín")<br>
+    vector("correr") - vector("corría") ≈ vector("caminar") - vector("caminaba")
+  </div>
+
+  <p>Estas relaciones emergen de forma completamente no supervisada, simplemente de predecir palabras en su contexto en corpus de texto masivos. <strong>GloVe</strong> (Global Vectors, Stanford 2014) alcanzó resultados similares mediante un enfoque diferente basado en co-ocurrencia global de palabras.</p>
+
+  <p>El problema de los embeddings estáticos: la misma palabra siempre tiene el mismo vector, sin importar el contexto. "Banco" tiene un solo vector aunque signifique cosas muy diferentes en "Banco de México" y "me senté en el banco del parque". Los modelos modernos como BERT resuelven esto con embeddings contextualizados.</p>
+
+  <h2>La Revolución del Transformer y el Mecanismo de Atención</h2>
+  <p>En 2017, investigadores de Google publicaron el paper "Attention Is All You Need", introduciendo la arquitectura <strong>Transformer</strong>. Hoy, prácticamente todos los modelos de NLP de última generación —BERT, GPT, T5, Claude, Gemini— son variantes de esta arquitectura.</p>
+
+  <p>El componente central es el <strong>mecanismo de atención</strong>. La intuición: al procesar cada palabra, el modelo "atiende" a otras palabras de la secuencia con pesos que indican su relevancia. Para entender "banco" en "el cliente entró al banco a depositar dinero", el modelo aprende a dar peso alto a "cliente", "depositar" y "dinero", y peso bajo a "entró" y "al".</p>
+
+  <div class="example">
+Mecanismo de atención (simplificado):
+
+Para procesar la palabra "banco" en la oración:
+"El cliente entró al banco a depositar dinero"
+
+Pesos de atención calculados:
+  "El"       → 0.02
+  "cliente"  → 0.18
+  "entró"    → 0.05
+  "al"       → 0.03
+  "banco"    → 0.12  (la propia palabra)
+  "a"        → 0.02
+  "depositar"→ 0.31
+  "dinero"   → 0.27
+              ------
+              Total = 1.00
+
+La representación contextualizada de "banco" es una
+combinación ponderada de todas las representaciones,
+dominada por "depositar" y "dinero" → significado financiero.
+  </div>
+
+  <p>La <strong>atención multi-cabeza</strong> (multi-head attention) ejecuta este proceso en paralelo múltiples veces (ej: 8 o 16 "cabezas"), cada una aprendiendo a atender a distintos tipos de relaciones: una cabeza puede enfocarse en relaciones sintácticas (sujeto-verbo), otra en correferencias, otra en negaciones semánticas.</p>
+
+  <h3>BERT (2018, Google)</h3>
+  <p>BERT (Bidirectional Encoder Representations from Transformers) se preentrenó en 3,300 millones de palabras de Wikipedia y BookCorpus con dos tareas: predecir palabras enmascaradas aleatoriamente ("El gato [MASK] sobre la alfombra" → "estaba") y predecir si dos oraciones son consecutivas. Este preentrenamiento bidireccional le da a BERT un profundo entendimiento del contexto, tanto a izquierda como a derecha de cada palabra. BERT batió los récords del estado del arte en 11 tareas de NLP el mismo mes de su publicación.</p>
+
+  <h3>GPT (2018-presente, OpenAI)</h3>
+  <p>Mientras BERT es un "encoder" (entiende texto), GPT es un "decoder" (genera texto). Se entrena para predecir la siguiente palabra dada la secuencia anterior. GPT-1 tenía 117 millones de parámetros; GPT-4 se estima en más de un billón. La diferencia en capacidad es exponencial y se manifiesta en habilidades emergentes: GPT-4 puede razonar, traducir, programar, componer poesía y mantener conversaciones coherentes sobre temas complejos.</p>
+
+  <h2>Tareas Principales de NLP</h2>
+
+  <table>
+    <tr>
+      <th>Tarea</th>
+      <th>Descripción</th>
+      <th>Aplicación real</th>
+    </tr>
+    <tr>
+      <td>Tokenización</td>
+      <td>Dividir texto en unidades mínimas (tokens)</td>
+      <td>Paso previo a cualquier procesamiento</td>
+    </tr>
+    <tr>
+      <td>POS Tagging</td>
+      <td>Etiquetar cada palabra con su categoría gramatical (sustantivo, verbo, etc.)</td>
+      <td>Análisis sintáctico, asistentes de escritura</td>
+    </tr>
+    <tr>
+      <td>NER</td>
+      <td>Reconocer entidades nombradas: personas, lugares, organizaciones, fechas</td>
+      <td>Extracción de información de contratos, noticias</td>
+    </tr>
+    <tr>
+      <td>Análisis de sentimiento</td>
+      <td>Clasificar si un texto expresa opinión positiva, negativa o neutra</td>
+      <td>Monitoreo de redes sociales, reseñas de productos</td>
+    </tr>
+    <tr>
+      <td>Traducción automática</td>
+      <td>Traducir texto entre idiomas</td>
+      <td>Google Translate, DeepL</td>
+    </tr>
+    <tr>
+      <td>Resumen automático</td>
+      <td>Condensar documentos largos en resúmenes</td>
+      <td>Resumen de noticias, documentos legales</td>
+    </tr>
+    <tr>
+      <td>Respuesta a preguntas (QA)</td>
+      <td>Responder preguntas basadas en un contexto dado</td>
+      <td>Asistentes virtuales, búsqueda empresarial</td>
+    </tr>
+    <tr>
+      <td>Clasificación de texto</td>
+      <td>Asignar categorías a textos</td>
+      <td>Clasificación de tickets de soporte, spam</td>
+    </tr>
+  </table>
+
+  <h3>Métricas de Evaluación en NLP</h3>
+  <p>La <strong>puntuación BLEU</strong> (Bilingual Evaluation Understudy) mide la calidad de las traducciones comparando n-gramas entre la traducción automática y traducciones de referencia hechas por humanos. Un BLEU de 0.6 es considerado muy bueno; 0.4-0.5 es aceptable para usos prácticos. Para resúmenes se usa la métrica <strong>ROUGE</strong>; para modelos de lenguaje se usa la <strong>perplejidad</strong> (qué tan sorprendido está el modelo ante texto nuevo; menor perplejidad = mejor modelo).</p>
+
+  <h2>Aplicaciones Reales del NLP</h2>
+  <ul>
+    <li><strong>Motores de búsqueda:</strong> Google usa BERT desde 2019 para entender la intención de búsqueda, no solo palabras clave. El lanzamiento de BERT mejoró el 10% de todas las búsquedas en inglés.</li>
+    <li><strong>Asistentes virtuales:</strong> Siri, Alexa, Google Assistant combinan reconocimiento de voz + NLP para entender comandos en lenguaje natural.</li>
+    <li><strong>Autocompletado:</strong> Gmail's Smart Compose y el teclado de tu teléfono usan modelos de lenguaje para predecir las siguientes palabras.</li>
+    <li><strong>Detección de fraude en seguros:</strong> NLP analiza descripciones de siniestros buscando inconsistencias o patrones de fraude.</li>
+    <li><strong>Análisis de sentimiento en finanzas:</strong> Fondos de inversión usan NLP para analizar millones de noticias y tweets financieros, tomando decisiones de trading antes que los humanos puedan leerlas.</li>
+    <li><strong>Diagnóstico médico desde notas:</strong> Los sistemas de NLP extraen diagnósticos, medicamentos y síntomas de las notas clínicas escritas por médicos, estructurando información que antes era inutilizable por ser texto libre.</li>
+  </ul>
+
+  <h2>Limitaciones Críticas del NLP Moderno</h2>
+  <div class="highlight-box">
+    <strong>Alucinaciones:</strong> Los modelos de lenguaje generativos (GPT, Claude, Gemini) producen texto fluido y convincente incluso cuando inventan hechos. No "saben" cuándo no saben algo; generan la continuación estadísticamente más plausible de la secuencia de tokens, que puede ser completamente falsa. Esta es la limitación más importante y difícil de resolver en los modelos actuales.<br><br>
+    <strong>Sesgo en los datos de entrenamiento:</strong> Si el corpus de entrenamiento contiene sesgos humanos (racismo, sexismo, estereotipos), el modelo los amplifica. Estudios han mostrado que Word2Vec asocia palabras de carreras de programación con nombres masculinos y palabras domésticas con nombres femeninos, reflejando sesgos históricos del texto en internet.<br><br>
+    <strong>Falta de sentido común genuino:</strong> Los modelos pueden fallar en inferencias simples que cualquier niño de 5 años resuelve trivialmente, pero que requieren conocimiento del mundo físico y social que no se aprende de texto.
+  </div>
+
+  <div class="summary">
+    <h2>Resumen del Capítulo</h2>
+    <ul>
+      <li>El lenguaje natural es extraordinariamente difícil para las computadoras por su ambigüedad en múltiples niveles (léxica, sintáctica, pragmática), dependencia del contexto, sarcasmo y conocimiento implícito del mundo.</li>
+      <li>Los enfoques tradicionales (bolsa de palabras, TF-IDF, n-gramas) capturan patrones superficiales pero ignoran el orden y el significado; fueron reemplazados por representaciones vectoriales densas.</li>
+      <li>Word2Vec (Google, 2013) aprendió que las relaciones semánticas se codifican como operaciones vectoriales: rey - hombre + mujer ≈ reina; los embeddings contextualizados de BERT superaron esta limitación al producir distintos vectores para la misma palabra según el contexto.</li>
+      <li>El Transformer (2017) y su mecanismo de atención revolucionaron el NLP: cada token "atiende" a todos los demás con pesos aprendidos, capturando dependencias de largo alcance de forma más eficiente que las RNNs.</li>
+      <li>Las tareas de NLP incluyen tokenización, POS tagging, NER, análisis de sentimiento, traducción, resumen, QA y clasificación; los modelos modernos como BERT y GPT dominan casi todas mediante preentrenamiento masivo seguido de ajuste fino.</li>
+      <li>Las alucinaciones (inventar hechos con confianza), el sesgo en datos de entrenamiento y la falta de sentido común genuino son las limitaciones más críticas de los sistemas de NLP actuales.</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

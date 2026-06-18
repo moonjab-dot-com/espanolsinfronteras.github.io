@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trigonometría Fundamental | Español Sin Fronteras</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.8; }
+    .wrapper { max-width: 860px; margin: 0 auto; background: #fff; padding: 60px 72px; min-height: 100vh; }
+    .course-tag { font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #2563eb; margin-bottom: 12px; }
+    h1 { font-size: 2rem; font-weight: 700; color: #0f172a; margin-bottom: 8px; line-height: 1.3; }
+    .subtitle { font-size: 1.05rem; color: #64748b; margin-bottom: 40px; font-style: italic; }
+    hr { border: none; border-top: 2px solid #bfdbfe; margin: 32px 0; }
+    h2 { font-size: 1.35rem; font-weight: 700; color: #1e293b; margin: 36px 0 16px; }
+    h3 { font-size: 1.1rem; font-weight: 700; color: #2563eb; margin: 24px 0 10px; }
+    p { margin-bottom: 16px; font-size: 1rem; }
+    ul, ol { margin: 16px 0 16px 24px; }
+    li { margin-bottom: 8px; font-size: 1rem; }
+    .highlight-box { background: #eff6ff; border-left: 4px solid #2563eb; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .example { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin: 20px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.95rem; }
+    th { background: #2563eb; color: white; padding: 12px 16px; text-align: left; font-family: Arial, sans-serif; font-weight: 600; }
+    td { padding: 11px 16px; border-bottom: 1px solid #e2e8f0; }
+    tr:nth-child(even) td { background: #f8fafc; }
+    .summary { background: #0f172a; color: #e2e8f0; border-radius: 12px; padding: 28px 32px; margin: 40px 0 0; }
+    .summary h2 { color: #fff; margin-top: 0; }
+    .summary li { color: #cbd5e1; }
+    @media (max-width: 640px) { .wrapper { padding: 32px 24px; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="course-tag">Matemáticas · Capítulo 14</div>
+  <h1>Trigonometría: Senos, Cosenos y Tangentes</h1>
+  <p class="subtitle">Del triángulo rectángulo al círculo unitario: cómo los ángulos describen relaciones entre distancias en la naturaleza, la ingeniería y la física</p>
+  <hr>
+
+  <h2>Repaso: El Triángulo Rectángulo y el Teorema de Pitágoras</h2>
+  <p>La trigonometría nace en el triángulo rectángulo —aquel que tiene un ángulo de 90°. El Teorema de Pitágoras establece la relación fundamental entre sus lados: el cuadrado de la hipotenusa (el lado opuesto al ángulo recto, siempre el más largo) es igual a la suma de los cuadrados de los catetos.</p>
+
+  <div class="highlight-box">
+    <strong>Teorema de Pitágoras:</strong> a² + b² = c²<br>
+    donde c = hipotenusa, a y b = catetos<br><br>
+    <strong>Triples pitagóricos más comunes (valores enteros):</strong>
+    <ul>
+      <li>3 − 4 − 5: 3² + 4² = 9 + 16 = 25 = 5² ✓</li>
+      <li>5 − 12 − 13: 5² + 12² = 25 + 144 = 169 = 13² ✓</li>
+      <li>8 − 15 − 17: 64 + 225 = 289 = 17² ✓</li>
+      <li>Cualquier múltiplo: 6−8−10, 9−12−15, etc.</li>
+    </ul>
+  </div>
+
+  <div class="example">
+    <strong>Aplicación del Teorema de Pitágoras:</strong><br><br>
+    Un árbol proyecta una sombra de 8 m. La distancia desde la punta de la sombra hasta la copa del árbol es 10 m. ¿Qué altura tiene el árbol?<br><br>
+    a² + b² = c²<br>
+    altura² + 8² = 10²<br>
+    altura² = 100 − 64 = 36<br>
+    altura = √36 = <strong>6 metros</strong>
+  </div>
+
+  <h2>Las Razones Trigonométricas: SOH-CAH-TOA</h2>
+  <p>Para un ángulo θ en un triángulo rectángulo, definimos las tres razones trigonométricas fundamentales en función de los lados:</p>
+
+  <div class="highlight-box">
+    <strong>Las tres razones fundamentales (mnemónico SOH-CAH-TOA):</strong><br><br>
+    <strong>S</strong>eno: sen θ = <strong>O</strong>puesto / <strong>H</strong>ipotenusa<br>
+    <strong>C</strong>oseno: cos θ = <strong>A</strong>dyacente / <strong>H</strong>ipotenusa<br>
+    <strong>T</strong>angente: tan θ = <strong>O</strong>puesto / <strong>A</strong>dyacente<br><br>
+    Las tres recíprocas:<br>
+    cosecante: csc θ = 1/sen θ = H/O<br>
+    secante: sec θ = 1/cos θ = H/A<br>
+    cotangente: cot θ = 1/tan θ = A/O
+  </div>
+
+  <div class="example">
+    <strong>Calculando todas las razones en el triángulo 3-4-5:</strong><br><br>
+    Consideremos el ángulo θ opuesto al cateto de longitud 3:<br>
+    — Lado opuesto a θ = 3<br>
+    — Lado adyacente a θ = 4<br>
+    — Hipotenusa = 5<br><br>
+    sen θ = 3/5 = 0,6<br>
+    cos θ = 4/5 = 0,8<br>
+    tan θ = 3/4 = 0,75<br>
+    csc θ = 5/3 ≈ 1,667<br>
+    sec θ = 5/4 = 1,25<br>
+    cot θ = 4/3 ≈ 1,333<br><br>
+    Para verificar con la calculadora: θ = arcsen(0,6) ≈ <strong>36,87°</strong>
+  </div>
+
+  <h2>Encontrar Lados Desconocidos</h2>
+
+  <div class="example">
+    <strong>Problema 1: Encontrar la altura de un edificio</strong><br><br>
+    Un observador está a 50 metros de la base de un edificio. El ángulo de elevación hasta la cima es de 35°. ¿Cuánto mide el edificio?<br><br>
+    El ángulo dado (35°) tiene:<br>
+    — Lado adyacente = 50 m (distancia horizontal)<br>
+    — Lado opuesto = altura del edificio (desconocida)<br><br>
+    tan(35°) = opuesto / adyacente<br>
+    tan(35°) = altura / 50<br>
+    altura = 50 × tan(35°)<br>
+    altura = 50 × 0,7002 = <strong>35,01 metros</strong><br><br>
+    <strong>Problema 2: Encontrar la longitud de una rampa</strong><br><br>
+    Una rampa de acceso sube 1,2 m de altura con un ángulo de 8°. ¿Cuánto mide la rampa?<br><br>
+    sen(8°) = opuesto / hipotenusa = 1,2 / rampa<br>
+    rampa = 1,2 / sen(8°) = 1,2 / 0,1392 = <strong>8,62 metros</strong>
+  </div>
+
+  <h2>Triángulos Especiales: Valores Exactos</h2>
+
+  <h3>Triángulo 45°-45°-90°</h3>
+  <p>Si los dos ángulos agudos son iguales (45° cada uno), los dos catetos son iguales. Llamando al cateto = 1, por Pitágoras la hipotenusa = √(1²+1²) = √2.</p>
+
+  <div class="highlight-box">
+    <strong>Valores exactos para 45°:</strong><br>
+    sen 45° = 1/√2 = √2/2 ≈ 0,7071<br>
+    cos 45° = 1/√2 = √2/2 ≈ 0,7071<br>
+    tan 45° = 1/1 = <strong>1</strong>
+  </div>
+
+  <h3>Triángulo 30°-60°-90°</h3>
+  <p>Derivado de un triángulo equilátero de lado 2: cortarlo por la mitad da un triángulo con ángulos 30°-60°-90°, hipotenusa 2, cateto menor 1 y cateto mayor √(2²−1²) = √3.</p>
+
+  <div class="highlight-box">
+    <strong>Valores exactos para 30° y 60°:</strong><br><br>
+    <strong>Para 30°</strong> (opuesto=1, adyacente=√3, hipotenusa=2):<br>
+    sen 30° = 1/2 = 0,5<br>
+    cos 30° = √3/2 ≈ 0,866<br>
+    tan 30° = 1/√3 = √3/3 ≈ 0,577<br><br>
+    <strong>Para 60°</strong> (opuesto=√3, adyacente=1, hipotenusa=2):<br>
+    sen 60° = √3/2 ≈ 0,866<br>
+    cos 60° = 1/2 = 0,5<br>
+    tan 60° = √3/1 = √3 ≈ 1,732
+  </div>
+
+  <h2>Ángulos en los Cuatro Cuadrantes: Referencia ASTC</h2>
+  <p>Al extender la trigonometría más allá de los triángulos rectángulos a ángulos de cualquier magnitud (incluyendo obtuso y negativos), usamos la mnemónica ASTC para recordar qué funciones son positivas en cada cuadrante.</p>
+
+  <div class="highlight-box">
+    <strong>ASTC: "All Students Take Calculus"</strong><br>
+    (También: "Antes Sal Tomás Cayó")<br><br>
+    — <strong>I cuadrante</strong> (0°-90°): <strong>A</strong>ll — todas las funciones son positivas<br>
+    — <strong>II cuadrante</strong> (90°-180°): <strong>S</strong>ine — solo seno (y cosecante) son positivos<br>
+    — <strong>III cuadrante</strong> (180°-270°): <strong>T</strong>angent — solo tangente (y cotangente) son positivos<br>
+    — <strong>IV cuadrante</strong> (270°-360°): <strong>C</strong>osine — solo coseno (y secante) son positivos
+  </div>
+
+  <div class="example">
+    <strong>Ejemplo: calcular sen 150°</strong><br><br>
+    150° está en el II cuadrante. El ángulo de referencia es 180° − 150° = 30°.<br>
+    En el II cuadrante, el seno es POSITIVO.<br>
+    Por lo tanto: sen 150° = +sen 30° = <strong>1/2</strong><br><br>
+    <strong>Ejemplo: calcular tan 225°</strong><br><br>
+    225° está en el III cuadrante. Ángulo de referencia: 225° − 180° = 45°.<br>
+    En el III cuadrante, tangente es POSITIVA.<br>
+    tan 225° = +tan 45° = <strong>1</strong>
+  </div>
+
+  <h2>El Círculo Unitario</h2>
+  <p>El círculo unitario —un círculo de radio 1 centrado en el origen— unifica toda la trigonometría. Para un punto P en el círculo correspondiente al ángulo θ, las coordenadas son exactamente (cos θ, sen θ). Esto permite definir el seno y coseno para cualquier ángulo real.</p>
+
+  <table>
+    <tr><th>Ángulo θ</th><th>cos θ</th><th>sen θ</th><th>tan θ</th></tr>
+    <tr><td>0°</td><td>1</td><td>0</td><td>0</td></tr>
+    <tr><td>30°</td><td>√3/2</td><td>1/2</td><td>√3/3</td></tr>
+    <tr><td>45°</td><td>√2/2</td><td>√2/2</td><td>1</td></tr>
+    <tr><td>60°</td><td>1/2</td><td>√3/2</td><td>√3</td></tr>
+    <tr><td>90°</td><td>0</td><td>1</td><td>indefinido</td></tr>
+    <tr><td>120°</td><td>−1/2</td><td>√3/2</td><td>−√3</td></tr>
+    <tr><td>135°</td><td>−√2/2</td><td>√2/2</td><td>−1</td></tr>
+    <tr><td>150°</td><td>−√3/2</td><td>1/2</td><td>−√3/3</td></tr>
+    <tr><td>180°</td><td>−1</td><td>0</td><td>0</td></tr>
+    <tr><td>270°</td><td>0</td><td>−1</td><td>indefinido</td></tr>
+    <tr><td>360°</td><td>1</td><td>0</td><td>0</td></tr>
+  </table>
+
+  <h2>La Identidad Pitagórica Fundamental</h2>
+
+  <div class="highlight-box">
+    <strong>Demostración de sen²θ + cos²θ = 1:</strong><br><br>
+    En el círculo unitario, el punto P = (cos θ, sen θ) está a distancia 1 del origen.<br>
+    Por el Teorema de Pitágoras: (cos θ)² + (sen θ)² = 1²<br>
+    Por lo tanto: <strong>sen²θ + cos²θ = 1</strong> para cualquier ángulo θ<br><br>
+    Identidades derivadas:<br>
+    Dividiendo entre cos²θ: tan²θ + 1 = sec²θ<br>
+    Dividiendo entre sen²θ: 1 + cot²θ = csc²θ
+  </div>
+
+  <h2>Aplicaciones Reales</h2>
+
+  <div class="example">
+    <strong>Navegación: rumbo y distancia</strong><br><br>
+    Un barco navega N 40° E durante 120 km. ¿Cuánto avanzó hacia el norte y cuánto hacia el este?<br><br>
+    Componente Norte = 120 × cos(40°) = 120 × 0,766 = <strong>91,9 km al norte</strong><br>
+    Componente Este = 120 × sen(40°) = 120 × 0,643 = <strong>77,1 km al este</strong>
+  </div>
+
+  <div class="example">
+    <strong>Ingeniería: porcentaje de pendiente</strong><br><br>
+    Una carretera sube 15 metros por cada 100 metros horizontales.<br>
+    Ángulo de inclinación: tan θ = 15/100 = 0,15 → θ = arctan(0,15) ≈ <strong>8,5°</strong><br>
+    Pendiente como porcentaje = (15/100) × 100% = <strong>15%</strong>
+  </div>
+
+  <h2>Ley de Senos</h2>
+  <p>Para triángulos que no son rectángulos, la Ley de Senos relaciona cada lado con el seno del ángulo opuesto:</p>
+
+  <div class="highlight-box">
+    <strong>Ley de Senos:</strong> a/sen A = b/sen B = c/sen C<br><br>
+    Cuándo usar: cuando se conocen dos ángulos y un lado (AAS o ASA), o dos lados y un ángulo no incluido (SSA — caso ambiguo).<br><br>
+    <strong>Ejemplo:</strong> En un triángulo, A = 40°, B = 75°, a = 8 cm. Encontrar b.<br>
+    b/sen B = a/sen A<br>
+    b/sen 75° = 8/sen 40°<br>
+    b = 8 × sen 75° / sen 40° = 8 × 0,966 / 0,643 = <strong>12,01 cm</strong>
+  </div>
+
+  <div class="summary">
+    <h2>Resumen del Capítulo</h2>
+    <ul>
+      <li>El Teorema de Pitágoras (a² + b² = c²) es la base de la trigonometría; los triples pitagóricos 3-4-5 y 5-12-13 son los más útiles en la práctica.</li>
+      <li>SOH-CAH-TOA: sen θ = O/H, cos θ = A/H, tan θ = O/A. Las tres razones recíprocas (csc, sec, cot) son sus inversas.</li>
+      <li>Triángulos especiales: 45°-45°-90° da sen=cos=√2/2, tan=1; 30°-60°-90° da valores exactos con √3/2, 1/2 y √3.</li>
+      <li>ASTC indica qué funciones son positivas por cuadrante; el ángulo de referencia permite calcular cualquier ángulo a partir del equivalente en primer cuadrante.</li>
+      <li>El círculo unitario define (cos θ, sen θ) como coordenadas del punto en el círculo, unificando la trigonometría para todos los ángulos reales.</li>
+      <li>La identidad pitagórica sen²θ + cos²θ = 1 se demuestra directamente del Teorema de Pitágoras en el círculo unitario.</li>
+      <li>La Ley de Senos (a/senA = b/senB = c/senC) permite resolver triángulos oblicuos cuando se conocen dos ángulos y un lado.</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistemas de Ecuaciones | Español Sin Fronteras</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.8; }
+    .wrapper { max-width: 860px; margin: 0 auto; background: #fff; padding: 60px 72px; min-height: 100vh; }
+    .course-tag { font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #2563eb; margin-bottom: 12px; }
+    h1 { font-size: 2rem; font-weight: 700; color: #0f172a; margin-bottom: 8px; line-height: 1.3; }
+    .subtitle { font-size: 1.05rem; color: #64748b; margin-bottom: 40px; font-style: italic; }
+    hr { border: none; border-top: 2px solid #bfdbfe; margin: 32px 0; }
+    h2 { font-size: 1.35rem; font-weight: 700; color: #1e293b; margin: 36px 0 16px; }
+    h3 { font-size: 1.1rem; font-weight: 700; color: #2563eb; margin: 24px 0 10px; }
+    p { margin-bottom: 16px; font-size: 1rem; }
+    ul, ol { margin: 16px 0 16px 24px; }
+    li { margin-bottom: 8px; font-size: 1rem; }
+    .highlight-box { background: #eff6ff; border-left: 4px solid #2563eb; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .example { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin: 20px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.95rem; }
+    th { background: #2563eb; color: white; padding: 12px 16px; text-align: left; font-family: Arial, sans-serif; font-weight: 600; }
+    td { padding: 11px 16px; border-bottom: 1px solid #e2e8f0; }
+    tr:nth-child(even) td { background: #f8fafc; }
+    .summary { background: #0f172a; color: #e2e8f0; border-radius: 12px; padding: 28px 32px; margin: 40px 0 0; }
+    .summary h2 { color: #fff; margin-top: 0; }
+    .summary li { color: #cbd5e1; }
+    @media (max-width: 640px) { .wrapper { padding: 32px 24px; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="course-tag">Matemáticas · Capítulo 15</div>
+  <h1>Sistemas de Ecuaciones: Dos Incógnitas, Una Solución</h1>
+  <p class="subtitle">Cómo resolver simultáneamente dos o más ecuaciones lineales mediante sustitución, eliminación y métodos matriciales</p>
+  <hr>
+
+  <h2>Introducción: ¿Qué es un Sistema de Ecuaciones?</h2>
+  <p>Un sistema de ecuaciones lineales es un conjunto de dos o más ecuaciones que deben satisfacerse simultáneamente. La solución es el par (x, y) —o conjunto de valores— que hace verdaderas todas las ecuaciones al mismo tiempo.</p>
+  <p>Geométricamente, cada ecuación lineal en dos variables representa una recta en el plano. La solución del sistema es el punto de intersección de esas rectas. Esta interpretación geométrica revela los tres posibles casos:</p>
+
+  <div class="highlight-box">
+    <strong>Los tres casos geométricos:</strong>
+    <ul>
+      <li><strong>Solución única:</strong> las dos rectas se cortan en un punto → sistema compatible determinado</li>
+      <li><strong>Sin solución:</strong> las dos rectas son paralelas (nunca se cortan) → sistema incompatible</li>
+      <li><strong>Infinitas soluciones:</strong> las dos ecuaciones representan la misma recta → sistema compatible indeterminado</li>
+    </ul>
+  </div>
+
+  <h2>Método de Sustitución</h2>
+  <p>El método de sustitución despeja una variable en una ecuación y sustituye la expresión obtenida en la otra ecuación, reduciendo el problema a una ecuación con una sola incógnita.</p>
+
+  <div class="example">
+    <strong>Ejemplo 1 (básico):</strong><br>
+    Sistema: { 2x + y = 10 } y { x − y = 2 }<br><br>
+    Paso 1 — Despejar y en la segunda ecuación:<br>
+    x − y = 2 → y = x − 2<br><br>
+    Paso 2 — Sustituir en la primera ecuación:<br>
+    2x + (x − 2) = 10<br>
+    3x − 2 = 10<br>
+    3x = 12<br>
+    x = 4<br><br>
+    Paso 3 — Encontrar y:<br>
+    y = x − 2 = 4 − 2 = 2<br><br>
+    Solución: <strong>(x, y) = (4, 2)</strong><br>
+    Verificación: 2(4) + 2 = 10 ✓ y 4 − 2 = 2 ✓
+  </div>
+
+  <div class="example">
+    <strong>Ejemplo 2 (con fracciones):</strong><br>
+    Sistema: { 3x + 2y = 16 } y { x/2 − y = 1 }<br><br>
+    Paso 1 — Despejar x en la segunda ecuación:<br>
+    x/2 = 1 + y → x = 2 + 2y<br><br>
+    Paso 2 — Sustituir en la primera:<br>
+    3(2 + 2y) + 2y = 16<br>
+    6 + 6y + 2y = 16<br>
+    8y = 10<br>
+    y = 10/8 = <strong>5/4</strong><br><br>
+    Paso 3 — Encontrar x:<br>
+    x = 2 + 2(5/4) = 2 + 5/2 = 4/2 + 5/2 = <strong>9/2</strong><br><br>
+    Solución: <strong>(x, y) = (9/2, 5/4)</strong>
+  </div>
+
+  <div class="example">
+    <strong>Ejemplo 3 (problema de palabras — edades):</strong><br>
+    La suma de las edades de Ana y Carlos es 40. Carlos tiene el doble de la edad de Ana. ¿Cuántos años tiene cada uno?<br><br>
+    Definir variables: a = edad de Ana, c = edad de Carlos<br>
+    Ecuaciones: a + c = 40 y c = 2a<br><br>
+    Sustituir c = 2a en la primera:<br>
+    a + 2a = 40 → 3a = 40 → a = 40/3 ≈ 13,33 años<br>
+    c = 2(40/3) = 80/3 ≈ 26,67 años<br><br>
+    Verificación: 40/3 + 80/3 = 120/3 = 40 ✓
+  </div>
+
+  <h2>Método de Eliminación</h2>
+  <p>El método de eliminación (también llamado de reducción o de Gauss) suma o resta múltiplos de las ecuaciones para eliminar una variable. Es especialmente útil cuando los coeficientes de una variable son iguales o fácilmente igualables.</p>
+
+  <div class="example">
+    <strong>Ejemplo 1 (eliminación directa):</strong><br>
+    Sistema: { 3x + 2y = 14 } y { 3x − y = 5 }<br><br>
+    Los coeficientes de x son iguales (3 y 3). Restamos la segunda ecuación de la primera:<br>
+    (3x + 2y) − (3x − y) = 14 − 5<br>
+    3y = 9<br>
+    y = 3<br><br>
+    Sustituir y = 3 en la primera ecuación:<br>
+    3x + 2(3) = 14 → 3x = 8 → x = 8/3<br><br>
+    Solución: <strong>(x, y) = (8/3, 3)</strong>
+  </div>
+
+  <div class="example">
+    <strong>Ejemplo 2 (multiplicar primero):</strong><br>
+    Sistema: { 2x + 3y = 12 } y { 5x − 2y = 1 }<br><br>
+    Para eliminar y, necesitamos coeficientes opuestos. Multiplicamos la primera ecuación × 2 y la segunda × 3:<br>
+    Primera × 2: 4x + 6y = 24<br>
+    Segunda × 3: 15x − 6y = 3<br><br>
+    Sumamos las ecuaciones resultantes:<br>
+    4x + 6y + 15x − 6y = 24 + 3<br>
+    19x = 27<br>
+    x = 27/19<br><br>
+    Sustituir en la primera ecuación original:<br>
+    2(27/19) + 3y = 12<br>
+    54/19 + 3y = 228/19<br>
+    3y = 174/19<br>
+    y = 58/19<br><br>
+    Solución: <strong>(x, y) = (27/19, 58/19)</strong>
+  </div>
+
+  <h2>Casos Especiales: Sistemas sin Solución e Infinitas Soluciones</h2>
+
+  <div class="example">
+    <strong>Sistema inconsistente (sin solución):</strong><br>
+    { 2x + 4y = 8 } y { x + 2y = 10 }<br><br>
+    Multiplicar la segunda × 2: 2x + 4y = 20<br>
+    Restar de la primera: 0 = 8 − 20 = <strong>−12</strong><br><br>
+    La afirmación 0 = −12 es <strong>imposible</strong>. El sistema no tiene solución.<br>
+    Geométricamente: ambas rectas tienen la misma pendiente (−1/2) pero diferente intersección → son <strong>paralelas</strong>.
+  </div>
+
+  <div class="example">
+    <strong>Sistema dependiente (infinitas soluciones):</strong><br>
+    { 4x − 2y = 6 } y { 2x − y = 3 }<br><br>
+    Multiplicar la segunda × 2: 4x − 2y = 6<br>
+    Restar de la primera: 0 = 0 ✓<br><br>
+    La afirmación 0 = 0 es siempre verdadera. El sistema tiene <strong>infinitas soluciones</strong>.<br>
+    Ambas ecuaciones representan la misma recta. La solución general es: y = 2x − 3 (infinitos pares (x, 2x−3)).
+  </div>
+
+  <h2>Cuándo Usar Cada Método</h2>
+
+  <table>
+    <tr><th>Situación</th><th>Método recomendado</th><th>Razón</th></tr>
+    <tr><td>Una ecuación ya tiene x o y despejada</td><td>Sustitución</td><td>Solo hay que sustituir directamente</td></tr>
+    <tr><td>Coeficientes de una variable son iguales o opuestos</td><td>Eliminación</td><td>Se elimina la variable sin multiplicar</td></tr>
+    <tr><td>Ecuaciones con fracciones complicadas</td><td>Eliminación (multiplicar para limpiar)</td><td>Evita trabajar con fracciones en dos ecuaciones</td></tr>
+    <tr><td>Sistema 3×3 o más grande</td><td>Eliminación gaussiana / matrices</td><td>La sustitución se vuelve inmanejable</td></tr>
+  </table>
+
+  <h2>Problemas de Palabras: Estrategia Completa</h2>
+
+  <div class="example">
+    <strong>Problema de mezclas:</strong><br>
+    Se mezclan dos soluciones: una al 20% de ácido y otra al 50% de ácido, para obtener 100 litros de solución al 35% de ácido. ¿Cuántos litros de cada solución se necesitan?<br><br>
+    Variables: x = litros de solución al 20%, y = litros de solución al 50%<br><br>
+    Ecuación 1 (cantidad total): x + y = 100<br>
+    Ecuación 2 (cantidad de ácido): 0,20x + 0,50y = 0,35 × 100 = 35<br><br>
+    De la ecuación 1: x = 100 − y<br>
+    Sustituir en la ecuación 2:<br>
+    0,20(100 − y) + 0,50y = 35<br>
+    20 − 0,20y + 0,50y = 35<br>
+    0,30y = 15<br>
+    y = 50 litros al 50%<br>
+    x = 100 − 50 = 50 litros al 20%<br><br>
+    Verificación: 0,20(50) + 0,50(50) = 10 + 25 = 35 ✓
+  </div>
+
+  <div class="example">
+    <strong>Problema de distancia-velocidad-tiempo:</strong><br>
+    Dos trenes parten simultáneamente de ciudades que están a 480 km de distancia, viajando el uno hacia el otro. El tren A va a 90 km/h y el tren B a 70 km/h. ¿Cuándo se encuentran?<br><br>
+    Variables: t = tiempo hasta el encuentro (en horas)<br>
+    La suma de sus distancias = 480 km:<br>
+    90t + 70t = 480<br>
+    160t = 480<br>
+    t = 3 horas<br><br>
+    Distancia recorrida por A: 90 × 3 = 270 km desde ciudad A<br>
+    Distancia recorrida por B: 70 × 3 = 210 km desde ciudad B<br>
+    270 + 210 = 480 ✓
+  </div>
+
+  <div class="example">
+    <strong>Problema económico (punto de equilibrio):</strong><br>
+    Una empresa tiene costos fijos de $2.000/mes y costos variables de $15 por unidad producida. El precio de venta es $35 por unidad. ¿Cuántas unidades debe vender para alcanzar el punto de equilibrio?<br><br>
+    Costo total C = 2000 + 15x<br>
+    Ingreso total I = 35x<br><br>
+    En el punto de equilibrio: C = I<br>
+    2000 + 15x = 35x<br>
+    2000 = 20x<br>
+    x = <strong>100 unidades</strong><br><br>
+    Por debajo de 100 unidades: pérdidas. Por encima: ganancias.
+  </div>
+
+  <h2>Sistemas de 3 Variables</h2>
+
+  <div class="example">
+    <strong>Ejemplo: sistema 3×3</strong><br>
+    { x + y + z = 6 }<br>
+    { 2x − y + z = 3 }<br>
+    { x + 2y − z = 4 }<br><br>
+    Paso 1 — Eliminar z sumando ecuaciones 1 y 3:<br>
+    (x + y + z) + (x + 2y − z) = 6 + 4<br>
+    2x + 3y = 10 ... (ecuación A)<br><br>
+    Paso 2 — Eliminar z sumando ecuaciones 2 y 3:<br>
+    (2x − y + z) + (x + 2y − z) = 3 + 4<br>
+    3x + y = 7 ... (ecuación B)<br><br>
+    Paso 3 — Resolver sistema 2×2 con A y B:<br>
+    De B: y = 7 − 3x<br>
+    Sustituir en A: 2x + 3(7 − 3x) = 10 → 2x + 21 − 9x = 10 → −7x = −11 → x = 11/7<br>
+    y = 7 − 3(11/7) = 49/7 − 33/7 = 16/7<br>
+    z = 6 − 11/7 − 16/7 = 42/7 − 27/7 = 15/7<br><br>
+    Solución: (x, y, z) = (11/7, 16/7, 15/7)
+  </div>
+
+  <h2>Introducción a Matrices: Representación y Operaciones de Fila</h2>
+
+  <div class="highlight-box">
+    <strong>Matriz aumentada de un sistema 2×2:</strong><br>
+    El sistema { 2x + 3y = 13 } y { x − y = 1 } se representa como:<br><br>
+    [ 2  3 | 13 ]<br>
+    [ 1 −1 |  1 ]<br><br>
+    Las operaciones de fila permitidas (que no cambian la solución):<br>
+    1. Intercambiar dos filas<br>
+    2. Multiplicar una fila por una constante no nula<br>
+    3. Sumar un múltiplo de una fila a otra fila<br><br>
+    El objetivo de la eliminación gaussiana es llegar a la forma escalonada reducida (RREF) donde la solución es evidente.
+  </div>
+
+  <div class="summary">
+    <h2>Resumen del Capítulo</h2>
+    <ul>
+      <li>Un sistema de 2×2 tiene solución única (rectas que se cruzan), sin solución (rectas paralelas) o infinitas soluciones (misma recta) — la geometría revela la álgebra.</li>
+      <li>Sustitución: despejar una variable en una ecuación, sustituir en la otra, resolver, verificar. Mejor cuando una variable ya está casi despejada.</li>
+      <li>Eliminación: multiplicar ecuaciones para igualar coeficientes de una variable, sumar/restar para eliminarla, resolver la ecuación resultante. Mejor cuando los coeficientes son simétricos.</li>
+      <li>Sistema inconsistente: la eliminación produce 0 = constante ≠ 0 (imposible). Sistema dependiente: produce 0 = 0 (siempre verdadero, infinitas soluciones).</li>
+      <li>Estrategia para problemas de palabras: definir variables explícitamente, escribir dos ecuaciones, resolver el sistema, verificar en el contexto del problema original.</li>
+      <li>Los sistemas 3×3 se resuelven eliminando una variable para reducir a 2×2, luego resolviendo ese sistema.</li>
+      <li>La representación matricial y las operaciones de fila son la base del método gaussiano, indispensable para sistemas grandes.</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

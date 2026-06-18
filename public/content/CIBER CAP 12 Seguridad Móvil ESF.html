@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seguridad en Dispositivos Móviles: Protegiendo tu Smartphone | Español Sin Fronteras</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.8; }
+    .wrapper { max-width: 860px; margin: 0 auto; background: #fff; padding: 60px 72px; min-height: 100vh; }
+    .course-tag { font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #7c3aed; margin-bottom: 12px; }
+    h1 { font-size: 2rem; font-weight: 700; color: #0f172a; margin-bottom: 8px; line-height: 1.3; }
+    .subtitle { font-size: 1.05rem; color: #64748b; margin-bottom: 40px; font-style: italic; }
+    hr { border: none; border-top: 2px solid #ddd6fe; margin: 32px 0; }
+    h2 { font-size: 1.35rem; font-weight: 700; color: #1e293b; margin: 36px 0 16px; }
+    h3 { font-size: 1.1rem; font-weight: 700; color: #7c3aed; margin: 24px 0 10px; }
+    p { margin-bottom: 16px; font-size: 1rem; }
+    ul, ol { margin: 16px 0 16px 24px; }
+    li { margin-bottom: 8px; font-size: 1rem; }
+    .highlight-box { background: #f5f3ff; border-left: 4px solid #7c3aed; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .example { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin: 20px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.95rem; }
+    th { background: #7c3aed; color: white; padding: 12px 16px; text-align: left; font-family: Arial, sans-serif; font-weight: 600; }
+    td { padding: 11px 16px; border-bottom: 1px solid #e2e8f0; }
+    tr:nth-child(even) td { background: #f8fafc; }
+    .summary { background: #0f172a; color: #e2e8f0; border-radius: 12px; padding: 28px 32px; margin: 40px 0 0; }
+    .summary h2 { color: #fff; margin-top: 0; }
+    .summary li { color: #cbd5e1; }
+    @media (max-width: 640px) { .wrapper { padding: 32px 24px; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="course-tag">Ciberseguridad · Capítulo 12</div>
+  <h1>Seguridad en Dispositivos Móviles: Protegiendo tu Smartphone</h1>
+  <p class="subtitle">El teléfono que llevas en el bolsillo es el dispositivo más personal que existe — y también uno de los más atacados. Aprende a defenderte.</p>
+  <hr>
+
+  <h2>El Panorama de Amenazas Móviles</h2>
+  <p>El teléfono inteligente se ha convertido en el centro de nuestra vida digital: correo bancario, fotos personales, conversaciones privadas, ubicación en tiempo real, documentos de trabajo y acceso a docenas de cuentas. Esta concentración de información lo convierte en el objetivo más valioso para los atacantes.</p>
+
+  <div class="highlight-box">
+    <strong>Estadísticas clave:</strong> El 60% del fraude digital a nivel mundial ocurre ahora a través de dispositivos móviles. Google Play Protect escanea más de 100 mil millones de aplicaciones al día en busca de comportamiento malicioso. Sin embargo, el malware móvil sigue evolucionando más rápido que las defensas.
+  </div>
+
+  <p>La amenaza no viene solo de "hackers en internet" — también proviene de aplicaciones aparentemente legítimas, redes Wi-Fi públicas, cables USB en aeropuertos, y personas de confianza que instalan software de vigilancia en tu dispositivo.</p>
+
+  <h2>iOS vs. Android: Modelos de Seguridad Comparados</h2>
+
+  <h3>El modelo de seguridad de iOS</h3>
+  <p>Apple diseñó iOS desde el principio con un modelo de seguridad restrictivo. Sus pilares son:</p>
+  <ul>
+    <li><strong>Sandboxing de aplicaciones:</strong> cada app vive en su propio contenedor aislado y no puede acceder directamente a los datos de otras apps ni al sistema operativo.</li>
+    <li><strong>Revisión del App Store:</strong> Apple revisa manualmente cada app antes de publicarla. En 2022, Apple rechazó más de 1.7 millones de apps por razones de seguridad o privacidad, y eliminó 400,000 apps que no habían sido actualizadas y representaban riesgo.</li>
+    <li><strong>Firma de código (code signing):</strong> solo el código firmado por Apple puede ejecutarse. El sistema verifica la integridad del código en cada ejecución.</li>
+    <li><strong>Secure Enclave:</strong> un coprocesador separado que almacena claves criptográficas, datos biométricos (Face ID, Touch ID) y gestiona el cifrado del dispositivo, completamente aislado del procesador principal.</li>
+    <li><strong>Sin sideloading (excepto UE):</strong> en la mayoría del mundo, solo puedes instalar apps desde el App Store. La Ley de Mercados Digitales de la UE (DMA) obligó a Apple a permitir tiendas alternativas en Europa desde 2024, lo que introduce nuevos riesgos.</li>
+  </ul>
+
+  <h3>El modelo de seguridad de Android</h3>
+  <p>Android es más abierto y personalizable, lo que tiene ventajas y desventajas de seguridad:</p>
+  <ul>
+    <li><strong>Play Protect:</strong> escanea apps en el dispositivo en tiempo real, no solo durante la instalación.</li>
+    <li><strong>Sideloading permitido:</strong> puedes instalar APKs desde fuentes externas, lo que multiplica el riesgo de malware.</li>
+    <li><strong>Problema de fragmentación:</strong> miles de fabricantes (Samsung, Xiaomi, Huawei, etc.) modifican Android y son responsables de distribuir parches de seguridad. Muchos lo hacen con meses de retraso o nunca. Aproximadamente el 3% de dispositivos Android aún corren Android 7 (2016), que ya no recibe parches de seguridad.</li>
+    <li><strong>Google Security Rewards:</strong> paga hasta $1.5 millones por vulnerabilidades críticas en Android.</li>
+  </ul>
+
+  <table>
+    <tr><th>Característica</th><th>iOS</th><th>Android</th></tr>
+    <tr><td>Tienda de apps</td><td>Solo App Store (excepto EU)</td><td>Play Store + sideloading posible</td></tr>
+    <tr><td>Actualizaciones</td><td>Apple controla directamente, soporte 5-6 años</td><td>Depende del fabricante, promedio 2-3 años</td></tr>
+    <tr><td>Cifrado por defecto</td><td>Sí, desde iOS 8 (2014)</td><td>Sí, requerido desde Android 6 (2015)</td></tr>
+    <tr><td>Sandboxing</td><td>Muy estricto</td><td>Estricto pero con más excepciones</td></tr>
+    <tr><td>Permisos de apps</td><td>Granulares, controlados por usuario</td><td>Granulares, pero varía por fabricante</td></tr>
+    <tr><td>Vulnerabilidad a malware</td><td>Menor (ecosistema cerrado)</td><td>Mayor (especialmente fuera del Play Store)</td></tr>
+  </table>
+
+  <h2>Malware Móvil: Las Amenazas Más Peligrosas</h2>
+
+  <h3>Pegasus: El Espía en tu Bolsillo</h3>
+  <p>Pegasus es el spyware más sofisticado conocido públicamente, desarrollado por NSO Group, una empresa israelí que vende software de vigilancia exclusivamente a gobiernos. Lo que hace a Pegasus excepcional — y aterrador — es su capacidad de <strong>infección zero-click</strong>: puede comprometer un dispositivo sin que la víctima abra ningún archivo ni haga clic en ningún enlace.</p>
+
+  <p>Una vez instalado, Pegasus puede: leer todos los mensajes (incluyendo Signal y WhatsApp cifrados), activar el micrófono y la cámara sin que se enciendan los indicadores visibles, rastrear la ubicación GPS, acceder a emails y fotos, y transmitir todo en tiempo real al operador. El Citizen Lab de la Universidad de Toronto documentó el uso de Pegasus contra periodistas, activistas, abogados de derechos humanos y opositores políticos en México, Arabia Saudita, India, Azerbaiyán y docenas de países más. Hay evidencia de que el teléfono del periodista Jamal Khashoggi, asesinado en el consulado saudí en Estambul en 2018, fue comprometido con Pegasus antes de su muerte.</p>
+
+  <div class="highlight-box">
+    <strong>¿Estás en riesgo de Pegasus?</strong> Pegasus cuesta millones de dólares y se usa contra objetivos de alto valor (periodistas, disidentes, activistas, políticos). La persona promedio no es objetivo directo. Sin embargo, la existencia de Pegasus demuestra que las vulnerabilidades zero-click existen y que ningún dispositivo es invulnerable si tienes suficientes recursos y motivación para atacarlo.
+  </div>
+
+  <h3>FluBot: El Troyano Bancario</h3>
+  <p>FluBot se distribuyó masivamente en Europa y Australia (2020-2022) mediante SMS falsos que simulaban ser notificaciones de paquetes de DHL, FedEx o Amazon. Al hacer clic e instalar la "app de rastreo", el malware se instalaba y: robaba credenciales bancarias, leía y enviaba SMS (incluyendo códigos 2FA), y se autopropagaba enviando SMS a todos los contactos de la víctima. Europol logró desmantelarlo en 2022 con la cooperación de 11 países.</p>
+
+  <h3>Joker Malware</h3>
+  <p>Joker (también conocido como Bread) es un malware que ha aparecido repetidamente en Google Play Store desde 2017 a pesar de los filtros de seguridad. Su táctica principal: suscribir silenciosamente a las víctimas a servicios premium de SMS que cuestan dinero real, mientras simula hacer clic en anuncios para generar ingresos fraudulentos. Google ha eliminado más de 1,700 apps infectadas con Joker del Play Store, pero sigue reapareciendo en nuevas formas.</p>
+
+  <h3>Cómo el Malware Evade las Tiendas Oficiales</h3>
+  <ul>
+    <li><strong>Actualizaciones maliciosas:</strong> una app legítima pasa la revisión, luego recibe una actualización que añade código malicioso.</li>
+    <li><strong>SDK de terceros comprometidos:</strong> el caso XcodeGhost (2015) comprometió más de 400 apps legítimas de iOS porque los desarrolladores descargaron una versión falsa de Xcode (el IDE de Apple) de servidores chinos. El compilador insertaba código malicioso en todas las apps compiladas con él.</li>
+    <li><strong>Ingeniería social:</strong> apps que piden permisos excesivos pero explican razones convincentes.</li>
+  </ul>
+
+  <h2>Lista de Verificación: Asegura tu Smartphone</h2>
+
+  <h3>Bloqueo de pantalla y autenticación</h3>
+  <ul>
+    <li><strong>PIN de 6 dígitos mínimo</strong> — los PINs de 4 dígitos tienen solo 10,000 combinaciones posibles; con 6 dígitos son 1,000,000. Mejor aún: usa una contraseña alfanumérica.</li>
+    <li><strong>Biometría como segundo factor, no como único:</strong> la huella dactilar y Face ID son convenientes, pero en algunos países la policía puede legalmente forzarte a usar tu biometría. Un PIN/contraseña tiene protección legal diferente en muchas jurisdicciones.</li>
+    <li><strong>Tiempo de bloqueo automático:</strong> configura el bloqueo automático a 30 segundos o 1 minuto máximo.</li>
+    <li><strong>Desactiva las notificaciones en pantalla de bloqueo</strong> para mensajes y emails — revelan información sensible sin desbloquear el dispositivo.</li>
+  </ul>
+
+  <h3>Cifrado y actualizaciones</h3>
+  <ul>
+    <li>Verifica que el cifrado del dispositivo esté activo (iOS: activo por defecto desde iOS 8; Android: Configuración → Seguridad → Cifrado)</li>
+    <li>Instala actualizaciones del sistema operativo dentro de las 72 horas de disponibilidad — los parches de seguridad son críticos</li>
+    <li>Activa las actualizaciones automáticas de apps</li>
+  </ul>
+
+  <h2>Auditoría de Permisos de Aplicaciones</h2>
+  <p>Muchas apps solicitan permisos que no necesitan para su función principal. Esta tabla muestra qué permisos son razonables y cuáles son sospechosos:</p>
+
+  <table>
+    <tr><th>Permiso</th><th>Apps que lo necesitan legítimamente</th><th>Sospechoso si lo pide</th></tr>
+    <tr><td>Cámara</td><td>Instagram, Zoom, escáner de documentos</td><td>Calculadora, linterna, juego simple</td></tr>
+    <tr><td>Micrófono</td><td>WhatsApp, app de grabación de voz, asistente de voz</td><td>App de recetas, linternas, wallpapers</td></tr>
+    <tr><td>Ubicación</td><td>Maps, Uber, clima local</td><td>App de fondo de pantalla, calculadora, juego offline</td></tr>
+    <tr><td>Contactos</td><td>WhatsApp, app de teléfono</td><td>Juegos, apps de edición de fotos</td></tr>
+    <tr><td>SMS</td><td>App de SMS nativa, apps bancarias (para 2FA)</td><td>Cualquier app que no sea de mensajería o banco</td></tr>
+  </table>
+
+  <p>Para revocar permisos:</p>
+  <ul>
+    <li><strong>iOS:</strong> Configuración → Privacidad y seguridad → selecciona la categoría de permiso → ve qué apps lo tienen</li>
+    <li><strong>Android:</strong> Configuración → Aplicaciones → selecciona la app → Permisos</li>
+  </ul>
+
+  <h3>Señales de stalkerware</h3>
+  <p>El stalkerware (también llamado spouseware) es software instalado por una persona cercana para espiarte. Señales de alerta:</p>
+  <ul>
+    <li>La batería se agota mucho más rápido de lo normal</li>
+    <li>El dispositivo se calienta incluso en reposo</li>
+    <li>Mayor consumo de datos móviles sin razón aparente</li>
+    <li>El dispositivo se queda en pantalla en blanco un momento antes de mostrarte lo que estás haciendo</li>
+    <li>La persona que sospechas sabe cosas que solo podrías haber dicho en privado</li>
+  </ul>
+
+  <h2>Juice Jacking: El Peligro de los Puertos USB Públicos</h2>
+
+  <div class="highlight-box">
+    <strong>¿Qué es el juice jacking?</strong> El cable USB lleva simultáneamente corriente eléctrica Y datos. Un puerto USB de carga en un aeropuerto, hotel, centro comercial o avión podría estar modificado para establecer una conexión de datos con tu dispositivo mientras "solo" lo cargas, permitiendo robar datos o instalar malware.
+  </div>
+
+  <p>El FBI y la FCC de Estados Unidos han emitido advertencias oficiales sobre juice jacking en aeropuertos y centros comerciales. En 2023 el FBI recomendó específicamente evitar los puertos USB públicos.</p>
+
+  <h3>Cómo protegerte</h3>
+  <ul>
+    <li><strong>Lleva tu propio cargador y conéctalo a un tomacorriente AC</strong> (la corriente eléctrica estándar no puede transferir datos)</li>
+    <li><strong>USB data blocker</strong> (también llamado "USB condón"): un pequeño adaptador que bloquea los pines de datos del USB, permitiendo solo la carga. Cuestan entre $5 y $15 y son muy efectivos.</li>
+    <li>Usa un banco de baterías (powerbank) propio en lugar de puertos públicos</li>
+    <li>Si debes usar un puerto USB público, selecciona "Solo cargar" en el menú que aparece en tu teléfono (nunca "Compartir datos" o "Transferir archivos")</li>
+  </ul>
+
+  <h2>Ataques Bluetooth</h2>
+  <p>Bluetooth es conveniente pero introduce vulnerabilidades cuando está siempre activo y en modo descubierto:</p>
+
+  <ul>
+    <li><strong>Bluejacking:</strong> envío no solicitado de mensajes o archivos a dispositivos Bluetooth cercanos. Molesto pero raramente peligroso en sí mismo.</li>
+    <li><strong>Bluesnarfing:</strong> acceso no autorizado a datos de un dispositivo Bluetooth (contactos, calendarios, mensajes) sin el conocimiento del propietario.</li>
+    <li><strong>BlueBorne (2017):</strong> la vulnerabilidad más grave descubierta en Bluetooth. Permitía comprometer dispositivos <em>sin emparejamiento previo y sin que el usuario hiciera nada</em>. Afectó a 5.3 mil millones de dispositivos (Android, iOS, Windows, Linux). Armis Security la descubrió y notificó a los fabricantes antes de publicarla.</li>
+  </ul>
+
+  <h3>Buenas prácticas con Bluetooth</h3>
+  <ul>
+    <li>Desactiva Bluetooth cuando no lo estés usando activamente</li>
+    <li>Nunca dejes el dispositivo en modo "descubierto" (visible para otros) más tiempo del necesario para emparejar</li>
+    <li>Mantén el sistema operativo actualizado — BlueBorne y vulnerabilidades similares se parchean mediante actualizaciones</li>
+    <li>En lugares concurridos (aeropuertos, metro), considera desactivar tanto Bluetooth como Wi-Fi</li>
+  </ul>
+
+  <h2>Banca Móvil: Mejores Prácticas</h2>
+  <ul>
+    <li><strong>App nativa del banco vs. navegador:</strong> la app nativa es más segura porque implementa certificate pinning (verifica que el certificado TLS sea específicamente el del banco, protegiendo contra ataques man-in-the-middle)</li>
+    <li>Activa notificaciones push para CADA transacción — detectarás movimientos no autorizados en segundos</li>
+    <li>Activa la autenticación biométrica en la app bancaria como segunda capa</li>
+    <li>Cuidado con el <em>shoulder surfing</em>: quien está detrás de ti en el metro o cafetería puede ver tu PIN o los movimientos de tu cuenta</li>
+  </ul>
+
+  <h2>Device Management (MDM) en Dispositivos de Trabajo</h2>
+  <p>Si usas un dispositivo corporativo o has instalado un perfil MDM de tu empleador, es importante saber qué puede ver y hacer tu empresa:</p>
+  <ul>
+    <li>Ver el inventario de apps instaladas</li>
+    <li>Configurar políticas de contraseña y cifrado</li>
+    <li>Borrar remotamente el dispositivo (o solo los datos corporativos en BYOD)</li>
+    <li>Instalar o eliminar apps corporativas</li>
+    <li>Ver el número de serie, modelo y versión de OS</li>
+  </ul>
+  <p>Lo que típicamente NO pueden ver en dispositivos personales con perfil BYOD: tus mensajes personales, fotos o historial de navegación fuera de las apps corporativas.</p>
+
+  <h2>Dispositivo Perdido o Robado</h2>
+
+  <div class="example">
+    <strong>Protocolo ante pérdida o robo de dispositivo:</strong>
+    <ol>
+      <li><strong>iOS:</strong> Accede a icloud.com/find desde otro dispositivo → Find My → marca el dispositivo como perdido (bloquea con PIN y muestra mensaje de contacto) → si es necesario, borra remotamente. Activation Lock evita que alguien use el dispositivo con otra Apple ID aunque lo borre.</li>
+      <li><strong>Android:</strong> Ve a android.com/find → inicia sesión → puedes hacer sonar el dispositivo, bloquear con PIN, o borrarlo. Factory Reset Protection (FRP) requiere la contraseña de la cuenta Google después de un borrado de fábrica.</li>
+      <li>Cambia inmediatamente las contraseñas de tus cuentas más sensibles (banco, email principal, redes sociales)</li>
+      <li>Notifica a tu operadora para bloquear la SIM</li>
+      <li>Denuncia el robo a la policía (necesario para seguros)</li>
+    </ol>
+    <p><strong>Limitación importante:</strong> el borrado remoto solo funciona si el dispositivo tiene conexión a internet. Un atacante sofisticado puede aislar el dispositivo (modo avión) antes de intentar extraer datos.</p>
+  </div>
+
+  <div class="summary">
+    <h2>Resumen / Summary</h2>
+    <ul>
+      <li>El 60% del fraude digital ocurre en móviles; iOS tiene modelo más cerrado (Secure Enclave, App Store revisado, sin sideloading), Android es más abierto con mayor riesgo de fragmentación y malware.</li>
+      <li>Pegasus (NSO Group) puede comprometer dispositivos iOS y Android sin ninguna interacción del usuario (zero-click); se ha usado contra periodistas y disidentes políticos.</li>
+      <li>Usa PIN de 6+ dígitos, activa cifrado completo, mantén el OS actualizado y configura bloqueo automático en 30-60 segundos.</li>
+      <li>Audita los permisos de tus apps: una calculadora o linterna que pide acceso al micrófono o contactos es una señal de alarma clara.</li>
+      <li>El juice jacking aprovecha que los puertos USB transmiten datos además de corriente; usa un USB data blocker o conecta a tomacorrientes AC con tu propio cargador.</li>
+      <li>BlueBorne (2017) comprometió 5.3 mil millones de dispositivos sin emparejamiento previo; mantén Bluetooth desactivado cuando no lo uses.</li>
+      <li>Ante pérdida o robo: usa Find My (iOS) o android.com/find para bloquear o borrar remotamente, y cambia contraseñas de cuentas críticas inmediatamente.</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

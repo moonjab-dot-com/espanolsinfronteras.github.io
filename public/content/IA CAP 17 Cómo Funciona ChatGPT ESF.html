@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cómo Funciona ChatGPT por Dentro | Español Sin Fronteras</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.8; }
+    .wrapper { max-width: 860px; margin: 0 auto; background: #fff; padding: 60px 72px; min-height: 100vh; }
+    .course-tag { font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #7c3aed; margin-bottom: 12px; }
+    h1 { font-size: 2rem; font-weight: 700; color: #0f172a; margin-bottom: 8px; line-height: 1.3; }
+    .subtitle { font-size: 1.05rem; color: #64748b; margin-bottom: 40px; font-style: italic; }
+    hr { border: none; border-top: 2px solid #ddd6fe; margin: 32px 0; }
+    h2 { font-size: 1.35rem; font-weight: 700; color: #1e293b; margin: 36px 0 16px; }
+    h3 { font-size: 1.1rem; font-weight: 700; color: #7c3aed; margin: 24px 0 10px; }
+    p { margin-bottom: 16px; font-size: 1rem; }
+    ul, ol { margin: 16px 0 16px 24px; }
+    li { margin-bottom: 8px; font-size: 1rem; }
+    .highlight-box { background: #f5f3ff; border-left: 4px solid #7c3aed; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .example { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin: 20px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.95rem; }
+    th { background: #7c3aed; color: white; padding: 12px 16px; text-align: left; font-family: Arial, sans-serif; font-weight: 600; }
+    td { padding: 11px 16px; border-bottom: 1px solid #e2e8f0; }
+    tr:nth-child(even) td { background: #f8fafc; }
+    .summary { background: #0f172a; color: #e2e8f0; border-radius: 12px; padding: 28px 32px; margin: 40px 0 0; }
+    .summary h2 { color: #fff; margin-top: 0; }
+    .summary li { color: #cbd5e1; }
+    @media (max-width: 640px) { .wrapper { padding: 32px 24px; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="course-tag">Inteligencia Artificial · Capítulo 17</div>
+  <h1>Cómo Funciona ChatGPT por Dentro: Del Token al Texto</h1>
+  <p class="subtitle">Un recorrido técnico completo desde la tokenización hasta el muestreo de respuestas, pasando por la arquitectura transformer y el proceso de entrenamiento con RLHF</p>
+  <hr>
+
+  <h2>Introducción: Desmitificando la "Caja Negra"</h2>
+  <p>ChatGPT parece mágico desde el exterior: le escribes cualquier pregunta en lenguaje natural y te responde con texto coherente, informado y contextualmente apropiado. Pero no hay magia —hay matemáticas, muchas matrices y millones de parámetros ajustados durante semanas de entrenamiento en miles de GPUs. Este capítulo abre la caja negra paso a paso, desde el primer carácter que escribes hasta la última palabra de la respuesta.</p>
+  <p>Entender el funcionamiento interno de los LLMs (Large Language Models) no es solo una curiosidad académica: te permite usar estas herramientas de manera más efectiva, entender sus limitaciones fundamentales (como las alucinaciones), y tomar decisiones informadas sobre cuándo confiar en sus respuestas y cuándo verificarlas.</p>
+
+  <h2>Paso 1: Tokenización — El Idioma de las Máquinas</h2>
+  <p>Los modelos de lenguaje no leen texto carácter por carácter ni palabra por palabra: lo hacen en "tokens", unidades que pueden ser palabras completas, partes de palabras o caracteres individuales. El tokenizador de GPT usa Byte-Pair Encoding (BPE), un algoritmo que construye un vocabulario de subpalabras aprendiendo cuáles combinaciones de caracteres aparecen frecuentemente juntas.</p>
+
+  <div class="example">
+    <strong>Ejemplos de tokenización:</strong><br><br>
+    — "ChatGPT" → ["Chat", "G", "PT"] = 3 tokens<br>
+    — "inteligencia" → ["intel", "igencia"] = 2 tokens<br>
+    — "artificial" → ["artificial"] = 1 token<br>
+    — "un perro corre" → ["un", " perro", " corre"] = 3 tokens (el espacio se incluye en el token)<br><br>
+    <strong>Regla práctica:</strong> 1 token ≈ 0,75 palabras en inglés; en español, los tokens tienden a ser más (las palabras son más largas en promedio). 100 tokens ≈ 75 palabras en inglés.
+  </div>
+
+  <p>GPT-4 tiene una ventana de contexto de 128.000 tokens, equivalente a aproximadamente 100.000 palabras o 300 páginas de texto. Esta "memoria" de contexto es todo lo que el modelo "ve" en una conversación: el system prompt, toda la historia de mensajes, y la respuesta en construcción. Todo lo que esté fuera de esta ventana no existe para el modelo.</p>
+
+  <div class="highlight-box">
+    <strong>Por qué importan los límites de tokens:</strong>
+    <ul>
+      <li>Si tu conversación supera el límite de contexto, el modelo "olvida" los mensajes más antiguos.</li>
+      <li>Los modelos más baratos tienen contextos menores (GPT-3.5: 16K tokens); los más costosos, mayores (Gemini 1.5 Pro: 1 millón de tokens).</li>
+      <li>El costo de usar la API se cobra por token, tanto de entrada como de salida.</li>
+      <li>La velocidad de respuesta depende del número de tokens: generar 1.000 tokens tarda más que 100.</li>
+    </ul>
+  </div>
+
+  <h2>Paso 2: Embeddings — Las Palabras como Puntos en el Espacio</h2>
+  <p>Cada token se convierte en un vector numérico de alta dimensión llamado embedding. GPT-4 usa vectores de 12.288 dimensiones (12.288 números flotantes por token). Estos vectores no son aleatorios: el entrenamiento los organiza de manera que tokens semánticamente similares quedan cerca en el espacio vectorial.</p>
+
+  <div class="highlight-box">
+    <strong>La geometría del significado:</strong><br>
+    La propiedad más famosa de los embeddings: el significado se codifica en relaciones vectoriales.<br>
+    vector("rey") − vector("hombre") + vector("mujer") ≈ vector("reina")<br>
+    vector("Madrid") − vector("España") + vector("Francia") ≈ vector("París")<br><br>
+    Esto no fue programado explícitamente: emergió del entrenamiento sobre miles de millones de textos donde estas relaciones semánticas aparecen consistentemente.
+  </div>
+
+  <p>La atención —el mecanismo central del transformer— opera como productos punto (dot products) entre vectores de query y key. Este producto punto mide la similitud entre vectores: cuánto debe "atender" un token a cada otro token en el contexto. Los embeddings hacen que esta similitud corresponda a similitud semántica real.</p>
+
+  <h2>Paso 3: La Arquitectura Transformer en Detalle</h2>
+  <p>El paper "Attention Is All You Need" (Vaswani et al., Google, 2017) introdujo la arquitectura transformer que subyace a GPT-4, Claude, Gemini y prácticamente todos los LLMs modernos. El nombre captura la intuición central: toda la información se propaga mediante mecanismos de atención, sin recurrencia ni convolución.</p>
+
+  <h3>Autoatención (Self-Attention)</h3>
+  <p>En cada capa transformer, cada token "atiende" a todos los demás tokens en el contexto para determinar qué información incorporar. Para cada token se calculan tres vectores:</p>
+  <ul>
+    <li><strong>Query (Q):</strong> "¿qué tipo de información busco?"</li>
+    <li><strong>Key (K):</strong> "¿qué tipo de información ofrezco?"</li>
+    <li><strong>Value (V):</strong> "¿qué información transmito si soy relevante?"</li>
+  </ul>
+  <p>La atención de un token sobre todos los demás = softmax(Q·K<sup>T</sup>/√d<sub>k</sub>) · V. El resultado es una suma ponderada de los Values de todos los tokens, donde los pesos son la relevancia (similitud Q-K). Esto permite que cada token incorpore información de cualquier posición en el contexto, independientemente de la distancia.</p>
+
+  <div class="example">
+    <strong>Por qué la complejidad O(n²) de la atención importa:</strong><br>
+    Con una secuencia de n tokens, la autoatención requiere computar n×n pares de atención. Con 128.000 tokens de contexto: 128.000² = 16.384.000.000 pares. Esto hace que los contextos largos sean extremadamente costosos computacionalmente, lo cual explica por qué los modelos con contexto de 1M de tokens (Gemini 1.5 Pro) son mucho más caros de usar y operar.
+  </div>
+
+  <h3>Atención Multi-Cabeza (Multi-Head Attention)</h3>
+  <p>En lugar de una sola operación de atención, los transformers usan múltiples "cabezas" de atención en paralelo (8 cabezas en BERT base, 96 en GPT-4). Cada cabeza aprende a atender a diferentes tipos de relaciones: una cabeza puede especializarse en relaciones sintácticas (sujeto-verbo), otra en correferencialidad (pronombres y sus antecedentes), otra en relaciones semánticas (sinónimos y antónimos). Los outputs de todas las cabezas se concatenan y proyectan para producir la representación final.</p>
+
+  <h3>Las otras subcapas del transformer</h3>
+  <ul>
+    <li><strong>Normalización de capas (Layer Norm):</strong> normaliza las activaciones para estabilizar el entrenamiento.</li>
+    <li><strong>Feed-Forward Network:</strong> dos capas lineales con activación no lineal (GELU o ReLU) aplicadas independientemente a cada posición. Donde la atención mezcla información entre posiciones, la FFN procesa cada posición independientemente. Se cree que las FFN almacenan "conocimiento factual".</li>
+    <li><strong>Conexiones residuales:</strong> cada subcapa suma su output con su input (x + sublayer(x)). Esto previene el problema del gradiente que desaparece en redes muy profundas, permitiendo entrenar modelos con 96+ capas.</li>
+  </ul>
+  <p>GPT-4 apila 96 de estos bloques transformer. La información fluye a través de todas las capas: las capas inferiores capturan sintaxis y morfología; las capas intermedias, semántica y relaciones conceptuales; las capas superiores, razonamiento de alto nivel y coherencia discursiva.</p>
+
+  <h3>Codificación posicional</h3>
+  <p>La autoatención es invariante a la posición: si intercambiáramos todos los tokens, los patrones de atención serían los mismos. Para que el modelo sepa el orden de las palabras, se añade información posicional a los embeddings. El transformer original usó funciones sinusoidales; los modelos modernos como Llama usan RoPE (Rotary Position Embedding), que codifica la posición de manera que la información posicional relativa se preserva naturalmente durante la atención.</p>
+
+  <h2>Paso 4: Entrenamiento — Tres Fases que Crean un Asistente</h2>
+
+  <h3>Fase 1: Preentrenamiento</h3>
+  <p>GPT-4 fue preentrenado sobre aproximadamente 13 billones de tokens de texto de internet, libros, GitHub, Wikipedia y otras fuentes. El objetivo de entrenamiento es simple: predecir el siguiente token. Dado "La capital de Francia es", el modelo debe predecir "París". Esta tarea aparentemente simple, aplicada a billones de ejemplos, obliga al modelo a aprender gramática, hechos, razonamiento, estilos de escritura y mucho más.</p>
+  <p>El costo de preentrenar GPT-4 se estima en 50-100 millones de dólares solo en cómputo (miles de GPUs H100 durante semanas). Llama 3 405B de Meta costó aproximadamente $30M. Estos costos hacen que el preentrenamiento de modelos frontier sea accesible solo para un puñado de empresas globales.</p>
+
+  <h3>Fase 2: Ajuste fino supervisado (SFT)</h3>
+  <p>El modelo preentrenado es bueno prediciendo texto, pero no necesariamente siendo un asistente útil. El SFT usa algunos miles de ejemplos de conversaciones modelo: "prompt de usuario" → "respuesta ideal escrita por humanos expertos". Estos ejemplos enseñan al modelo el formato conversacional, la voz del asistente y los comportamientos básicos esperados. OpenAI contrata anotadores de alta calidad para producir estas respuestas de entrenamiento.</p>
+
+  <h3>Fase 3: RLHF — Aprendizaje por Refuerzo con Retroalimentación Humana</h3>
+  <p>RLHF (Reinforcement Learning from Human Feedback) es la innovación clave que transforma un predictor de texto en un asistente genuinamente útil y alineado con valores humanos. El proceso tiene tres etapas:</p>
+
+  <div class="highlight-box">
+    <strong>El proceso RLHF paso a paso:</strong>
+    <ol>
+      <li><strong>Recolección de comparaciones:</strong> se muestran dos respuestas del modelo a un evaluador humano, quien indica cuál prefiere según criterios de utilidad, honestidad y seguridad.</li>
+      <li><strong>Entrenamiento del modelo de recompensa:</strong> un modelo separado aprende a predecir las preferencias humanas, generalizando de los miles de comparaciones etiquetadas a cualquier respuesta nueva.</li>
+      <li><strong>Optimización por PPO:</strong> el modelo de lenguaje se actualiza usando Proximal Policy Optimization (un algoritmo de aprendizaje por refuerzo) para generar respuestas que el modelo de recompensa clasifique favorablemente, sin alejarse demasiado del modelo SFT original (lo que genera respuestas extrañas).</li>
+    </ol>
+    RLHF es la razón por la que ChatGPT dice "No tengo información actualizada después de mi fecha de corte" en lugar de inventar información, y por la que rechaza solicitudes dañinas.
+  </div>
+
+  <h2>El System Prompt: El Rol Oculto</h2>
+  <p>Antes de que veas la interfaz de ChatGPT, ya hay texto en la conversación: el system prompt, inyectado automáticamente por OpenAI. Este prompt establece la personalidad del asistente, sus capacidades declaradas, sus limitaciones y sus instrucciones de comportamiento. Es lo primero que el modelo "lee" en cada conversación. Las empresas que acceden a la API de OpenAI pueden personalizar completamente el system prompt para crear asistentes con personalidades, restricciones y conocimientos específicos de su caso de uso.</p>
+
+  <h2>Paso 5: Inferencia y Muestreo</h2>
+  <p>Cuando ChatGPT genera una respuesta, no "decide" qué decir de una vez. Genera un token a la vez, y cada token generado se añade al contexto antes de generar el siguiente. Para cada posición, el modelo produce una distribución de probabilidad sobre los 50.000+ tokens del vocabulario. Luego aplica una estrategia de muestreo para seleccionar el siguiente token.</p>
+
+  <table>
+    <tr><th>Parámetro</th><th>Valor bajo</th><th>Valor alto</th><th>Uso recomendado</th></tr>
+    <tr><td>Temperatura (0-2)</td><td>Determinista, predecible, repetitivo</td><td>Creativo, variado, a veces incoherente</td><td>0.2 para código; 0.7 para conversación; 1.0+ para creatividad</td></tr>
+    <tr><td>Top-p (0-1)</td><td>Solo los tokens más probables</td><td>Mayor vocabulario, más variedad</td><td>0.9 es el estándar; bajar a 0.5 para mayor coherencia</td></tr>
+    <tr><td>Max tokens</td><td>Respuestas cortas, económicas</td><td>Respuestas largas, detalladas</td><td>Limitar para control de costos en aplicaciones</td></tr>
+    <tr><td>Frequency penalty</td><td>Sin penalización por repetición</td><td>Evita repetir las mismas palabras</td><td>0.5-1.0 para texto largo y variado</td></tr>
+  </table>
+
+  <h3>Top-p (Nucleus Sampling)</h3>
+  <p>Con top-p=0.9, el modelo solo considera el conjunto mínimo de tokens cuyas probabilidades acumuladas suman el 90%. Si "París" tiene probabilidad 0.85 para completar "La capital de Francia es ___", ese token solo supera el umbral del 90% junto con 2-3 alternativas. El muestreo se realiza solo dentro de este "núcleo", eliminando opciones muy improbables pero manteniendo variabilidad controlada.</p>
+
+  <h2>Las Alucinaciones: Por Qué la IA Inventa con Confianza</h2>
+  <p>Las alucinaciones —respuestas que suenan plausibles y confiadas pero son factualmente incorrectas— son la limitación más peligrosa de los LLMs actuales. Entender por qué ocurren es fundamental para usar estos sistemas responsablemente.</p>
+
+  <div class="highlight-box">
+    <strong>La razón técnica de las alucinaciones:</strong><br>
+    Los LLMs son modelos de lenguaje, no bases de datos: no almacenan hechos explícitamente. Al generar texto, predicen qué tokens son plausibles dado el contexto, basándose en patrones estadísticos del entrenamiento. Cuando se les pregunta algo que no está bien representado en los datos de entrenamiento —una persona poco conocida, un hecho muy específico, un artículo científico oscuro— el modelo no dice "no sé". En cambio, genera tokens que son estadísticamente plausibles dado el contexto, aunque sean factualmente incorrectos. Es una interpolación confiada en el espacio entre lo que sí aprendió.
+  </div>
+
+  <p>Las alucinaciones son más frecuentes en: citas y referencias bibliográficas específicas, fechas y números precisos, hechos sobre personas poco conocidas, información posterior a la fecha de corte del entrenamiento, y razonamiento matemático complejo. La solución práctica: siempre verificar afirmaciones específicas y críticas; usar los LLMs para razonamiento, síntesis y redacción, no como fuente primaria de hechos precisos.</p>
+
+  <h2>Costos de Inferencia y Modelos Alternativos</h2>
+
+  <table>
+    <tr><th>Modelo</th><th>Desarrollador</th><th>Costo aprox.</th><th>Característica distintiva</th></tr>
+    <tr><td>GPT-4o</td><td>OpenAI</td><td>$2.50/$10 por 1M tokens entrada/salida</td><td>Multimodal, más rápido que GPT-4</td></tr>
+    <tr><td>GPT-4o mini</td><td>OpenAI</td><td>$0.15/$0.60 por 1M tokens</td><td>Muy barato para aplicaciones de alto volumen</td></tr>
+    <tr><td>Claude 3.5 Sonnet</td><td>Anthropic</td><td>$3/$15 por 1M tokens</td><td>Mejor en razonamiento, Constitutional AI</td></tr>
+    <tr><td>Gemini 1.5 Pro</td><td>Google</td><td>$1.25/$5 por 1M tokens</td><td>Contexto de 1M tokens, integración Google</td></tr>
+    <tr><td>Llama 3.1 405B</td><td>Meta (open source)</td><td>Costo de infraestructura propio</td><td>Open source, personalizable, privacidad total</td></tr>
+    <tr><td>Mistral Large</td><td>Mistral AI</td><td>$2/$6 por 1M tokens</td><td>Fuerte en código y matemáticas, EU-based</td></tr>
+  </table>
+
+  <h3>Cuantización: ejecutar LLMs en hardware de consumo</h3>
+  <p>Los modelos grandes requieren cantidades masivas de memoria GPU: GPT-4 requeriría cientos de GB de VRAM en precisión completa FP32. La cuantización reduce la precisión numérica de los pesos del modelo: de FP32 (32 bits) a FP16 (16 bits, reducción 2×), INT8 (8 bits, reducción 4×) o INT4 (4 bits, reducción 8×). Con cuantización INT4, Llama 3 8B —un modelo de 8 mil millones de parámetros— puede ejecutarse en una GPU de consumo de 8GB de VRAM con calidad ligeramente degradada. Esto ha democratizado el acceso a LLMs potentes mediante herramientas como Ollama, LM Studio y llama.cpp.</p>
+
+  <div class="summary">
+    <h2>Resumen del Capítulo</h2>
+    <ul>
+      <li>Los LLMs procesan texto como tokens (subpalabras mediante BPE); 1 token ≈ 0,75 palabras en inglés. GPT-4 tiene una ventana de contexto de 128K tokens ≈ 100.000 palabras.</li>
+      <li>Los tokens se convierten en vectores de embeddings de alta dimensión (12.288D en GPT-4) donde la geometría codifica significado semántico (rey − hombre + mujer ≈ reina).</li>
+      <li>La arquitectura transformer empila bloques de autoatención multi-cabeza (96 en GPT-4) + feed-forward + normalización de capas + conexiones residuales. La complejidad O(n²) de la atención hace costosos los contextos largos.</li>
+      <li>El entrenamiento tiene tres fases: preentrenamiento sobre ~13B tokens (costo ~$50-100M), ajuste fino supervisado con respuestas modelo, y RLHF que alinea el comportamiento con preferencias humanas.</li>
+      <li>La temperatura y top-p controlan la aleatoriedad de las respuestas: temperatura 0 = determinista; temperatura alta = creativo pero potencialmente incoherente.</li>
+      <li>Las alucinaciones ocurren porque los LLMs predicen tokens plausibles, no recuperan hechos; son especialmente frecuentes en citas, números precisos y hechos sobre personas poco conocidas.</li>
+      <li>La cuantización (INT4) permite ejecutar modelos grandes en hardware de consumo; el ecosistema open source (Llama, Mistral) ofrece alternativas accesibles a los modelos comerciales.</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

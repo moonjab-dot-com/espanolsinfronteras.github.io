@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criptografía Básica: El Arte de Proteger la Información | Español Sin Fronteras</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.8; }
+    .wrapper { max-width: 860px; margin: 0 auto; background: #fff; padding: 60px 72px; min-height: 100vh; }
+    .course-tag { font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #7c3aed; margin-bottom: 12px; }
+    h1 { font-size: 2rem; font-weight: 700; color: #0f172a; margin-bottom: 8px; line-height: 1.3; }
+    .subtitle { font-size: 1.05rem; color: #64748b; margin-bottom: 40px; font-style: italic; }
+    hr { border: none; border-top: 2px solid #ddd6fe; margin: 32px 0; }
+    h2 { font-size: 1.35rem; font-weight: 700; color: #1e293b; margin: 36px 0 16px; }
+    h3 { font-size: 1.1rem; font-weight: 700; color: #7c3aed; margin: 24px 0 10px; }
+    p { margin-bottom: 16px; font-size: 1rem; }
+    ul, ol { margin: 16px 0 16px 24px; }
+    li { margin-bottom: 8px; font-size: 1rem; }
+    .highlight-box { background: #f5f3ff; border-left: 4px solid #7c3aed; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .warning-box { background: #fff7ed; border-left: 4px solid #ea580c; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .example { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin: 20px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.95rem; }
+    th { background: #7c3aed; color: white; padding: 12px 16px; text-align: left; font-family: Arial, sans-serif; font-weight: 600; }
+    td { padding: 11px 16px; border-bottom: 1px solid #e2e8f0; }
+    tr:nth-child(even) td { background: #f8fafc; }
+    .summary { background: #0f172a; color: #e2e8f0; border-radius: 12px; padding: 28px 32px; margin: 40px 0 0; }
+    .summary h2 { color: #fff; margin-top: 0; }
+    .summary li { color: #cbd5e1; }
+    @media (max-width: 640px) { .wrapper { padding: 32px 24px; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="course-tag">Ciberseguridad · Capítulo 6</div>
+  <h1>Criptografía Básica: El Arte de Proteger la Información</h1>
+  <p class="subtitle">Desde los cifrados de César hasta el cifrado AES-256 que protege tus datos bancarios hoy — la criptografía es el fundamento matemático de toda seguridad digital.</p>
+  <hr>
+
+  <h2>Una Historia Milenaria</h2>
+  <p>La necesidad de comunicar secretos de forma segura es tan antigua como la guerra y el comercio. Los primeros sistemas criptográficos eran simples pero ingeniosos para su época.</p>
+
+  <h3>El Cifrado César (Siglo I a.C.)</h3>
+  <p>Julio César cifraba sus mensajes militares desplazando cada letra del alfabeto 3 posiciones. La A se convertía en D, la B en E, y así sucesivamente. Para descifrar, el receptor desplazaba en sentido contrario.</p>
+  <div class="example">
+    <strong>Ejemplo de cifrado César con desplazamiento 3:</strong><br>
+    Texto original: ATAQUE AL AMANECER<br>
+    Texto cifrado: DWDTXH DO DPDQHFHU<br><br>
+    Este cifrado es trivialmente vulnerable hoy: solo hay 25 posibles desplazamientos. Un atacante puede probarlos todos en segundos.
+  </div>
+
+  <h3>La Máquina Enigma (Segunda Guerra Mundial)</h3>
+  <p>La Alemania nazi usó la máquina Enigma para cifrar comunicaciones militares. Con múltiples rotores y un panel de conexiones, generaba más de 158 quintillones de configuraciones posibles. Los aliados, con el matemático <strong>Alan Turing</strong> a la cabeza en Bletchley Park, lograron descifrarla usando las primeras computadoras de la historia. Se estima que esto acortó la guerra entre 2 y 4 años. Turing es considerado el padre de la informática moderna y un héroe de guerra — pese a lo cual fue perseguido por el gobierno británico por su homosexualidad, una injusticia histórica reconocida formalmente décadas después.</p>
+
+  <h2>Criptografía Simétrica: Una Sola Llave</h2>
+  <p>En la criptografía simétrica, la misma clave se usa para cifrar y descifrar el mensaje. Es rápida y eficiente, pero tiene un problema fundamental: ¿cómo compartes la clave con el otro extremo de forma segura?</p>
+
+  <div class="highlight-box">
+    <strong>AES (Advanced Encryption Standard):</strong> El estándar simétrico más usado en el mundo. Adoptado por el gobierno de EE.UU. en 2001 tras un proceso de competencia pública. AES-256 usa claves de 256 bits — hay 2²⁵⁶ combinaciones posibles. Para dar perspectiva: si cada átomo del universo observable fuera una computadora probando mil millones de claves por segundo desde el inicio del universo, aún no habría terminado de probar todas las posibilidades. AES-256 se considera prácticamente irrompible con hardware convencional.
+  </div>
+
+  <p>AES cifra datos en bloques de 128 bits, aplicando múltiples rondas de transformaciones matemáticas. Se usa para:</p>
+  <ul>
+    <li>Cifrado de discos duros (BitLocker en Windows, FileVault en Mac)</li>
+    <li>Cifrado de archivos ZIP y RAR</li>
+    <li>Comunicaciones Wi-Fi (WPA2 usa AES)</li>
+    <li>Cifrado de bases de datos</li>
+  </ul>
+
+  <h2>Criptografía Asimétrica: El Par de Llaves</h2>
+  <p>La criptografía asimétrica (o de clave pública) resolvió el problema de distribución de claves con una idea brillante: usa dos claves matemáticamente relacionadas — una pública (que puedes compartir con el mundo entero) y una privada (que solo tú conoces).</p>
+
+  <div class="highlight-box">
+    <strong>Principio fundamental:</strong> Lo que se cifra con la clave pública solo puede descifrarse con la clave privada correspondiente. Lo que se firma con la clave privada puede verificarse con la clave pública.<br><br>
+    <strong>La analogía del buzón:</strong> Tu clave pública es como un buzón con ranura abierta — cualquiera puede meter mensajes (cifrarlos para ti). Tu clave privada es la llave del buzón — solo tú puedes sacar y leer los mensajes.
+  </div>
+
+  <h3>RSA: El Algoritmo que Cambió el Mundo</h3>
+  <p>RSA (Rivest-Shamir-Adleman, 1977) fue el primer algoritmo asimétrico práctico. Su seguridad se basa en la dificultad computacional de factorizar el producto de dos números primos enormes. Multiplicar dos primos de 150 dígitos es trivial; encontrar los factores del resultado requeriría millones de años con hardware actual. RSA con claves de 2048 bits se considera seguro hoy; 4096 bits para uso de muy largo plazo.</p>
+
+  <h2>Funciones Hash: Las Huellas Digitales</h2>
+  <p>Una función hash toma cualquier entrada (un archivo, una contraseña, un documento) y produce una salida de longitud fija llamada hash o digest. Las propiedades esenciales:</p>
+  <ul>
+    <li><strong>Determinista:</strong> La misma entrada siempre produce el mismo hash.</li>
+    <li><strong>Unidireccional:</strong> Es computacionalmente imposible recuperar la entrada a partir del hash.</li>
+    <li><strong>Efecto avalancha:</strong> Un cambio mínimo en la entrada cambia el hash completamente.</li>
+    <li><strong>Sin colisiones (idealmente):</strong> Dos entradas diferentes no deben producir el mismo hash.</li>
+  </ul>
+
+  <div class="example">
+    <strong>SHA-256 en acción:</strong><br>
+    "Hola" → <code>d3e8b0b98c2f4c1c8a7ef8e4a2d5b9e3c1f7a8d4e2c9b5f7a1d8e3c4b2f9a7d1</code><br>
+    "hola" → <code>b221d9dbb083a7f33428d7c2a3c3198ae925614d70210e28716ccab86d1497e</code><br><br>
+    Un solo cambio de mayúscula produce un hash completamente diferente.
+  </div>
+
+  <h3>Por Qué las Contraseñas Nunca se Almacenan en Texto Plano</h3>
+  <p>Cuando creas una cuenta en un sitio web, tu contraseña no se guarda como texto. El servidor calcula el hash de tu contraseña y almacena ese hash. Cuando ingresas, el servidor calcula el hash de lo que escribiste y lo compara con el almacenado — sin necesidad de conocer tu contraseña original.</p>
+
+  <div class="warning-box">
+    <strong>MD5 está roto:</strong> El algoritmo MD5, muy usado en los años 90-2000, tiene colisiones conocidas — dos entradas diferentes producen el mismo hash. Nunca debe usarse para seguridad. SHA-1 también está comprometido desde 2017. El estándar actual es SHA-256 o SHA-3. Para contraseñas específicamente, se usan funciones como bcrypt, scrypt o Argon2 que son intencionalmente lentas para dificultar ataques de fuerza bruta.
+  </div>
+
+  <h2>Firmas Digitales: Autenticidad e Integridad</h2>
+  <p>Una firma digital usa criptografía asimétrica para garantizar dos cosas: que un mensaje realmente proviene de quien dice provenir (autenticidad) y que no fue modificado en tránsito (integridad).</p>
+  <p>El proceso: el remitente calcula el hash del mensaje y lo cifra con su clave privada — ese es la firma digital. El receptor descifra la firma con la clave pública del remitente y compara el hash resultante con el que calcula del mensaje recibido. Si coinciden: el mensaje es auténtico e íntegro.</p>
+
+  <h2>Autoridades Certificadoras y PKI</h2>
+  <p>Pero ¿cómo saber que una clave pública realmente pertenece a quien dice ser? Aquí entran las <strong>Autoridades Certificadoras (CA)</strong>, organizaciones de confianza que emiten certificados digitales que vinculan una clave pública con una identidad verificada.</p>
+  <p>La <strong>Infraestructura de Clave Pública (PKI)</strong> es el sistema que gestiona estas relaciones de confianza. Cuando visitas https://banco.com, tu navegador verifica que el certificado del sitio fue firmado por una CA de confianza (como DigiCert, Let's Encrypt, Comodo). Si alguien intenta interceptar con un certificado falso, el navegador muestra una advertencia de "Conexión no segura".</p>
+
+  <h2>TLS/SSL: Cómo HTTPS te Protege</h2>
+  <p>Cuando ves el candado en tu navegador, TLS (Transport Layer Security) está activo. El proceso de "handshake" ocurre en milisegundos:</p>
+  <ol>
+    <li>Tu navegador solicita la clave pública del servidor.</li>
+    <li>El servidor envía su certificado digital (verificable con la CA).</li>
+    <li>Tu navegador genera una clave de sesión aleatoria, la cifra con la clave pública del servidor y la envía.</li>
+    <li>Solo el servidor puede descifrarla con su clave privada.</li>
+    <li>Ambos usan esa clave de sesión (simétrica, AES) para cifrar toda la comunicación posterior — la asimétrica solo se usó para el intercambio inicial de claves.</li>
+  </ol>
+  <p>Este diseño combina lo mejor de ambos mundos: la seguridad de la distribución de claves asimétrica con la eficiencia del cifrado simétrico.</p>
+
+  <h2>Cifrado de Extremo a Extremo</h2>
+  <p>En el cifrado de extremo a extremo (E2EE), solo el remitente y el destinatario pueden leer los mensajes. Ni siquiera el proveedor del servicio tiene acceso. WhatsApp y Signal usan el <strong>Protocolo Signal</strong> para E2EE — considerado el gold standard en mensajería segura. Telegram, a pesar de su fama de seguro, NO usa E2EE por defecto — solo en sus "chats secretos".</p>
+
+  <div class="summary">
+    <h2>Resumen del Capítulo</h2>
+    <ul>
+      <li>La criptografía evolucionó desde simples cifrados de sustitución (César) hasta sistemas matemáticamente complejos capaces de proteger billones de transacciones diarias.</li>
+      <li>AES-256 es el estándar de cifrado simétrico — prácticamente irrompible con hardware actual; ideal para cifrar datos en volumen.</li>
+      <li>RSA y la criptografía asimétrica resuelven el problema de distribución de claves: la clave pública cifra, la privada descifra — nunca compartes la privada.</li>
+      <li>Las funciones hash (SHA-256) producen huellas digitales únicas e irreversibles — por eso las contraseñas se almacenan como hashes, nunca en texto plano.</li>
+      <li>Las firmas digitales garantizan autenticidad e integridad de los mensajes usando el par de claves asimétricas.</li>
+      <li>TLS/SSL (el candado del navegador) combina criptografía asimétrica para intercambiar claves y simétrica para el cifrado eficiente del tráfico.</li>
+      <li>El cifrado de extremo a extremo (Signal, WhatsApp) garantiza que ni el proveedor del servicio puede leer tus mensajes — el estándar oro para comunicaciones privadas.</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

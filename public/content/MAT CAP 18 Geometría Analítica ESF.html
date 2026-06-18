@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geometría Analítica | Español Sin Fronteras</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.8; }
+    .wrapper { max-width: 860px; margin: 0 auto; background: #fff; padding: 60px 72px; min-height: 100vh; }
+    .course-tag { font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #2563eb; margin-bottom: 12px; }
+    h1 { font-size: 2rem; font-weight: 700; color: #0f172a; margin-bottom: 8px; line-height: 1.3; }
+    .subtitle { font-size: 1.05rem; color: #64748b; margin-bottom: 40px; font-style: italic; }
+    hr { border: none; border-top: 2px solid #bfdbfe; margin: 32px 0; }
+    h2 { font-size: 1.35rem; font-weight: 700; color: #1e293b; margin: 36px 0 16px; }
+    h3 { font-size: 1.1rem; font-weight: 700; color: #2563eb; margin: 24px 0 10px; }
+    p { margin-bottom: 16px; font-size: 1rem; }
+    ul, ol { margin: 16px 0 16px 24px; }
+    li { margin-bottom: 8px; font-size: 1rem; }
+    .highlight-box { background: #eff6ff; border-left: 4px solid #2563eb; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .example { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin: 20px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.95rem; }
+    th { background: #2563eb; color: white; padding: 12px 16px; text-align: left; font-family: Arial, sans-serif; font-weight: 600; }
+    td { padding: 11px 16px; border-bottom: 1px solid #e2e8f0; }
+    tr:nth-child(even) td { background: #f8fafc; }
+    .summary { background: #0f172a; color: #e2e8f0; border-radius: 12px; padding: 28px 32px; margin: 40px 0 0; }
+    .summary h2 { color: #fff; margin-top: 0; }
+    .summary li { color: #cbd5e1; }
+    @media (max-width: 640px) { .wrapper { padding: 32px 24px; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="course-tag">Matemáticas · Capítulo 18</div>
+  <h1>Geometría Analítica: Donde el Álgebra se Encuentra con la Geometría</h1>
+  <p class="subtitle">Coordenadas cartesianas, ecuaciones de rectas, circunferencias y parábolas — el lenguaje algebraico de las figuras geométricas</p>
+  <hr>
+
+  <h2>El Sistema Cartesiano: La Gran Síntesis de Descartes</h2>
+  <p>René Descartes (1596-1650) tuvo una intuición revolucionaria que unificó la geometría y el álgebra: cualquier punto en el plano puede describirse exactamente mediante dos números —su distancia horizontal al eje vertical (coordenada x) y su distancia vertical al eje horizontal (coordenada y). Esta idea, aparentemente simple, permitió traducir problemas geométricos en ecuaciones algebraicas y viceversa.</p>
+  <p>El plano cartesiano tiene dos ejes perpendiculares que se cruzan en el <strong>origen</strong> O = (0,0). El eje horizontal es el eje x (abscisas) y el vertical es el eje y (ordenadas). Los cuatro cuadrantes se numeran I, II, III, IV en sentido antihorario desde la esquina superior derecha.</p>
+
+  <h2>Fórmula de la Distancia</h2>
+  <div class="highlight-box">
+    <strong>Derivación a partir del Teorema de Pitágoras:</strong><br><br>
+    Dados dos puntos A = (x₁, y₁) y B = (x₂, y₂), el segmento AB es la hipotenusa de un triángulo rectángulo cuyos catetos son:<br>
+    — Cateto horizontal: |x₂ − x₁|<br>
+    — Cateto vertical: |y₂ − y₁|<br><br>
+    Por Pitágoras: d² = (x₂−x₁)² + (y₂−y₁)²<br>
+    Por lo tanto: <strong>d(A,B) = √[(x₂−x₁)² + (y₂−y₁)²]</strong>
+  </div>
+
+  <div class="example">
+    <strong>Ejemplos de distancia:</strong><br><br>
+    1. A = (1, 2) y B = (4, 6):<br>
+    d = √[(4−1)² + (6−2)²] = √[9 + 16] = √25 = <strong>5</strong><br><br>
+    2. A = (−3, 1) y B = (2, −4):<br>
+    d = √[(2−(−3))² + (−4−1)²] = √[25 + 25] = √50 = 5√2 ≈ <strong>7,07</strong><br><br>
+    3. A = (0, 0) y B = (−6, 8):<br>
+    d = √[(−6)² + 8²] = √[36 + 64] = √100 = <strong>10</strong>
+  </div>
+
+  <h2>Fórmula del Punto Medio</h2>
+  <div class="highlight-box">
+    <strong>El punto medio M de un segmento AB:</strong><br>
+    M = ((x₁+x₂)/2, (y₁+y₂)/2)<br><br>
+    Intuición: el punto medio es simplemente el promedio de las coordenadas de cada extremo.
+  </div>
+
+  <div class="example">
+    <strong>Ejemplos:</strong><br><br>
+    1. A = (2, 4) y B = (8, 10): M = ((2+8)/2, (4+10)/2) = (5, 7)<br>
+    2. A = (−3, 5) y B = (7, −1): M = ((−3+7)/2, (5+(−1))/2) = (2, 2)<br>
+    3. Si M = (3, 4) y A = (1, 2), encontrar B:<br>
+    3 = (1+xB)/2 → xB = 5; 4 = (2+yB)/2 → yB = 6 → B = (5, 6)
+  </div>
+
+  <h2>Ecuación de la Recta</h2>
+
+  <h3>La pendiente</h3>
+  <div class="highlight-box">
+    <strong>Pendiente m = (y₂−y₁)/(x₂−x₁) = Δy/Δx = "subida entre avance"</strong><br><br>
+    m > 0: recta creciente (sube de izquierda a derecha)<br>
+    m < 0: recta decreciente (baja de izquierda a derecha)<br>
+    m = 0: recta horizontal (y = constante)<br>
+    m indefinida: recta vertical (x = constante); división entre 0
+  </div>
+
+  <h3>Formas de la ecuación de la recta</h3>
+
+  <table>
+    <tr><th>Forma</th><th>Ecuación</th><th>Cuándo usar</th></tr>
+    <tr><td>Pendiente-intersección</td><td>y = mx + b</td><td>Cuando se conoce la pendiente m y la intersección con el eje y (b)</td></tr>
+    <tr><td>Punto-pendiente</td><td>y − y₁ = m(x − x₁)</td><td>Cuando se conoce la pendiente y un punto de la recta</td></tr>
+    <tr><td>Forma estándar</td><td>Ax + By = C</td><td>Para sistemas de ecuaciones; A, B, C enteros</td></tr>
+    <tr><td>Dos puntos</td><td>m = (y₂−y₁)/(x₂−x₁), luego punto-pendiente</td><td>Cuando solo se conocen dos puntos</td></tr>
+  </table>
+
+  <div class="example">
+    <strong>Encontrar la ecuación de la recta que pasa por (2, 3) y (5, 9):</strong><br><br>
+    Paso 1 — Calcular la pendiente:<br>
+    m = (9−3)/(5−2) = 6/3 = 2<br><br>
+    Paso 2 — Usar forma punto-pendiente con (2, 3):<br>
+    y − 3 = 2(x − 2)<br>
+    y − 3 = 2x − 4<br>
+    y = 2x − 1<br><br>
+    Verificación con el segundo punto (5, 9): y = 2(5) − 1 = 9 ✓
+  </div>
+
+  <h3>Rectas paralelas y perpendiculares</h3>
+
+  <div class="highlight-box">
+    <strong>Condición de paralelismo:</strong> dos rectas son paralelas si y solo si tienen la misma pendiente: m₁ = m₂<br><br>
+    <strong>Condición de perpendicularidad:</strong> dos rectas son perpendiculares si y solo si sus pendientes son recíprocas negativas (opuestas): m₁ · m₂ = −1, es decir, m₂ = −1/m₁<br><br>
+    <strong>Prueba de perpendicularidad:</strong><br>
+    Si la recta L₁ tiene pendiente m, la recta perpendicular L₂ tiene pendiente −1/m. La inclinación de L₁ es arctan(m) y la de L₂ es arctan(−1/m). La diferencia de estos ángulos es exactamente 90°, que puede verificarse usando la fórmula de la tangente de la diferencia de ángulos.
+  </div>
+
+  <div class="example">
+    <strong>Ejemplo de rectas paralelas y perpendiculares:</strong><br><br>
+    Recta original: y = 3x + 2 (pendiente m = 3)<br><br>
+    Recta paralela que pasa por (1, 5):<br>
+    m = 3 (misma pendiente)<br>
+    y − 5 = 3(x − 1) → y = 3x + 2... espera, verifiquemos: 5 = 3(1) + b → b = 2<br>
+    ¡Es la misma recta! Probar con (1, 7):<br>
+    y − 7 = 3(x − 1) → y = 3x + 4 (paralela)<br><br>
+    Recta perpendicular que pasa por (2, 4):<br>
+    m⊥ = −1/3<br>
+    y − 4 = −(1/3)(x − 2)<br>
+    y = −x/3 + 2/3 + 4 = −x/3 + 14/3
+  </div>
+
+  <h2>La Circunferencia</h2>
+  <div class="highlight-box">
+    <strong>Ecuación de la circunferencia con centro (h, k) y radio r:</strong><br>
+    (x − h)² + (y − k)² = r²<br><br>
+    Derivación: un punto (x, y) está en la circunferencia si y solo si su distancia al centro (h, k) es exactamente r:<br>
+    √[(x−h)² + (y−k)²] = r → (x−h)² + (y−k)² = r² ■
+  </div>
+
+  <div class="example">
+    <strong>Ejemplo 1: Escribir la ecuación de una circunferencia</strong><br>
+    Centro (3, −2) y radio 5:<br>
+    (x − 3)² + (y − (−2))² = 5²<br>
+    <strong>(x − 3)² + (y + 2)² = 25</strong><br><br>
+    <strong>Ejemplo 2: Encontrar centro y radio de x² + y² − 4x + 6y − 3 = 0</strong><br><br>
+    Completar el cuadrado en x: x² − 4x = (x−2)² − 4<br>
+    Completar el cuadrado en y: y² + 6y = (y+3)² − 9<br><br>
+    (x−2)² − 4 + (y+3)² − 9 − 3 = 0<br>
+    (x−2)² + (y+3)² = 16<br><br>
+    Centro: <strong>(2, −3)</strong>, radio: <strong>r = 4</strong>
+  </div>
+
+  <h2>La Parábola</h2>
+  <div class="highlight-box">
+    <strong>Forma vértice de la parábola:</strong> y = a(x − h)² + k<br><br>
+    — Vértice en (h, k)<br>
+    — Si a > 0: abre hacia arriba (mínimo en el vértice)<br>
+    — Si a < 0: abre hacia abajo (máximo en el vértice)<br>
+    — Eje de simetría: x = h<br>
+    — |a| grande → parábola más angosta; |a| pequeño → más ancha
+  </div>
+
+  <div class="example">
+    <strong>Convertir y = 2x² − 12x + 19 a forma vértice:</strong><br><br>
+    Método: completar el cuadrado<br><br>
+    y = 2(x² − 6x) + 19<br>
+    y = 2(x² − 6x + 9 − 9) + 19<br>
+    y = 2(x − 3)² − 18 + 19<br>
+    y = 2(x − 3)² + 1<br><br>
+    Vértice: (3, 1). La parábola abre hacia arriba (a=2>0). Mínimo en y=1.
+  </div>
+
+  <h2>Distancia de un Punto a una Recta</h2>
+
+  <div class="highlight-box">
+    <strong>Fórmula: distancia del punto (x₀, y₀) a la recta Ax + By + C = 0:</strong><br>
+    d = |Ax₀ + By₀ + C| / √(A² + B²)
+  </div>
+
+  <div class="example">
+    <strong>Distancia del punto (3, 4) a la recta 3x − 4y + 5 = 0:</strong><br><br>
+    A = 3, B = −4, C = 5, x₀ = 3, y₀ = 4<br>
+    d = |3(3) + (−4)(4) + 5| / √(9 + 16)<br>
+    d = |9 − 16 + 5| / √25<br>
+    d = |−2| / 5 = <strong>2/5 = 0,4 unidades</strong>
+  </div>
+
+  <h2>Aplicaciones de la Geometría Analítica</h2>
+
+  <div class="example">
+    <strong>Aplicación en GPS (aproximación plana):</strong><br><br>
+    Dos torres de telefonía A = (0, 0) y B = (10, 0) km están separadas 10 km. Una señal llega a A y B con diferencias de tiempo que indican que la fuente está 6 km más cerca de A que de B. ¿Dónde está la fuente?<br><br>
+    d(P,A) = √(x² + y²)<br>
+    d(P,B) = √((x−10)² + y²)<br>
+    Condición: d(P,B) − d(P,A) = 6<br><br>
+    Esta es la definición de una hipérbola con focos en A y B. La localización exacta requiere una tercera torre para determinar el punto único.
+  </div>
+
+  <div class="example">
+    <strong>Equilibrio de oferta y demanda:</strong><br><br>
+    Demanda: p = −2q + 100 (precio baja cuando cantidad sube)<br>
+    Oferta: p = 3q + 20 (precio sube cuando cantidad sube)<br><br>
+    Punto de equilibrio = intersección:<br>
+    −2q + 100 = 3q + 20<br>
+    80 = 5q<br>
+    q* = 16 unidades, p* = −2(16) + 100 = $68<br><br>
+    El mercado se equilibra con 16 unidades a $68.
+  </div>
+
+  <div class="summary">
+    <h2>Resumen del Capítulo</h2>
+    <ul>
+      <li>El sistema cartesiano de Descartes permite describir cualquier punto del plano con dos coordenadas (x, y), unificando álgebra y geometría.</li>
+      <li>Fórmula de distancia: d = √[(x₂−x₁)² + (y₂−y₁)²] — derivada directamente del Teorema de Pitágoras.</li>
+      <li>Fórmula del punto medio: M = ((x₁+x₂)/2, (y₁+y₂)/2) — promedio de coordenadas de los extremos.</li>
+      <li>Las tres formas de la ecuación de la recta (pendiente-intersección, punto-pendiente, estándar) se convierten entre sí; rectas paralelas tienen igual pendiente y las perpendiculares tienen pendientes cuyo producto es −1.</li>
+      <li>La circunferencia (x−h)² + (y−k)² = r² se deriva de la fórmula de distancia; completar el cuadrado permite identificar centro y radio desde la forma general.</li>
+      <li>La parábola y = a(x−h)² + k tiene vértice (h,k); completar el cuadrado convierte la forma estándar y = ax²+bx+c a la forma vértice.</li>
+      <li>La geometría analítica tiene aplicaciones directas en GPS (triangulación), gráficos por computadora y modelos económicos (equilibrio oferta-demanda como intersección de rectas).</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

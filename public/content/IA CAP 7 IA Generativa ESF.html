@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IA Generativa: ChatGPT, DALL-E, Midjourney y la Revolución Creativa | Español Sin Fronteras</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.8; }
+    .wrapper { max-width: 860px; margin: 0 auto; background: #fff; padding: 60px 72px; min-height: 100vh; }
+    .course-tag { font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #7c3aed; margin-bottom: 12px; }
+    h1 { font-size: 2rem; font-weight: 700; color: #0f172a; margin-bottom: 8px; line-height: 1.3; }
+    .subtitle { font-size: 1.05rem; color: #64748b; margin-bottom: 40px; font-style: italic; }
+    hr { border: none; border-top: 2px solid #ddd6fe; margin: 32px 0; }
+    h2 { font-size: 1.35rem; font-weight: 700; color: #1e293b; margin: 36px 0 16px; }
+    h3 { font-size: 1.1rem; font-weight: 700; color: #7c3aed; margin: 24px 0 10px; }
+    p { margin-bottom: 16px; font-size: 1rem; }
+    ul, ol { margin: 16px 0 16px 24px; }
+    li { margin-bottom: 8px; font-size: 1rem; }
+    .highlight-box { background: #f5f3ff; border-left: 4px solid #7c3aed; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .example { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin: 20px 0; font-family: 'Courier New', monospace; font-size: 0.9rem; }
+    table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.95rem; }
+    th { background: #7c3aed; color: white; padding: 12px 16px; text-align: left; font-family: Arial, sans-serif; font-weight: 600; }
+    td { padding: 11px 16px; border-bottom: 1px solid #e2e8f0; }
+    tr:nth-child(even) td { background: #f8fafc; }
+    .summary { background: #0f172a; color: #e2e8f0; border-radius: 12px; padding: 28px 32px; margin: 40px 0 0; }
+    .summary h2 { color: #fff; margin-top: 0; }
+    .summary li { color: #cbd5e1; }
+    @media (max-width: 640px) { .wrapper { padding: 32px 24px; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="course-tag">Inteligencia Artificial · Capítulo 7</div>
+  <h1>IA Generativa: ChatGPT, DALL-E, Midjourney y la Revolución Creativa</h1>
+  <p class="subtitle">La IA que crea — texto, imágenes, música, vídeo y código — y está redefiniendo los límites entre la creatividad humana y la artificial.</p>
+  <hr>
+
+  <h2>¿Qué es la IA Generativa?</h2>
+  <p>La inteligencia artificial generativa es la rama de la IA que produce contenido nuevo y original: texto, imágenes, audio, vídeo, código, datos sintéticos. A diferencia de la IA discriminativa (que clasifica o predice), la IA generativa crea. Cuando le pides a ChatGPT que escriba un poema, a DALL-E que genere una ilustración, o a Suno que componga una canción, estás usando IA generativa.</p>
+
+  <p>El año 2022 fue el punto de inflexión: la publicación de ChatGPT en noviembre de ese año hizo que la IA generativa pasara de ser un tema académico a una tecnología de uso masivo. ChatGPT alcanzó 100 millones de usuarios en dos meses — la adopción más rápida de cualquier aplicación de consumo en la historia, superando a TikTok (9 meses) e Instagram (2.5 años).</p>
+
+  <h2>Grandes Modelos de Lenguaje (LLMs)</h2>
+  <p>En el corazón de ChatGPT, Claude, Gemini y todos los asistentes de IA de texto están los <strong>Grandes Modelos de Lenguaje</strong> (LLMs, por sus siglas en inglés). Son redes neuronales de la arquitectura Transformer, entrenadas en cantidades masivas de texto para predecir la siguiente palabra (o token) dada la secuencia anterior.</p>
+
+  <div class="highlight-box">
+    <strong>¿Qué son los parámetros?</strong> Los parámetros son los números (pesos) que definen el comportamiento de la red neuronal. Un modelo con más parámetros puede aprender relaciones más complejas. Sin embargo, más parámetros no es siempre mejor: requieren más datos para entrenarse, más computación para inferencia, y pueden ser superados por modelos más pequeños con mejores datos y técnicas de entrenamiento.
+  </div>
+
+  <table>
+    <tr>
+      <th>Modelo</th>
+      <th>Año</th>
+      <th>Parámetros (aprox.)</th>
+      <th>Hito</th>
+    </tr>
+    <tr>
+      <td>GPT-1 (OpenAI)</td>
+      <td>2018</td>
+      <td>117 millones</td>
+      <td>Primer modelo GPT; demostró transferencia de aprendizaje en NLP</td>
+    </tr>
+    <tr>
+      <td>GPT-2 (OpenAI)</td>
+      <td>2019</td>
+      <td>1,500 millones</td>
+      <td>OpenAI retrasó su lanzamiento por preocupaciones de uso indebido</td>
+    </tr>
+    <tr>
+      <td>GPT-3 (OpenAI)</td>
+      <td>2020</td>
+      <td>175,000 millones</td>
+      <td>Primera demostración de capacidades emergentes sorprendentes</td>
+    </tr>
+    <tr>
+      <td>PaLM (Google)</td>
+      <td>2022</td>
+      <td>540,000 millones</td>
+      <td>Razonamiento de varios pasos; codificación avanzada</td>
+    </tr>
+    <tr>
+      <td>GPT-4 (OpenAI)</td>
+      <td>2023</td>
+      <td>>1 billón (estimado)</td>
+      <td>Aprobó el examen de abogacía en el percentil 90; entrada multimodal</td>
+    </tr>
+    <tr>
+      <td>Claude 3 Opus (Anthropic)</td>
+      <td>2024</td>
+      <td>No publicado</td>
+      <td>Superó a GPT-4 en múltiples benchmarks de razonamiento</td>
+    </tr>
+    <tr>
+      <td>Gemini Ultra (Google)</td>
+      <td>2024</td>
+      <td>No publicado</td>
+      <td>Primer modelo en superar expertos humanos en MMLU</td>
+    </tr>
+  </table>
+
+  <h2>Cómo se Construyó ChatGPT: El Proceso de Tres Etapas</h2>
+
+  <h3>Etapa 1: Preentrenamiento</h3>
+  <p>El modelo aprende a predecir la siguiente palabra en texto de internet. OpenAI usó aproximadamente 570 GB de texto filtrado de Common Crawl (una copia de gran parte de la web), libros, Wikipedia y otras fuentes. A esta escala, el modelo no solo aprende gramática sino que absorbe vastos conocimientos sobre el mundo, el razonamiento matemático, la programación, la historia y prácticamente cualquier tema documentado en texto humano.</p>
+
+  <h3>Etapa 2: Ajuste Fino Supervisado (SFT)</h3>
+  <p>El modelo preentrenado responde preguntas de forma competente pero impredecible: puede ser ofensivo, divagar o no seguir instrucciones. En la segunda etapa, un equipo de trabajadores humanos crea conversaciones de ejemplo demostrando cómo debería comportarse el modelo — respuestas útiles, inofensivas y honestas. El modelo se ajusta fino sobre estos ejemplos para imitar el comportamiento deseable.</p>
+
+  <h3>Etapa 3: RLHF (Aprendizaje por Refuerzo con Retroalimentación Humana)</h3>
+  <p>Esta es la etapa que más diferencia a ChatGPT de un modelo GPT estándar. Los trabajadores humanos comparan pares de respuestas del modelo y ordenan cuál es mejor. Un modelo de recompensa aprende a predecir qué respuestas prefieren los humanos. Luego, usando aprendizaje por refuerzo (PPO — Proximal Policy Optimization), el modelo principal se optimiza para producir respuestas que el modelo de recompensa califica como buenas. Este ciclo convierte un potente predictor de texto en un asistente útil y alineado con los valores humanos.</p>
+
+  <h2>Prompts del Sistema, Temperatura y Contexto</h2>
+  <p>Cuando usas ChatGPT, Claude o Gemini, hay una arquitectura de conversación bajo el capó:</p>
+
+  <div class="example">
+Estructura de una conversación con un LLM:
+
+[SYSTEM PROMPT]
+"Eres un tutor de matemáticas amable y paciente.
+Explica conceptos paso a paso. Usa ejemplos concretos.
+Nunca des la respuesta directa; guía al estudiante
+a descubrirla."
+
+[USER]
+"No entiendo cómo resolver ecuaciones cuadráticas."
+
+[ASSISTANT]
+"¡Excelente pregunta! Empecemos con lo básico.
+¿Sabes qué es una ecuación de segundo grado?..."
+
+[USER]
+"Sí, es cuando hay x al cuadrado."
+
+[ASSISTANT]
+"¡Exacto! Ahora, ¿puedes decirme cuántas soluciones
+puede tener una ecuación así?..."
+  </div>
+
+  <p>El <strong>prompt del sistema</strong> establece el comportamiento del modelo para toda la conversación. El <strong>historial de conversación</strong> permite al modelo mantener contexto entre mensajes. El tamaño del historial que el modelo puede "recordar" se llama <strong>ventana de contexto</strong>: GPT-3.5 puede manejar ~4,000 tokens; GPT-4 Turbo hasta 128,000 tokens (aproximadamente un libro de 100,000 palabras).</p>
+
+  <p>La <strong>temperatura</strong> controla la aleatoriedad de las respuestas. Con temperatura 0, el modelo siempre elige el token más probable — respuestas deterministas y conservadoras. Con temperatura 1, hay más variabilidad y creatividad. Con temperatura 2, las respuestas se vuelven caóticas e incoherentes. Para tareas de análisis de datos: temperatura 0; para escritura creativa: 0.7-1.0.</p>
+
+  <h2>Generación de Imágenes: Modelos de Difusión</h2>
+  <p>Mientras los LLMs generan texto token a token, los modelos de generación de imágenes como DALL-E 3, Midjourney y Stable Diffusion usan un enfoque radicalmente diferente: los <strong>modelos de difusión</strong>.</p>
+
+  <div class="highlight-box">
+    <strong>El proceso de difusión en dos fases:</strong><br><br>
+    <strong>Fase de entrenamiento (forward diffusion):</strong> Se toma una imagen real y se le añade ruido gaussiano gradualmente en T pasos (típicamente T=1000), hasta que la imagen se convierte en puro ruido aleatorio. La red neuronal aprende a predecir cuánto ruido fue añadido en cada paso.<br><br>
+    <strong>Generación (reverse diffusion):</strong> Se comienza con puro ruido aleatorio y se aplica el proceso inverso T veces, eliminando gradualmente el ruido. Guiado por el texto del prompt (mediante un mecanismo de atención cruzada), el modelo "esculpe" la imagen desde el ruido hacia una imagen coherente que corresponde a la descripción.
+  </div>
+
+  <p>CLIP (Contrastive Language-Image Pre-Training, OpenAI 2021) es el componente que conecta texto con imágenes: fue entrenado en 400 millones de pares imagen-texto de internet para aprender que la representación vectorial de "una manzana roja" debe ser cercana a la representación vectorial de una foto de una manzana roja. Este embedding compartido texto-imagen es lo que permite a los modelos de difusión seguir instrucciones textuales.</p>
+
+  <table>
+    <tr>
+      <th>Herramienta</th>
+      <th>Fortaleza</th>
+      <th>Limitación</th>
+      <th>Acceso</th>
+    </tr>
+    <tr>
+      <td>DALL-E 3</td>
+      <td>Integración con ChatGPT; sigue instrucciones textuales con alta precisión; buen texto en imágenes</td>
+      <td>Estilo puede ser genérico; control artístico limitado</td>
+      <td>ChatGPT Plus (pago)</td>
+    </tr>
+    <tr>
+      <td>Midjourney v6</td>
+      <td>Calidad artística excepcional; estilos fotorrealistas e ilustrativos</td>
+      <td>Solo via Discord; no genera texto en imágenes bien</td>
+      <td>Suscripción $10-$60/mes</td>
+    </tr>
+    <tr>
+      <td>Stable Diffusion</td>
+      <td>Código abierto; ejecutable localmente; altamente personalizable</td>
+      <td>Requiere conocimiento técnico; hardware potente para calidad alta</td>
+      <td>Gratis (open source)</td>
+    </tr>
+    <tr>
+      <td>Adobe Firefly</td>
+      <td>Entrenado solo en imágenes con licencia; seguro para uso comercial</td>
+      <td>Calidad inferior a Midjourney en estilos artísticos complejos</td>
+      <td>Adobe Creative Cloud</td>
+    </tr>
+  </table>
+
+  <h2>Generación de Vídeo, Música y Código</h2>
+
+  <h3>Vídeo: Sora (OpenAI, 2024)</h3>
+  <p>En febrero de 2024, OpenAI presentó Sora: un modelo capaz de generar vídeos de hasta 60 segundos a partir de descripciones textuales, con coherencia física y temporal sorprendente. Sora usa una arquitectura de diffusion transformer que opera sobre "parches espacio-temporales" del vídeo. Las demostraciones incluyeron una escena de mamuts lanudos corriendo en la nieve, calles de Tokio animadas y planos cinematográficos de alta calidad — todos generados desde texto. El acceso masivo al público se dio gradualmente desde finales de 2024.</p>
+
+  <h3>Música: Suno y Udio</h3>
+  <p>Suno v3 (2024) puede generar canciones completas con letra, instrumentación y voz a partir de una descripción textual: "una canción de rock alternativo sobre nostalgia de los años 90, con guitarras distorsionadas y letra en español". La calidad alcanzada en 2024 es suficiente para confundirse con grabaciones independientes reales. Udio ofrece capacidades similares con más control sobre los géneros.</p>
+
+  <h3>Código: GitHub Copilot y Claude</h3>
+  <p>GitHub Copilot (Microsoft/OpenAI) completó más de 46% del código escrito por sus usuarios en 2023, según datos de GitHub. Los desarrolladores que lo usan completan tareas un 55% más rápido, según un estudio controlado de GitHub. Claude de Anthropic destaca especialmente en tareas de programación complejas. Estos asistentes de código han redefinido el flujo de trabajo del desarrollo de software.</p>
+
+  <h2>IA Multimodal</h2>
+  <p>Los modelos de IA modernos superaron la restricción de un solo tipo de datos. GPT-4V (V de "vision"), Claude 3 y Gemini pueden procesar simultáneamente texto e imágenes como entrada. Gemini Ultra de Google fue diseñado desde cero como modelo multimodal nativo, procesando texto, imágenes, audio y vídeo en un único modelo unificado. Esto abre posibilidades como analizar un gráfico y responder preguntas sobre él, describir el contenido de una foto o transcribir y analizar audio.</p>
+
+  <h2>Ingeniería de Prompts</h2>
+  <p>La calidad de la respuesta de un LLM depende enormemente de cómo se formula la petición. La <strong>ingeniería de prompts</strong> es la disciplina de diseñar instrucciones efectivas.</p>
+
+  <div class="example">
+Prompt mediocre:
+"Escribe sobre cambio climático"
+
+Prompt de ingeniería avanzada:
+"Actúa como un científico climático con 20 años de experiencia.
+Explica los tres mecanismos de retroalimentación positiva más
+importantes del cambio climático a un estudiante de preparatoria
+que ya entiende conceptos básicos de química. Usa analogías
+cotidianas. Limita la respuesta a 400 palabras. Termina con
+dos preguntas de reflexión que inviten al estudiante a pensar
+críticamente sobre el tema."
+
+Técnicas clave:
+- Asignar un rol ("actúa como...")
+- Especificar audiencia y nivel
+- Pedir formato específico
+- Chain-of-thought: "piensa paso a paso"
+- Few-shot: proporcionar ejemplos del output deseado
+  </div>
+
+  <h2>Alucinaciones y Limitaciones Actuales</h2>
+  <p>Los LLMs alucinan — inventan hechos con la misma confianza con la que dicen verdades. ¿Por qué? Porque están entrenados para predecir el siguiente token más plausible, no para ser verídicos. Si el contexto sugiere que debería venir una fecha o un nombre, el modelo genera uno que "suena correcto" aunque sea incorrecto. Esto es especialmente problemático para citas bibliográficas, estadísticas específicas y eventos recientes.</p>
+
+  <p>Otras limitaciones importantes:</p>
+  <ul>
+    <li><strong>Fecha de corte del conocimiento:</strong> Los modelos tienen una fecha hasta la cual se entrenaron. No saben lo que ocurrió después (aunque algunos tienen acceso a búsqueda web).</li>
+    <li><strong>Sin memoria entre sesiones:</strong> Cada conversación comienza desde cero, a menos que se implemente memoria explícita.</li>
+    <li><strong>Aritmética y razonamiento formal:</strong> Los LLMs cometen errores en matemáticas que un estudiante de primaria no cometería, porque procesan números como tokens, no como valores numéricos.</li>
+    <li><strong>Sesgo:</strong> Los modelos heredan los sesgos presentes en sus datos de entrenamiento (internet), que incluye perspectivas sobrerrepresentadas de países anglófonos de ingresos altos.</li>
+  </ul>
+
+  <div class="summary">
+    <h2>Resumen del Capítulo</h2>
+    <ul>
+      <li>La IA generativa crea contenido nuevo (texto, imágenes, audio, vídeo, código); ChatGPT alcanzó 100 millones de usuarios en 2 meses, la adopción más rápida de cualquier aplicación en la historia.</li>
+      <li>Los LLMs se construyen en tres etapas: preentrenamiento en texto masivo de internet (predicción del siguiente token), ajuste fino supervisado con ejemplos humanos, y RLHF donde humanos califican respuestas para entrenar un modelo de recompensa que guía la optimización.</li>
+      <li>La temperatura controla la aleatoriedad: temperatura 0 produce respuestas deterministas; temperatura alta produce creatividad (y eventual incoherencia); la ventana de contexto determina cuánto "recuerda" el modelo en una conversación.</li>
+      <li>Los modelos de difusión generan imágenes partiendo de ruido aleatorio puro y eliminando ese ruido gradualmente, guiados por el texto del prompt mediante representaciones CLIP que alinean el espacio de texto e imágenes.</li>
+      <li>La IA generativa ya produce vídeo (Sora), música completa (Suno/Udio) y código (GitHub Copilot completa el 46% del código de sus usuarios); los modelos multimodales como Gemini procesan texto, imagen, audio y vídeo en un único modelo unificado.</li>
+      <li>Las alucinaciones son una limitación estructural: los LLMs predicen tokens plausibles, no verdades verificadas; también carecen de conocimiento de eventos post-entrenamiento, memoria entre sesiones y capacidad aritmética confiable.</li>
+      <li>La ingeniería de prompts — especificar rol, audiencia, formato, nivel de detalle y técnicas como chain-of-thought — mejora dramáticamente la calidad de las respuestas de los LLMs.</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

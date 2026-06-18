@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seguridad en el Desarrollo de Software: DevSecOps y Código Seguro | Español Sin Fronteras</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.8; }
+    .wrapper { max-width: 860px; margin: 0 auto; background: #fff; padding: 60px 72px; min-height: 100vh; }
+    .course-tag { font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #7c3aed; margin-bottom: 12px; }
+    h1 { font-size: 2rem; font-weight: 700; color: #0f172a; margin-bottom: 8px; line-height: 1.3; }
+    .subtitle { font-size: 1.05rem; color: #64748b; margin-bottom: 40px; font-style: italic; }
+    hr { border: none; border-top: 2px solid #ddd6fe; margin: 32px 0; }
+    h2 { font-size: 1.35rem; font-weight: 700; color: #1e293b; margin: 36px 0 16px; }
+    h3 { font-size: 1.1rem; font-weight: 700; color: #7c3aed; margin: 24px 0 10px; }
+    p { margin-bottom: 16px; font-size: 1rem; }
+    ul, ol { margin: 16px 0 16px 24px; }
+    li { margin-bottom: 8px; font-size: 1rem; }
+    .highlight-box { background: #f5f3ff; border-left: 4px solid #7c3aed; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .example { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin: 20px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.95rem; }
+    th { background: #7c3aed; color: white; padding: 12px 16px; text-align: left; font-family: Arial, sans-serif; font-weight: 600; }
+    td { padding: 11px 16px; border-bottom: 1px solid #e2e8f0; }
+    tr:nth-child(even) td { background: #f8fafc; }
+    .summary { background: #0f172a; color: #e2e8f0; border-radius: 12px; padding: 28px 32px; margin: 40px 0 0; }
+    .summary h2 { color: #fff; margin-top: 0; }
+    .summary li { color: #cbd5e1; }
+    code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 0.9rem; }
+    pre { background: #0f172a; color: #e2e8f0; padding: 16px; border-radius: 6px; font-size: 0.85rem; overflow-x: auto; margin: 12px 0; }
+    @media (max-width: 640px) { .wrapper { padding: 32px 24px; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="course-tag">Ciberseguridad · Capítulo 17</div>
+  <h1>Seguridad en el Desarrollo de Software: DevSecOps y Código Seguro</h1>
+  <p class="subtitle">Detectar un bug de seguridad en diseño cuesta $80. El mismo bug en producción cuesta $7,600. La seguridad debe construirse en el software desde el primer día, no añadirse al final.</p>
+  <hr>
+
+  <h2>El Paradigma Shift-Left</h2>
+  <p>Tradicional mente, la seguridad se añadía al final del ciclo de desarrollo: el equipo de seguridad auditaba el software justo antes de su lanzamiento, encontraba decenas de vulnerabilidades, y el equipo de desarrollo tenía que re-trabajar código ya finalizado bajo presión de tiempo. El resultado era predecible: muchas vulnerabilidades quedaban sin corregir, se lanzaban parches de emergencia semanas después, y los costos se disparaban.</p>
+
+  <p>El paradigma <strong>Shift-Left</strong> mueve las actividades de seguridad hacia las etapas más tempranas del proceso de desarrollo. El principio es simple: es mucho más barato, rápido y fácil corregir un problema cuando aún estás diseñando o codificando que después de desplegar en producción.</p>
+
+  <div class="highlight-box">
+    <strong>El costo de corregir vulnerabilidades según la fase:</strong> Según el IBM Systems Sciences Institute, corregir un defecto en la fase de diseño cuesta $80. El mismo defecto en implementación: $240. En pruebas: $960. En producción: $7,600. Una brecha de seguridad real en producción: millones de dólares en multas, remediación y daño reputacional.
+  </div>
+
+  <h2>El Ciclo de Vida Seguro de Desarrollo de Software (Secure SDLC)</h2>
+
+  <h3>Fase 1: Requisitos</h3>
+  <p>Los requisitos de seguridad deben definirse junto con los requisitos funcionales, no después. Ejemplos de requisitos de seguridad:</p>
+  <ul>
+    <li>"El sistema debe requerir MFA para todos los usuarios con acceso a datos de pago"</li>
+    <li>"Todos los datos de clientes deben cifrarse en reposo con AES-256"</li>
+    <li>"El sistema no debe almacenar contraseñas en texto plano ni como MD5/SHA-1"</li>
+    <li>"Las sesiones deben expirar automáticamente después de 30 minutos de inactividad"</li>
+    <li>"Todos los intentos de login fallidos deben registrarse con IP, timestamp y usuario"</li>
+  </ul>
+
+  <h3>Fase 2: Diseño — Modelado de Amenazas</h3>
+  <p>El modelado de amenazas es el proceso sistemático de identificar qué puede salir mal en un sistema antes de construirlo. El framework más usado es <strong>STRIDE</strong>, desarrollado por Microsoft:</p>
+
+  <table>
+    <tr><th>Letra</th><th>Amenaza</th><th>Ejemplo</th><th>Control</th></tr>
+    <tr><td><strong>S</strong></td><td>Spoofing (Suplantación)</td><td>Atacante se hace pasar por usuario legítimo</td><td>Autenticación fuerte, MFA</td></tr>
+    <tr><td><strong>T</strong></td><td>Tampering (Manipulación)</td><td>Modificar datos en tránsito o en base de datos</td><td>Integridad: HTTPS, hashes, firmas digitales</td></tr>
+    <tr><td><strong>R</strong></td><td>Repudiation (Repudio)</td><td>Usuario niega haber realizado una acción</td><td>Logs firmados digitalmente, auditoría</td></tr>
+    <tr><td><strong>I</strong></td><td>Information Disclosure (Divulgación)</td><td>Acceso no autorizado a datos confidenciales</td><td>Cifrado, control de acceso, minimización de datos</td></tr>
+    <tr><td><strong>D</strong></td><td>Denial of Service (DoS)</td><td>Hacer el sistema inaccesible para usuarios legítimos</td><td>Rate limiting, redundancia, auto-scaling</td></tr>
+    <tr><td><strong>E</strong></td><td>Elevation of Privilege (Escalada)</td><td>Usuario sin privilegios gana acceso de administrador</td><td>Principio de mínimo privilegio, separación de roles</td></tr>
+  </table>
+
+  <h3>Diagramas de Flujo de Datos para Modelado de Amenazas</h3>
+  <p>El modelado de amenazas comienza dibujando un DFD (Data Flow Diagram) del sistema. Para un sistema de login:</p>
+  <div class="example">
+    <strong>Ejemplo de DFD para un sistema de login:</strong>
+    <ol>
+      <li><strong>Entidades externas:</strong> Usuario (desde internet)</li>
+      <li><strong>Procesos:</strong> Servidor web (valida input), Servidor de autenticación (verifica credenciales)</li>
+      <li><strong>Almacenes de datos:</strong> Base de datos de usuarios (credenciales hasheadas)</li>
+      <li><strong>Flujos de datos:</strong> usuario→web (credenciales), web→auth (solicitud), auth→DB (consulta)</li>
+      <li><strong>Límites de confianza:</strong> Internet / DMZ / Red interna — el tráfico que cruza estos límites es el más riesgoso</li>
+    </ol>
+    <p>Para cada flujo que cruza un límite de confianza, aplicas STRIDE y te preguntas: ¿cómo podría ser suplantado? ¿manipulado? ¿denegado?</p>
+  </div>
+
+  <h3>Fase 3: Implementación — Prácticas de Código Seguro</h3>
+
+  <h4>1. Validación de Input</h4>
+  <p>La regla de oro: <strong>nunca confíes en el input del usuario</strong>. Valida siempre en el servidor, independientemente de lo que hagas en el cliente:</p>
+  <ul>
+    <li>Valida tipo (¿es un número entero?), longitud (¿menos de 255 caracteres?), formato (¿es un email válido?), rango (¿está la edad entre 0 y 150?)</li>
+    <li>Usa listas blancas (permite solo lo que sabes que es válido) en lugar de listas negras (bloquea lo que sabes que es malo — siempre incompletas)</li>
+    <li>La validación del lado cliente (JavaScript) es solo para UX — cualquier atacante puede bypasearla con Burp Suite en segundos</li>
+  </ul>
+
+  <h4>2. Codificación de Output (Output Encoding)</h4>
+  <p>Para prevenir XSS (Cross-Site Scripting), el output debe codificarse según el contexto donde se inserta:</p>
+  <div class="example">
+    <strong>Código vulnerable (XSS):</strong>
+    <pre>&lt;p&gt;Hola, &lt;?php echo $_GET['nombre']; ?&gt;&lt;/p&gt;</pre>
+    <p>Si el atacante pone <code>&lt;script&gt;document.cookie&lt;/script&gt;</code> como nombre, el script se ejecuta en el navegador de la víctima.</p>
+    <strong>Código seguro:</strong>
+    <pre>&lt;p&gt;Hola, &lt;?php echo htmlspecialchars($_GET['nombre'], ENT_QUOTES, 'UTF-8'); ?&gt;&lt;/p&gt;</pre>
+    <p>htmlspecialchars convierte: <code>&lt;</code> → <code>&amp;lt;</code>, <code>&gt;</code> → <code>&amp;gt;</code>, <code>"</code> → <code>&amp;quot;</code> — el script se muestra como texto, no se ejecuta.</p>
+  </div>
+
+  <h4>3. Consultas Parametrizadas (Prepared Statements)</h4>
+  <div class="example">
+    <strong>Código vulnerable (SQL Injection):</strong>
+    <pre>$query = "SELECT * FROM users WHERE email='" . $email . "' AND password='" . $password . "'";</pre>
+    <strong>Código seguro (consulta parametrizada en PHP/PDO):</strong>
+    <pre>$stmt = $pdo->prepare("SELECT * FROM users WHERE email = ? AND password_hash = ?");
+$stmt->execute([$email, hash_password($password)]);</pre>
+    <p>Con prepared statements, el valor del parámetro nunca se interpreta como SQL — es siempre tratado como dato, nunca como comando.</p>
+  </div>
+
+  <h4>4. Manejo Seguro de Errores</h4>
+  <ul>
+    <li>Al usuario: muestra siempre mensajes genéricos ("Ha ocurrido un error. Por favor intenta de nuevo.")</li>
+    <li>En logs internos: registra el error completo con stack trace, contexto y timestamp</li>
+    <li>Nunca mostrar al usuario: nombres de tablas, rutas del sistema, versiones de frameworks, stack traces</li>
+    <li>En producción, desactivar todos los modos de debug de frameworks (Django DEBUG=False, Laravel APP_DEBUG=false)</li>
+  </ul>
+
+  <h4>5. Gestión de Secretos</h4>
+  <div class="highlight-box">
+    <strong>Regla absoluta: NUNCA hardcodear credenciales en el código fuente.</strong> Cada semana, miles de desarrolladores accidentalmente suben API keys, contraseñas de bases de datos y tokens de acceso a repositorios GitHub públicos. Bots automatizados escanean GitHub constantemente y explotan estas credenciales en minutos. AWS desactiva automáticamente las access keys que detecta en código público, pero no todos los proveedores lo hacen.
+  </div>
+
+  <p>Las alternativas correctas para gestionar secretos:</p>
+  <ul>
+    <li><strong>Variables de entorno:</strong> el secreto vive en el entorno de ejecución, no en el código. En el código: <code>os.environ.get('DATABASE_PASSWORD')</code></li>
+    <li><strong>.env files con .gitignore:</strong> archivo local con variables de entorno, nunca versionado en git. Añadir <code>.env</code> al <code>.gitignore</code> desde el primer commit.</li>
+    <li><strong>HashiCorp Vault:</strong> gestión centralizada de secretos con rotación automática, auditoría y acceso dinámico — las aplicaciones reciben credenciales temporales generadas al momento, que expiran automáticamente</li>
+    <li><strong>git-secrets hook:</strong> hook pre-commit que escanea el código antes de cada commit buscando patrones de API keys, contraseñas y tokens</li>
+    <li><strong>AWS Secrets Manager / Azure Key Vault / GCP Secret Manager:</strong> servicios gestionados de cada cloud</li>
+  </ul>
+
+  <h3>Fase 4: Pruebas de Seguridad</h3>
+
+  <h4>SAST — Static Application Security Testing</h4>
+  <p>Analiza el código fuente sin ejecutarlo, buscando patrones de vulnerabilidades conocidas:</p>
+  <ul>
+    <li><strong>SonarQube:</strong> open source, integración con IDEs (IntelliJ, VS Code) y CI/CD (GitHub Actions, Jenkins). Detecta más de 600 patrones de vulnerabilidades en Java, Python, JavaScript, C#, PHP y más. Tiene un dashboard de deuda técnica de seguridad.</li>
+    <li><strong>Semgrep:</strong> muy rápido, reglas altamente personalizables en YAML. Permite escribir reglas específicas para tu codebase (ej.: "detecta cualquier lugar donde usemos MD5 para contraseñas").</li>
+    <li><strong>Checkmarx:</strong> solución empresarial, más completa y con menos falsos positivos, pero costosa.</li>
+  </ul>
+
+  <h4>DAST — Dynamic Application Security Testing</h4>
+  <p>Prueba la aplicación en ejecución enviando solicitudes maliciosas y observando las respuestas:</p>
+  <ul>
+    <li><strong>OWASP ZAP en CI/CD:</strong> puede ejecutarse automáticamente contra un entorno de staging en cada despliegue, generando un reporte de vulnerabilidades</li>
+    <li><strong>Burp Suite Enterprise:</strong> versión de servidor de Burp Suite, permite programar escaneos automáticos</li>
+  </ul>
+
+  <h4>SCA — Software Composition Analysis</h4>
+  <ul>
+    <li><strong>Snyk:</strong> verifica automáticamente las dependencias (npm, pip, Maven, Go modules) contra la base de datos de CVEs. Integrado como GitHub Action, puede bloquear PRs que introduzcan dependencias con vulnerabilidades conocidas. También ofrece fix automático sugiriendo la versión parcheada.</li>
+    <li><strong>OWASP Dependency-Check:</strong> alternativa gratuita y open source</li>
+  </ul>
+
+  <h3>Fase 5: Despliegue Seguro</h3>
+  <ul>
+    <li>Infrastructure as Code (IaC) escaneado con <strong>Checkov</strong> antes de aplicar — detecta buckets S3 públicos, security groups abiertos, cifrado desactivado en archivos Terraform o CloudFormation</li>
+    <li>Imágenes Docker escaneadas con <strong>Trivy</strong> antes de subir al registry</li>
+    <li><strong>Security gates en el pipeline:</strong> el pipeline CI/CD falla automáticamente si se detectan vulnerabilidades críticas (CVSS ≥ 9.0) — el despliegue no puede continuar hasta resolverlas</li>
+  </ul>
+
+  <h2>Lista de Verificación para Code Review de Seguridad</h2>
+  <p>Cada revisión de código (pull request) debería incluir estos 10 puntos de seguridad:</p>
+  <ol>
+    <li>¿Todo el input del usuario es validado en el servidor (tipo, longitud, formato, rango)?</li>
+    <li>¿Todas las consultas a bases de datos usan prepared statements o ORMs?</li>
+    <li>¿El output se codifica apropiadamente según el contexto (HTML, JSON, JavaScript)?</li>
+    <li>¿Las contraseñas se hashean con bcrypt, Argon2 o scrypt (nunca MD5/SHA1)?</li>
+    <li>¿Hay algún secreto (API key, contraseña, token) hardcodeado en el código?</li>
+    <li>¿Los mensajes de error exponen información sensible del sistema?</li>
+    <li>¿Se verifican los permisos de autorización en cada endpoint que accede a datos sensibles?</li>
+    <li>¿Se registran los eventos de seguridad relevantes (login, cambio de contraseña, acceso a datos sensibles)?</li>
+    <li>¿Hay alguna dependencia nueva que no ha sido escaneada en busca de CVEs?</li>
+    <li>¿El código nuevo introduce alguna superficie de ataque que no existía antes?</li>
+  </ol>
+
+  <h2>El Programa de Security Champions</h2>
+  <p>Un modelo organizacional efectivo es el de <strong>Security Champions</strong>: designar uno o dos desarrolladores por equipo que reciban formación avanzada en seguridad y actúen como embajadores del equipo de seguridad dentro de los equipos de desarrollo. No son expertos en seguridad — son desarrolladores con conocimientos de seguridad suficientes para resolver el 80% de los problemas cotidianos sin escalar al equipo centralizado de seguridad.</p>
+
+  <p>Los beneficios: la seguridad escala con los equipos de desarrollo, los problemas se resuelven más rápido porque el security champion conoce el contexto del código, y se crea una cultura de seguridad distribuida en lugar de un cuello de botella centralizado.</p>
+
+  <div class="summary">
+    <h2>Resumen / Summary</h2>
+    <ul>
+      <li>Shift-Left significa mover la seguridad a las fases más tempranas del desarrollo; corregir un bug en diseño cuesta $80 vs $7,600 en producción — la diferencia justifica cualquier inversión en seguridad temprana.</li>
+      <li>El Secure SDLC integra seguridad en todas las fases: requisitos de seguridad explícitos, modelado de amenazas STRIDE en diseño, prácticas de código seguro en implementación, y SAST/DAST/SCA en pruebas.</li>
+      <li>STRIDE modela 6 categorías de amenazas: Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege — aplicadas sobre diagramas de flujo de datos del sistema.</li>
+      <li>Las cuatro prácticas de código seguro más importantes son: validación de input en servidor, codificación de output para prevenir XSS, consultas parametrizadas para prevenir SQL injection, y gestión de secretos con variables de entorno o Vault (nunca hardcodeados).</li>
+      <li>SAST (SonarQube, Semgrep) analiza el código estáticamente; DAST (OWASP ZAP) prueba la app en ejecución; SCA (Snyk) verifica vulnerabilidades en dependencias — los tres deben estar integrados en el pipeline CI/CD.</li>
+      <li>Los security gates en CI/CD bloquean automáticamente despliegues cuando se detectan vulnerabilidades críticas; Checkov escanea IaC y Trivy escanea imágenes Docker antes de cada despliegue.</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

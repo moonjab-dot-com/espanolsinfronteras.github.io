@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Control de Versiones con Git y GitHub | Español Sin Fronteras</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.8; }
+    .wrapper { max-width: 860px; margin: 0 auto; background: #fff; padding: 60px 72px; min-height: 100vh; }
+    .course-tag { font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #0d9488; margin-bottom: 12px; }
+    h1 { font-size: 2rem; font-weight: 700; color: #0f172a; margin-bottom: 8px; line-height: 1.3; }
+    .subtitle { font-size: 1.05rem; color: #64748b; margin-bottom: 40px; font-style: italic; }
+    hr { border: none; border-top: 2px solid #99f6e4; margin: 32px 0; }
+    h2 { font-size: 1.35rem; font-weight: 700; color: #1e293b; margin: 36px 0 16px; }
+    h3 { font-size: 1.1rem; font-weight: 700; color: #0d9488; margin: 24px 0 10px; }
+    p { margin-bottom: 16px; font-size: 1rem; }
+    ul, ol { margin: 16px 0 16px 24px; }
+    li { margin-bottom: 8px; font-size: 1rem; }
+    .highlight-box { background: #f0fdfa; border-left: 4px solid #0d9488; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .example { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin: 20px 0; font-family: 'Courier New', monospace; font-size: 0.9rem; white-space: pre-wrap; }
+    table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.95rem; }
+    th { background: #0d9488; color: white; padding: 12px 16px; text-align: left; font-family: Arial, sans-serif; font-weight: 600; }
+    td { padding: 11px 16px; border-bottom: 1px solid #e2e8f0; }
+    tr:nth-child(even) td { background: #f8fafc; }
+    .summary { background: #0f172a; color: #e2e8f0; border-radius: 12px; padding: 28px 32px; margin: 40px 0 0; }
+    .summary h2 { color: #fff; margin-top: 0; }
+    .summary li { color: #cbd5e1; }
+    @media (max-width: 640px) { .wrapper { padding: 32px 24px; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="course-tag">Programación Web · Capítulo 15</div>
+  <h1>Control de Versiones con Git y GitHub</h1>
+  <p class="subtitle">Aprende a rastrear cambios, colaborar en equipo y nunca más perder tu trabajo con el sistema de control de versiones más usado del mundo.</p>
+  <hr>
+
+  <h2>1. ¿Por Qué Necesitas Control de Versiones?</h2>
+  <p>Imagina trabajar en un proyecto durante semanas y accidentalmente borrar código crítico. Sin control de versiones, ese trabajo se pierde para siempre. Con Git, puedes retroceder a cualquier punto de la historia del proyecto en segundos.</p>
+  <p>Además, Git permite que múltiples personas trabajen en el mismo proyecto simultáneamente sin pisarse el código entre sí. Es la herramienta más fundamental en el desarrollo de software profesional.</p>
+
+  <h2>2. Conceptos Clave</h2>
+  <table>
+    <tr><th>Concepto</th><th>Definición</th></tr>
+    <tr><td><strong>Repositorio</strong></td><td>Carpeta del proyecto con todo el historial de cambios</td></tr>
+    <tr><td><strong>Commit</strong></td><td>Instantánea guardada del estado del proyecto en un momento</td></tr>
+    <tr><td><strong>Branch (Rama)</strong></td><td>Línea paralela de desarrollo independiente</td></tr>
+    <tr><td><strong>Merge</strong></td><td>Unir los cambios de una rama a otra</td></tr>
+    <tr><td><strong>Remote</strong></td><td>Copia del repositorio en un servidor (GitHub, GitLab)</td></tr>
+    <tr><td><strong>Clone</strong></td><td>Descargar una copia completa de un repositorio remoto</td></tr>
+    <tr><td><strong>Pull</strong></td><td>Traer cambios del remoto al local</td></tr>
+    <tr><td><strong>Push</strong></td><td>Enviar cambios locales al remoto</td></tr>
+  </table>
+
+  <h2>3. Configuración Inicial</h2>
+  <div class="example"># Configurar identidad (solo una vez)
+git config --global user.name "Tu Nombre"
+git config --global user.email "tu@email.com"
+
+# Ver configuración actual
+git config --list
+
+# Editor por defecto (VS Code)
+git config --global core.editor "code --wait"</div>
+
+  <h2>4. Comandos Fundamentales</h2>
+
+  <h3>Iniciar y Clonar Repositorios</h3>
+  <div class="example"># Crear nuevo repositorio en la carpeta actual
+git init
+
+# Clonar repositorio existente de GitHub
+git clone https://github.com/usuario/repositorio.git
+
+# Clonar en una carpeta con nombre específico
+git clone https://github.com/usuario/repo.git mi-proyecto</div>
+
+  <h3>El Ciclo de Trabajo Básico</h3>
+  <div class="example"># 1. Ver estado actual (qué cambió, qué está staged)
+git status
+
+# 2. Ver los cambios específicos línea por línea
+git diff                    # Cambios no staged
+git diff --staged           # Cambios ya en staging
+
+# 3. Agregar archivos al área de staging
+git add archivo.js          # Un archivo específico
+git add src/                # Toda una carpeta
+git add .                   # Todos los archivos modificados
+
+# 4. Confirmar los cambios con un mensaje descriptivo
+git commit -m "feat: agregar formulario de contacto con validación"
+
+# 5. Ver historial de commits
+git log
+git log --oneline           # Versión compacta
+git log --oneline --graph   # Con árbol de ramas</div>
+
+  <h3>Mensajes de Commit Profesionales</h3>
+  <div class="highlight-box">
+    Usa el estándar <strong>Conventional Commits</strong>: <code>tipo(alcance): descripción</code><br><br>
+    <strong>Tipos comunes:</strong> feat (nueva función), fix (corrección de bug), docs (documentación), style (formato), refactor (reestructuración), test (pruebas), chore (tareas de mantenimiento).
+  </div>
+  <div class="example"># Buenos mensajes de commit
+git commit -m "feat: agregar autenticación con JWT"
+git commit -m "fix: corregir cálculo de precio con descuento"
+git commit -m "docs: actualizar README con instrucciones de instalación"
+git commit -m "refactor: extraer lógica de validación a utils.js"
+
+# Malos mensajes (no hagas esto)
+git commit -m "cambios"
+git commit -m "arreglé cosas"
+git commit -m "wip"</div>
+
+  <h2>5. Ramas (Branches)</h2>
+  <div class="example"># Ver todas las ramas
+git branch              # Ramas locales
+git branch -a           # Todas (locales y remotas)
+
+# Crear una rama nueva
+git branch feature/login
+
+# Cambiar a una rama
+git checkout feature/login
+# O en versiones modernas de Git:
+git switch feature/login
+
+# Crear y cambiar en un solo comando
+git checkout -b feature/registro-usuarios
+git switch -c feature/registro-usuarios  # Forma moderna
+
+# Eliminar una rama (ya mergeada)
+git branch -d feature/login
+
+# Eliminar rama sin importar si fue mergeada
+git branch -D feature/experimento</div>
+
+  <h3>Estrategia de Ramas para Equipos</h3>
+  <div class="example">Estructura recomendada (Git Flow simplificado):
+
+main        → código en producción, siempre estable
+dev         → integración de features, base para pruebas
+feature/*   → nuevas funcionalidades (salen de dev)
+fix/*       → correcciones de bugs
+hotfix/*    → parches urgentes en producción (salen de main)
+
+Flujo típico:
+1. git switch dev
+2. git pull origin dev
+3. git switch -c feature/nueva-funcionalidad
+4. ... trabajar, hacer commits ...
+5. git switch dev
+6. git merge feature/nueva-funcionalidad
+7. git push origin dev
+8. Abrir Pull Request en GitHub para revisar antes de main</div>
+
+  <h2>6. Merge y Resolución de Conflictos</h2>
+  <div class="example"># Fusionar rama feature al branch actual
+git switch dev
+git merge feature/login
+
+# Si hay conflictos, Git marca los archivos:
+# <<<<<<< HEAD
+# tu código en dev
+# =======
+# código de la otra rama
+# >>>>>>> feature/login
+
+# Debes editar manualmente el archivo, elegir qué conservar,
+# luego marcar como resuelto:
+git add archivo-con-conflicto.js
+git commit -m "merge: integrar feature/login resolviendo conflictos"</div>
+
+  <h2>7. Trabajo con Remotos (GitHub)</h2>
+  <div class="example"># Ver remotos configurados
+git remote -v
+
+# Agregar un remoto
+git remote add origin https://github.com/usuario/repo.git
+
+# Subir cambios al remoto
+git push origin main
+git push origin feature/login
+
+# Traer cambios del remoto
+git pull origin main        # Fetch + merge automático
+git fetch origin            # Solo descarga, no fusiona
+
+# Primera vez que empujas una rama nueva
+git push -u origin feature/nueva   # -u configura el tracking</div>
+
+  <h2>8. Comandos Útiles Adicionales</h2>
+  <div class="example"># Ver qué cambió en un commit específico
+git show a1b2c3d
+
+# Deshacer cambios en un archivo (antes de commit)
+git restore archivo.js
+
+# Quitar un archivo del staging (sin deshacer cambios)
+git restore --staged archivo.js
+
+# Revertir el último commit (mantiene los cambios en staging)
+git reset --soft HEAD~1
+
+# Etiquetar una versión
+git tag v1.0.0
+git push origin v1.0.0
+
+# Guardar cambios temporalmente sin hacer commit
+git stash
+git stash pop               # Recuperar los cambios</div>
+
+  <h2>9. .gitignore</h2>
+  <div class="example"># .gitignore — archivos que Git debe ignorar
+node_modules/       # Dependencias (se reinstalan con npm install)
+.env                # Variables de entorno secretas
+dist/               # Archivos generados por el build
+.DS_Store           # Archivos del sistema macOS
+*.log               # Archivos de log
+coverage/           # Reportes de pruebas
+.vscode/settings.json  # Configuración local del editor
+
+# Verificar si un archivo está siendo ignorado
+git check-ignore -v archivo.txt</div>
+
+  <h2>10. Pull Requests en GitHub</h2>
+  <p>Un Pull Request (PR) es la forma estándar de proponer cambios en GitHub. Permite revisión de código antes de fusionar.</p>
+  <ol>
+    <li>Crea y trabaja en tu rama feature.</li>
+    <li>Sube la rama a GitHub: <code>git push origin feature/mi-cambio</code>.</li>
+    <li>En GitHub, haz clic en "Compare &amp; pull request".</li>
+    <li>Escribe una descripción clara: qué cambió y por qué.</li>
+    <li>Pide revisión a un compañero.</li>
+    <li>Responde comentarios y aplica cambios si se solicitan.</li>
+    <li>Una vez aprobado, haz merge (generalmente "Squash and merge" para historial limpio).</li>
+    <li>Elimina la rama feature después del merge.</li>
+  </ol>
+
+  <div class="summary">
+    <h2>Resumen del Capítulo</h2>
+    <ul>
+      <li>Git rastrea el historial completo de tu proyecto; puedes retroceder a cualquier estado anterior y nunca perder trabajo.</li>
+      <li>El ciclo básico es: modificar archivos → <code>git add</code> (staging) → <code>git commit</code> (guardar snapshot) → <code>git push</code> (subir al remoto).</li>
+      <li>Los <strong>mensajes de commit</strong> deben ser descriptivos y seguir una convención (Conventional Commits); son documentación del proyecto.</li>
+      <li>Las <strong>ramas</strong> permiten trabajo paralelo sin interferir; crea una rama por cada feature o fix y fusiona con merge cuando esté lista.</li>
+      <li>Los <strong>conflictos</strong> ocurren cuando dos ramas modificaron la misma línea; debes resolverlos manualmente editando el archivo y haciendo commit.</li>
+      <li>Usa <strong>.gitignore</strong> para excluir <code>node_modules</code>, archivos <code>.env</code> y cualquier archivo generado automáticamente.</li>
+      <li>Los <strong>Pull Requests</strong> en GitHub son el estándar para revisión de código en equipo antes de fusionar cambios a la rama principal.</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>
