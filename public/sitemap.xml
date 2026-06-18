@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://espanolsinfronteras.org/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://espanolsinfronteras.org/curso/espanol</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
@@ -198,4 +198,15 @@
   <url><loc>https://espanolsinfronteras.org/content/ENGLISH%20CAP%2018%20Business%20English%20ESF.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://espanolsinfronteras.org/content/ENGLISH%20CAP%2019%20American%20vs%20British%20English%20ESF.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://espanolsinfronteras.org/content/ENGLISH%20CAP%2020%20IELTS%20TOEFL%20Preparation%20ESF.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-</urlset>
+
+  <url><loc>https://espanolsinfronteras.org/curso/ciudadania-americana</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://espanolsinfronteras.org/content/CIUDADANIA%20CAP%201%20Principios%20de%20la%20Democracia%20America%20ESF.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://espanolsinfronteras.org/content/CIUDADANIA%20CAP%202%20El%20Sistema%20Federal%20y%20los%2050%20Estados%20ESF.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://espanolsinfronteras.org/content/CIUDADANIA%20CAP%203%20El%20Congreso%3A%20La%20Rama%20Legislativa%20ESF.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://espanolsinfronteras.org/content/CIUDADANIA%20CAP%204%20El%20Poder%20Ejecutivo%3A%20El%20Presidente%20ESF.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://espanolsinfronteras.org/content/CIUDADANIA%20CAP%205%20La%20Corte%20Suprema%20y%20el%20Poder%20Judicia%20ESF.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://espanolsinfronteras.org/content/CIUDADANIA%20CAP%206%20La%20Carta%20de%20Derechos%3A%20Tus%20Libertade%20ESF.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://espanolsinfronteras.org/content/CIUDADANIA%20CAP%207%20Las%2013%20Colonias%20y%20la%20Independencia%20ESF.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://espanolsinfronteras.org/content/CIUDADANIA%20CAP%208%20La%20Guerra%20Civil%20y%20Abraham%20Lincoln%20ESF.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://espanolsinfronteras.org/content/CIUDADANIA%20CAP%209%20Historia%20Reciente%20y%20EE.UU.%20en%20el%20Mu%20ESF.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://espanolsinfronteras.org/content/CIUDADANIA%20CAP%2010%20El%20Proceso%20de%20Naturalizaci%C3%B3n%20ESF.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url></urlset>

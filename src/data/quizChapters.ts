@@ -1,4 +1,4 @@
-export const QUIZ_HREFS = new Set<string>([
+﻿export const QUIZ_HREFS = new Set<string>([
   "/content/HERENCIA CAP 10 La Independencia del Perú ESF.html",
   "/content/HERENCIA CAP 11 La República y los Primeros Gobiernos ESF.html",
   "/content/HERENCIA CAP 12 La Guerra del Pacífico ESF.html",
@@ -103,4 +103,14 @@ export const QUIZ_HREFS = new Set<string>([
   "/content/ENGLISH CAP 18 Business English ESF.html",
   "/content/ENGLISH CAP 19 American vs British English ESF.html",
   "/content/ENGLISH CAP 20 IELTS TOEFL Preparation ESF.html",
+  "/content/CIUDADANIA CAP 1 Principios de la Democracia America ESF.html",
+  "/content/CIUDADANIA CAP 2 El Sistema Federal y los 50 Estados ESF.html",
+  "/content/CIUDADANIA CAP 3 El Congreso: La Rama Legislativa ESF.html",
+  "/content/CIUDADANIA CAP 4 El Poder Ejecutivo: El Presidente ESF.html",
+  "/content/CIUDADANIA CAP 5 La Corte Suprema y el Poder Judicia ESF.html",
+  "/content/CIUDADANIA CAP 6 La Carta de Derechos: Tus Libertade ESF.html",
+  "/content/CIUDADANIA CAP 7 Las 13 Colonias y la Independencia ESF.html",
+  "/content/CIUDADANIA CAP 8 La Guerra Civil y Abraham Lincoln ESF.html",
+  "/content/CIUDADANIA CAP 9 Historia Reciente y EE.UU. en el Mu ESF.html",
+  "/content/CIUDADANIA CAP 10 El Proceso de Naturalización ESF.html",
 ]);

@@ -328,6 +328,27 @@ export const courses: Course[] = [
       { id: 20, title: "IELTS and TOEFL Preparation",                         href: "/content/ENGLISH CAP 20 IELTS TOEFL Preparation ESF.html" },
     ],
   },
+  {
+    slug: "ciudadania-americana",
+    icon: "Flag",
+    colorClass: "amber",
+    titleEs: "Ciudadanía Americana",
+    titleEn: "American Citizenship",
+    descriptionEs: "Prepárate para el examen de naturalización con las 100 preguntas cívicas oficiales de USCIS.",
+    descriptionEn: "Prepare for the naturalization exam with all 100 official USCIS civics questions.",
+    chapters: [
+      { id: 1,  title: "Principios de la Democracia Americana",      href: "/content/CIUDADANIA CAP 1 Principios de la Democracia America ESF.html" },
+      { id: 2,  title: "El Sistema Federal y los 50 Estados",         href: "/content/CIUDADANIA CAP 2 El Sistema Federal y los 50 Estados ESF.html" },
+      { id: 3,  title: "El Congreso: La Rama Legislativa",            href: "/content/CIUDADANIA CAP 3 El Congreso: La Rama Legislativa ESF.html" },
+      { id: 4,  title: "El Poder Ejecutivo: El Presidente",           href: "/content/CIUDADANIA CAP 4 El Poder Ejecutivo: El Presidente ESF.html" },
+      { id: 5,  title: "La Corte Suprema y el Poder Judicial",        href: "/content/CIUDADANIA CAP 5 La Corte Suprema y el Poder Judicia ESF.html" },
+      { id: 6,  title: "La Carta de Derechos: Tus Libertades",        href: "/content/CIUDADANIA CAP 6 La Carta de Derechos: Tus Libertade ESF.html" },
+      { id: 7,  title: "Las 13 Colonias y la Independencia",          href: "/content/CIUDADANIA CAP 7 Las 13 Colonias y la Independencia ESF.html" },
+      { id: 8,  title: "La Guerra Civil y Abraham Lincoln",           href: "/content/CIUDADANIA CAP 8 La Guerra Civil y Abraham Lincoln ESF.html" },
+      { id: 9,  title: "Historia Reciente y EE.UU. en el Mundo",      href: "/content/CIUDADANIA CAP 9 Historia Reciente y EE.UU. en el Mu ESF.html" },
+      { id: 10, title: "El Proceso de Naturalización",                href: "/content/CIUDADANIA CAP 10 El Proceso de Naturalización ESF.html" },
+    ],
+  },
 ];
 
 // ─── Supporting Content ───────────────────────────────────────────────────────
