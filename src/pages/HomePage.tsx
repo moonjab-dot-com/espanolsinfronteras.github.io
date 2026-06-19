@@ -441,7 +441,7 @@ function MissionSection() {
                   </p>
                   <p>
                     En 2024, Salvador decidió convertir esa idea en acción, creando una plataforma 100% gratuita donde cualquier persona puede aprender español, finanzas, programación, matemáticas, ciencias e inglés. Hoy cuenta con más de{" "}
-                    <strong className="text-foreground font-semibold">217 capítulos</strong> diseñados para ser prácticos, accesibles y útiles en la vida real.
+                    <strong className="text-foreground font-semibold">249 capítulos</strong> diseñados para ser prácticos, accesibles y útiles en la vida real.
                   </p>
                   <p>
                     Desde entonces, la plataforma ha llegado a usuarios en más de{" "}
@@ -459,7 +459,7 @@ function MissionSection() {
                   </p>
                   <p>
                     In 2024, Salvador decided to turn that idea into action, creating a 100% free platform where anyone can learn Spanish, finance, programming, math, science, and English. Today it has more than{" "}
-                    <strong className="text-foreground font-semibold">217 chapters</strong> designed to be practical, accessible, and useful in real life.
+                    <strong className="text-foreground font-semibold">249 chapters</strong> designed to be practical, accessible, and useful in real life.
                   </p>
                   <p>
                     Since then, the platform has reached users in more than{" "}
@@ -1016,5 +1016,6 @@ const HomePage = () => (
 );
 
 export default HomePage;
+
 
 
