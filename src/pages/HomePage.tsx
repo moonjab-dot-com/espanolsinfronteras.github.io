@@ -117,7 +117,7 @@ function HeroSection() {
           <div>
             <div className="animate-fade-up inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/12 bg-white/5 text-white/75 text-xs font-semibold mb-8">
               <Sparkles className="w-3 h-3 text-amber-400 shrink-0" aria-hidden="true" />
-              {t ? "100% Gratuito · 217+ lecciones · Quiz interactivo" : "100% Free · 217+ lessons · Interactive quiz"}
+              {t ? "100% Gratuito · 249+ lecciones · Quiz interactivo" : "100% Free · 249+ lessons · Interactive quiz"}
             </div>
 
             <h1 className="animate-fade-up delay-75 text-[2.75rem] sm:text-5xl lg:text-[3.5rem] font-extrabold text-white mb-5 leading-[1.06]">
@@ -132,8 +132,8 @@ function HeroSection() {
 
             <p className="animate-fade-up delay-150 text-[17px] text-white/55 leading-relaxed mb-10 max-w-[480px]">
               {t
-                ? "Plataforma educativa gratuita con 217+ lecciones en español, finanzas, programación, matemáticas y más. Sin registro, sin costo, para siempre."
-                : "Free educational platform with 217+ lessons covering Spanish, finance, programming, math, and more. No sign-up, no cost, forever."}
+                ? "Plataforma educativa gratuita con 249+ lecciones en español, finanzas, programación, matemáticas y más. Sin registro, sin costo, para siempre."
+                : "Free educational platform with 249+ lessons covering Spanish, finance, programming, math, and more. No sign-up, no cost, forever."}
             </p>
 
             <div className="animate-fade-up delay-225 flex flex-wrap gap-3 mb-14">
@@ -149,7 +149,7 @@ function HeroSection() {
             {/* Stats */}
             <div className="animate-fade-up delay-300 flex gap-8 border-t border-white/8 pt-8">
               {[
-                { v: "217+", l: t ? "Lecciones" : "Lessons" },
+                { v: "249+", l: t ? "Lecciones" : "Lessons" },
                 { v: "72+",  l: t ? "Países" : "Countries" },
                 { v: "10",   l: t ? "Materias" : "Subjects"  },
               ].map(({ v, l }) => (
@@ -243,8 +243,8 @@ function CoursesSection() {
             </h2>
             <p className="text-muted-foreground text-base max-w-sm mx-auto">
               {t
-                ? "12 materias, 217+ capítulos. Todo 100% gratuito, sin registro."
-                : "12 subjects, 217+ chapters. All 100% free, no sign-up."}
+                ? "12 materias, 249+ capítulos. Todo 100% gratuito, sin registro."
+                : "12 subjects, 249+ chapters. All 100% free, no sign-up."}
             </p>
           </div>
         </Reveal>
@@ -330,7 +330,7 @@ function ImpactSection() {
       icon: Globe,
     },
     {
-      value: "217+",
+      value: "249+",
       labelEs: "Lecciones",
       labelEn: "Lessons",
       descEs: "Capítulos gratuitos y accesibles",
@@ -1016,3 +1016,5 @@ const HomePage = () => (
 );
 
 export default HomePage;
+
+
