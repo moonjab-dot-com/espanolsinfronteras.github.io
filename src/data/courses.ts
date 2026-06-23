@@ -152,6 +152,11 @@ export const courses: Course[] = [
       { id: 18, title: "Finanzas en Familia",                                   href: "/content/FIN CAP 18 Finanzas en Familia ESF.html" },
       { id: 19, title: "Psicología del Dinero",                                 href: "/content/FIN CAP 19 Psicología del Dinero ESF.html" },
       { id: 20, title: "Metas Financieras a Largo Plazo",                       href: "/content/FIN CAP 20 Metas Financieras a Largo Plazo ESF.html" },
+      { id: 21, title: "Finanzas Conductuales: Tus Sesgos con el Dinero", href: "/content/FIN CAP 21 Finanzas Conductuales Tus Sesgos con el Dinero ESF.html" },
+      { id: 22, title: "Cómo Salir de Deudas", href: "/content/FIN CAP 22 Como Salir de Deudas ESF.html" },
+      { id: 23, title: "Construyendo tu Historial de Crédito desde Cero", href: "/content/FIN CAP 23 Construyendo tu Historial de Credito desde Cero ESF.html" },
+      { id: 24, title: "Finanzas para Parejas y Familias", href: "/content/FIN CAP 24 Finanzas para Parejas y Familias ESF.html" },
+      { id: 25, title: "Finanzas Sostenibles e Inversión de Impacto", href: "/content/FIN CAP 25 Finanzas Sostenibles e Inversion de Impacto ESF.html" },
     ],
   },
   {

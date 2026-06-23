@@ -145,4 +145,9 @@
   "/content/MARKETS CAP 18 Como Armar una Cartera de Inversion ESF.html",
   "/content/MARKETS CAP 19 Impuestos sobre Inversiones ESF.html",
   "/content/MARKETS CAP 20 El Mercado del Futuro Tendencias 2026-2030 ESF.html",
+  "/content/FIN CAP 21 Finanzas Conductuales Tus Sesgos con el Dinero ESF.html",
+  "/content/FIN CAP 22 Como Salir de Deudas ESF.html",
+  "/content/FIN CAP 23 Construyendo tu Historial de Credito desde Cero ESF.html",
+  "/content/FIN CAP 24 Finanzas para Parejas y Familias ESF.html",
+  "/content/FIN CAP 25 Finanzas Sostenibles e Inversion de Impacto ESF.html",
 ]);
