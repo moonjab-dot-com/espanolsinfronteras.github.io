@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vectores y Geometría del Espacio | Español Sin Fronteras</title>
+<style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:Georgia,'Times New Roman',serif;background:#f8f9fa;color:#1a1a2e;line-height:1.8}.wrapper{max-width:860px;margin:0 auto;background:#fff;padding:60px 72px;min-height:100vh}.course-tag{font-family:Arial,sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:#1d4ed8;margin-bottom:12px}h1{font-size:2rem;font-weight:700;color:#0f172a;margin-bottom:8px;line-height:1.3}.subtitle{font-size:1.05rem;color:#64748b;margin-bottom:40px;font-style:italic}hr{border:none;border-top:2px solid #bfdbfe;margin:32px 0}h2{font-size:1.35rem;font-weight:700;color:#1e293b;margin:36px 0 16px}p{margin-bottom:16px;font-size:1rem}ul,ol{margin:16px 0 16px 24px}li{margin-bottom:8px;font-size:1rem}.highlight-box{background:#eff6ff;border-left:4px solid #3b82f6;padding:20px 24px;border-radius:0 8px 8px 0;margin:24px 0}.example{background:#f1f5f9;border:1px solid #e2e8f0;border-radius:8px;padding:20px 24px;margin:20px 0}table{width:100%;border-collapse:collapse;margin:24px 0;font-size:.95rem}th{background:#1d4ed8;color:#fff;padding:12px 16px;text-align:left;font-family:Arial,sans-serif;font-weight:600}td{padding:11px 16px;border-bottom:1px solid #e2e8f0}tr:nth-child(even) td{background:#eff6ff}.summary{background:#0f172a;color:#e2e8f0;border-radius:12px;padding:28px 32px;margin:40px 0 0}.summary h2{color:#60a5fa;margin-top:0}.summary li{color:#cbd5e1}@media(max-width:640px){.wrapper{padding:32px 24px}h1{font-size:1.5rem}}</style>
+</head>
+<body>
+<div class="wrapper">
+<div class="course-tag">Matemáticas · Capítulo 22</div>
+<h1>Vectores y Geometría del Espacio</h1>
+<p class="subtitle">Introducción a los vectores: magnitud, dirección y operaciones básicas que son la base de la física y la ingeniería.</p>
+<hr>
+<h2>¿Qué es un Vector?</h2><p>Un <strong>vector</strong> es una magnitud que tiene tanto tamaño (módulo) como dirección. Se diferencia de un escalar (que solo tiene magnitud, como la temperatura) en que también indica hacia dónde apunta.</p>
+  <div class="highlight-box"><strong>Notación:</strong> Un vector se representa como (x, y) en 2D o (x, y, z) en 3D, o con una flecha sobre su nombre: v⃗.</div>
+  <h2>Operaciones Básicas con Vectores</h2><table><tr><th>Operación</th><th>Fórmula (2D)</th><th>Resultado</th></tr><tr><td>Suma</td><td>(a,b) + (c,d)</td><td>(a+c, b+d)</td></tr><tr><td>Resta</td><td>(a,b) - (c,d)</td><td>(a-c, b-d)</td></tr><tr><td>Magnitud</td><td>|v| = √(x² + y²)</td><td>Un número (escalar)</td></tr><tr><td>Producto escalar</td><td>(a,b)·(c,d) = ac + bd</td><td>Un número (escalar)</td></tr></table>
+  <div class="example"><strong>Ejemplo:</strong> El vector (3, 4) tiene magnitud √(3² + 4²) = √25 = 5. Esto representa un desplazamiento de 5 unidades en una dirección específica.</div>
+  <h2>Aplicaciones de los Vectores</h2><ul><li><strong>Física</strong>: velocidad, fuerza y aceleración son magnitudes vectoriales</li><li><strong>Videojuegos</strong>: el movimiento de personajes y físicas usan vectores constantemente</li><li><strong>Gráficos por computadora</strong>: posición y dirección de objetos en 3D</li><li><strong>Navegación GPS</strong>: cálculo de rutas y desplazamientos</li></ul>
+  <div class="summary"><h2>Resumen</h2><ul><li>Un vector tiene magnitud y dirección; un escalar solo magnitud</li><li>Suma, resta, magnitud y producto escalar son operaciones básicas</li><li>Los vectores son esenciales en física, videojuegos y gráficos 3D</li></ul></div>
+</div>
+<script>
+window.QUIZ_DATA = {
+  "lang": "es",
+  "questions": [
+    {
+      "q": "¿Qué diferencia a un vector de un escalar?",
+      "options": [
+        "El vector solo tiene magnitud",
+        "El vector tiene magnitud y dirección",
+        "Son exactamente lo mismo",
+        "El escalar tiene dirección"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "¿Cuál es la fórmula de la magnitud de un vector (x,y)?",
+      "options": [
+        "x + y",
+        "√(x² + y²)",
+        "x × y",
+        "x² - y²"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "¿Cuál es la magnitud del vector (3,4)?",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "7"
+      ],
+      "answer": 2
+    },
+    {
+      "q": "¿Cómo se suman dos vectores (a,b) y (c,d)?",
+      "options": [
+        "(a×c, b×d)",
+        "(a+c, b+d)",
+        "(a-c, b-d)",
+        "(ac, bd)"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "¿Qué da como resultado el producto escalar de dos vectores?",
+      "options": [
+        "Otro vector",
+        "Un número (escalar)",
+        "Una matriz",
+        "Un ángulo siempre"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "¿Cuál de estas magnitudes físicas es un vector?",
+      "options": [
+        "Temperatura",
+        "Masa",
+        "Velocidad",
+        "Tiempo"
+      ],
+      "answer": 2
+    },
+    {
+      "q": "¿En qué área se usan vectores para el movimiento de personajes?",
+      "options": [
+        "Contabilidad",
+        "Videojuegos",
+        "Historia",
+        "Literatura"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "¿Cómo se representa un vector en 3D?",
+      "options": [
+        "(x)",
+        "(x,y)",
+        "(x,y,z)",
+        "Solo con una letra"
+      ],
+      "answer": 2
+    },
+    {
+      "q": "¿Cuál es el producto escalar de (1,2) y (3,4)?",
+      "options": [
+        "7",
+        "11",
+        "4",
+        "10"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "¿Qué aplicación usa vectores para calcular rutas?",
+      "options": [
+        "Calculadoras simples",
+        "Navegación GPS",
+        "Diccionarios",
+        "Calendarios"
+      ],
+      "answer": 1
+    }
+  ]
+};
+</script>
+<script src="quiz-engine.js"></script>
+</body>
+</html>

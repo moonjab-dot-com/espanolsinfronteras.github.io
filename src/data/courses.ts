@@ -59,6 +59,8 @@ export const courses: Course[] = [
       { id: 26, title: "La Comunicación",                   href: "/content/CAP 26 LA COMUNICACIÓN ESF.html" },
       { id: 27, title: "Homonimia",                         href: "/content/CAP 27 HOMONIMIA ESF.html" },
       { id: 28, title: "Homofonía",                         href: "/content/CAP 28 HOMOFONÍA ESF.html" },
+      { id: 29, title: "El Verbo y sus Tiempos", href: "/content/CAP 29 EL VERBO Y SUS TIEMPOS ESF.html" },
+      { id: 30, title: "Acentuación y Signos de Puntuación", href: "/content/CAP 30 ACENTUACION Y SIGNOS DE PUNTUACION ESF.html" },
     ],
   },
   {
@@ -90,6 +92,8 @@ export const courses: Course[] = [
       { id: 18, title: "Economía Peruana: Historia y Actualidad",  href: "/content/HERENCIA CAP 18 Economía Peruana Historia y Actualidad ESF.html" },
       { id: 19, title: "Personajes Ilustres del Perú",             href: "/content/HERENCIA CAP 19 Personajes Ilustres del Perú ESF.html" },
       { id: 20, title: "El Perú en el Siglo XXI",                  href: "/content/HERENCIA CAP 20 El Perú en el Siglo XXI ESF.html" },
+      { id: 21, title: "La Gastronomía Peruana en el Mundo", href: "/content/HERENCIA CAP 21 La Gastronomia Peruana en el Mundo ESF.html" },
+      { id: 22, title: "Festividades y Tradiciones Populares", href: "/content/HERENCIA CAP 22 Festividades y Tradiciones Populares ESF.html" },
     ],
   },
   {
@@ -121,6 +125,8 @@ export const courses: Course[] = [
       { id: 18,  title: "Behavioral Finance", href: "/content/GFIN CAP 18 Behavioral Finance ESF.html" },
       { id: 19,  title: "ESG and Sustainable Investing", href: "/content/GFIN CAP 19 ESG and Sustainable Investing ESF.html" },
       { id: 20,  title: "Building Your Investment Portfolio", href: "/content/GFIN CAP 20 Building Your Investment Portfolio ESF.html" },
+      { id: 21, title: "Inflation and Purchasing Power", href: "/content/GFIN CAP 21 Inflation and Purchasing Power ESF.html" },
+      { id: 22, title: "Credit Scores and Borrowing", href: "/content/GFIN CAP 22 Credit Scores and Borrowing ESF.html" },
     ],
   },
   {
@@ -157,6 +163,8 @@ export const courses: Course[] = [
       { id: 23, title: "Construyendo tu Historial de Crédito desde Cero", href: "/content/FIN CAP 23 Construyendo tu Historial de Credito desde Cero ESF.html" },
       { id: 24, title: "Finanzas para Parejas y Familias", href: "/content/FIN CAP 24 Finanzas para Parejas y Familias ESF.html" },
       { id: 25, title: "Finanzas Sostenibles e Inversión de Impacto", href: "/content/FIN CAP 25 Finanzas Sostenibles e Inversion de Impacto ESF.html" },
+      { id: 26, title: "Planificación Financiera para Emergencias", href: "/content/FIN CAP 26 Planificacion Financiera para Emergencias ESF.html" },
+      { id: 27, title: "Negociando tu Salario y Beneficios", href: "/content/FIN CAP 27 Negociando tu Salario y Beneficios ESF.html" },
     ],
   },
   {
@@ -188,6 +196,8 @@ export const courses: Course[] = [
       { id: 18, title: "Optimización y Performance Web",               href: "/content/PROG CAP 18 Optimización Web ESF.html" },
       { id: 19, title: "Diseño Responsivo Avanzado",                   href: "/content/PROG CAP 19 Diseño Responsivo Avanzado ESF.html" },
       { id: 20, title: "Proyecto Fullstack: De la Idea al Producto",   href: "/content/PROG CAP 20 Proyecto Fullstack ESF.html" },
+      { id: 21, title: "Algoritmos y Estructuras de Datos", href: "/content/PROG CAP 21 Algoritmos y Estructuras de Datos ESF.html" },
+      { id: 22, title: "Testing y Depuración de Código", href: "/content/PROG CAP 22 Testing y Depuracion de Codigo ESF.html" },
     ],
   },
   {
@@ -219,6 +229,8 @@ export const courses: Course[] = [
       { id: 18, title: "Geometría Analítica",                       href: "/content/MAT CAP 18 Geometría Analítica ESF.html" },
       { id: 19, title: "Progresiones Aritméticas y Geométricas",    href: "/content/MAT CAP 19 Progresiones ESF.html" },
       { id: 20, title: "Introducción al Cálculo Diferencial",        href: "/content/MAT CAP 20 Introducción al Cálculo ESF.html" },
+      { id: 21, title: "Lógica Matemática y Conjuntos", href: "/content/MAT CAP 21 Logica Matematica y Conjuntos ESF.html" },
+      { id: 22, title: "Vectores y Geometría del Espacio", href: "/content/MAT CAP 22 Vectores y Geometria del Espacio ESF.html" },
     ],
   },
   {
@@ -250,6 +262,8 @@ export const courses: Course[] = [
       { id: 18,  title: "Ecosistemas y Medio Ambiente", href: "/content/CIENCIAS CAP 18 Ecosistemas y Medio Ambiente ESF.html" },
       { id: 19,  title: "Genética y Herencia", href: "/content/CIENCIAS CAP 19 Genética y Herencia ESF.html" },
       { id: 20,  title: "La Luz y la Óptica", href: "/content/CIENCIAS CAP 20 La Luz y la Óptica ESF.html" },
+      { id: 21, title: "El Cuerpo Humano: Sistemas Vitales", href: "/content/CIENCIAS CAP 21 El Cuerpo Humano Sistemas Vitales ESF.html" },
+      { id: 22, title: "Cambio Climático y Calentamiento Global", href: "/content/CIENCIAS CAP 22 Cambio Climatico y Calentamiento Global ESF.html" },
     ],
   },
   {
@@ -281,6 +295,8 @@ export const courses: Course[] = [
       { id: 18, title: "Gestión de Identidad y Accesos",             href: "/content/CIBER CAP 18 Gestión de Identidades ESF.html" },
       { id: 19, title: "Normativas y Cumplimiento en Ciberseguridad",href: "/content/CIBER CAP 19 Normativas y Cumplimiento ESF.html" },
       { id: 20, title: "Carrera Profesional en Ciberseguridad",      href: "/content/CIBER CAP 20 Carrera en Ciberseguridad ESF.html" },
+      { id: 21, title: "Seguridad en la Vida Digital Cotidiana", href: "/content/CIBER CAP 21 Seguridad en la Vida Digital Cotidiana ESF.html" },
+      { id: 22, title: "Privacidad de Datos y Regulaciones Globales", href: "/content/CIBER CAP 22 Privacidad de Datos y Regulaciones Globales ESF.html" },
     ],
   },
   {
@@ -312,6 +328,8 @@ export const courses: Course[] = [
       { id: 18, title: "Construye tu Primer Chatbot con IA",        href: "/content/IA CAP 18 Construye tu Chatbot ESF.html" },
       { id: 19, title: "IA Responsable: Sesgos y Transparencia",    href: "/content/IA CAP 19 IA Responsable ESF.html" },
       { id: 20, title: "El Futuro de la Inteligencia Artificial",   href: "/content/IA CAP 20 El Futuro de la IA ESF.html" },
+      { id: 21, title: "Modelos de Lenguaje Grande (LLMs)", href: "/content/IA CAP 21 Modelos de Lenguaje Grande LLMs ESF.html" },
+      { id: 22, title: "Carreras y Oportunidades en Inteligencia Artificial", href: "/content/IA CAP 22 Carreras y Oportunidades en Inteligencia Artificial ESF.html" },
     ],
   },
   {
@@ -343,6 +361,8 @@ export const courses: Course[] = [
       { id: 18, title: "Business English Communication",                      href: "/content/ENGLISH CAP 18 Business English ESF.html" },
       { id: 19, title: "American vs. British English",                        href: "/content/ENGLISH CAP 19 American vs British English ESF.html" },
       { id: 20, title: "IELTS and TOEFL Preparation",                         href: "/content/ENGLISH CAP 20 IELTS TOEFL Preparation ESF.html" },
+      { id: 21, title: "Job Interviews and Professional English", href: "/content/ENGLISH CAP 21 Job Interviews and Professional English ESF.html" },
+      { id: 22, title: "Common Idioms and Everyday Expressions", href: "/content/ENGLISH CAP 22 Common Idioms and Everyday Expressions ESF.html" },
     ],
   },
   {
@@ -374,6 +394,8 @@ export const courses: Course[] = [
       { id: 18,  title: "Desigualdad Económica", href: "/content/ECONOMIA CAP 18 Desigualdad Económica ESF.html" },
       { id: 19,  title: "Economía Verde y Sostenibilidad", href: "/content/ECONOMIA CAP 19 Economía Verde y Sostenibilidad ESF.html" },
       { id: 20,  title: "El Futuro de la Economía Global", href: "/content/ECONOMIA CAP 20 El Futuro de la Economía Global ESF.html" },
+      { id: 21, title: "Comercio Electrónico y la Nueva Economía", href: "/content/ECONOMIA CAP 21 Comercio Electronico y la Nueva Economia ESF.html" },
+      { id: 22, title: "Economía del Comportamiento", href: "/content/ECONOMIA CAP 22 Economia del Comportamiento ESF.html" },
     ],
   },
   {
@@ -405,6 +427,8 @@ export const courses: Course[] = [
       { id: 18,  title: "Cómo Armar una Cartera de Inversión", href: "/content/MARKETS CAP 18 Como Armar una Cartera de Inversion ESF.html" },
       { id: 19,  title: "Impuestos sobre Inversiones", href: "/content/MARKETS CAP 19 Impuestos sobre Inversiones ESF.html" },
       { id: 20,  title: "El Mercado del Futuro: Tendencias 2026-2030", href: "/content/MARKETS CAP 20 El Mercado del Futuro Tendencias 2026-2030 ESF.html" },
+      { id: 21, title: "Fondos Indexados vs. Gestión Activa", href: "/content/MARKETS CAP 21 Fondos Indexados vs Gestion Activa ESF.html" },
+      { id: 22, title: "Inversión en Bienes Raíces y REITs", href: "/content/MARKETS CAP 22 Inversion en Bienes Raices REITs ESF.html" },
     ],
   },
 ];

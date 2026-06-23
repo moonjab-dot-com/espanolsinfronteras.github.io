@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testing y Depuración de Código | Español Sin Fronteras</title>
+<style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:Georgia,'Times New Roman',serif;background:#f8f9fa;color:#1a1a2e;line-height:1.8}.wrapper{max-width:860px;margin:0 auto;background:#fff;padding:60px 72px;min-height:100vh}.course-tag{font-family:Arial,sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:#0f766e;margin-bottom:12px}h1{font-size:2rem;font-weight:700;color:#0f172a;margin-bottom:8px;line-height:1.3}.subtitle{font-size:1.05rem;color:#64748b;margin-bottom:40px;font-style:italic}hr{border:none;border-top:2px solid #99f6e4;margin:32px 0}h2{font-size:1.35rem;font-weight:700;color:#1e293b;margin:36px 0 16px}p{margin-bottom:16px;font-size:1rem}ul,ol{margin:16px 0 16px 24px}li{margin-bottom:8px;font-size:1rem}.highlight-box{background:#f0fdfa;border-left:4px solid #14b8a6;padding:20px 24px;border-radius:0 8px 8px 0;margin:24px 0}.example{background:#f1f5f9;border:1px solid #e2e8f0;border-radius:8px;padding:20px 24px;margin:20px 0}table{width:100%;border-collapse:collapse;margin:24px 0;font-size:.95rem}th{background:#0f766e;color:#fff;padding:12px 16px;text-align:left;font-family:Arial,sans-serif;font-weight:600}td{padding:11px 16px;border-bottom:1px solid #e2e8f0}tr:nth-child(even) td{background:#f0fdfa}.summary{background:#0f172a;color:#e2e8f0;border-radius:12px;padding:28px 32px;margin:40px 0 0}.summary h2{color:#2dd4bf;margin-top:0}.summary li{color:#cbd5e1}@media(max-width:640px){.wrapper{padding:32px 24px}h1{font-size:1.5rem}}</style>
+</head>
+<body>
+<div class="wrapper">
+<div class="course-tag">Programación · Capítulo 22</div>
+<h1>Testing y Depuración de Código</h1>
+<p class="subtitle">Cómo encontrar y corregir errores de forma sistemática, y por qué probar tu código es tan importante como escribirlo.</p>
+<hr>
+<h2>¿Por Qué Probar el Código?</h2><p>El <strong>testing</strong> (pruebas) verifica que tu código funciona correctamente antes de que llegue a producción. Detectar un error en desarrollo cuesta mucho menos que corregirlo después del lanzamiento.</p>
+  <div class="highlight-box"><strong>Dato de la industria:</strong> Según IBM, corregir un bug después del lanzamiento puede costar hasta 100 veces más que corregirlo durante el desarrollo.</div>
+  <h2>Tipos de Pruebas</h2><table><tr><th>Tipo</th><th>Qué Verifica</th></tr><tr><td>Pruebas unitarias</td><td>Una función o componente individual</td></tr><tr><td>Pruebas de integración</td><td>Que varios componentes funcionen juntos</td></tr><tr><td>Pruebas end-to-end (E2E)</td><td>El flujo completo de la aplicación como lo usaría un usuario real</td></tr></table>
+  <div class="example"><strong>Ejemplo de prueba unitaria:</strong> Si tienes una función <code>suma(a, b)</code>, una prueba unitaria verifica que <code>suma(2, 3)</code> devuelve exactamente <code>5</code>.</div>
+  <h2>Técnicas de Depuración (Debugging)</h2><ul><li><strong>console.log / print</strong>: Imprimir valores para ver el estado del programa</li><li><strong>Breakpoints</strong>: Pausar la ejecución en un punto específico para inspeccionar variables</li><li><strong>Rubber duck debugging</strong>: Explicar el código en voz alta línea por línea para encontrar el error</li><li><strong>Divide y vencerás</strong>: Aislar la sección de código que causa el problema</li></ul>
+  <div class="summary"><h2>Resumen</h2><ul><li>Probar código antes del lanzamiento ahorra tiempo y dinero</li><li>Pruebas unitarias, de integración y E2E cubren diferentes niveles</li><li>Breakpoints y console.log son herramientas básicas de depuración</li><li>Corregir un bug en producción puede costar 100x más que en desarrollo</li></ul></div>
+</div>
+<script>
+window.QUIZ_DATA = {
+  "lang": "es",
+  "questions": [
+    {
+      "q": "¿Qué verifica una prueba unitaria?",
+      "options": [
+        "Toda la aplicación",
+        "Una función o componente individual",
+        "Solo la interfaz visual",
+        "El servidor completo"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "¿Qué verifican las pruebas end-to-end (E2E)?",
+      "options": [
+        "Solo una función",
+        "El flujo completo de la aplicación como un usuario real",
+        "Solo la base de datos",
+        "El código fuente sin ejecutarlo"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "Según IBM, ¿cuánto más puede costar corregir un bug en producción vs en desarrollo?",
+      "options": [
+        "2 veces más",
+        "10 veces más",
+        "Hasta 100 veces más",
+        "No hay diferencia"
+      ],
+      "answer": 2
+    },
+    {
+      "q": "¿Qué es un 'breakpoint'?",
+      "options": [
+        "Un error de sintaxis",
+        "Un punto donde se pausa la ejecución para inspeccionar variables",
+        "Un tipo de variable",
+        "Un comentario en el código"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "¿Qué es el 'rubber duck debugging'?",
+      "options": [
+        "Usar un pato de hule literal para resolver bugs mágicamente",
+        "Explicar el código en voz alta para encontrar el error",
+        "Un tipo de prueba automatizada",
+        "Un lenguaje de programación"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "¿Qué verifican las pruebas de integración?",
+      "options": [
+        "Una sola función aislada",
+        "Que varios componentes funcionen juntos correctamente",
+        "Solo el diseño visual",
+        "La velocidad de internet"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "¿Qué técnica de depuración consiste en aislar la sección problemática?",
+      "options": [
+        "Ignorar el error",
+        "Divide y vencerás",
+        "Reescribir todo el programa",
+        "Borrar el código"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "¿Qué hace console.log/print en depuración?",
+      "options": [
+        "Borra el error",
+        "Imprime valores para ver el estado del programa",
+        "Cierra la aplicación",
+        "Optimiza el código automáticamente"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "¿Por qué es importante el testing antes de producción?",
+      "options": [
+        "No es importante",
+        "Detectar errores temprano cuesta menos que corregirlos después",
+        "Solo sirve para impresionar al jefe",
+        "Ralentiza el desarrollo sin beneficio"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "Si suma(2,3) debe devolver 5, ¿qué tipo de prueba lo verifica?",
+      "options": [
+        "Prueba E2E",
+        "Prueba unitaria",
+        "Prueba de carga",
+        "Prueba manual visual"
+      ],
+      "answer": 1
+    }
+  ]
+};
+</script>
+<script src="quiz-engine.js"></script>
+</body>
+</html>

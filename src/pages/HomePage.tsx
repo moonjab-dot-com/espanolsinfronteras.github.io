@@ -117,7 +117,7 @@ function HeroSection() {
           <div>
             <div className="animate-fade-up inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/12 bg-white/5 text-white/75 text-xs font-semibold mb-8">
               <Sparkles className="w-3 h-3 text-amber-400 shrink-0" aria-hidden="true" />
-              {t ? "100% Gratuito · 253+ lecciones · Quiz interactivo" : "100% Free · 253+ lessons · Interactive quiz"}
+              {t ? "100% Gratuito · 277+ lecciones · Quiz interactivo" : "100% Free · 277+ lessons · Interactive quiz"}
             </div>
 
             <h1 className="animate-fade-up delay-75 text-[2.75rem] sm:text-5xl lg:text-[3.5rem] font-extrabold text-white mb-5 leading-[1.06]">
@@ -132,8 +132,8 @@ function HeroSection() {
 
             <p className="animate-fade-up delay-150 text-[17px] text-white/55 leading-relaxed mb-10 max-w-[480px]">
               {t
-                ? "Plataforma educativa gratuita con 253+ lecciones en español, finanzas, programación, matemáticas y más. Sin registro, sin costo, para siempre."
-                : "Free educational platform with 253+ lessons covering Spanish, finance, programming, math, and more. No sign-up, no cost, forever."}
+                ? "Plataforma educativa gratuita con 277+ lecciones en español, finanzas, programación, matemáticas y más. Sin registro, sin costo, para siempre."
+                : "Free educational platform with 277+ lessons covering Spanish, finance, programming, math, and more. No sign-up, no cost, forever."}
             </p>
 
             <div className="animate-fade-up delay-225 flex flex-wrap gap-3 mb-14">
@@ -149,7 +149,7 @@ function HeroSection() {
             {/* Stats */}
             <div className="animate-fade-up delay-300 flex gap-8 border-t border-white/8 pt-8">
               {[
-                { v: "253+", l: t ? "Lecciones" : "Lessons" },
+                { v: "277+", l: t ? "Lecciones" : "Lessons" },
                 { v: "72+",  l: t ? "Países" : "Countries" },
                 { v: "10",   l: t ? "Materias" : "Subjects"  },
               ].map(({ v, l }) => (
@@ -243,8 +243,8 @@ function CoursesSection() {
             </h2>
             <p className="text-muted-foreground text-base max-w-sm mx-auto">
               {t
-                ? "12 materias, 253+ capítulos. Todo 100% gratuito, sin registro."
-                : "12 subjects, 253+ chapters. All 100% free, no sign-up."}
+                ? "12 materias, 277+ capítulos. Todo 100% gratuito, sin registro."
+                : "12 subjects, 277+ chapters. All 100% free, no sign-up."}
             </p>
           </div>
         </Reveal>
@@ -330,7 +330,7 @@ function ImpactSection() {
       icon: Globe,
     },
     {
-      value: "253+",
+      value: "277+",
       labelEs: "Lecciones",
       labelEn: "Lessons",
       descEs: "Capítulos gratuitos y accesibles",
@@ -441,7 +441,7 @@ function MissionSection() {
                   </p>
                   <p>
                     En 2024, Salvador decidió convertir esa idea en acción, creando una plataforma 100% gratuita donde cualquier persona puede aprender español, finanzas, programación, matemáticas, ciencias e inglés. Hoy cuenta con más de{" "}
-                    <strong className="text-foreground font-semibold">253 capítulos</strong> diseñados para ser prácticos, accesibles y útiles en la vida real.
+                    <strong className="text-foreground font-semibold">277 capítulos</strong> diseñados para ser prácticos, accesibles y útiles en la vida real.
                   </p>
                   <p>
                     Desde entonces, la plataforma ha llegado a usuarios en más de{" "}
@@ -459,7 +459,7 @@ function MissionSection() {
                   </p>
                   <p>
                     In 2024, Salvador decided to turn that idea into action, creating a 100% free platform where anyone can learn Spanish, finance, programming, math, science, and English. Today it has more than{" "}
-                    <strong className="text-foreground font-semibold">253 chapters</strong> designed to be practical, accessible, and useful in real life.
+                    <strong className="text-foreground font-semibold">277 chapters</strong> designed to be practical, accessible, and useful in real life.
                   </p>
                   <p>
                     Since then, the platform has reached users in more than{" "}
@@ -1016,6 +1016,7 @@ const HomePage = () => (
 );
 
 export default HomePage;
+
 
 
 
