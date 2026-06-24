@@ -51,10 +51,11 @@ const PATH_THEME = {
   blue: {
     headerGrad:     "from-blue-600 to-indigo-600",
     headerBg:       "from-blue-50/80 via-indigo-50/40 to-white",
-    node:           "border-blue-300 bg-blue-50 text-blue-600",
+    node:           "border-blue-700 bg-blue-600 text-white",
+    pressShadow:    "#1e40af",
     nodeHov:        "bg-blue-600 border-blue-600 text-white",
     nodeShadow:     "0 8px 32px rgba(37,99,235,0.42)",
-    connectorColor: "rgba(59,130,246,0.38)",
+    connectorColor: "rgba(59,130,246,0.55)",
     connector:      "bg-blue-100",
     titleHov:       "text-blue-600",
     unit:           "from-blue-50 to-indigo-50/40 border-blue-100",
@@ -71,10 +72,11 @@ const PATH_THEME = {
   green: {
     headerGrad:     "from-emerald-600 to-teal-600",
     headerBg:       "from-emerald-50/80 via-teal-50/40 to-white",
-    node:           "border-emerald-300 bg-emerald-50 text-emerald-600",
+    node:           "border-emerald-700 bg-emerald-600 text-white",
+    pressShadow:    "#065f46",
     nodeHov:        "bg-emerald-600 border-emerald-600 text-white",
     nodeShadow:     "0 8px 32px rgba(5,150,105,0.42)",
-    connectorColor: "rgba(5,150,105,0.38)",
+    connectorColor: "rgba(5,150,105,0.55)",
     connector:      "bg-emerald-100",
     titleHov:       "text-emerald-600",
     unit:           "from-emerald-50 to-teal-50/40 border-emerald-100",
@@ -91,10 +93,11 @@ const PATH_THEME = {
   teal: {
     headerGrad:     "from-teal-600 to-cyan-600",
     headerBg:       "from-teal-50/80 via-cyan-50/40 to-white",
-    node:           "border-teal-300 bg-teal-50 text-teal-600",
+    node:           "border-teal-700 bg-teal-600 text-white",
+    pressShadow:    "#115e59",
     nodeHov:        "bg-teal-600 border-teal-600 text-white",
     nodeShadow:     "0 8px 32px rgba(13,148,136,0.42)",
-    connectorColor: "rgba(13,148,136,0.38)",
+    connectorColor: "rgba(13,148,136,0.55)",
     connector:      "bg-teal-100",
     titleHov:       "text-teal-600",
     unit:           "from-teal-50 to-cyan-50/40 border-teal-100",
@@ -111,10 +114,11 @@ const PATH_THEME = {
   violet: {
     headerGrad:     "from-violet-600 to-purple-600",
     headerBg:       "from-violet-50/80 via-purple-50/40 to-white",
-    node:           "border-violet-300 bg-violet-50 text-violet-600",
+    node:           "border-violet-700 bg-violet-600 text-white",
+    pressShadow:    "#5b21b6",
     nodeHov:        "bg-violet-600 border-violet-600 text-white",
     nodeShadow:     "0 8px 32px rgba(124,58,237,0.42)",
-    connectorColor: "rgba(124,58,237,0.38)",
+    connectorColor: "rgba(124,58,237,0.55)",
     connector:      "bg-violet-100",
     titleHov:       "text-violet-600",
     unit:           "from-violet-50 to-purple-50/40 border-violet-100",
@@ -131,10 +135,11 @@ const PATH_THEME = {
   amber: {
     headerGrad:     "from-amber-500 to-orange-500",
     headerBg:       "from-amber-50/80 via-orange-50/40 to-white",
-    node:           "border-amber-300 bg-amber-50 text-amber-600",
+    node:           "border-amber-600 bg-amber-500 text-white",
+    pressShadow:    "#92400e",
     nodeHov:        "bg-amber-500 border-amber-500 text-white",
     nodeShadow:     "0 8px 32px rgba(245,158,11,0.42)",
-    connectorColor: "rgba(245,158,11,0.38)",
+    connectorColor: "rgba(245,158,11,0.55)",
     connector:      "bg-amber-100",
     titleHov:       "text-amber-600",
     unit:           "from-amber-50 to-orange-50/40 border-amber-100",
@@ -195,24 +200,35 @@ function ChapterNode({
         onFocus={() => setHovered(true)}
         onBlur={() => setHovered(false)}
       >
-        {/* Node circle */}
-        <div
-          className={`w-[76px] h-[76px] flex-shrink-0 rounded-full border-[3px] flex flex-col
-            items-center justify-center transition-all duration-200 select-none
-            ${hovered ? theme.nodeHov : theme.node}`}
-          style={
-            hovered
-              ? { boxShadow: theme.nodeShadow, transform: "scale(1.12)" }
-              : { transform: "scale(1)" }
-          }
-          aria-hidden="true"
-        >
-          <span className="text-[8px] font-extrabold uppercase tracking-widest opacity-40 leading-none">
-            {t ? "cap" : "ch"}
-          </span>
-          <span className="text-[22px] font-black tabular-nums leading-none mt-0.5">
-            {String(chapter.id).padStart(2, "0")}
-          </span>
+        {/* Node circle — chunky/solid like a Duolingo lesson button */}
+        <div className="relative flex-shrink-0">
+          {globalIndex === 0 && (
+            <div
+              className="absolute -top-7 left-1/2 -translate-x-1/2 whitespace-nowrap px-2.5 py-1 rounded-full bg-[hsl(222,47%,12%)] text-white text-[10px] font-extrabold uppercase tracking-wide animate-bounce"
+              style={{ animationDuration: "2s" }}
+            >
+              {t ? "¡Empieza aquí!" : "Start here!"}
+            </div>
+          )}
+          <div
+            className={`w-[76px] h-[76px] rounded-full border-[3px] flex flex-col
+              items-center justify-center transition-all duration-150 select-none
+              ${theme.node}`}
+            style={{
+              boxShadow: hovered
+                ? `0 3px 0 ${theme.pressShadow}, ${theme.nodeShadow}`
+                : `0 5px 0 ${theme.pressShadow}`,
+              transform: hovered ? "translateY(2px) scale(1.06)" : "translateY(0) scale(1)",
+            }}
+            aria-hidden="true"
+          >
+            <span className="text-[8px] font-extrabold uppercase tracking-widest opacity-70 leading-none">
+              {t ? "cap" : "ch"}
+            </span>
+            <span className="text-[22px] font-black tabular-nums leading-none mt-0.5">
+              {String(chapter.id).padStart(2, "0")}
+            </span>
+          </div>
         </div>
 
         {/* Text label beside node */}
@@ -267,8 +283,8 @@ function ChapterNode({
                 : "M 100 0 C 100 46 0 46 0 92"
             }
             stroke={theme.connectorColor}
-            strokeWidth="0.65"
-            strokeDasharray="2.2 1.8"
+            strokeWidth="2.2"
+            strokeDasharray="3.5 4"
             strokeLinecap="round"
             fill="none"
           />
