@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/context/LanguageContext";
 import { courses, testimonials, faqItems, socialLinks, partners } from "@/data/courses";
 import {
-  ArrowRight, BookOpen, ChevronDown, ChevronRight,
-  ExternalLink, GraduationCap, Globe, Handshake, Heart,
-  Mail, MessageCircle, Quote, Sparkles,
+  ArrowRight, Backpack, BookOpen, ChevronDown, ChevronRight, Code,
+  DollarSign, ExternalLink, Flame, FlaskConical, GraduationCap, Globe,
+  Handshake, Heart, Lightbulb, Mail, MessageCircle, PartyPopper, Quote,
+  Rocket, Sparkles, Trophy,
 } from "lucide-react";
 import { courseIconMap } from "@/lib/course-icons";
 import { COURSE_MASCOTS } from "@/lib/course-mascots";
@@ -185,9 +186,10 @@ function HeroSection() {
                 className="absolute z-30 -top-20 left-1/2 -translate-x-1/2 animate-float"
                 aria-hidden="true"
               >
-                <div className="relative bg-white rounded-2xl px-4 py-2.5 shadow-xl border-2 border-[hsl(156,64%,42%)]">
+                <div className="relative flex items-center gap-2 bg-white rounded-2xl px-4 py-2.5 shadow-xl border-2 border-[hsl(156,64%,42%)]">
+                  <PartyPopper className="w-4 h-4 text-[hsl(156,64%,42%)] shrink-0" aria-hidden="true" />
                   <p className="text-[hsl(222,47%,12%)] text-sm font-extrabold whitespace-nowrap">
-                    {t ? "¡Vamos a aprender! 🎉" : "Let's start learning! 🎉"}
+                    {t ? "¡Vamos a aprender!" : "Let's start learning!"}
                   </p>
                   <div
                     className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white border-r-2 border-b-2 border-[hsl(156,64%,42%)] rotate-45"
@@ -212,7 +214,7 @@ function HeroSection() {
                 style={{ animationDuration: "2.5s" }}
                 aria-hidden="true"
               >
-                <span className="text-base leading-none">🔥</span>
+                <Flame className="w-4 h-4 text-[hsl(222,47%,12%)] shrink-0" aria-hidden="true" />
                 <span className="text-[hsl(222,47%,12%)] text-xs font-extrabold">
                   {t ? "100% gratis" : "100% free"}
                 </span>
@@ -220,17 +222,18 @@ function HeroSection() {
 
               {/* Floating subject pills — pushed well clear of the bubble/owl/badge column */}
               {[
-                { label: t ? "📚 Español"    : "📚 Spanish",       top: "4px",    left: "-200px", delay: 0    },
-                { label: t ? "💰 Finanzas"   : "💰 Finance",       top: "200px",  left: "-210px", delay: 600  },
-                { label: t ? "💻 Programación" : "💻 Coding",      top: "4px",    right: "-200px", delay: 1200 },
-                { label: t ? "🔬 Ciencias"   : "🔬 Science",       top: "200px",  right: "-210px", delay: 900  },
-              ].map(({ label, delay: d, ...pos }) => (
+                { label: t ? "Español"    : "Spanish",       icon: BookOpen,      top: "4px",    left: "-200px", delay: 0    },
+                { label: t ? "Finanzas"   : "Finance",       icon: DollarSign,    top: "200px",  left: "-210px", delay: 600  },
+                { label: t ? "Programación" : "Coding",      icon: Code,          top: "4px",    right: "-200px", delay: 1200 },
+                { label: t ? "Ciencias"   : "Science",       icon: FlaskConical,  top: "200px",  right: "-210px", delay: 900  },
+              ].map(({ label, icon: PillIcon, delay: d, ...pos }) => (
                 <div
                   key={label}
-                  className="absolute z-20 px-3 py-1.5 rounded-full bg-white/12 backdrop-blur-sm border border-white/18 text-white text-xs font-semibold whitespace-nowrap animate-float"
+                  className="absolute z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/12 backdrop-blur-sm border border-white/18 text-white text-xs font-semibold whitespace-nowrap animate-float"
                   style={{ animationDelay: `${d}ms`, ...pos }}
                   aria-hidden="true"
                 >
+                  <PillIcon className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
                   {label}
                 </div>
               ))}
@@ -369,6 +372,7 @@ function ImpactSection() {
       descEs: "Estudiantes en todo el mundo",
       descEn: "Students all over the world",
       icon: Globe,
+      iconBg: "bg-blue-500",
     },
     {
       value: "277+",
@@ -377,6 +381,7 @@ function ImpactSection() {
       descEs: "Capítulos gratuitos y accesibles",
       descEn: "Free and accessible chapters",
       icon: BookOpen,
+      iconBg: "bg-emerald-500",
     },
     {
       value: "12",
@@ -385,6 +390,7 @@ function ImpactSection() {
       descEs: "Español, finanzas, STEM y más",
       descEn: "Spanish, finance, STEM, and more",
       icon: GraduationCap,
+      iconBg: "bg-violet-500",
     },
     {
       value: "$0",
@@ -393,6 +399,7 @@ function ImpactSection() {
       descEs: "Siempre gratis, sin excepciones",
       descEn: "Always free, no exceptions",
       icon: Heart,
+      iconBg: "bg-rose-500",
     },
   ];
 
@@ -402,25 +409,25 @@ function ImpactSection() {
       aria-label={t ? "Impacto de la plataforma" : "Platform impact"}
     >
       <div className="container-page">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/6 rounded-2xl overflow-hidden border border-white/6">
-          {stats.map(({ value, labelEs, labelEn, descEs, descEn, icon: Icon }, i) => (
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          {stats.map(({ value, labelEs, labelEn, descEs, descEn, icon: Icon, iconBg }, i) => (
             <Reveal key={value} delay={i * 80}>
-              <div className="flex flex-col items-center text-center p-8 bg-[hsl(222,47%,8%)] gap-3">
-                <div className="w-10 h-10 rounded-xl bg-white/6 flex items-center justify-center mb-1">
-                  <Icon className="w-5 h-5 text-white/50" aria-hidden="true" />
+              <div className="flex flex-col items-center text-center p-7 bg-white/[0.04] rounded-3xl border-2 border-white/10 gap-3 transition-colors hover:border-white/20">
+                <div className={`w-12 h-12 rounded-2xl ${iconBg} flex items-center justify-center mb-1 shadow-lg`}>
+                  <Icon className="w-6 h-6 text-white" aria-hidden="true" />
                 </div>
                 <span
                   className="text-4xl font-extrabold text-white tabular-nums"
-                  style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.04em" }}
+                  style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.02em" }}
                   aria-label={value}
                 >
                   {value}
                 </span>
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.14em] text-white/40 mb-1">
+                  <p className="text-xs font-bold uppercase tracking-[0.14em] text-white/50 mb-1">
                     {t ? labelEs : labelEn}
                   </p>
-                  <p className="text-[13px] text-white/30 leading-snug">
+                  <p className="text-[13px] text-white/35 leading-snug">
                     {t ? descEs : descEn}
                   </p>
                 </div>
@@ -477,32 +484,36 @@ function MissionSection() {
             <div className="grid sm:grid-cols-2 gap-5">
               {[
                 {
-                  emoji: "💡",
+                  icon: Lightbulb,
                   color: "border-blue-300 bg-blue-50",
+                  iconColor: "text-blue-500",
                   textEs: <>Nació con una idea clara: aprender no debería depender del <strong className="font-extrabold">dinero</strong> ni de las circunstancias.</>,
                   textEn: <>Born from one clear idea: learning shouldn't depend on <strong className="font-extrabold">money</strong> or circumstances.</>,
                 },
                 {
-                  emoji: "🚀",
+                  icon: Rocket,
                   color: "border-emerald-300 bg-emerald-50",
+                  iconColor: "text-emerald-500",
                   textEs: <>En 2024, Salvador convirtió esa idea en una plataforma 100% gratuita con más de <strong className="font-extrabold">277 capítulos</strong> prácticos y accesibles.</>,
                   textEn: <>In 2024, Salvador turned that idea into a 100% free platform with over <strong className="font-extrabold">277 practical, accessible chapters</strong>.</>,
                 },
                 {
-                  emoji: "🌎",
+                  icon: Globe,
                   color: "border-violet-300 bg-violet-50",
-                  textEs: <>Hoy llega a estudiantes en más de <strong className="font-extrabold">72 países</strong> — las ganas de aprender no tienen fronteras.</>,
-                  textEn: <>Today it reaches students in over <strong className="font-extrabold">72 countries</strong> — the will to learn has no borders.</>,
+                  iconColor: "text-violet-500",
+                  textEs: <>Hoy llega a estudiantes en más de <strong className="font-extrabold">72 países</strong>, demostrando que las ganas de aprender no tienen fronteras.</>,
+                  textEn: <>Today it reaches students in over <strong className="font-extrabold">72 countries</strong>, proving that the will to learn has no borders.</>,
                 },
                 {
-                  emoji: "🎒",
+                  icon: Backpack,
                   color: "border-amber-300 bg-amber-50",
+                  iconColor: "text-amber-500",
                   textEs: <>Fuera de la pantalla, se han donado más de <strong className="font-extrabold">1,471 libros</strong> y útiles escolares en Lima.</>,
                   textEn: <>Beyond the screen, more than <strong className="font-extrabold">1,471 books</strong> and school supplies have been donated in Lima.</>,
                 },
               ].map((card, i) => (
                 <div key={i} className={`rounded-3xl border-2 p-6 flex items-start gap-4 ${card.color}`}>
-                  <span className="text-3xl shrink-0" aria-hidden="true">{card.emoji}</span>
+                  <card.icon className={`w-7 h-7 shrink-0 ${card.iconColor}`} aria-hidden="true" />
                   <p className="text-[15px] text-foreground/80 leading-relaxed font-medium">
                     {t ? card.textEs : card.textEn}
                   </p>
@@ -560,23 +571,26 @@ function MascotShowcaseSection() {
         </Reveal>
 
         <div className="grid grid-cols-3 sm:grid-cols-6 gap-4 md:gap-6 max-w-2xl mx-auto">
-          {owls.map(({ src, labelEs, labelEn }, i) => (
-            <Reveal key={src} delay={i * 80}>
-              <div className="flex flex-col items-center gap-2 group cursor-default">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white border border-border/70 shadow-sm flex items-center justify-center overflow-hidden group-hover:shadow-md group-hover:-translate-y-1 transition-all duration-300">
-                  <img
-                    src={src}
-                    alt={t ? labelEs : labelEn}
-                    className="w-14 h-14 sm:w-[72px] sm:h-[72px] object-contain"
-                    loading="lazy"
-                  />
+          {owls.map(({ src, labelEs, labelEn }, i) => {
+            const ringColors = ["border-blue-300", "border-emerald-300", "border-amber-300", "border-violet-300", "border-rose-300", "border-teal-300"];
+            return (
+              <Reveal key={src} delay={i * 80}>
+                <div className="flex flex-col items-center gap-2 group cursor-default">
+                  <div className={`w-16 h-16 sm:w-20 sm:h-20 rounded-3xl bg-white border-2 ${ringColors[i % ringColors.length]} flex items-center justify-center overflow-hidden group-hover:-translate-y-1.5 group-hover:rotate-3 transition-all duration-300`}>
+                    <img
+                      src={src}
+                      alt={t ? labelEs : labelEn}
+                      className="w-14 h-14 sm:w-[72px] sm:h-[72px] object-contain"
+                      loading="lazy"
+                    />
+                  </div>
+                  <span className="text-[11px] font-bold text-muted-foreground text-center leading-tight">
+                    {t ? labelEs : labelEn}
+                  </span>
                 </div>
-                <span className="text-[11px] font-semibold text-muted-foreground text-center leading-tight">
-                  {t ? labelEs : labelEn}
-                </span>
-              </div>
-            </Reveal>
-          ))}
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -617,8 +631,9 @@ function MiCuentoSection() {
                     <BookOpen className="w-3.5 h-3.5" aria-hidden="true" />
                     {t ? "Lectura gratuita" : "Free reading"}
                   </p>
-                  <h2 id="cuento-heading" className="text-2xl md:text-3xl font-extrabold text-foreground mb-3">
-                    {t ? "El Gran Sueño de Cris 🎾" : "Cris's Big Dream 🎾"}
+                  <h2 id="cuento-heading" className="text-2xl md:text-3xl font-extrabold text-foreground mb-3 flex items-center gap-2.5">
+                    <Trophy className="w-6 h-6 text-emerald-500 shrink-0" aria-hidden="true" />
+                    {t ? "El Gran Sueño de Cris" : "Cris's Big Dream"}
                   </h2>
                   <p className="text-muted-foreground text-[15px] leading-relaxed mb-6">
                     {t
@@ -650,9 +665,9 @@ function MiCuentoSection() {
 // ─────────────────────────────────────────────────────────────────────────────
 
 const GALLERY_ITEMS = [
-  { src: "/media1.png", emoji: "📚", captionEs: "Educación en acción", captionEn: "Education in action", border: "border-blue-300" },
-  { src: "/media2.png", emoji: "💚", captionEs: "Nuestro impacto",     captionEn: "Our impact",           border: "border-emerald-300" },
-  { src: "/media3.png", emoji: "🤝", captionEs: "Comunidad",           captionEn: "Community",            border: "border-violet-300" },
+  { src: "/media1.png", icon: BookOpen,  captionEs: "Educación en acción", captionEn: "Education in action", border: "border-blue-300",    iconColor: "text-blue-500"    },
+  { src: "/media2.png", icon: Heart,     captionEs: "Nuestro impacto",     captionEn: "Our impact",           border: "border-emerald-300", iconColor: "text-emerald-500" },
+  { src: "/media3.png", icon: Handshake, captionEs: "Comunidad",           captionEn: "Community",            border: "border-violet-300",  iconColor: "text-violet-500"  },
 ];
 
 function GallerySection() {
@@ -682,7 +697,7 @@ function GallerySection() {
         </Reveal>
 
         <div className="grid sm:grid-cols-3 gap-6">
-          {GALLERY_ITEMS.map(({ src, emoji, captionEs, captionEn, border }, i) => (
+          {GALLERY_ITEMS.map(({ src, icon: ItemIcon, captionEs, captionEn, border, iconColor }, i) => (
             <Reveal key={src} delay={i * 120}>
               <div className={`group overflow-hidden rounded-[28px] border-2 ${border} bg-card transition-transform duration-300 hover:-translate-y-1`}>
                 <div className="overflow-hidden aspect-[4/3]">
@@ -696,7 +711,7 @@ function GallerySection() {
                   />
                 </div>
                 <div className="px-5 py-4 flex items-center gap-2">
-                  <span className="text-lg" aria-hidden="true">{emoji}</span>
+                  <ItemIcon className={`w-[18px] h-[18px] shrink-0 ${iconColor}`} aria-hidden="true" />
                   <p className="text-sm font-bold text-foreground/80">
                     {t ? captionEs : captionEn}
                   </p>
@@ -1061,8 +1076,10 @@ function PartnersSection() {
 
       {/* Bottom attribution */}
       <Reveal delay={200}>
-        <p className="text-center text-[12px] text-muted-foreground/50 mt-10 font-medium">
-          {t ? "Hecho con ❤️ desde Perú para el mundo" : "Made with ❤️ from Peru for the world"}
+        <p className="flex items-center justify-center gap-1.5 text-center text-[12px] text-muted-foreground/50 mt-10 font-medium">
+          {t ? "Hecho con" : "Made with"}
+          <Heart className="w-3 h-3 text-rose-400 fill-rose-400" aria-hidden="true" />
+          {t ? "desde Perú para el mundo" : "from Peru for the world"}
         </p>
       </Reveal>
     </section>

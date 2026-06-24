@@ -30,8 +30,8 @@ function PartnerPill({ partner, lang, decorative = false }: PartnerPillProps) {
     <li
       className={[
         "inline-flex shrink-0 items-center gap-3 px-4 py-2.5",
-        "rounded-2xl border border-border/60 bg-white shadow-sm",
-        "hover:shadow-md hover:-translate-y-0.5",
+        "rounded-2xl border-2 border-border bg-white",
+        "hover:-translate-y-0.5 hover:border-primary/40",
         "transition-all duration-200 cursor-default select-none",
         "whitespace-nowrap",
       ].join(" ")}

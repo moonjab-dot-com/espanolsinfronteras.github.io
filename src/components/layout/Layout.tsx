@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Heart, Menu, X } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { socialLinks } from "@/data/courses";
 
@@ -191,8 +191,10 @@ function Footer() {
           <p className="text-white/20 text-xs">
             © {year} Español Sin Fronteras. {t ? "Todos los derechos reservados." : "All rights reserved."}
           </p>
-          <p className="text-white/15 text-xs">
-            {t ? "Hecho con ❤️ desde Perú" : "Made with ❤️ from Peru"}
+          <p className="flex items-center gap-1.5 text-white/15 text-xs">
+            {t ? "Hecho con" : "Made with"}
+            <Heart className="w-3 h-3 text-rose-400 fill-rose-400" aria-hidden="true" />
+            {t ? "desde Perú" : "from Peru"}
           </p>
         </div>
       </div>

@@ -242,36 +242,39 @@
   }
 
   .btn-ghost-light {
-    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl
-           font-semibold text-sm transition-all duration-200 active:scale-[0.98];
-    border: 1px solid rgba(255,255,255,0.15);
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl
+           font-extrabold text-sm uppercase tracking-wide transition-all duration-100 active:translate-y-[2px];
+    border: 2px solid rgba(255,255,255,0.18);
     color: rgba(255,255,255,0.80);
   }
   .btn-ghost-light:hover {
     background: rgba(255,255,255,0.08);
     color: white;
-    border-color: rgba(255,255,255,0.25);
+    border-color: rgba(255,255,255,0.3);
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl
-           border border-border text-foreground font-semibold text-sm
-           transition-all duration-200
-           hover:bg-secondary hover:border-primary/30 hover:text-primary
-           active:scale-[0.98];
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl
+           border-2 border-border text-foreground font-extrabold text-sm uppercase tracking-wide
+           transition-all duration-100
+           hover:bg-secondary hover:border-primary/40 hover:text-primary
+           active:translate-y-[2px];
   }
 
   .btn-accent {
-    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl
-           font-semibold text-sm text-white
-           transition-all duration-200
-           hover:brightness-110 active:scale-[0.98];
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl
+           font-extrabold text-sm uppercase tracking-wide text-white
+           transition-all duration-100
+           active:translate-y-[3px];
     background: hsl(var(--accent));
-    box-shadow: 0 4px 14px hsl(156 64% 38% / 0.3);
+    box-shadow: 0 4px 0 hsl(156,64%,28%), 0 8px 16px hsl(156 64% 38% / 0.3);
   }
   .btn-accent:hover {
     transform: translateY(-1px);
-    box-shadow: 0 6px 20px hsl(156 64% 38% / 0.4);
+    box-shadow: 0 5px 0 hsl(156,64%,28%), 0 10px 20px hsl(156 64% 38% / 0.4);
+  }
+  .btn-accent:active {
+    box-shadow: 0 1px 0 hsl(156,64%,28%);
   }
 
   /* ── Cards ────────────────────────────────────────────────────────────────*/

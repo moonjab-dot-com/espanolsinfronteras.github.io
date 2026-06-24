@@ -182,17 +182,18 @@
   }
 
   /* ── Internal linking: "También te puede interesar" ────────────────────── */
+  var ESF_ICONS = {"espanol":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7.9 20A9 9 0 1 0 4 16.1L2 22Z\"></path></svg>","finanzas":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><line x1=\"12\" x2=\"12\" y1=\"2\" y2=\"22\"></line><path d=\"M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6\"></path></svg>","programacion":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"16 18 22 12 16 6\"></polyline><polyline points=\"8 6 2 12 8 18\"></polyline></svg>","matematicas":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect width=\"16\" height=\"20\" x=\"4\" y=\"2\" rx=\"2\"></rect><line x1=\"8\" x2=\"16\" y1=\"6\" y2=\"6\"></line><line x1=\"16\" x2=\"16\" y1=\"14\" y2=\"18\"></line><path d=\"M16 10h.01\"></path><path d=\"M12 10h.01\"></path><path d=\"M8 10h.01\"></path><path d=\"M12 14h.01\"></path><path d=\"M8 14h.01\"></path><path d=\"M12 18h.01\"></path><path d=\"M8 18h.01\"></path></svg>","ciencias":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2\"></path><path d=\"M8.5 2h7\"></path><path d=\"M7 16h10\"></path></svg>","ciberseguridad":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z\"></path></svg>","ingles":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m5 8 6 6\"></path><path d=\"m4 14 6-6 2-3\"></path><path d=\"M2 5h12\"></path><path d=\"M7 2h1\"></path><path d=\"m22 22-5-10-5 10\"></path><path d=\"M14 18h6\"></path></svg>","herencia-peruana":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"4\"></circle><path d=\"M12 2v2\"></path><path d=\"M12 20v2\"></path><path d=\"m4.93 4.93 1.41 1.41\"></path><path d=\"m17.66 17.66 1.41 1.41\"></path><path d=\"M2 12h2\"></path><path d=\"M20 12h2\"></path><path d=\"m6.34 17.66-1.41 1.41\"></path><path d=\"m19.07 4.93-1.41 1.41\"></path></svg>","inteligencia-artificial":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 8V4H8\"></path><rect width=\"16\" height=\"12\" x=\"4\" y=\"8\" rx=\"2\"></rect><path d=\"M2 14h2\"></path><path d=\"M20 14h2\"></path><path d=\"M15 13v2\"></path><path d=\"M9 13v2\"></path></svg>","global-finance":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"22 7 13.5 15.5 8.5 10.5 2 17\"></polyline><polyline points=\"16 7 22 7 22 13\"></polyline></svg>"};
   var ALL_COURSES = [
-    { slug: "espanol",                 es: "Comunicación en Español", en: "Spanish Communication",   emoji: "🗣️" },
-    { slug: "finanzas",                es: "Educación Financiera",    en: "Financial Education",      emoji: "💰" },
-    { slug: "programacion",            es: "Programación Web",        en: "Web Programming",          emoji: "💻" },
-    { slug: "matematicas",             es: "Matemáticas",             en: "Mathematics",              emoji: "📐" },
-    { slug: "ciencias",                es: "Ciencias",                en: "Sciences",                 emoji: "🔬" },
-    { slug: "ciberseguridad",          es: "Ciberseguridad",          en: "Cybersecurity",            emoji: "🔐" },
-    { slug: "ingles",                  es: "Inglés",                  en: "English",                  emoji: "🇺🇸" },
-    { slug: "herencia-peruana",        es: "Herencia Peruana",        en: "Peruvian Heritage",        emoji: "🏛️" },
-    { slug: "inteligencia-artificial", es: "Inteligencia Artificial", en: "Artificial Intelligence",  emoji: "🤖" },
-    { slug: "global-finance",          es: "Global Finance",          en: "Global Finance",           emoji: "🌐" },
+    { slug: "espanol",                 es: "Comunicación en Español", en: "Spanish Communication" },
+    { slug: "finanzas",                es: "Educación Financiera",    en: "Financial Education" },
+    { slug: "programacion",            es: "Programación Web",        en: "Web Programming" },
+    { slug: "matematicas",             es: "Matemáticas",             en: "Mathematics" },
+    { slug: "ciencias",                es: "Ciencias",                en: "Sciences" },
+    { slug: "ciberseguridad",          es: "Ciberseguridad",          en: "Cybersecurity" },
+    { slug: "ingles",                  es: "Inglés",                  en: "English" },
+    { slug: "herencia-peruana",        es: "Herencia Peruana",        en: "Peruvian Heritage" },
+    { slug: "inteligencia-artificial", es: "Inteligencia Artificial", en: "Artificial Intelligence" },
+    { slug: "global-finance",          es: "Global Finance",          en: "Global Finance" },
   ];
   var related = ALL_COURSES.filter(function(c) { return c.slug !== slug; }).slice(0, 4);
   if (related.length && wrapper) {
@@ -203,7 +204,7 @@
       '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;">' +
       related.map(function(c) {
         return '<a href="https://espanolsinfronteras.org/curso/' + c.slug + '" style="display:flex;align-items:center;gap:8px;padding:10px 14px;background:#fff;border:1px solid #ede9fe;border-radius:8px;font-size:13px;font-weight:600;color:#5b21b6;text-decoration:none;transition:box-shadow 0.15s;" onmouseover="this.style.boxShadow=\'0 2px 12px rgba(124,58,237,0.15)\'" onmouseout="this.style.boxShadow=\'none\'">' +
-          '<span style="font-size:18px;" aria-hidden="true">' + c.emoji + '</span>' +
+          '<span style="display:inline-flex;color:#7c3aed;" aria-hidden="true">' + (ESF_ICONS[c.slug] || "") + '</span>' +
           '<span>' + (isEnPage ? c.en : c.es) + '</span></a>';
       }).join("") +
       '</div>';
@@ -340,7 +341,7 @@
       '<button id="esf-return-btn">' + T.back + "</button>",
       '<button id="esf-retry-btn">' + (isEn ? "Try Again" : "Intentar de Nuevo") + "</button>",
       '<button id="esf-share-btn" style="background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;border:none;">',
-        (isEn ? "🔗 Share my result" : "🔗 Compartir mi resultado"),
+        (isEn ? "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"display:inline;vertical-align:-2px;margin-right:5px;\"><path d=\"M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71\"></path><path d=\"M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71\"></path></svg>Share my result" : "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"display:inline;vertical-align:-2px;margin-right:5px;\"><path d=\"M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71\"></path><path d=\"M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71\"></path></svg>Compartir mi resultado"),
       "</button>",
     "</div>",
   ].join("");
@@ -390,12 +391,12 @@
         score++;
         block.classList.add("answered-correct");
         fb.className = "esf-feedback correct";
-        fb.innerHTML = '<span class="esf-feedback-badge">✓ ' + T.correct + "</span>" + q.feedback;
+        fb.innerHTML = '<span class="esf-feedback-badge"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:-2px;margin-right:4px;"><path d="M20 6 9 17l-5-5"></path></svg>' + T.correct + "</span>" + q.feedback;
       } else {
         opts[chosen].classList.add("wrong-answer");
         block.classList.add("answered-wrong");
         fb.className = "esf-feedback wrong";
-        fb.innerHTML = '<span class="esf-feedback-badge">✗ ' + T.wrong + "</span>" + q.feedback;
+        fb.innerHTML = '<span class="esf-feedback-badge"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:-2px;margin-right:4px;"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>' + T.wrong + "</span>" + q.feedback;
       }
     });
 
@@ -437,8 +438,8 @@
     var scoreNum = document.getElementById("esf-score-num").textContent || "?";
     var courseUrl = "https://espanolsinfronteras.org/curso/" + (slug || "");
     var shareText = isEn
-      ? "I scored " + scoreNum + "/10 on the quiz \"" + chapterTitle + "\" at Español Sin Fronteras 🎓✨ Try it free: " + courseUrl
-      : "Saqué " + scoreNum + "/10 en el quiz \"" + chapterTitle + "\" en Español Sin Fronteras 🎓✨ Pruébalo gratis: " + courseUrl;
+      ? "I scored " + scoreNum + "/10 on the quiz \"" + chapterTitle + "\" at Español Sin Fronteras. Try it free: " + courseUrl
+      : "Saqué " + scoreNum + "/10 en el quiz \"" + chapterTitle + "\" en Español Sin Fronteras. Pruébalo gratis: " + courseUrl;
     if (navigator.share) {
       navigator.share({ title: "Español Sin Fronteras", text: shareText, url: courseUrl }).catch(function(){});
     } else {
