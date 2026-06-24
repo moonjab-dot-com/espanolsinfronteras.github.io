@@ -180,9 +180,9 @@ function HeroSection() {
                 aria-hidden="true"
               />
 
-              {/* Speech bubble — Duolingo-style mascot greeting */}
+              {/* Speech bubble — centered directly above the mascot's head */}
               <div
-                className="absolute z-30 -top-8 -left-16 animate-float"
+                className="absolute z-30 -top-20 left-1/2 -translate-x-1/2 animate-float"
                 aria-hidden="true"
               >
                 <div className="relative bg-white rounded-2xl px-4 py-2.5 shadow-xl border-2 border-[hsl(156,64%,42%)]">
@@ -190,21 +190,11 @@ function HeroSection() {
                     {t ? "¡Vamos a aprender! 🎉" : "Let's start learning! 🎉"}
                   </p>
                   <div
-                    className="absolute -bottom-2 left-10 w-4 h-4 bg-white border-r-2 border-b-2 border-[hsl(156,64%,42%)] rotate-45"
+                    className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white border-r-2 border-b-2 border-[hsl(156,64%,42%)] rotate-45"
                     aria-hidden="true"
                   />
                 </div>
               </div>
-
-              {/* Small companion mascot peeking from behind */}
-              <img
-                src="/TEACHER_OWL.png"
-                alt=""
-                aria-hidden="true"
-                className="absolute z-0 w-[120px] h-[120px] object-contain opacity-90 -bottom-4 -right-10 drop-shadow-xl animate-float-slow"
-                style={{ animationDelay: "800ms" }}
-                loading="lazy"
-              />
 
               <img
                 src="/owl-logo.png"
@@ -216,9 +206,9 @@ function HeroSection() {
                 fetchPriority="high"
               />
 
-              {/* Streak badge — gamified accent like Duolingo's streak flame */}
+              {/* Streak badge — centered directly below the mascot */}
               <div
-                className="absolute z-20 -bottom-2 -left-6 flex items-center gap-1.5 px-3 py-1.5 rounded-2xl bg-amber-400 border-2 border-amber-300 shadow-lg animate-bounce"
+                className="absolute z-20 -bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-3 py-1.5 rounded-2xl bg-amber-400 border-2 border-amber-300 shadow-lg whitespace-nowrap animate-bounce"
                 style={{ animationDuration: "2.5s" }}
                 aria-hidden="true"
               >
@@ -228,12 +218,12 @@ function HeroSection() {
                 </span>
               </div>
 
-              {/* Floating subject pills */}
+              {/* Floating subject pills — pushed well clear of the bubble/owl/badge column */}
               {[
-                { label: t ? "📚 Español"    : "📚 Spanish",       top: "-10%",  left: "-32%",  delay: 0    },
-                { label: t ? "💰 Finanzas"   : "💰 Finance",       top: "68%",   left: "-30%",  delay: 600  },
-                { label: t ? "💻 Programación" : "💻 Coding",      top: "-8%",   right: "-26%", delay: 1200 },
-                { label: t ? "🔬 Ciencias"   : "🔬 Science",       top: "72%",   right: "-28%", delay: 900  },
+                { label: t ? "📚 Español"    : "📚 Spanish",       top: "4px",    left: "-200px", delay: 0    },
+                { label: t ? "💰 Finanzas"   : "💰 Finance",       top: "200px",  left: "-210px", delay: 600  },
+                { label: t ? "💻 Programación" : "💻 Coding",      top: "4px",    right: "-200px", delay: 1200 },
+                { label: t ? "🔬 Ciencias"   : "🔬 Science",       top: "200px",  right: "-210px", delay: 900  },
               ].map(({ label, delay: d, ...pos }) => (
                 <div
                   key={label}
@@ -472,56 +462,52 @@ function MissionSection() {
           </Reveal>
 
           <Reveal delay={120}>
-            <blockquote className="relative text-xl md:text-2xl font-bold text-foreground leading-[1.4] text-center mb-12 px-8">
-              <Quote className="absolute top-0 left-0 w-8 h-8 text-primary/20" aria-hidden="true" />
-              <span>
+            <div className="relative rounded-[28px] border-2 border-[hsl(38,92%,55%)] bg-amber-50 px-8 py-10 mb-10 text-center shadow-sm">
+              <Quote className="absolute top-5 left-6 w-7 h-7 text-amber-400" aria-hidden="true" />
+              <blockquote className="text-xl md:text-2xl font-extrabold text-foreground leading-[1.4]">
                 {t
                   ? '"Nadie debería quedarse sin estudiar por falta de tiempo o dinero."'
                   : '"No one should miss out on education due to lack of time or money."'}
-              </span>
-              <footer className="mt-4 text-base text-muted-foreground font-normal">— Salvador B., {t ? "Fundador" : "Founder"}</footer>
-            </blockquote>
+              </blockquote>
+              <p className="mt-4 text-sm text-muted-foreground font-bold">— Salvador B., {t ? "Fundador" : "Founder"}</p>
+            </div>
           </Reveal>
 
           <Reveal delay={200}>
-            <div className="rounded-2xl border border-border bg-secondary/30 p-8 md:p-10 space-y-4 text-[15px] text-muted-foreground leading-[1.85]">
-              {t ? (
-                <>
-                  <p>
-                    <strong className="text-foreground font-semibold">Español Sin Fronteras</strong> nació con una idea clara: aprender no debería depender del dinero ni de las circunstancias.
+            <div className="grid sm:grid-cols-2 gap-5">
+              {[
+                {
+                  emoji: "💡",
+                  color: "border-blue-300 bg-blue-50",
+                  textEs: <>Nació con una idea clara: aprender no debería depender del <strong className="font-extrabold">dinero</strong> ni de las circunstancias.</>,
+                  textEn: <>Born from one clear idea: learning shouldn't depend on <strong className="font-extrabold">money</strong> or circumstances.</>,
+                },
+                {
+                  emoji: "🚀",
+                  color: "border-emerald-300 bg-emerald-50",
+                  textEs: <>En 2024, Salvador convirtió esa idea en una plataforma 100% gratuita con más de <strong className="font-extrabold">277 capítulos</strong> prácticos y accesibles.</>,
+                  textEn: <>In 2024, Salvador turned that idea into a 100% free platform with over <strong className="font-extrabold">277 practical, accessible chapters</strong>.</>,
+                },
+                {
+                  emoji: "🌎",
+                  color: "border-violet-300 bg-violet-50",
+                  textEs: <>Hoy llega a estudiantes en más de <strong className="font-extrabold">72 países</strong> — las ganas de aprender no tienen fronteras.</>,
+                  textEn: <>Today it reaches students in over <strong className="font-extrabold">72 countries</strong> — the will to learn has no borders.</>,
+                },
+                {
+                  emoji: "🎒",
+                  color: "border-amber-300 bg-amber-50",
+                  textEs: <>Fuera de la pantalla, se han donado más de <strong className="font-extrabold">1,471 libros</strong> y útiles escolares en Lima.</>,
+                  textEn: <>Beyond the screen, more than <strong className="font-extrabold">1,471 books</strong> and school supplies have been donated in Lima.</>,
+                },
+              ].map((card, i) => (
+                <div key={i} className={`rounded-3xl border-2 p-6 flex items-start gap-4 ${card.color}`}>
+                  <span className="text-3xl shrink-0" aria-hidden="true">{card.emoji}</span>
+                  <p className="text-[15px] text-foreground/80 leading-relaxed font-medium">
+                    {t ? card.textEs : card.textEn}
                   </p>
-                  <p>
-                    En 2024, Salvador decidió convertir esa idea en acción, creando una plataforma 100% gratuita donde cualquier persona puede aprender español, finanzas, programación, matemáticas, ciencias e inglés. Hoy cuenta con más de{" "}
-                    <strong className="text-foreground font-semibold">277 capítulos</strong> diseñados para ser prácticos, accesibles y útiles en la vida real.
-                  </p>
-                  <p>
-                    Desde entonces, la plataforma ha llegado a usuarios en más de{" "}
-                    <strong className="text-foreground font-semibold">72 países</strong>, demostrando que las ganas de aprender no tienen fronteras.
-                  </p>
-                  <p>
-                    Además, el proyecto también busca generar impacto fuera de la pantalla: se han donado más de{" "}
-                    <strong className="text-foreground font-semibold">1471 libros</strong>, útiles escolares en escuelas de Lima y se han organizado actividades para apoyar y motivar a niños. 🎒🎁
-                  </p>
-                </>
-              ) : (
-                <>
-                  <p>
-                    <strong className="text-foreground font-semibold">Español Sin Fronteras</strong> was born with a clear idea: learning shouldn't depend on money or circumstances.
-                  </p>
-                  <p>
-                    In 2024, Salvador decided to turn that idea into action, creating a 100% free platform where anyone can learn Spanish, finance, programming, math, science, and English. Today it has more than{" "}
-                    <strong className="text-foreground font-semibold">277 chapters</strong> designed to be practical, accessible, and useful in real life.
-                  </p>
-                  <p>
-                    Since then, the platform has reached users in more than{" "}
-                    <strong className="text-foreground font-semibold">72 countries</strong>, proving that the desire to learn has no borders.
-                  </p>
-                  <p>
-                    The project also seeks to create impact beyond the screen: more than{" "}
-                    <strong className="text-foreground font-semibold">1,471 books</strong> and school supplies have been donated to schools in Lima, and activities have been organized to support and motivate children. 🎒🎁
-                  </p>
-                </>
-              )}
+                </div>
+              ))}
             </div>
           </Reveal>
         </div>
@@ -614,8 +600,7 @@ function MiCuentoSection() {
       <div className="container-page">
         <div className="max-w-2xl mx-auto">
           <Reveal>
-            <div className="rounded-2xl border border-border bg-card overflow-hidden shadow-sm">
-              <div className="h-1.5 w-full bg-gradient-to-r from-primary via-teal-400 to-emerald-400" aria-hidden="true" />
+            <div className="relative rounded-[28px] border-2 border-emerald-400 bg-emerald-50 overflow-hidden">
               <div className="p-8 md:p-10 flex items-start gap-6">
                 {/* Owl reading — illustrates the story context */}
                 <div className="hidden sm:block flex-shrink-0">
@@ -633,7 +618,7 @@ function MiCuentoSection() {
                     {t ? "Lectura gratuita" : "Free reading"}
                   </p>
                   <h2 id="cuento-heading" className="text-2xl md:text-3xl font-extrabold text-foreground mb-3">
-                    {t ? "El Gran Sueño de Cris" : "Cris's Big Dream"}
+                    {t ? "El Gran Sueño de Cris 🎾" : "Cris's Big Dream 🎾"}
                   </h2>
                   <p className="text-muted-foreground text-[15px] leading-relaxed mb-6">
                     {t
@@ -665,9 +650,9 @@ function MiCuentoSection() {
 // ─────────────────────────────────────────────────────────────────────────────
 
 const GALLERY_ITEMS = [
-  { src: "/media1.png", captionEs: "Educación en acción", captionEn: "Education in action" },
-  { src: "/media2.png", captionEs: "Nuestro impacto",     captionEn: "Our impact"           },
-  { src: "/media3.png", captionEs: "Comunidad",           captionEn: "Community"            },
+  { src: "/media1.png", emoji: "📚", captionEs: "Educación en acción", captionEn: "Education in action", border: "border-blue-300" },
+  { src: "/media2.png", emoji: "💚", captionEs: "Nuestro impacto",     captionEn: "Our impact",           border: "border-emerald-300" },
+  { src: "/media3.png", emoji: "🤝", captionEs: "Comunidad",           captionEn: "Community",            border: "border-violet-300" },
 ];
 
 function GallerySection() {
@@ -697,9 +682,9 @@ function GallerySection() {
         </Reveal>
 
         <div className="grid sm:grid-cols-3 gap-6">
-          {GALLERY_ITEMS.map(({ src, captionEs, captionEn }, i) => (
+          {GALLERY_ITEMS.map(({ src, emoji, captionEs, captionEn, border }, i) => (
             <Reveal key={src} delay={i * 120}>
-              <div className="group overflow-hidden rounded-2xl border border-border bg-card shadow-sm hover:shadow-md transition-shadow duration-300">
+              <div className={`group overflow-hidden rounded-[28px] border-2 ${border} bg-card transition-transform duration-300 hover:-translate-y-1`}>
                 <div className="overflow-hidden aspect-[4/3]">
                   <img
                     src={src}
@@ -710,8 +695,9 @@ function GallerySection() {
                     height={600}
                   />
                 </div>
-                <div className="px-5 py-4 border-t border-border">
-                  <p className="text-sm font-semibold text-foreground/80">
+                <div className="px-5 py-4 flex items-center gap-2">
+                  <span className="text-lg" aria-hidden="true">{emoji}</span>
+                  <p className="text-sm font-bold text-foreground/80">
                     {t ? captionEs : captionEn}
                   </p>
                 </div>
@@ -757,7 +743,7 @@ function FAQSection() {
         </Reveal>
 
         <div
-          className="max-w-2xl mx-auto border border-border rounded-2xl overflow-hidden divide-y divide-border"
+          className="max-w-2xl mx-auto flex flex-col gap-3"
           aria-label={t ? "Preguntas frecuentes" : "Frequently asked questions"}
         >
           {faqItems.map((item, i) => {

@@ -1,6 +1,6 @@
 /* ─── Fonts (must precede @tailwind directives) ──────────────────────────────
    Preconnect links are in <head>; font-display=swap for better LCP. */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -39,7 +39,7 @@
     --radius:               0.625rem;   /* 10px */
 
     /* Typography */
-    --font-display:         'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-display:         'Fredoka', system-ui, sans-serif;
     --font-body:            'Inter', system-ui, sans-serif;
 
     /* Sidebar (shadcn) */
@@ -350,11 +350,14 @@
 
   /* ── FAQ Accordion ────────────────────────────────────────────────────────*/
   .faq-item {
-    @apply border-b border-border last:border-0;
+    @apply rounded-3xl border-2 border-border bg-white overflow-hidden transition-colors duration-200;
+  }
+  .faq-item:hover {
+    border-color: hsl(var(--primary) / 0.4);
   }
   .faq-trigger {
     @apply w-full flex items-center justify-between gap-4 py-5 text-left
-           font-semibold text-[15px] text-foreground cursor-pointer
+           font-bold text-[15px] text-foreground cursor-pointer
            transition-colors hover:text-primary;
   }
   .faq-content {

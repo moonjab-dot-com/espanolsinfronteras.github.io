@@ -498,6 +498,30 @@ export const faqItems = [
     answerEs: "Sí, todos los recursos están pensados para ser usados libremente en clases presenciales o virtuales, y pueden compartirse con estudiantes sin restricciones.",
     answerEn: "Yes — all resources are designed for free use in in-person or virtual classes and can be shared with students without any restrictions.",
   },
+  {
+    questionEs: "¿Necesito crear una cuenta para empezar?",
+    questionEn: "Do I need to create an account to start?",
+    answerEs: "No. Puedes abrir cualquier capítulo de cualquier curso directamente desde la página principal, sin registro, sin correo y sin contraseña.",
+    answerEn: "No. You can open any chapter of any course directly from the homepage — no sign-up, no email, no password.",
+  },
+  {
+    questionEs: "¿Funciona bien desde el celular?",
+    questionEn: "Does it work well on mobile?",
+    answerEs: "Sí. La plataforma está diseñada para cargar rápido y verse bien en cualquier celular, incluso con planes de datos limitados.",
+    answerEn: "Yes. The platform is built to load fast and look good on any phone, even with limited data plans.",
+  },
+  {
+    questionEs: "¿Hay certificados al terminar un curso?",
+    questionEn: "Are there certificates when I finish a course?",
+    answerEs: "Por ahora no emitimos certificados. Nuestro enfoque es que el contenido en sí sea valioso y gratuito para siempre, sin necesidad de un papel que lo respalde.",
+    answerEn: "We don't issue certificates right now. Our focus is making the content itself valuable and free forever, without needing a piece of paper to back it up.",
+  },
+  {
+    questionEs: "¿Con qué frecuencia agregan capítulos nuevos?",
+    questionEn: "How often do you add new chapters?",
+    answerEs: "Agregamos capítulos y cursos de forma constante. Hoy la plataforma tiene 277+ capítulos en 12 materias, y seguimos sumando contenido.",
+    answerEn: "We add chapters and courses regularly. Today the platform has 277+ chapters across 12 subjects, and we keep adding more.",
+  },
 ];
 
 export type PartnerCategory =

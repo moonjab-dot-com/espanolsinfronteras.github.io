@@ -17,7 +17,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Plus Jakarta Sans", "system-ui", "sans-serif"],
+        display: ["Fredoka", "system-ui", "sans-serif"],
         body:    ["Inter", "system-ui", "sans-serif"],
         sans:    ["Inter", "system-ui", "sans-serif"],
       },
