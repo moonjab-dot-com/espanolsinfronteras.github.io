@@ -151,7 +151,7 @@ function HeroSection() {
               {[
                 { v: "277+", l: t ? "Lecciones" : "Lessons" },
                 { v: "72+",  l: t ? "Países" : "Countries" },
-                { v: "10",   l: t ? "Materias" : "Subjects"  },
+                { v: "12",   l: t ? "Materias" : "Subjects"  },
               ].map(({ v, l }) => (
                 <div key={l} className="flex flex-col gap-0.5">
                   <span className="text-2xl font-extrabold text-white tabular-nums" style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.04em" }}>
@@ -241,11 +241,15 @@ function CoursesSection() {
             <h2 id="cursos-heading" className="text-3xl md:text-4xl font-extrabold text-foreground mb-3">
               {t ? "Elige tu camino de aprendizaje" : "Choose your learning path"}
             </h2>
-            <p className="text-muted-foreground text-base max-w-sm mx-auto">
+            <p className="text-muted-foreground text-base max-w-sm mx-auto mb-5">
               {t
-                ? "12 materias, 277+ capítulos. Todo 100% gratuito, sin registro."
-                : "12 subjects, 277+ chapters. All 100% free, no sign-up."}
+                ? "12 materias, 277+ capítulos. Todo 100% gratuito."
+                : "12 subjects, 277+ chapters. All 100% free."}
             </p>
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-50 border-2 border-emerald-200 text-emerald-700 text-sm font-bold">
+              <Sparkles className="w-4 h-4" aria-hidden="true" />
+              {t ? "Haz clic en cualquier curso y empieza ya — sin registro, sin cuenta, sin tarjeta" : "Click any course and start now — no sign-up, no account, no card"}
+            </div>
           </div>
         </Reveal>
 
@@ -281,12 +285,15 @@ function CoursesSection() {
                   )}
 
                   {/* Icon */}
-                  <div className={`w-12 h-12 rounded-xl ${color.icon} flex items-center justify-center mb-5 transition-transform duration-200 group-hover:scale-110 relative z-10`}>
-                    {Icon && <Icon className="w-5 h-5" strokeWidth={2} aria-hidden="true" />}
+                  <div
+                    className={`w-14 h-14 rounded-2xl ${color.icon} flex items-center justify-center mb-5 transition-transform duration-200 group-hover:scale-110 group-hover:-rotate-3 relative z-10 border-2`}
+                    style={{ borderColor: color.accent }}
+                  >
+                    {Icon && <Icon className="w-6 h-6" strokeWidth={2.25} aria-hidden="true" />}
                   </div>
 
                   {/* Title */}
-                  <h3 className="relative z-10 text-[15px] font-bold text-foreground mb-1.5 group-hover:text-primary transition-colors">
+                  <h3 className="relative z-10 text-base font-extrabold text-foreground mb-1.5 group-hover:text-primary transition-colors">
                     {t ? course.titleEs : course.titleEn}
                   </h3>
 
@@ -296,11 +303,17 @@ function CoursesSection() {
                   </p>
 
                   {/* Footer */}
-                  <div className="relative z-10 flex items-center justify-between mt-auto pt-4 border-t border-border/60">
-                    <span className={`inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-lg border ${color.badge}`}>
+                  <div className="relative z-10 flex items-center justify-between mt-auto pt-4 gap-3">
+                    <span className={`inline-flex items-center gap-1.5 text-xs font-bold px-2.5 py-1 rounded-lg border ${color.badge} shrink-0`}>
                       {course.chapters.length} {t ? "caps." : "chaps."}
                     </span>
-                    <ChevronRight className="w-4 h-4 text-muted-foreground/40 group-hover:text-primary group-hover:translate-x-0.5 transition-all" aria-hidden="true" />
+                    <span
+                      className="inline-flex items-center gap-1 text-xs font-extrabold uppercase tracking-wide px-4 py-2 rounded-xl text-white transition-transform duration-150 group-hover:scale-105 group-active:scale-95"
+                      style={{ background: color.accent }}
+                    >
+                      {t ? "Empezar" : "Start"}
+                      <ChevronRight className="w-3.5 h-3.5" aria-hidden="true" />
+                    </span>
                   </div>
                 </Link>
               </Reveal>
@@ -338,7 +351,7 @@ function ImpactSection() {
       icon: BookOpen,
     },
     {
-      value: "10",
+      value: "12",
       labelEs: "Materias",
       labelEn: "Subjects",
       descEs: "Español, finanzas, STEM y más",
