@@ -435,16 +435,60 @@ export const courses: Course[] = [
 // ─── Supporting Content ───────────────────────────────────────────────────────
 
 export const testimonials = [
-  { text: "Desde que empecé a usar este sitio, mi gramática en español ha mejorado muchísimo. Lo recomiendo al 100%. ¡Gracias por hacerlo tan accesible!", author: "Marta" },
-  { text: "Los capítulos son súper claros y fáciles de seguir. Me ha ayudado un montón a avanzar rápido con el español.", author: "Carlos" },
-  { text: "Me encanta cómo los contenidos se adaptan a diferentes niveles. Ha sido ideal tanto para empezar como para repasar.", author: "Sergio" },
-  { text: "Una manera divertida y práctica de aprender vocabulario, gramática y hasta matemáticas. ¡Muy útil!", author: "Claudia" },
-  { text: "Lo que más valoro es que puedo aprender a mi ritmo, sin presión. Ya he avanzado bastante en ciencias y finanzas personales.", author: "Ana" },
-  { text: "Este curso me abrió los ojos sobre cómo manejar mejor mi dinero. ¡Muy recomendado!", author: "Carla" },
-  { text: "Nunca entendí bien las finanzas hasta que probé esta página. Ahora sé cómo ahorrar e invertir.", author: "Jorge" },
-  { text: "Este sitio fue clave para empezar desde cero con programación. Ahora me siento mucho más seguro.", author: "Alberto" },
-  { text: "Aprender a programar acá ha sido una experiencia genial. Todo está bien explicado.", author: "David" },
-  { text: "Me ayudó tanto con español como con física. Aprendí conceptos que antes me costaban muchísimo.", author: "Camila" },
+  {
+    text: "Trabajo de día y estudio de noche. Que no me pidan crear una cuenta para empezar el capítulo de gramática fue lo que me hizo quedarme — entré, leí, y ya estaba aprendiendo.",
+    author: "Marta Quispe",
+    roleEs: "Auxiliar de limpieza, Lima",
+    roleEn: "Cleaning staff, Lima",
+  },
+  {
+    text: "Llevaba meses posponiendo aprender finanzas personales porque todo lo que encontraba pedía suscripción. Acá hice el curso completo de Educación Financiera en un mes, en el bus de ida al trabajo.",
+    author: "Carlos Medina",
+    roleEs: "Conductor de transporte público, Arequipa",
+    roleEn: "Public transit driver, Arequipa",
+  },
+  {
+    text: "Soy autodidacta y suelo abandonar los cursos online a la semana dos. Este lo terminé porque los capítulos son cortos de verdad — 15 minutos, no una hora que dice 15.",
+    author: "Sergio Fernández",
+    roleEs: "Técnico en mantenimiento, Trujillo",
+    roleEn: "Maintenance technician, Trujillo",
+  },
+  {
+    text: "Le mostré el curso de matemáticas a mi hija porque no entendía fracciones en el colegio. Ahora lo usa ella sola los fines de semana. Eso para mí ya vale más que cualquier app de pago.",
+    author: "Claudia Rojas",
+    roleEs: "Madre de familia, Cusco",
+    roleEn: "Parent, Cusco",
+  },
+  {
+    text: "Empecé el curso de programación sin saber qué era una variable. Hoy entiendo HTML y CSS lo suficiente para armar la página de mi propio negocio.",
+    author: "Ana Beatriz Soto",
+    roleEs: "Emprendedora textil, Lima",
+    roleEn: "Textile entrepreneur, Lima",
+  },
+  {
+    text: "Vivo en Madrid pero soy peruana. Hice el curso de Herencia Peruana con mis hijos para que no se olviden de dónde venimos. Lloré en el capítulo de Machu Picchu, lo admito.",
+    author: "Carla Vásquez",
+    roleEs: "Migrante peruana en España",
+    roleEn: "Peruvian migrant in Spain",
+  },
+  {
+    text: "A los 52 años decidí aprender inglés desde cero por mi trabajo. No me sentí ridículo ni perdido — los capítulos avanzan despacio y eso era justo lo que necesitaba.",
+    author: "Jorge Huamán",
+    roleEs: "Vendedor independiente, Piura",
+    roleEn: "Independent vendor, Piura",
+  },
+  {
+    text: "No tengo computadora, solo mi celular. El sitio carga rápido y se ve bien incluso con mis datos del plan prepago, que se me acaban rápido.",
+    author: "Alberto Chura",
+    roleEs: "Estudiante de secundaria, Puno",
+    roleEn: "High school student, Puno",
+  },
+  {
+    text: "Uso el curso de ciencias con mis alumnos de quinto grado como material de apoyo. Es gratis, está en español claro y no tengo que pelear con publicidad en clase.",
+    author: "Camila Torres",
+    roleEs: "Docente de primaria, Chiclayo",
+    roleEn: "Elementary school teacher, Chiclayo",
+  },
 ];
 
 export const faqItems = [

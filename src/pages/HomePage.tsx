@@ -180,6 +180,32 @@ function HeroSection() {
                 aria-hidden="true"
               />
 
+              {/* Speech bubble — Duolingo-style mascot greeting */}
+              <div
+                className="absolute z-30 -top-8 -left-16 animate-float"
+                aria-hidden="true"
+              >
+                <div className="relative bg-white rounded-2xl px-4 py-2.5 shadow-xl border-2 border-[hsl(156,64%,42%)]">
+                  <p className="text-[hsl(222,47%,12%)] text-sm font-extrabold whitespace-nowrap">
+                    {t ? "¡Vamos a aprender! 🎉" : "Let's start learning! 🎉"}
+                  </p>
+                  <div
+                    className="absolute -bottom-2 left-10 w-4 h-4 bg-white border-r-2 border-b-2 border-[hsl(156,64%,42%)] rotate-45"
+                    aria-hidden="true"
+                  />
+                </div>
+              </div>
+
+              {/* Small companion mascot peeking from behind */}
+              <img
+                src="/TEACHER_OWL.png"
+                alt=""
+                aria-hidden="true"
+                className="absolute z-0 w-[120px] h-[120px] object-contain opacity-90 -bottom-4 -right-10 drop-shadow-xl animate-float-slow"
+                style={{ animationDelay: "800ms" }}
+                loading="lazy"
+              />
+
               <img
                 src="/owl-logo.png"
                 alt={t ? "Logo oficial de Español Sin Fronteras" : "Official Español Sin Fronteras logo"}
@@ -189,6 +215,18 @@ function HeroSection() {
                 loading="eager"
                 fetchPriority="high"
               />
+
+              {/* Streak badge — gamified accent like Duolingo's streak flame */}
+              <div
+                className="absolute z-20 -bottom-2 -left-6 flex items-center gap-1.5 px-3 py-1.5 rounded-2xl bg-amber-400 border-2 border-amber-300 shadow-lg animate-bounce"
+                style={{ animationDuration: "2.5s" }}
+                aria-hidden="true"
+              >
+                <span className="text-base leading-none">🔥</span>
+                <span className="text-[hsl(222,47%,12%)] text-xs font-extrabold">
+                  {t ? "100% gratis" : "100% free"}
+                </span>
+              </div>
 
               {/* Floating subject pills */}
               {[
@@ -775,74 +813,120 @@ function FAQSection() {
 // TESTIMONIALS
 // ─────────────────────────────────────────────────────────────────────────────
 
+const AVATAR_PALETTE = [
+  "bg-blue-500", "bg-emerald-500", "bg-amber-500", "bg-violet-500",
+  "bg-rose-500", "bg-teal-500", "bg-indigo-500", "bg-orange-500", "bg-cyan-600",
+];
+
+function TestimonialCard({
+  text,
+  author,
+  role,
+  colorIndex,
+}: {
+  text: string;
+  author: string;
+  role: string;
+  colorIndex: number;
+}) {
+  const initial = author.trim().charAt(0).toUpperCase();
+  return (
+    <div className="p-6 rounded-3xl border-2 border-border bg-white shadow-sm w-full">
+      <p className="text-[14px] text-foreground leading-relaxed mb-4">"{text}"</p>
+      <div className="flex items-center gap-3">
+        <div
+          className={`w-10 h-10 rounded-full ${AVATAR_PALETTE[colorIndex % AVATAR_PALETTE.length]} flex items-center justify-center text-white font-bold text-sm shrink-0`}
+          aria-hidden="true"
+        >
+          {initial}
+        </div>
+        <div className="flex flex-col">
+          <span className="font-bold text-sm text-foreground leading-tight">{author}</span>
+          <span className="text-xs text-muted-foreground leading-tight">{role}</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function TestimonialsColumn({
+  items,
+  duration,
+  t,
+}: {
+  items: { text: string; author: string; role: string; colorIndex: number }[];
+  duration: number;
+  t: boolean;
+}) {
+  return (
+    <div className="overflow-hidden h-[640px] [mask-image:linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)]">
+      <div
+        className="flex flex-col gap-5 animate-marquee-y"
+        style={{ "--marquee-duration": `${duration}s` } as React.CSSProperties}
+      >
+        {[0, 1].map((dup) => (
+          <div key={dup} className="flex flex-col gap-5" aria-hidden={dup === 1}>
+            {items.map((item, i) => (
+              <TestimonialCard
+                key={`${dup}-${i}`}
+                text={item.text}
+                author={item.author}
+                role={item.role}
+                colorIndex={item.colorIndex}
+              />
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function TestimonialsSection() {
   const { lang } = useLanguage();
   const t = lang === "es";
-  const [current, setCurrent] = useState(0);
-  const total = testimonials.length;
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const advance = useCallback(() => {
-    setCurrent((c) => (c + 1) % total);
-  }, [total]);
+  const items = testimonials.map((tm, i) => ({
+    text: tm.text,
+    author: tm.author,
+    role: t ? tm.roleEs : tm.roleEn,
+    colorIndex: i,
+  }));
 
-  useEffect(() => {
-    timerRef.current = setTimeout(advance, 5000);
-    return () => { if (timerRef.current) clearTimeout(timerRef.current); };
-  }, [current, advance]);
+  const col1 = items.filter((_, i) => i % 3 === 0);
+  const col2 = items.filter((_, i) => i % 3 === 1);
+  const col3 = items.filter((_, i) => i % 3 === 2);
 
   return (
     <section
-      className="section-padding bg-white"
+      className="section-padding bg-[hsl(220,16%,97%)]"
       id="comentarios"
       aria-labelledby="testimonials-heading"
     >
       <div className="container-page">
         <Reveal>
-          <div className="text-center mb-12">
-            <p className="section-eyebrow">
+          <div className="text-center mb-12 max-w-lg mx-auto">
+            <p className="section-eyebrow justify-center">
               <Quote className="w-3.5 h-3.5" aria-hidden="true" />
               {t ? "Testimonios" : "Testimonials"}
             </p>
-            <h2 id="testimonials-heading" className="text-3xl md:text-4xl font-extrabold text-foreground">
+            <h2 id="testimonials-heading" className="text-3xl md:text-4xl font-extrabold text-foreground mb-3">
               {t ? "Lo que dicen nuestros estudiantes" : "What our students say"}
             </h2>
+            <p className="text-muted-foreground text-base">
+              {t
+                ? "Historias reales de personas que estudian entre el trabajo, el bus y la casa."
+                : "Real stories from people studying between work, the bus, and home."}
+            </p>
           </div>
         </Reveal>
 
         <Reveal delay={100}>
-          <div className="max-w-lg mx-auto">
-            <div
-              className="testimonial-card text-center"
-              role="region"
-              aria-live="polite"
-              aria-atomic="true"
-              aria-label={t ? "Testimonio actual" : "Current testimonial"}
-            >
-              <Quote className="w-8 h-8 text-primary/25 mx-auto" aria-hidden="true" />
-              <p className="text-foreground text-lg leading-[1.75] font-medium min-h-[90px]">
-                "{testimonials[current].text}"
-              </p>
-              <p className="text-sm font-semibold text-muted-foreground">
-                — {testimonials[current].author}
-              </p>
-
-              <div className="flex justify-center gap-2 mt-2" role="tablist" aria-label={t ? "Navegación de testimonios" : "Testimonial navigation"}>
-                {testimonials.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setCurrent(i)}
-                    role="tab"
-                    aria-selected={i === current}
-                    aria-label={`${t ? "Testimonio" : "Testimonial"} ${i + 1}`}
-                    className={`h-2 rounded-full transition-all duration-400 ${
-                      i === current
-                        ? "bg-primary w-8"
-                        : "bg-border w-2 hover:bg-primary/30"
-                    }`}
-                  />
-                ))}
-              </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
+            <TestimonialsColumn items={col1} duration={24} t={t} />
+            <TestimonialsColumn items={col2} duration={29} t={t} />
+            <div className="hidden lg:block">
+              <TestimonialsColumn items={col3} duration={26} t={t} />
             </div>
           </div>
         </Reveal>

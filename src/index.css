@@ -421,6 +421,17 @@
   will-change: transform;
 }
 
+/* Vertical marquee — used by the scrolling testimonial columns. */
+@keyframes marquee-y {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-50%); }
+}
+
+.animate-marquee-y {
+  animation: marquee-y var(--marquee-duration, 22s) linear infinite;
+  will-change: transform;
+}
+
 /* ─── Reduced Motion ─────────────────────────────────────────────────────────*/
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-up,
@@ -435,7 +446,8 @@
 
   /* Marquee: fully stopped — component renders a static grid instead */
   .animate-marquee,
-  .animate-marquee-reverse {
+  .animate-marquee-reverse,
+  .animate-marquee-y {
     animation: none !important;
     transform: none !important;
   }
