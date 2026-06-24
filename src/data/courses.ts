@@ -436,58 +436,40 @@ export const courses: Course[] = [
 
 export const testimonials = [
   {
-    text: "Trabajo de día y estudio de noche. Que no me pidan crear una cuenta para empezar el capítulo de gramática fue lo que me hizo quedarme — entré, leí, y ya estaba aprendiendo.",
-    author: "Marta Quispe",
-    roleEs: "Auxiliar de limpieza, Lima",
-    roleEn: "Cleaning staff, Lima",
+    text: "Trabajo de día y estudio de noche. No me pidieron crear una cuenta para empezar el capítulo de gramática y por eso me quedé.",
+    author: "Marta Q.",
   },
   {
-    text: "Llevaba meses posponiendo aprender finanzas personales porque todo lo que encontraba pedía suscripción. Acá hice el curso completo de Educación Financiera en un mes, en el bus de ida al trabajo.",
-    author: "Carlos Medina",
-    roleEs: "Conductor de transporte público, Arequipa",
-    roleEn: "Public transit driver, Arequipa",
+    text: "Llevaba meses posponiendo aprender finanzas porque todo lo que encontraba pedía suscripción. Acá hice el curso completo en un mes, en el bus de ida al trabajo.",
+    author: "Carlos M.",
   },
   {
-    text: "Soy autodidacta y suelo abandonar los cursos online a la semana dos. Este lo terminé porque los capítulos son cortos de verdad — 15 minutos, no una hora que dice 15.",
-    author: "Sergio Fernández",
-    roleEs: "Técnico en mantenimiento, Trujillo",
-    roleEn: "Maintenance technician, Trujillo",
+    text: "Suelo abandonar los cursos online a la semana dos. Este lo terminé porque los capítulos son cortos de verdad. 15 minutos, no una hora que dice 15.",
+    author: "Sergio F.",
   },
   {
-    text: "Le mostré el curso de matemáticas a mi hija porque no entendía fracciones en el colegio. Ahora lo usa ella sola los fines de semana. Eso para mí ya vale más que cualquier app de pago.",
-    author: "Claudia Rojas",
-    roleEs: "Madre de familia, Cusco",
-    roleEn: "Parent, Cusco",
+    text: "Le mostré el curso de matemáticas a mi hija porque no entendía fracciones en el colegio. Ahora lo usa ella sola los fines de semana.",
+    author: "Claudia R.",
   },
   {
     text: "Empecé el curso de programación sin saber qué era una variable. Hoy entiendo HTML y CSS lo suficiente para armar la página de mi propio negocio.",
-    author: "Ana Beatriz Soto",
-    roleEs: "Emprendedora textil, Lima",
-    roleEn: "Textile entrepreneur, Lima",
+    author: "Ana B.",
   },
   {
     text: "Vivo en Madrid pero soy peruana. Hice el curso de Herencia Peruana con mis hijos para que no se olviden de dónde venimos. Lloré en el capítulo de Machu Picchu, lo admito.",
-    author: "Carla Vásquez",
-    roleEs: "Migrante peruana en España",
-    roleEn: "Peruvian migrant in Spain",
+    author: "Carla V.",
   },
   {
-    text: "A los 52 años decidí aprender inglés desde cero por mi trabajo. No me sentí ridículo ni perdido — los capítulos avanzan despacio y eso era justo lo que necesitaba.",
-    author: "Jorge Huamán",
-    roleEs: "Vendedor independiente, Piura",
-    roleEn: "Independent vendor, Piura",
+    text: "A los 52 años decidí aprender inglés desde cero por mi trabajo. No me sentí ridículo ni perdido. Los capítulos avanzan despacio y eso era justo lo que necesitaba.",
+    author: "Jorge H.",
   },
   {
     text: "No tengo computadora, solo mi celular. El sitio carga rápido y se ve bien incluso con mis datos del plan prepago, que se me acaban rápido.",
-    author: "Alberto Chura",
-    roleEs: "Estudiante de secundaria, Puno",
-    roleEn: "High school student, Puno",
+    author: "Alberto C.",
   },
   {
     text: "Uso el curso de ciencias con mis alumnos de quinto grado como material de apoyo. Es gratis, está en español claro y no tengo que pelear con publicidad en clase.",
-    author: "Camila Torres",
-    roleEs: "Docente de primaria, Chiclayo",
-    roleEn: "Elementary school teacher, Chiclayo",
+    author: "Camila T.",
   },
 ];
 

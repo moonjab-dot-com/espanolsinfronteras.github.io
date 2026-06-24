@@ -821,12 +821,10 @@ const AVATAR_PALETTE = [
 function TestimonialCard({
   text,
   author,
-  role,
   colorIndex,
 }: {
   text: string;
   author: string;
-  role: string;
   colorIndex: number;
 }) {
   const initial = author.trim().charAt(0).toUpperCase();
@@ -840,10 +838,7 @@ function TestimonialCard({
         >
           {initial}
         </div>
-        <div className="flex flex-col">
-          <span className="font-bold text-sm text-foreground leading-tight">{author}</span>
-          <span className="text-xs text-muted-foreground leading-tight">{role}</span>
-        </div>
+        <span className="font-bold text-sm text-foreground leading-tight">{author}</span>
       </div>
     </div>
   );
@@ -852,11 +847,9 @@ function TestimonialCard({
 function TestimonialsColumn({
   items,
   duration,
-  t,
 }: {
-  items: { text: string; author: string; role: string; colorIndex: number }[];
+  items: { text: string; author: string; colorIndex: number }[];
   duration: number;
-  t: boolean;
 }) {
   return (
     <div className="overflow-hidden h-[640px] [mask-image:linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)]">
@@ -871,7 +864,6 @@ function TestimonialsColumn({
                 key={`${dup}-${i}`}
                 text={item.text}
                 author={item.author}
-                role={item.role}
                 colorIndex={item.colorIndex}
               />
             ))}
@@ -889,7 +881,6 @@ function TestimonialsSection() {
   const items = testimonials.map((tm, i) => ({
     text: tm.text,
     author: tm.author,
-    role: t ? tm.roleEs : tm.roleEn,
     colorIndex: i,
   }));
 
@@ -923,10 +914,10 @@ function TestimonialsSection() {
 
         <Reveal delay={100}>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
-            <TestimonialsColumn items={col1} duration={24} t={t} />
-            <TestimonialsColumn items={col2} duration={29} t={t} />
+            <TestimonialsColumn items={col1} duration={24} />
+            <TestimonialsColumn items={col2} duration={29} />
             <div className="hidden lg:block">
-              <TestimonialsColumn items={col3} duration={26} t={t} />
+              <TestimonialsColumn items={col3} duration={26} />
             </div>
           </div>
         </Reveal>
