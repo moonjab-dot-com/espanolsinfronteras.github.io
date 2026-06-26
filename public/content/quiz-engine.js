@@ -404,11 +404,16 @@
     e.target.closest(".esf-option").classList.add("selected");
   });
 
+  function scrollToEl(el) {
+    var top = el.getBoundingClientRect().top + window.pageYOffset - 70;
+    window.scrollTo({ top: top, behavior: "smooth" });
+  }
+
   function showQuiz() {
     readyZone.style.display = "none";
-    window.scrollTo({ top: (lessonWrapper.offsetTop || 0) - 20, behavior: "smooth" });
     quizZone.classList.add("active");
     scoreZone.classList.remove("active");
+    scrollToEl(quizZone);
   }
 
   function showLesson() {
@@ -456,7 +461,7 @@
 
     quizZone.classList.remove("active");
     scoreZone.classList.add("active");
-    window.scrollTo({ top: (lessonWrapper.offsetTop || 0) - 20, behavior: "smooth" });
+    scrollToEl(scoreZone);
   }
 
   function retry() {
