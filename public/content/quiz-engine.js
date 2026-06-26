@@ -211,11 +211,50 @@
     wrapper.appendChild(relDiv);
   }
 
-  /* ── Quiz engine ────────────────────────────────────────────────────────── */
-  var data = window.QUIZ_DATA;
-  if (!data) return;
+  /* ── Bilingual ES/EN content toggle ─────────────────────────────────────── */
+  var BIL = !!(window.QUIZ_DATA_ES && window.QUIZ_DATA_EN);
+  var currentLang = "es";
 
-  var lang  = data.lang || "es";
+  function applyLangVisibility(targetLang) {
+    currentLang = targetLang;
+    document.documentElement.lang = targetLang;
+    document.querySelectorAll(".lang-es").forEach(function (el) {
+      el.hidden = targetLang !== "es";
+    });
+    document.querySelectorAll(".lang-en").forEach(function (el) {
+      el.hidden = targetLang !== "en";
+    });
+    var toggleBtn = document.getElementById("esf-lang-toggle");
+    if (toggleBtn) toggleBtn.textContent = targetLang === "es" ? "EN" : "ES";
+  }
+
+  if (BIL) {
+    var langToggle = document.createElement("button");
+    langToggle.id = "esf-lang-toggle";
+    langToggle.type = "button";
+    langToggle.setAttribute("aria-label", "Switch language / Cambiar idioma");
+    langToggle.style.cssText = "cursor:pointer;font-family:Arial,sans-serif;font-size:12px;font-weight:700;color:#a78bfa;background:transparent;border:1.5px solid rgba(167,139,250,0.35);border-radius:20px;padding:5px 12px;margin-left:8px;white-space:nowrap;";
+    langToggle.textContent = "EN";
+    langToggle.addEventListener("click", function () {
+      applyLangVisibility(currentLang === "es" ? "en" : "es");
+    });
+    var navBack = document.querySelector(".esf-nav-back");
+    if (navBack && navBack.parentNode) {
+      navBack.parentNode.insertBefore(langToggle, navBack);
+    }
+    applyLangVisibility("es");
+  }
+
+  /* ── Quiz engine ────────────────────────────────────────────────────────── */
+  if (BIL) {
+    buildQuizUI(window.QUIZ_DATA_ES, "es");
+    buildQuizUI(window.QUIZ_DATA_EN, "en");
+  } else {
+    var singleData = window.QUIZ_DATA;
+    if (singleData) buildQuizUI(singleData, singleData.lang || "es");
+  }
+
+  function buildQuizUI(data, lang) {
   var isEn  = lang === "en";
 
   var T = {
@@ -235,14 +274,18 @@
     unanswered: isEn ? "Please answer all questions before reviewing." : "Por favor responde todas las preguntas antes de revisar.",
   };
 
-  /* ── Quiz styles ────────────────────────────────────────────────────────── */
+  var suffix = "-" + lang;
+
+  /* ── Quiz styles (inject once) ─────────────────────────────────────────── */
+  if (!document.getElementById("esf-quiz-style")) {
   var style = document.createElement("style");
+  style.id = "esf-quiz-style";
   style.textContent = [
-    "#esf-quiz-ready-zone{text-align:center;padding:40px 0 20px;}",
-    "#esf-quiz-ready-btn{display:inline-block;cursor:pointer;font-family:Arial,sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.04em;padding:16px 40px;border-radius:50px;border:none;background:linear-gradient(135deg,#7c3aed,#4f46e5);color:#fff;box-shadow:0 4px 16px rgba(124,58,237,0.35);transition:transform 0.15s,box-shadow 0.15s;}",
-    "#esf-quiz-ready-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(124,58,237,0.45);}",
-    "#esf-quiz-zone{display:none;}",
-    "#esf-quiz-zone.active{display:block;}",
+    ".esf-quiz-ready-zone{text-align:center;padding:40px 0 20px;}",
+    ".esf-quiz-ready-btn{display:inline-block;cursor:pointer;font-family:Arial,sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.04em;padding:16px 40px;border-radius:50px;border:none;background:linear-gradient(135deg,#7c3aed,#4f46e5);color:#fff;box-shadow:0 4px 16px rgba(124,58,237,0.35);transition:transform 0.15s,box-shadow 0.15s;}",
+    ".esf-quiz-ready-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(124,58,237,0.45);}",
+    ".esf-quiz-zone{display:none;}",
+    ".esf-quiz-zone.active{display:block;}",
     ".esf-quiz-header{text-align:center;padding:32px 0 24px;}",
     ".esf-quiz-header h2{font-family:Arial,sans-serif;font-size:1.5rem;color:#0f172a;margin-bottom:6px;}",
     ".esf-quiz-header p{color:#64748b;font-family:Arial,sans-serif;font-size:0.9rem;}",
@@ -263,37 +306,41 @@
     ".esf-feedback.wrong{background:#fee2e2;color:#991b1b;display:block;}",
     ".esf-feedback-badge{font-weight:700;margin-right:6px;}",
     ".esf-quiz-actions{text-align:center;padding:16px 0 40px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}",
-    "#esf-review-btn{cursor:pointer;font-family:Arial,sans-serif;font-size:1rem;font-weight:700;padding:14px 36px;border-radius:50px;border:none;background:linear-gradient(135deg,#7c3aed,#4f46e5);color:#fff;box-shadow:0 4px 14px rgba(124,58,237,0.3);transition:transform 0.15s;}",
-    "#esf-review-btn:hover{transform:translateY(-2px);}",
-    "#esf-back-btn{cursor:pointer;font-family:Arial,sans-serif;font-size:0.95rem;font-weight:600;padding:14px 28px;border-radius:50px;border:2px solid #7c3aed;background:transparent;color:#7c3aed;transition:background 0.15s,color 0.15s;}",
-    "#esf-back-btn:hover{background:#7c3aed;color:#fff;}",
-    "#esf-score-zone{display:none;}",
-    "#esf-score-zone.active{display:block;}",
+    ".esf-review-btn{cursor:pointer;font-family:Arial,sans-serif;font-size:1rem;font-weight:700;padding:14px 36px;border-radius:50px;border:none;background:linear-gradient(135deg,#7c3aed,#4f46e5);color:#fff;box-shadow:0 4px 14px rgba(124,58,237,0.3);transition:transform 0.15s;}",
+    ".esf-review-btn:hover{transform:translateY(-2px);}",
+    ".esf-back-btn{cursor:pointer;font-family:Arial,sans-serif;font-size:0.95rem;font-weight:600;padding:14px 28px;border-radius:50px;border:2px solid #7c3aed;background:transparent;color:#7c3aed;transition:background 0.15s,color 0.15s;}",
+    ".esf-back-btn:hover{background:#7c3aed;color:#fff;}",
+    ".esf-score-zone{display:none;}",
+    ".esf-score-zone.active{display:block;}",
     ".esf-score-card{text-align:center;background:#0f172a;color:#e2e8f0;border-radius:20px;padding:48px 32px;margin:32px 0;}",
     ".esf-score-number{font-size:5rem;font-weight:900;color:#a78bfa;line-height:1;}",
     ".esf-score-denom{font-size:2rem;font-weight:400;color:#94a3b8;}",
     ".esf-score-label{font-family:Arial,sans-serif;font-size:1rem;letter-spacing:0.08em;text-transform:uppercase;color:#64748b;margin:8px 0 16px;}",
     ".esf-score-msg{font-size:1.2rem;color:#c4b5fd;font-weight:600;margin-top:16px;}",
     ".esf-score-actions{text-align:center;padding:0 0 48px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}",
-    "#esf-return-btn{cursor:pointer;font-family:Arial,sans-serif;font-size:1rem;font-weight:700;padding:14px 36px;border-radius:50px;border:none;background:linear-gradient(135deg,#7c3aed,#4f46e5);color:#fff;box-shadow:0 4px 14px rgba(124,58,237,0.3);transition:transform 0.15s;}",
-    "#esf-return-btn:hover{transform:translateY(-2px);}",
-    "#esf-retry-btn{cursor:pointer;font-family:Arial,sans-serif;font-size:0.95rem;font-weight:600;padding:14px 28px;border-radius:50px;border:2px solid #7c3aed;background:transparent;color:#7c3aed;transition:background 0.15s,color 0.15s;}",
-    "#esf-retry-btn:hover{background:#7c3aed;color:#fff;}",
-    "@media(max-width:640px){.esf-q-block{padding:18px 16px;}#esf-quiz-ready-btn,#esf-review-btn,#esf-return-btn{padding:14px 28px;}}",
+    ".esf-return-btn{cursor:pointer;font-family:Arial,sans-serif;font-size:1rem;font-weight:700;padding:14px 36px;border-radius:50px;border:none;background:linear-gradient(135deg,#7c3aed,#4f46e5);color:#fff;box-shadow:0 4px 14px rgba(124,58,237,0.3);transition:transform 0.15s;}",
+    ".esf-return-btn:hover{transform:translateY(-2px);}",
+    ".esf-retry-btn{cursor:pointer;font-family:Arial,sans-serif;font-size:0.95rem;font-weight:600;padding:14px 28px;border-radius:50px;border:2px solid #7c3aed;background:transparent;color:#7c3aed;transition:background 0.15s,color 0.15s;}",
+    ".esf-retry-btn:hover{background:#7c3aed;color:#fff;}",
+    "@media(max-width:640px){.esf-q-block{padding:18px 16px;}.esf-quiz-ready-btn,.esf-review-btn,.esf-return-btn{padding:14px 28px;}}",
   ].join("");
   document.head.appendChild(style);
+  }
 
   var lessonWrapper = document.querySelector(".wrapper");
 
   /* ── Ready button ───────────────────────────────────────────────────────── */
   var readyZone = document.createElement("div");
-  readyZone.id = "esf-quiz-ready-zone";
-  readyZone.innerHTML = '<button id="esf-quiz-ready-btn">' + T.ready + "</button>";
+  readyZone.id = "esf-quiz-ready-zone" + suffix;
+  readyZone.className = "esf-quiz-ready-zone" + (BIL ? " lang-" + lang : "");
+  if (BIL) readyZone.hidden = lang !== "es";
+  readyZone.innerHTML = '<button class="esf-quiz-ready-btn" id="esf-quiz-ready-btn' + suffix + '">' + T.ready + "</button>";
   lessonWrapper.appendChild(readyZone);
 
   /* ── Quiz zone ──────────────────────────────────────────────────────────── */
   var quizZone = document.createElement("div");
-  quizZone.id = "esf-quiz-zone";
+  quizZone.id = "esf-quiz-zone" + suffix;
+  quizZone.className = "esf-quiz-zone" + (BIL ? " lang-" + lang : "");
 
   var questions = data.questions;
   var questionsHTML = [
@@ -304,24 +351,24 @@
   ].join("");
 
   questions.forEach(function (q, i) {
-    var name = "esf_q" + i;
+    var name = "esf_q" + i + suffix;
     var opts = q.options.map(function (opt, j) {
       return '<label class="esf-option" data-qi="' + i + '" data-oi="' + j + '"><input type="radio" name="' + name + '" value="' + j + '"> ' + opt + "</label>";
     }).join("");
     questionsHTML += [
-      '<div class="esf-q-block" id="esf-qb-' + i + '">',
+      '<div class="esf-q-block" id="esf-qb-' + i + suffix + '">',
         '<div class="esf-q-label">' + T.q + " " + (i + 1) + " " + T.of + " 10</div>",
         '<div class="esf-q-text">' + q.q + "</div>",
         '<div class="esf-options">' + opts + "</div>",
-        '<div class="esf-feedback" id="esf-fb-' + i + '"></div>',
+        '<div class="esf-feedback" id="esf-fb-' + i + suffix + '"></div>',
       "</div>",
     ].join("");
   });
 
   questionsHTML += [
     '<div class="esf-quiz-actions">',
-      '<button id="esf-back-btn">' + T.back + "</button>",
-      '<button id="esf-review-btn">' + T.review + "</button>",
+      '<button class="esf-back-btn" id="esf-back-btn' + suffix + '">' + T.back + "</button>",
+      '<button class="esf-review-btn" id="esf-review-btn' + suffix + '">' + T.review + "</button>",
     "</div>",
   ].join("");
 
@@ -330,17 +377,18 @@
 
   /* ── Score zone ─────────────────────────────────────────────────────────── */
   var scoreZone = document.createElement("div");
-  scoreZone.id = "esf-score-zone";
+  scoreZone.id = "esf-score-zone" + suffix;
+  scoreZone.className = "esf-score-zone" + (BIL ? " lang-" + lang : "");
   scoreZone.innerHTML = [
     '<div class="esf-score-card">',
       '<div class="esf-score-label">' + T.score + "</div>",
-      '<div><span class="esf-score-number" id="esf-score-num">0</span><span class="esf-score-denom"> / 10</span></div>',
-      '<div class="esf-score-msg" id="esf-score-msg"></div>',
+      '<div><span class="esf-score-number" id="esf-score-num' + suffix + '">0</span><span class="esf-score-denom"> / 10</span></div>',
+      '<div class="esf-score-msg" id="esf-score-msg' + suffix + '"></div>',
     "</div>",
     '<div class="esf-score-actions">',
-      '<button id="esf-return-btn">' + T.back + "</button>",
-      '<button id="esf-retry-btn">' + (isEn ? "Try Again" : "Intentar de Nuevo") + "</button>",
-      '<button id="esf-share-btn" style="background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;border:none;">',
+      '<button class="esf-return-btn" id="esf-return-btn' + suffix + '">' + T.back + "</button>",
+      '<button class="esf-retry-btn" id="esf-retry-btn' + suffix + '">' + (isEn ? "Try Again" : "Intentar de Nuevo") + "</button>",
+      '<button id="esf-share-btn' + suffix + '" style="background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;border:none;cursor:pointer;font-family:Arial,sans-serif;font-size:0.95rem;font-weight:600;padding:14px 28px;border-radius:50px;">',
         (isEn ? "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"display:inline;vertical-align:-2px;margin-right:5px;\"><path d=\"M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71\"></path><path d=\"M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71\"></path></svg>Share my result" : "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"display:inline;vertical-align:-2px;margin-right:5px;\"><path d=\"M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71\"></path><path d=\"M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71\"></path></svg>Compartir mi resultado"),
       "</button>",
     "</div>",
@@ -351,7 +399,7 @@
   quizZone.addEventListener("change", function (e) {
     if (e.target.type !== "radio") return;
     var qi = parseInt(e.target.closest(".esf-option").dataset.qi);
-    var block = document.getElementById("esf-qb-" + qi);
+    var block = document.getElementById("esf-qb-" + qi + suffix);
     block.querySelectorAll(".esf-option").forEach(function (el) { el.classList.remove("selected"); });
     e.target.closest(".esf-option").classList.add("selected");
   });
@@ -375,13 +423,13 @@
     var allAnswered = true;
 
     questions.forEach(function (q, i) {
-      var radios = quizZone.querySelectorAll('input[name="esf_q' + i + '"]');
+      var radios = quizZone.querySelectorAll('input[name="esf_q' + i + suffix + '"]');
       var chosen = -1;
       radios.forEach(function (r) { if (r.checked) chosen = parseInt(r.value); });
       if (chosen === -1) { allAnswered = false; return; }
 
-      var block = document.getElementById("esf-qb-" + i);
-      var fb    = document.getElementById("esf-fb-" + i);
+      var block = document.getElementById("esf-qb-" + i + suffix);
+      var fb    = document.getElementById("esf-fb-" + i + suffix);
       var opts  = block.querySelectorAll(".esf-option");
 
       radios.forEach(function (r) { r.disabled = true; });
@@ -402,9 +450,9 @@
 
     if (!allAnswered) { alert(T.unanswered); return; }
 
-    document.getElementById("esf-score-num").textContent = score;
+    document.getElementById("esf-score-num" + suffix).textContent = score;
     var msg = score === 10 ? T.perfect : score >= 8 ? T.great : score >= 6 ? T.good : score >= 4 ? T.ok : T.low;
-    document.getElementById("esf-score-msg").textContent = msg;
+    document.getElementById("esf-score-msg" + suffix).textContent = msg;
 
     quizZone.classList.remove("active");
     scoreZone.classList.add("active");
@@ -413,7 +461,7 @@
 
   function retry() {
     questions.forEach(function (q, i) {
-      var block = document.getElementById("esf-qb-" + i);
+      var block = document.getElementById("esf-qb-" + i + suffix);
       block.className = "esf-q-block";
       block.querySelectorAll(".esf-option").forEach(function (el) {
         el.classList.remove("selected", "correct-answer", "wrong-answer");
@@ -421,21 +469,21 @@
       block.querySelectorAll("input[type=radio]").forEach(function (r) {
         r.checked = false; r.disabled = false;
       });
-      var fb = document.getElementById("esf-fb-" + i);
+      var fb = document.getElementById("esf-fb-" + i + suffix);
       fb.className = "esf-feedback";
       fb.innerHTML = "";
     });
     showQuiz();
   }
 
-  document.getElementById("esf-quiz-ready-btn").addEventListener("click", showQuiz);
-  document.getElementById("esf-back-btn").addEventListener("click", showLesson);
-  document.getElementById("esf-review-btn").addEventListener("click", reviewAnswers);
-  document.getElementById("esf-return-btn").addEventListener("click", showLesson);
-  document.getElementById("esf-retry-btn").addEventListener("click", retry);
-  document.getElementById("esf-share-btn").addEventListener("click", function () {
+  document.getElementById("esf-quiz-ready-btn" + suffix).addEventListener("click", showQuiz);
+  document.getElementById("esf-back-btn" + suffix).addEventListener("click", showLesson);
+  document.getElementById("esf-review-btn" + suffix).addEventListener("click", reviewAnswers);
+  document.getElementById("esf-return-btn" + suffix).addEventListener("click", showLesson);
+  document.getElementById("esf-retry-btn" + suffix).addEventListener("click", retry);
+  document.getElementById("esf-share-btn" + suffix).addEventListener("click", function () {
     var chapterTitle = (document.querySelector("h1") || {}).textContent || "";
-    var scoreNum = document.getElementById("esf-score-num").textContent || "?";
+    var scoreNum = document.getElementById("esf-score-num" + suffix).textContent || "?";
     var courseUrl = "https://espanolsinfronteras.org/curso/" + (slug || "");
     var shareText = isEn
       ? "I scored " + scoreNum + "/10 on the quiz \"" + chapterTitle + "\" at Español Sin Fronteras. Try it free: " + courseUrl
@@ -447,5 +495,6 @@
       window.open(wa, "_blank", "noopener");
     }
   });
+  } // end buildQuizUI
 
 })();
