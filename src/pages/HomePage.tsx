@@ -52,26 +52,60 @@ function HeroSection() {
   const { lang } = useLanguage();
   const t = lang === "es";
   return (
-    <section className="hero-root" id="inicio">
-      <div className="container-page relative z-10 w-full py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <div className="animate-fade-up inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/12 bg-white/5 text-white/75 text-xs font-semibold mb-8">
-              <Sparkles className="w-3 h-3 text-amber-400 shrink-0" />
-              {t ? "100% Gratuito · 277+ lecciones · Quiz interactivo" : "100% Free · 277+ lessons · Interactive quiz"}
-            </div>
-            <h1 className="animate-fade-up delay-75 text-[2.75rem] sm:text-5xl lg:text-[3.5rem] font-extrabold text-white mb-5 leading-[1.06]">
-              {t ? "Aprende" : "Learn"}{" "}
-              <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-blue-400 bg-clip-text text-transparent">
-                {t ? "sin límites" : "without limits"}
+    <section id="inicio" style={{ background: "#080D1C", minHeight: "100svh", paddingTop: "60px", position: "relative", overflow: "hidden", display: "flex", alignItems: "center" }}>
+
+      {/* Subtle dot-grid texture */}
+      <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(255,255,255,0.045) 1px, transparent 1px)", backgroundSize: "32px 32px", pointerEvents: "none" }} />
+
+      {/* Warm glow behind owl */}
+      <div style={{ position: "absolute", right: "-80px", top: "50%", transform: "translateY(-50%)", width: "600px", height: "600px", borderRadius: "50%", background: "radial-gradient(circle, rgba(132,204,22,0.12) 0%, rgba(132,204,22,0.04) 40%, transparent 70%)", pointerEvents: "none" }} />
+
+      <div className="container-page relative z-10 w-full py-16 lg:py-20">
+        <div className="grid lg:grid-cols-[1fr_auto] gap-8 lg:gap-0 items-center">
+
+          {/* ── Left: headline stack ────────────────────────────────────── */}
+          <div className="max-w-[620px]">
+
+            {/* Badge */}
+            <div className="animate-fade-up inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-8"
+              style={{ background: "rgba(132,204,22,0.1)", border: "1px solid rgba(132,204,22,0.2)" }}>
+              <Sparkles className="w-3.5 h-3.5" style={{ color: "#84CC16" }} />
+              <span className="text-[12px] font-bold uppercase tracking-widest" style={{ color: "#84CC16" }}>
+                {t ? "Plataforma educativa · 100% gratuita" : "Educational platform · 100% free"}
               </span>
+            </div>
+
+            {/* Stacked headline — Fredoka working hard */}
+            <h1 className="animate-fade-up delay-75 text-white" style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(3.5rem, 8vw, 6.5rem)",
+              fontWeight: 700,
+              lineHeight: 1.0,
+              letterSpacing: "-0.03em",
+              marginBottom: "1.5rem",
+            }}>
+              {t ? (
+                <>
+                  Aprende.<br />
+                  <span style={{ color: "#84CC16" }}>Sin fronteras.</span><br />
+                  Sin costo.
+                </>
+              ) : (
+                <>
+                  Learn.<br />
+                  <span style={{ color: "#84CC16" }}>No borders.</span><br />
+                  No cost.
+                </>
+              )}
             </h1>
-            <p className="animate-fade-up delay-150 text-[17px] text-white/55 leading-relaxed mb-10 max-w-[480px]">
+
+            <p className="animate-fade-up delay-150 mb-10" style={{ fontSize: "17px", color: "rgba(255,255,255,0.5)", lineHeight: 1.7, maxWidth: "460px" }}>
               {t
-                ? "Plataforma educativa gratuita con 277+ lecciones en español, finanzas, programación, matemáticas y más. Sin registro, sin costo, para siempre."
-                : "Free educational platform with 277+ lessons covering Spanish, finance, programming, math, and more. No sign-up, no cost, forever."}
+                ? "277+ lecciones en español, finanzas, programación, matemáticas y más. Sin registro, para siempre."
+                : "277+ lessons in Spanish, finance, coding, math, and more. No sign-up, forever free."}
             </p>
-            <div className="animate-fade-up delay-225 flex flex-wrap gap-3 mb-14">
+
+            <div className="animate-fade-up delay-225 flex flex-wrap gap-3 mb-12">
               <a href="#cursos" className="btn-primary">
                 {t ? "Explorar cursos" : "Explore courses"} <ArrowRight className="w-4 h-4" />
               </a>
@@ -79,49 +113,60 @@ function HeroSection() {
                 {t ? "Nuestra historia" : "Our story"}
               </Link>
             </div>
-            <div className="animate-fade-up delay-300 flex gap-8 border-t border-white/8 pt-8">
-              {[{ v:"277+", l: t?"Lecciones":"Lessons" },{ v:"72+", l: t?"Países":"Countries" },{ v:"12", l: t?"Materias":"Subjects" }].map(({ v, l }) => (
+
+            {/* Stats inline */}
+            <div className="animate-fade-up delay-300 flex gap-8 pt-8" style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}>
+              {[
+                { v: "277+", l: t ? "Lecciones" : "Lessons" },
+                { v: "72+",  l: t ? "Países"    : "Countries" },
+                { v: "12",   l: t ? "Materias"  : "Subjects" },
+                { v: "$0",   l: t ? "Costo"     : "Cost" },
+              ].map(({ v, l }) => (
                 <div key={l} className="flex flex-col gap-0.5">
-                  <span className="text-2xl font-extrabold text-white tabular-nums" style={{ fontFamily:"var(--font-display)", letterSpacing:"-0.04em" }}>{v}</span>
-                  <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/35">{l}</span>
+                  <span className="font-extrabold text-white tabular-nums" style={{ fontFamily: "var(--font-display)", fontSize: "1.75rem", letterSpacing: "-0.04em" }}>{v}</span>
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.12em]" style={{ color: "rgba(255,255,255,0.3)" }}>{l}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="hidden lg:flex items-center justify-center">
-            <div className="relative">
-              <div className="absolute inset-0 rounded-full blur-3xl scale-110 opacity-25" style={{ background:"radial-gradient(circle, hsl(156,64%,44%), hsl(221,83%,60%))" }} />
-              <div className="absolute inset-0 rounded-full blur-xl scale-90 opacity-15" style={{ background:"radial-gradient(circle, hsl(38,92%,60%), transparent)" }} />
-              <div className="absolute z-30 -top-20 left-1/2 -translate-x-1/2 animate-float">
-                <div className="relative flex items-center gap-2 bg-white rounded-2xl px-4 py-2.5 shadow-xl border-2 border-[hsl(156,64%,42%)]">
-                  <PartyPopper className="w-4 h-4 text-[hsl(156,64%,42%)] shrink-0" />
-                  <p className="text-[hsl(222,47%,12%)] text-sm font-extrabold whitespace-nowrap">{t ? "¡Vamos a aprender!" : "Let's start learning!"}</p>
-                  <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white border-r-2 border-b-2 border-[hsl(156,64%,42%)] rotate-45" />
-                </div>
+          {/* ── Right: owl bleeding off-edge ─────────────────────────── */}
+          <div className="hidden lg:block relative" style={{ width: "420px", height: "520px", marginRight: "-80px" }}>
+            {/* Amber glow under owl */}
+            <div style={{ position: "absolute", bottom: "40px", left: "50%", transform: "translateX(-50%)", width: "300px", height: "300px", borderRadius: "50%", background: "radial-gradient(circle, rgba(251,191,36,0.18) 0%, transparent 70%)", filter: "blur(20px)" }} />
+            <img
+              src="/owl-logo.png"
+              alt={t ? "Mascota de Español Sin Fronteras" : "Español Sin Fronteras mascot"}
+              className="animate-float-slow"
+              style={{ position: "relative", zIndex: 10, width: "100%", height: "100%", objectFit: "contain", filter: "drop-shadow(0 30px 60px rgba(132,204,22,0.25)) drop-shadow(0 0 80px rgba(0,0,0,0.5))" }}
+              width={420} height={520} loading="eager"
+            />
+            {/* "GRATIS" amber badge floating */}
+            <div className="animate-bounce" style={{ position: "absolute", zIndex: 20, bottom: "60px", left: "20px", animationDuration: "2.8s" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "6px", padding: "8px 16px", borderRadius: "14px", background: "#FBBF24", border: "2px solid rgba(251,191,36,0.6)", boxShadow: "0 8px 24px rgba(251,191,36,0.3)" }}>
+                <Flame className="w-4 h-4" style={{ color: "#0F172A" }} />
+                <span style={{ fontSize: "13px", fontWeight: 800, color: "#0F172A", fontFamily: "var(--font-display)" }}>
+                  {t ? "100% GRATIS" : "100% FREE"}
+                </span>
               </div>
-              <img src="/owl-logo.png" alt={t?"Logo oficial de Español Sin Fronteras":"Official Español Sin Fronteras logo"} className="relative z-10 w-[260px] h-[260px] object-contain drop-shadow-2xl animate-float-slow" width={260} height={260} loading="eager" />
-              <div className="absolute z-20 -bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-3 py-1.5 rounded-2xl bg-amber-400 border-2 border-amber-300 shadow-lg whitespace-nowrap animate-bounce" style={{ animationDuration:"2.5s" }}>
-                <Flame className="w-4 h-4 text-[hsl(222,47%,12%)] shrink-0" />
-                <span className="text-[hsl(222,47%,12%)] text-xs font-extrabold">{t?"100% gratis":"100% free"}</span>
-              </div>
-              {[
-                { label: t?"Español":"Spanish",     icon: BookOpen,    top:"4px",   left:"-200px",  delay:0    },
-                { label: t?"Finanzas":"Finance",    icon: DollarSign,  top:"200px", left:"-210px",  delay:600  },
-                { label: t?"Programación":"Coding", icon: Code,        top:"4px",   right:"-200px", delay:1200 },
-                { label: t?"Ciencias":"Science",    icon: FlaskConical,top:"200px", right:"-210px", delay:900  },
-              ].map(({ label, icon: PillIcon, delay: d, ...pos }) => (
-                <div key={label} className="absolute z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/12 backdrop-blur-sm border border-white/18 text-white text-xs font-semibold whitespace-nowrap animate-float" style={{ animationDelay:`${d}ms`, ...pos }}>
-                  <PillIcon className="w-3.5 h-3.5 shrink-0" /> {label}
-                </div>
-              ))}
             </div>
+            {/* Subject pills */}
+            {[
+              { label: t ? "Español"      : "Spanish",  icon: BookOpen,     top: "10%",  left: "-140px", delay: 0    },
+              { label: t ? "Finanzas"     : "Finance",  icon: DollarSign,   top: "40%",  left: "-150px", delay: 700  },
+              { label: t ? "Programación" : "Coding",   icon: Code,         top: "10%",  right: "0px",   delay: 1400 },
+              { label: t ? "Ciencias"     : "Science",  icon: FlaskConical, top: "40%",  right: "0px",   delay: 1000 },
+            ].map(({ label, icon: Ic, delay: d, ...pos }) => (
+              <div key={label} className="animate-float" style={{ position: "absolute", zIndex: 20, display: "flex", alignItems: "center", gap: "6px", padding: "6px 12px", borderRadius: "99px", background: "rgba(255,255,255,0.09)", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.8)", fontSize: "12px", fontWeight: 600, whiteSpace: "nowrap", animationDelay: `${d}ms`, ...pos }}>
+                <Ic className="w-3.5 h-3.5 shrink-0" /> {label}
+              </div>
+            ))}
           </div>
         </div>
       </div>
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 72" fill="none" className="w-full block"><path d="M0 72V28C240 0 480 56 720 36C960 16 1200 56 1440 28V72H0Z" fill="white" /></svg>
-      </div>
+
+      {/* Sharp bottom edge with lime accent stripe */}
+      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "4px", background: "linear-gradient(90deg, transparent 0%, #84CC16 30%, #22C55E 70%, transparent 100%)", opacity: 0.6 }} />
     </section>
   );
 }
@@ -132,15 +177,35 @@ function CoursesSection() {
   const { lang } = useLanguage();
   const t = lang === "es";
   return (
-    <section className="section-padding bg-white" id="cursos">
-      <div className="container-page">
+    <section id="cursos" style={{ background: "#EEF1F9", paddingTop: "80px", paddingBottom: "80px", position: "relative", overflow: "hidden" }}>
+      {/* Watermark — "GRATIS" typographic flourish */}
+      <div aria-hidden="true" style={{
+        position: "absolute", top: "50%", left: "50%",
+        transform: "translate(-50%, -50%) rotate(-12deg)",
+        fontFamily: "var(--font-display)", fontWeight: 700,
+        fontSize: "clamp(120px, 20vw, 240px)",
+        color: "rgba(132,204,22,0.04)",
+        whiteSpace: "nowrap", userSelect: "none", letterSpacing: "-0.02em",
+        pointerEvents: "none", zIndex: 0,
+      }}>
+        {t ? "GRATIS" : "FREE"}
+      </div>
+
+      <div className="container-page" style={{ position: "relative", zIndex: 1 }}>
         <Reveal>
-          <div className="text-center mb-14">
-            <p className="section-eyebrow"><BookOpen className="w-3.5 h-3.5" />{t?"Cursos gratuitos":"Free courses"}</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-3">{t?"Elige tu camino de aprendizaje":"Choose your learning path"}</h2>
-            <p className="text-muted-foreground text-base max-w-sm mx-auto mb-5">{t?"12 materias, 277+ capítulos. Todo 100% gratuito.":"12 subjects, 277+ chapters. All 100% free."}</p>
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-50 border-2 border-emerald-200 text-emerald-700 text-sm font-bold">
-              <Sparkles className="w-4 h-4" />{t?"Haz clic en cualquier curso y empieza ya — sin registro":"Click any course and start now — no sign-up"}
+          {/* Left-aligned header — breaks the "everything centered" pattern */}
+          <div className="mb-12 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+            <div>
+              <p className="section-eyebrow"><BookOpen className="w-3.5 h-3.5" />{t ? "Cursos gratuitos" : "Free courses"}</p>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-2">
+                {t ? "Elige tu camino" : "Choose your path"}
+              </h2>
+              <p className="text-muted-foreground text-base max-w-xs">
+                {t ? "12 materias · 277+ capítulos · Sin registro" : "12 subjects · 277+ chapters · No sign-up"}
+              </p>
+            </div>
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-50 border-2 border-emerald-200 text-emerald-700 text-sm font-bold shrink-0 self-start sm:self-auto">
+              <Sparkles className="w-4 h-4" />{t ? "Empieza ya" : "Start now"}
             </div>
           </div>
         </Reveal>
@@ -180,29 +245,33 @@ function CoursesSection() {
 }
 
 // ─── IMPACT ───────────────────────────────────────────────────────────────────
+// Slim horizontal strip — no longer a heavy separate section
 
 function ImpactSection() {
   const { lang } = useLanguage();
   const t = lang === "es";
   const stats = [
-    { value:"72+",  labelEs:"Países",   labelEn:"Countries", descEs:"Estudiantes en todo el mundo",    descEn:"Students all over the world",       icon: Globe,          iconBg:"bg-blue-500"   },
-    { value:"277+", labelEs:"Lecciones",labelEn:"Lessons",   descEs:"Capítulos gratuitos y accesibles",descEn:"Free and accessible chapters",       icon: BookOpen,       iconBg:"bg-emerald-500"},
-    { value:"12",   labelEs:"Materias", labelEn:"Subjects",  descEs:"Español, finanzas, STEM y más",   descEn:"Spanish, finance, STEM, and more",   icon: GraduationCap,  iconBg:"bg-violet-500" },
-    { value:"$0",   labelEs:"Costo",    labelEn:"Cost",      descEs:"Siempre gratis, sin excepciones", descEn:"Always free, no exceptions",         icon: Heart,          iconBg:"bg-rose-500"   },
+    { value: "72+",  Icon: Globe,          color: "#3B82F6", label: t ? "Países"    : "Countries",  desc: t ? "en todo el mundo"          : "worldwide"             },
+    { value: "277+", Icon: BookOpen,       color: "#22C55E", label: t ? "Lecciones" : "Lessons",    desc: t ? "capítulos gratuitos"        : "free chapters"         },
+    { value: "12",   Icon: GraduationCap,  color: "#8B5CF6", label: t ? "Materias"  : "Subjects",   desc: t ? "STEM, idiomas y más"        : "STEM, languages & more" },
+    { value: "$0",   Icon: Heart,          color: "#F43F5E", label: t ? "Costo"     : "Cost",       desc: t ? "siempre gratis"             : "always free"           },
   ];
   return (
-    <section className="bg-[hsl(222,47%,8%)] py-16 px-5">
-      <div className="container-page">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          {stats.map(({ value, labelEs, labelEn, descEs, descEn, icon: Icon, iconBg }, i) => (
-            <Reveal key={value} delay={i * 80}>
-              <div className="flex flex-col items-center text-center p-7 bg-white/[0.04] rounded-3xl border-2 border-white/10 gap-3 transition-colors hover:border-white/20">
-                <div className={`w-12 h-12 rounded-2xl ${iconBg} flex items-center justify-center mb-1 shadow-lg`}><Icon className="w-6 h-6 text-white" /></div>
-                <span className="text-4xl font-extrabold text-white tabular-nums" style={{ fontFamily:"var(--font-display)", letterSpacing:"-0.02em" }}>{value}</span>
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.14em] text-white/50 mb-1">{t?labelEs:labelEn}</p>
-                  <p className="text-[13px] text-white/35 leading-snug">{t?descEs:descEn}</p>
+    <section style={{ background: "#080D1C", padding: "0" }}>
+      <div className="container-page" style={{ padding: "0 20px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "0", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+          {stats.map(({ value, Icon, color, label, desc }, i) => (
+            <Reveal key={value} delay={i * 60}>
+              <div style={{
+                display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "4px",
+                padding: "28px 24px", borderRight: i < 3 ? "1px solid rgba(255,255,255,0.06)" : "none",
+              }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "6px" }}>
+                  <Icon style={{ width: "14px", height: "14px", color }} />
+                  <span style={{ fontSize: "11px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.12em", color: "rgba(255,255,255,0.3)" }}>{label}</span>
                 </div>
+                <span style={{ fontFamily: "var(--font-display)", fontSize: "2.5rem", fontWeight: 700, letterSpacing: "-0.04em", color: "#fff", lineHeight: 1 }}>{value}</span>
+                <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.28)", lineHeight: 1.4 }}>{desc}</span>
               </div>
             </Reveal>
           ))}
@@ -221,29 +290,28 @@ function OpportunitiesTeaser() {
   const items = [
     { icon: GraduationCap, color: "bg-blue-50 text-blue-600",    label: t?"Becas":"Scholarships",    sub: t?"PRONABEC, Fulbright, OEA":"PRONABEC, Fulbright, OAS" },
     { icon: Trophy,        color: "bg-amber-50 text-amber-600",  label: t?"Olimpiadas":"Olympiads",  sub: t?"Matemáticas, Ciencias":"Math, Science" },
-    { icon: Rocket,        color: "bg-violet-50 text-violet-600",label: t?"Liderazgo":"Leadership",  sub: "LALA, Yale YYGS" },
+    { icon: Rocket,        color: "bg-violet-50 text-violet-600",label: t?"Liderazgo":"Leadership",  sub: t?"Yale YYGS, Santander":"Yale YYGS, Santander" },
     { icon: Globe,         color: "bg-teal-50 text-teal-600",    label: "MUN",                       sub: "PCIMUN, Lima MUN" },
     { icon: Zap,           color: "bg-rose-50 text-rose-600",    label: t?"Tecnología":"Technology", sub: "Google, Microsoft" },
     { icon: Mail,          color: "bg-emerald-50 text-emerald-600", label: t?"Mentoría":"Mentoring", sub: t?"MTPE, expertos":"MTPE, experts" },
   ];
 
   return (
-    <section className="section-padding bg-[hsl(220,16%,97%)]">
+    <section className="section-padding" style={{ background: "#ffffff" }}>
       <div className="container-page">
         <Reveal>
-          <div className="text-center mb-12">
-            <p className="section-eyebrow"><Rocket className="w-3.5 h-3.5" />{t?"Solo para peruanos":"For Peruvians only"}</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-3">
-              {t?"Oportunidades de ":"Opportunities for "}
-              <span className="bg-gradient-to-r from-primary to-teal-500 bg-clip-text text-transparent">
-                {t?"crecimiento":"growth"}
-              </span>
-            </h2>
-            <p className="text-muted-foreground text-base max-w-md mx-auto">
-              {t
-                ? "Becas, olimpiadas, MUNs, liderazgo y más — todo verificado con links directos."
-                : "Scholarships, olympiads, MUNs, leadership and more — all verified with direct links."}
-            </p>
+          <div className="mb-12 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+            <div>
+              <p className="section-eyebrow"><Rocket className="w-3.5 h-3.5" />{t ? "Solo para peruanos" : "For Peruvians"}</p>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-2">
+                {t ? "Oportunidades reales" : "Real opportunities"}
+              </h2>
+              <p className="text-muted-foreground text-base max-w-xs">
+                {t
+                  ? "Becas, olimpiadas y más — links verificados."
+                  : "Scholarships, olympiads & more — verified links."}
+              </p>
+            </div>
           </div>
         </Reveal>
 
