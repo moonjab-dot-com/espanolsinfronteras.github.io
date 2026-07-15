@@ -27,15 +27,32 @@
     .summary { background: #0f172a; color: #e2e8f0; border-radius: 12px; padding: 28px 32px; margin: 40px 0 0; }
     .summary h2 { color: #fff; margin-top: 0; }
     .summary li { color: #cbd5e1; }
+    figure { margin: 24px 0; }
+    figure img { width: 100%; border-radius: 8px; display: block; }
+    figcaption { font-family: Arial, sans-serif; font-size: 0.8rem; color: #94a3b8; margin-top: 6px; }
     @media (max-width: 640px) { .wrapper { padding: 32px 24px; } h1 { font-size: 1.5rem; } }
   </style>
 </head>
 <body>
 <div class="wrapper">
+<div class="lang-es">
   <div class="course-tag">Educación Financiera · Capítulo 15</div>
   <h1>Criptomonedas y Activos Digitales: Entendiendo el Dinero del Futuro</h1>
   <p class="subtitle">Desde Bitcoin hasta los contratos inteligentes: una guía rigurosa para navegar el ecosistema cripto con criterio.</p>
   <hr>
+
+  <h3>Objetivos de aprendizaje</h3>
+  <ul>
+    <li>Explicar qué es un blockchain y por qué hace posibles las criptomonedas sin intermediarios.</li>
+    <li>Comparar Bitcoin y Ethereum, y describir el papel de los contratos inteligentes.</li>
+    <li>Distinguir entre tipos de wallets y evaluar sus niveles de seguridad.</li>
+    <li>Reconocer las señales de alerta de estafas comunes en el ecosistema cripto.</li>
+  </ul>
+
+  <figure>
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Physical%20bitcoin%20statistic%20coin.JPG" alt="Moneda física representando Bitcoin" loading="lazy">
+    <figcaption>Representación física de Bitcoin, la primera criptomoneda, creada en 2009. Fuente: Wikimedia Commons.</figcaption>
+  </figure>
 
   <h2>La Tecnología Detrás de Todo: Blockchain</h2>
   <p>Para entender las criptomonedas, primero hay que entender el blockchain (cadena de bloques), la tecnología que las hace posibles. Un blockchain es una base de datos distribuida: en lugar de existir en un solo servidor controlado por una empresa o gobierno, existe simultáneamente en miles de computadoras alrededor del mundo.</p>
@@ -150,9 +167,142 @@
     </ul>
   </div>
 </div>
+
+<div class="lang-en" hidden>
+  <div class="course-tag">Financial Education · Chapter 15</div>
+  <h1>Cryptocurrencies and Digital Assets: Understanding the Money of the Future</h1>
+  <p class="subtitle">From Bitcoin to smart contracts: a rigorous guide to navigating the crypto ecosystem with judgment.</p>
+  <hr>
+
+  <h3>Learning Objectives</h3>
+  <ul>
+    <li>Explain what a blockchain is and why it makes cryptocurrencies possible without intermediaries.</li>
+    <li>Compare Bitcoin and Ethereum, and describe the role of smart contracts.</li>
+    <li>Distinguish between types of wallets and evaluate their security levels.</li>
+    <li>Recognize warning signs of common scams in the crypto ecosystem.</li>
+  </ul>
+
+  <figure>
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Physical%20bitcoin%20statistic%20coin.JPG" alt="Physical coin representing Bitcoin" loading="lazy">
+    <figcaption>Physical representation of Bitcoin, the first cryptocurrency, created in 2009. Source: Wikimedia Commons.</figcaption>
+  </figure>
+
+  <h2>The Technology Behind It All: Blockchain</h2>
+  <p>To understand cryptocurrencies, you first need to understand blockchain, the technology that makes them possible. A blockchain is a distributed database: instead of existing on a single server controlled by a company or government, it exists simultaneously on thousands of computers around the world.</p>
+
+  <div class="highlight-box">
+    <strong>What is a blockchain?</strong> It is a digital record of transactions organized into chronologically linked "blocks." Each block contains a set of transactions, a timestamp, and a "digital fingerprint" (hash) of the previous block, creating an immutable chain. Modifying any historical record would require modifying every subsequent block across thousands of simultaneous copies — practically impossible.
+  </div>
+
+  <p>Blockchain's fundamental properties are:</p>
+  <ul>
+    <li><strong>Decentralization:</strong> There is no central server. Thousands of "nodes" maintain copies of the ledger.</li>
+    <li><strong>Immutability:</strong> Once a transaction is recorded and confirmed, it cannot be erased.</li>
+    <li><strong>Transparency:</strong> Anyone can see all transactions. On Bitcoin, although identities are pseudonymous, amounts are public.</li>
+    <li><strong>Consensus:</strong> To add a new block, the majority of nodes must agree that the transactions are valid.</li>
+  </ul>
+
+  <h2>Bitcoin: The Origin</h2>
+  <p>In October 2008, amid the global financial crisis, a person (or group) using the pseudonym <strong>Satoshi Nakamoto</strong> published a 9-page paper titled "Bitcoin: A Peer-to-Peer Electronic Cash System." On January 3, 2009, they mined the first Bitcoin block (the "genesis block"), with an embedded message: "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks" — a direct reference to the banking crisis that motivated its creation.</p>
+
+  <p>Bitcoin was designed to be an electronic payment system without intermediaries — no banks, no governments, no possibility of censorship or confiscation. Its fundamental characteristics:</p>
+  <ul>
+    <li><strong>Maximum supply of 21 million BTC:</strong> Unlike fiat currencies (the dollar, the sol, the peso) that governments can print at will, Bitcoin has a fixed supply. This programmed scarcity is part of its value proposition as "digital gold."</li>
+    <li><strong>Halving:</strong> Every 210,000 blocks (approximately 4 years), the reward for mining Bitcoin is cut in half. In 2009 it was 50 BTC; in 2024 it is 3.125 BTC. The last Bitcoin will be mined around the year 2140.</li>
+    <li><strong>Pseudonymous, not anonymous:</strong> Transactions are visible to everyone; only the identity behind each address is private.</li>
+  </ul>
+
+  <h3>Mining and Proof of Work</h3>
+  <p>"Miners" are computers competing to solve a complex mathematical problem (finding a number called a "nonce" that produces a hash with certain characteristics). The first to solve it adds the next block and receives the reward in Bitcoin. This process is called <strong>Proof of Work</strong> and consumes large amounts of electricity — a frequent criticism of Bitcoin.</p>
+
+  <h3>Wallets and Keys</h3>
+  <p>A cryptocurrency wallet doesn't store coins; it stores keys. Each user has:</p>
+  <ul>
+    <li><strong>Private key:</strong> A secret 256-bit alphanumeric string. It's like your ATM PIN, but if you lose it, you lose your funds forever. No one can recover it.</li>
+    <li><strong>Public key:</strong> Mathematically derived from the private key. It's your "account number" that you share to receive funds.</li>
+    <li><strong>Address:</strong> A compressed, encoded version of the public key.</li>
+  </ul>
+
+  <h2>Ethereum and Smart Contracts</h2>
+  <p>In 2015, <strong>Vitalik Buterin</strong>, a 21-year-old Russian-Canadian programmer, launched Ethereum with a question: what if the blockchain could not only record money transfers, but also execute code automatically?</p>
+
+  <div class="highlight-box">
+    <strong>Smart Contract:</strong> Program code that executes automatically on the blockchain when predefined conditions are met. It requires no intermediaries — the code is the law. Example: "If the buyer deposits $500, automatically release the property title to the buyer" — all without lawyers or notaries.
+  </div>
+
+  <p>Ethereum's smart contracts enabled entirely new applications: decentralized lending, asset exchanges without intermediaries, tokens of every kind, and more. Ethereum's native currency is <strong>Ether (ETH)</strong>, used to pay "gas" (the computational cost of executing contracts).</p>
+
+  <p>In 2022, Ethereum migrated from Proof of Work to <strong>Proof of Stake</strong>, reducing its energy consumption by 99.95%. Instead of competing miners, "validators" lock up ("stake") their ETH as collateral to honestly validate transactions.</p>
+
+  <h2>The Broader Ecosystem: Altcoins and Stablecoins</h2>
+  <table>
+    <tr><th>Type</th><th>Examples</th><th>Purpose</th></tr>
+    <tr><td>Platform altcoins</td><td>Solana (SOL), Cardano (ADA), Polkadot (DOT)</td><td>Ethereum competitors for smart contracts</td></tr>
+    <tr><td>Stablecoins</td><td>USDT, USDC, DAI</td><td>Maintain 1:1 parity with the dollar or another currency</td></tr>
+    <tr><td>Utility tokens</td><td>Chainlink (LINK), Uniswap (UNI)</td><td>Access to specific services within their ecosystem</td></tr>
+    <tr><td>Memecoins</td><td>Dogecoin (DOGE), Shiba Inu (SHIB)</td><td>Born as a joke; price driven by community/speculation</td></tr>
+  </table>
+
+  <p><strong>Stablecoins</strong> are crucial to the ecosystem because they allow holding value digitally without the volatility of Bitcoin or Ethereum. USDT (Tether) and USDC (USD Coin) are backed by real dollars in reserve. DAI is a decentralized stablecoin backed by cryptocurrencies with over-collateralization.</p>
+
+  <h2>DeFi: Decentralized Finance</h2>
+  <p>DeFi (Decentralized Finance) is the set of financial services built on blockchains, without banks or intermediaries. It includes:</p>
+  <ul>
+    <li><strong>DEXs (Decentralized Exchanges):</strong> Uniswap, Curve — you swap tokens directly from your wallet without depositing funds into any exchange.</li>
+    <li><strong>Lending protocols:</strong> Aave, Compound — you deposit crypto as collateral and borrow, or lend your crypto to earn interest, automatically.</li>
+    <li><strong>Yield farming:</strong> Strategies to maximize returns by providing liquidity to DeFi protocols, often with significant risk.</li>
+  </ul>
+
+  <h2>NFTs: Unique Digital Assets</h2>
+  <p>An <strong>NFT (Non-Fungible Token)</strong> is a token on the blockchain that represents ownership of a unique asset — an image, a video, music, a video game item. Unlike Bitcoin (where all BTC are identical and interchangeable), each NFT is unique.</p>
+
+  <div class="example">
+    <strong>The NFT boom and its critique:</strong> In 2021, artist Beeple sold a digital collage called "Everydays: The First 5000 Days" as an NFT for $69 million at Christie's. The NFT market reached $25 billion in volume that year. By 2023, 95% of NFTs had zero market value according to studies. The central criticism: buying an NFT does not give you the copyright to the image nor prevent others from copying it — you only have a blockchain record stating that "you are the owner."
+  </div>
+
+  <h2>Wallets: Hot vs. Cold</h2>
+  <table>
+    <tr><th>Type</th><th>Description</th><th>Security</th><th>Convenience</th></tr>
+    <tr><td>Hot Wallet (software)</td><td>App connected to the internet: MetaMask, Trust Wallet</td><td>Vulnerable to remote hacks</td><td>High — immediate access</td></tr>
+    <tr><td>Cold Wallet (hardware)</td><td>Offline physical device: Ledger, Trezor</td><td>Very high — keys never exposed to the internet</td><td>Lower — requires the physical device</td></tr>
+    <tr><td>Exchange Wallet</td><td>Custody by the exchange: Binance, Coinbase</td><td>Depends on the exchange's security</td><td>Maximum — but "not your keys, not your coins"</td></tr>
+  </table>
+
+  <h2>Taxes and Regulation</h2>
+  <p>In most countries, cryptocurrencies are treated as assets for tax purposes:</p>
+  <ul>
+    <li><strong>In the US:</strong> The IRS treats crypto as property. Every sale, exchange, or use generates a taxable event. Long-term gains (more than 1 year) have more favorable rates.</li>
+    <li><strong>In Peru:</strong> SUNAT taxes cryptocurrency gains as third-category income.</li>
+    <li><strong>In El Salvador:</strong> Bitcoin has been legal tender since 2021 — gains are tax-exempt.</li>
+  </ul>
+
+  <h2>Recognizing Crypto Scams</h2>
+  <div class="warning-box">
+    <strong>Warning signs (red flags):</strong>
+    <ul>
+      <li><strong>Rug pulls:</strong> A project's creators collect millions from investors and disappear. This happened with the Squid Game Token in 2021 — it went from $0.01 to $2,861 and then to $0 within minutes.</li>
+      <li><strong>Pump and dump:</strong> Coordinated groups inflate the price of a small coin and then sell en masse.</li>
+      <li><strong>Guaranteed returns:</strong> "Earn 1% daily" — no legitimate investment guarantees fixed returns. BitConnect promised 1% daily and collapsed in 2018, costing investors $2.6 billion.</li>
+      <li><strong>Artificial urgency:</strong> "Only 100 tokens left at this price" — a pressure tactic to keep you from researching.</li>
+    </ul>
+  </div>
+
+  <div class="summary">
+    <h2>Chapter Summary</h2>
+    <ul>
+      <li>Blockchain is a distributed, immutable database — the technology that makes cryptocurrencies possible without central intermediaries.</li>
+      <li>Bitcoin was created in 2009 by Satoshi Nakamoto in response to the banking crisis; it has a fixed supply of 21 million units.</li>
+      <li>Ethereum added smart contracts to the blockchain, enabling DeFi, NFTs, and thousands of decentralized applications.</li>
+      <li>Stablecoins allow holding digital value without volatility; they are fundamental to the DeFi ecosystem.</li>
+      <li>Cold wallets (hardware) are the safest option; funds on exchanges are the exchange's responsibility, not yours.</li>
+      <li>Cryptocurrency gains are taxable in almost every country — document every transaction.</li>
+      <li>Rug pulls, pump-and-dump schemes, and promises of guaranteed returns are the most common crypto scams; always research before investing.</li>
+    </ul>
+  </div>
+</div>
+</div>
 <script>
-window.QUIZ_DATA = {
-  lang: "es",
+window.QUIZ_DATA_ES = {
   questions: [
     { q: "¿Quién creó Bitcoin y en qué año?", options: ["Vitalik Buterin en 2013", "Satoshi Nakamoto en 2009", "Elon Musk en 2010", "Un consorcio de bancos en 2008"], correct: 1, feedback: "Bitcoin fue creado en 2009 por una persona o grupo bajo el seudónimo Satoshi Nakamoto, como respuesta a la crisis bancaria de 2008. Su identidad real sigue siendo desconocida." },
     { q: "¿Cuál es el suministro máximo de Bitcoin?", options: ["10 millones de unidades", "21 millones de unidades", "100 millones de unidades", "Ilimitado"], correct: 1, feedback: "Bitcoin tiene un suministro máximo fijo de 21 millones de unidades, lo que lo hace deflacionario por diseño. Esta escasez programada es uno de sus argumentos principales como reserva de valor." },
@@ -164,6 +314,20 @@ window.QUIZ_DATA = {
     { q: "¿Cuál es el estatus legal de Bitcoin en El Salvador?", options: ["Está prohibido por considerarse especulativo", "Es moneda de curso legal desde 2021, y las ganancias están exentas de impuestos", "Es legal pero se grava con 30% de impuesto sobre ganancias", "Solo puede usarse para pagos entre empresas, no personas naturales"], correct: 1, feedback: "El Salvador fue el primer país en adoptar Bitcoin como moneda de curso legal en 2021. Las ganancias provenientes de criptomonedas están exentas de impuestos en ese país." },
     { q: "¿Cuál es una señal de alerta (red flag) en proyectos de criptomonedas?", options: ["Que el proyecto tenga un whitepaper detallado disponible al público", "Que prometan retornos garantizados como 'gana el 1% diario'", "Que la criptomoneda cotice en exchanges conocidos y regulados", "Que el equipo fundador sea público y verificable"], correct: 1, feedback: "Ninguna inversión legítima puede garantizar retornos fijos diarios. Proyectos como BitConnect prometían 1% diario y resultaron ser estafas piramidales que costaron miles de millones a los inversores." },
     { q: "¿Qué significa 'not your keys, not your coins'?", options: ["Que solo los mineros que tienen el hardware son dueños de Bitcoin", "Que si tus criptomonedas están en un exchange, técnicamente el exchange las controla, no tú", "Que las criptomonedas sin llaves de seguridad no tienen valor real", "Que las transacciones sin firma digital son inválidas en el blockchain"], correct: 1, feedback: "'Not your keys, not your coins' significa que si no controlas las claves privadas de tu wallet, no eres el verdadero dueño de tus criptomonedas. Los fondos en exchanges pueden perderse si el exchange es hackeado o quiebra (como ocurrió con FTX)." }
+  ]
+};
+window.QUIZ_DATA_EN = {
+  questions: [
+    { q: "Who created Bitcoin, and in what year?", options: ["Vitalik Buterin in 2013", "Satoshi Nakamoto in 2009", "Elon Musk in 2010", "A consortium of banks in 2008"], correct: 1, feedback: "Bitcoin was created in 2009 by a person or group under the pseudonym Satoshi Nakamoto, in response to the 2008 banking crisis. Their real identity remains unknown." },
+    { q: "What is Bitcoin's maximum supply?", options: ["10 million units", "21 million units", "100 million units", "Unlimited"], correct: 1, feedback: "Bitcoin has a fixed maximum supply of 21 million units, making it deflationary by design. This programmed scarcity is one of its main arguments as a store of value." },
+    { q: "What did Ethereum add to the blockchain that Bitcoin originally lacked?", options: ["Faster transaction speed", "Smart contracts", "Total transaction anonymity", "Backing by physical gold"], correct: 1, feedback: "Ethereum, launched in 2015 by Vitalik Buterin, added smart contracts to the blockchain — programs that execute automatically without intermediaries, enabling DeFi, NFTs, and thousands of decentralized applications." },
+    { q: "What is a stablecoin?", options: ["A cryptocurrency backed by physical gold in a bank", "A cryptocurrency designed to maintain a stable value, usually pegged to the dollar", "The technical name for Bitcoin when its price doesn't change for more than 24 hours", "A type of fractional share in technology companies"], correct: 1, feedback: "Stablecoins are cryptocurrencies designed to maintain a stable value, usually pegged 1:1 to the dollar. They allow transacting within the crypto ecosystem without the volatility of Bitcoin or Ethereum." },
+    { q: "What is the difference between a cold wallet and a hot wallet?", options: ["Cold wallets process transactions faster than hot wallets", "Cold wallets (hardware) are offline and more secure; hot wallets are online and more convenient but more vulnerable", "Hot wallets only work with Bitcoin; cold wallets work with all cryptocurrencies", "Only large institutional investors can use cold wallets"], correct: 1, feedback: "Cold wallets (hardware devices) store private keys offline, making them much more secure. Hot wallets (apps, exchanges) are connected to the internet, making them convenient but vulnerable to hacks." },
+    { q: "What happened with the Squid Game Token in 2021?", options: ["It became Netflix's official cryptocurrency", "Its creators abandoned it after a massive price surge, in a rug pull that took it to $0", "It was the first token to surpass Bitcoin in value", "It was bought by the South Korean government to regulate it"], correct: 1, feedback: "The Squid Game Token rose from $0.01 to $2,861 within days, then its creators disappeared with the funds (a rug pull), driving the price to $0. It is one of the most famous examples of a crypto scam." },
+    { q: "What does DeFi mean?", options: ["Digital Finance Initiative", "Decentralized Finance", "Defense of Financial Integrity", "Digital Exchange Framework International"], correct: 1, feedback: "DeFi (Decentralized Finance) refers to financial services — lending, exchanges, yields — built on blockchain, without banks or traditional intermediaries. Ethereum is the main platform for DeFi." },
+    { q: "What is Bitcoin's legal status in El Salvador?", options: ["It is banned for being considered speculative", "It has been legal tender since 2021, and gains are tax-exempt", "It is legal but taxed at 30% on gains", "It can only be used for payments between businesses, not individuals"], correct: 1, feedback: "El Salvador was the first country to adopt Bitcoin as legal tender in 2021. Gains from cryptocurrencies are tax-exempt in that country." },
+    { q: "What is a warning sign (red flag) in cryptocurrency projects?", options: ["That the project has a detailed whitepaper available to the public", "That they promise guaranteed returns like 'earn 1% daily'", "That the cryptocurrency trades on well-known, regulated exchanges", "That the founding team is public and verifiable"], correct: 1, feedback: "No legitimate investment can guarantee fixed daily returns. Projects like BitConnect promised 1% daily and turned out to be Ponzi schemes that cost investors billions." },
+    { q: "What does 'not your keys, not your coins' mean?", options: ["Only miners with hardware own Bitcoin", "If your cryptocurrencies are on an exchange, the exchange technically controls them, not you", "Cryptocurrencies without security keys have no real value", "Transactions without a digital signature are invalid on the blockchain"], correct: 1, feedback: "'Not your keys, not your coins' means that if you don't control your wallet's private keys, you are not the true owner of your cryptocurrencies. Funds on exchanges can be lost if the exchange is hacked or goes bankrupt (as happened with FTX)." }
   ]
 };
 </script>

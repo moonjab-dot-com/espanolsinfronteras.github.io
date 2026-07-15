@@ -15,12 +15,13 @@ interface NavItem {
 // ─── Constants ────────────────────────────────────────────────────────────────
 
 const NAV_ITEMS: NavItem[] = [
-  { href: "/#cursos",      labelEs: "Cursos",      labelEn: "Courses"  },
-  { href: "/#historia",    labelEs: "Historia",    labelEn: "About"    },
-  { href: "/#alianzas",    labelEs: "Alianzas",    labelEn: "Partners" },
-  { href: "/#galeria",     labelEs: "Galería",     labelEn: "Gallery"  },
-  { href: "/#faq",         labelEs: "FAQ",         labelEn: "FAQ"      },
-  { href: "/#contacto",    labelEs: "Contacto",    labelEn: "Contact"  },
+  { href: "/#cursos",         labelEs: "Cursos",         labelEn: "Courses"       },
+  { href: "/oportunidades",   labelEs: "Oportunidades",  labelEn: "Opportunities" },
+  { href: "/#historia",       labelEs: "Historia",       labelEn: "About"         },
+  { href: "/#alianzas",       labelEs: "Alianzas",       labelEn: "Partners"      },
+  { href: "/#galeria",        labelEs: "Galería",        labelEn: "Gallery"       },
+  { href: "/#faq",            labelEs: "FAQ",            labelEn: "FAQ"           },
+  { href: "/#contacto",       labelEs: "Contacto",       labelEn: "Contact"       },
 ];
 
 // ─── Navigation ───────────────────────────────────────────────────────────────
@@ -74,15 +75,18 @@ function Nav() {
           className="hidden md:flex items-center gap-1"
           aria-label="Navegación principal"
         >
-          {NAV_ITEMS.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="px-3.5 py-2 text-[13px] font-medium text-white/55 hover:text-white rounded-lg hover:bg-white/6 transition-all duration-150"
-            >
-              {navLabel(item)}
-            </a>
-          ))}
+          {NAV_ITEMS.map((item) => {
+            const cls = "px-3.5 py-2 text-[13px] font-medium text-white/55 hover:text-white rounded-lg hover:bg-white/6 transition-all duration-150";
+            return item.href.startsWith("/") && !item.href.startsWith("/#") ? (
+              <Link key={item.href} to={item.href} className={cls}>
+                {navLabel(item)}
+              </Link>
+            ) : (
+              <a key={item.href} href={item.href} className={cls}>
+                {navLabel(item)}
+              </a>
+            );
+          })}
         </nav>
 
         {/* Right actions */}
@@ -114,16 +118,18 @@ function Nav() {
           className="md:hidden absolute top-[60px] left-0 right-0 bg-[hsl(222,47%,7%)] border-t border-white/6 shadow-2xl z-50 animate-fade-in"
         >
           <nav className="container-page py-4 flex flex-col gap-1" aria-label="Menú móvil">
-            {NAV_ITEMS.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="flex items-center px-4 py-3 text-sm font-medium text-white/65 hover:text-white hover:bg-white/6 rounded-xl transition-all"
-                onClick={() => setMenuOpen(false)}
-              >
-                {navLabel(item)}
-              </a>
-            ))}
+            {NAV_ITEMS.map((item) => {
+              const cls = "flex items-center px-4 py-3 text-sm font-medium text-white/65 hover:text-white hover:bg-white/6 rounded-xl transition-all";
+              return item.href.startsWith("/") && !item.href.startsWith("/#") ? (
+                <Link key={item.href} to={item.href} className={cls} onClick={() => setMenuOpen(false)}>
+                  {navLabel(item)}
+                </Link>
+              ) : (
+                <a key={item.href} href={item.href} className={cls} onClick={() => setMenuOpen(false)}>
+                  {navLabel(item)}
+                </a>
+              );
+            })}
           </nav>
         </div>
       )}
