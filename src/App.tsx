@@ -9,8 +9,9 @@ import Layout from "@/components/layout/Layout";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import HomePage from "@/pages/HomePage";
 
-const CoursePage       = lazy(() => import("@/pages/CoursePage"));
+const CoursePage        = lazy(() => import("@/pages/CoursePage"));
 const OportunidadesPage = lazy(() => import("@/pages/OportunidadesPage"));
+const NosotrosPage      = lazy(() => import("@/pages/NosotrosPage"));
 const NotFound          = lazy(() => import("@/pages/NotFound"));
 
 // ─── Query Client ─────────────────────────────────────────────────────────────
@@ -40,7 +41,8 @@ const App = () => (
                 <Route path="/" element={<HomePage />} />
                 <Route path="/curso/:slug" element={<CoursePage />} />
                 <Route path="/oportunidades" element={<OportunidadesPage />} />
-                <Route path="*" element={<NotFound />} />
+                <Route path="/nosotros"     element={<NosotrosPage />} />
+                <Route path="*"             element={<NotFound />} />
               </Routes>
             </Suspense>
           </Layout>

@@ -15,13 +15,10 @@ interface NavItem {
 // ─── Constants ────────────────────────────────────────────────────────────────
 
 const NAV_ITEMS: NavItem[] = [
-  { href: "/#cursos",         labelEs: "Cursos",         labelEn: "Courses"       },
-  { href: "/oportunidades",   labelEs: "Oportunidades",  labelEn: "Opportunities" },
-  { href: "/#historia",       labelEs: "Historia",       labelEn: "About"         },
-  { href: "/#alianzas",       labelEs: "Alianzas",       labelEn: "Partners"      },
-  { href: "/#galeria",        labelEs: "Galería",        labelEn: "Gallery"       },
-  { href: "/#faq",            labelEs: "FAQ",            labelEn: "FAQ"           },
-  { href: "/#contacto",       labelEs: "Contacto",       labelEn: "Contact"       },
+  { href: "/#cursos",       labelEs: "Cursos",        labelEn: "Courses"       },
+  { href: "/oportunidades", labelEs: "Oportunidades", labelEn: "Opportunities" },
+  { href: "/nosotros",      labelEs: "Nosotros",      labelEn: "About"         },
+  { href: "/#contacto",     labelEs: "Contacto",      labelEn: "Contact"       },
 ];
 
 // ─── Navigation ───────────────────────────────────────────────────────────────
