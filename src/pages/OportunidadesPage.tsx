@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useLanguage } from "@/context/LanguageContext";
 import {
-  ArrowRight, Award, BookOpen, Brain, Briefcase, ChevronRight,
-  ExternalLink, Globe, GraduationCap, Lightbulb, MapPin,
-  RefreshCw, Rocket, Star, Target, Trophy, Users, Zap,
-  Filter, TrendingUp, Handshake, Code,
+  ArrowRight, Brain, Briefcase, ChevronRight, ExternalLink,
+  Filter, Globe, GraduationCap, Lightbulb, MapPin,
+  RefreshCw, Rocket, Sparkles, Star, Target, Trophy, Users, Zap,
+  Code, Award, BookOpen, TrendingUp, Handshake,
 } from "lucide-react";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -29,37 +30,184 @@ interface Opportunity {
   level: "escolar" | "universitario" | "ambos";
 }
 
-// ─── Data ─────────────────────────────────────────────────────────────────────
+// ─── Verified opportunities only ──────────────────────────────────────────────
+// Every URL below has been checked. Unverified links removed.
 
 const OPPORTUNITIES: Opportunity[] = [
-  { id:"beca18",           nameEs:"Beca 18",                              nameEn:"Beca 18",                                orgEs:"PRONABEC – Gobierno del Perú",                orgEn:"PRONABEC – Government of Peru",                descEs:"La beca más importante del Perú para jóvenes de alto rendimiento con bajos recursos. Cubre matrícula, pensión y hospedaje.",                                     descEn:"Peru's most important scholarship for high-achieving youth from low-income families. Covers tuition, pension and housing.",            url:"https://www.pronabec.gob.pe/beca-18/",                                                                                                category:"becas",        tags:["beca","universidad","gratuita","stem","humanidades"],  ageMin:16, ageMax:22, isFree:true,  lang:"es",   level:"universitario" },
-  { id:"beca-presidente",  nameEs:"Beca Presidente de la República",      nameEn:"Beca Presidente de la República",        orgEs:"PRONABEC – Gobierno del Perú",                orgEn:"PRONABEC – Government of Peru",                descEs:"Beca de excelencia para los mejores egresados universitarios peruanos para estudios de posgrado en el extranjero.",                                           descEn:"Excellence scholarship for top Peruvian university graduates for postgraduate studies abroad.",                                        url:"https://www.pronabec.gob.pe/beca-presidente-de-la-republica/",                                                                        category:"becas",        tags:["posgrado","exterior","excelencia"],                     ageMin:21,            isFree:true,  lang:"es",   level:"universitario" },
-  { id:"fulbright",        nameEs:"Fulbright Perú",                       nameEn:"Fulbright Peru",                         orgEs:"Comisión Fulbright Perú",                     orgEn:"Fulbright Commission Peru",                    descEs:"Becas de intercambio entre Perú y EE.UU. para estudios, investigación y enseñanza. Muy prestigioso.",                                                          descEn:"Exchange grants between Peru and the US for study, research, and teaching. Highly prestigious.",                                      url:"https://www.fulbrightperu.info/",                                                                                                      category:"becas",        tags:["usa","posgrado","investigación","intercambio"],                          isFree:true,  lang:"both", level:"universitario" },
-  { id:"daad",             nameEs:"Becas DAAD Perú",                      nameEn:"DAAD Scholarships Peru",                 orgEs:"DAAD – Servicio Alemán de Intercambio",      orgEn:"DAAD – German Academic Exchange",              descEs:"Becas del gobierno alemán para peruanos que quieran hacer maestría o doctorado en Alemania.",                                                                  descEn:"German government scholarships for Peruvians pursuing Master's or PhD programs in Germany.",                                          url:"https://www.daad.pe/",                                                                                                                 category:"becas",        tags:["alemania","posgrado","investigación"],                                   isFree:true,  lang:"both", level:"universitario" },
-  { id:"oas",              nameEs:"Becas OEA",                            nameEn:"OAS Scholarships",                       orgEs:"Organización de los Estados Americanos",     orgEn:"Organization of American States",              descEs:"Becas para peruanos para estudios de posgrado e investigación en cualquier país de las Américas.",                                                              descEn:"Scholarships for Peruvians for graduate studies and research across the Americas.",                                                    url:"https://www.oas.org/es/becas/",                                                                                                        category:"becas",        tags:["americas","posgrado","desarrollo profesional"],                          isFree:true,  lang:"both", level:"universitario" },
-  { id:"lala",             nameEs:"LALA — Latin American Leadership Academy", nameEn:"LALA — Latin American Leadership Academy", orgEs:"Latin American Leadership Academy", orgEn:"Latin American Leadership Academy",         descEs:"Programa intensivo de liderazgo de 10 días para jóvenes latinoamericanos con potencial de cambiar la región.",                                                   descEn:"Intensive 10-day leadership program for Latin American youth with the potential to change the region.",                                url:"https://lalalca.org/",                                                                                                                 category:"liderazgo",    tags:["liderazgo","latam","networking","presencial"],          ageMin:16, ageMax:20, isFree:true,  lang:"both", level:"escolar" },
-  { id:"yygs",             nameEs:"YYGS — Yale Young Global Scholars",    nameEn:"YYGS — Yale Young Global Scholars",      orgEs:"Universidad de Yale",                        orgEn:"Yale University",                              descEs:"Programa académico de 2 semanas en Yale para los mejores estudiantes secundarios del mundo.",                                                                  descEn:"2-week academic program at Yale for top high school students worldwide.",                                                              url:"https://globalscholars.yale.edu/",                                                                                                     category:"liderazgo",    tags:["yale","académico","secundaria","liderazgo","usa"],      ageMin:15, ageMax:18, isFree:false, lang:"en",   level:"escolar" },
-  { id:"opm",              nameEs:"Olimpiada Peruana de Matemáticas",     nameEn:"Peruvian Mathematics Olympiad",          orgEs:"Sociedad Matemática Peruana",                orgEn:"Peruvian Mathematical Society",                descEs:"La competencia matemática más importante del Perú. Los ganadores van a las olimpiadas internacionales.",                                                       descEn:"Peru's most important mathematics competition. Winners go to international olympiads.",                                                url:"https://www.smpm.pe/",                                                                                                                 category:"competencias", tags:["matemáticas","olimpiada","stem","competencia"],         ageMin:12, ageMax:19, isFree:true,  lang:"es",   level:"escolar" },
-  { id:"concytec",         nameEs:"Olimpiada Peruana de Ciencias",        nameEn:"Peruvian Science Olympiad",              orgEs:"CONCYTEC",                                   orgEn:"CONCYTEC",                                     descEs:"Olimpiada de ciencias: biología, química, física e informática. Regional y nacional. Organizada por CONCYTEC.",                                                  descEn:"Science olympiad: biology, chemistry, physics, and computer science. Regional and national.",                                         url:"https://www.gob.pe/concytec",                                                                                                          category:"competencias", tags:["ciencias","olimpiada","stem","investigación"],          ageMin:12, ageMax:19, isFree:true,  lang:"es",   level:"escolar" },
-  { id:"pcimun",           nameEs:"PCIMUN — PUCP",                        nameEn:"PCIMUN — PUCP",                          orgEs:"Pontificia Universidad Católica del Perú",   orgEn:"Pontifical Catholic University of Peru",       descEs:"Uno de los MUNs más reconocidos de Latinoamérica, organizado por la PUCP con delegados de toda la región.",                                                    descEn:"One of Latin America's most recognized MUNs, organized by PUCP with delegates from across the region.",                               url:"https://www.instagram.com/pcimun_oficial/",                                                                                            category:"mun",          tags:["mun","diplomacia","oratoria","debate","lima"],          ageMin:15, ageMax:25, isFree:false, lang:"both", level:"ambos" },
-  { id:"limamun",          nameEs:"Lima MUN",                             nameEn:"Lima MUN",                               orgEs:"Lima MUN",                                   orgEn:"Lima MUN",                                     descEs:"Conferencia anual de Modelo de Naciones Unidas en Lima. Ideal para empezar en el debate diplomático.",                                                          descEn:"Annual Model United Nations conference in Lima. Ideal for beginners in diplomatic debate.",                                           url:"https://www.instagram.com/limamun/",                                                                                                   category:"mun",          tags:["mun","debate","diplomacia","lima","presencial"],        ageMin:14, ageMax:22, isFree:false, lang:"both", level:"ambos" },
-  { id:"google-gen",       nameEs:"Generation Google Scholars — LATAM",   nameEn:"Generation Google Scholars — LATAM",    orgEs:"Google",                                     orgEn:"Google",                                       descEs:"Beca de Google para universitarios latinoamericanos en carreras STEM. Incluye apoyo económico y red de mentores.",                                                descEn:"Google scholarship for Latin American university students in STEM. Includes financial support and mentor network.",                    url:"https://buildyourfuture.withgoogle.com/scholarships/generation-google-scholarship-latin-america",                                     category:"tech",         tags:["google","tech","beca","universitario","stem"],          ageMin:18,            isFree:true,  lang:"both", level:"universitario" },
-  { id:"mtpe",             nameEs:"Red de Mentores — MTPE",               nameEn:"MTPE Mentor Network",                   orgEs:"Ministerio de Trabajo y Promoción del Empleo",orgEn:"Ministry of Labor and Employment Promotion",   descEs:"Programa oficial del Ministerio de Trabajo que conecta jóvenes peruanos con profesionales para guiar su carrera.",                                              descEn:"Official program connecting Peruvian youth with professionals to guide their career.",                                                 url:"https://www.gob.pe/mtpe",                                                                                                              category:"mentoria",     tags:["mentoría","carrera","empleo","gobierno"],               ageMin:18, ageMax:29, isFree:true,  lang:"es",   level:"universitario" },
+  {
+    id: "beca18",
+    nameEs: "Beca 18",
+    nameEn: "Beca 18",
+    orgEs: "PRONABEC – Gobierno del Perú",
+    orgEn: "PRONABEC – Government of Peru",
+    descEs: "La beca más importante del Perú para jóvenes de alto rendimiento con bajos recursos económicos. Cubre matrícula, pensión, hospedaje y materiales.",
+    descEn: "Peru's most important scholarship for high-achieving youth from low-income families. Covers tuition, living expenses, and materials.",
+    url: "https://www.gob.pe/pronabec",
+    category: "becas",
+    tags: ["beca", "universidad", "stem", "humanidades"],
+    ageMin: 16, ageMax: 22,
+    isFree: true, lang: "es", level: "universitario",
+  },
+  {
+    id: "pronabec",
+    nameEs: "Portal de Becas PRONABEC",
+    nameEn: "PRONABEC Scholarship Portal",
+    orgEs: "Programa Nacional de Becas y Crédito Educativo",
+    orgEn: "National Scholarship and Educational Credit Program",
+    descEs: "Portal oficial con todos los programas de becas del gobierno peruano. Beca 18, Beca Especial, Beca Doble Oportunidad y más.",
+    descEn: "Official portal with all Peruvian government scholarship programs. Beca 18, Special Scholarship, Second Chance Scholarship, and more.",
+    url: "https://www.gob.pe/pronabec",
+    category: "becas",
+    tags: ["beca", "gobierno", "múltiples programas"],
+    isFree: true, lang: "es", level: "ambos",
+  },
+  {
+    id: "fulbright",
+    nameEs: "Fulbright Perú",
+    nameEn: "Fulbright Peru",
+    orgEs: "Comisión Fulbright Perú — San Borja, Lima",
+    orgEn: "Fulbright Commission Peru — San Borja, Lima",
+    descEs: "70 años de intercambio académico entre Perú y EE.UU. Becas para estudios de posgrado, investigación y enseñanza. Altamente prestigioso.",
+    descEn: "70 years of academic exchange between Peru and the US. Grants for graduate study, research, and teaching. Highly prestigious.",
+    url: "https://www.fulbright.pe/",
+    category: "becas",
+    tags: ["usa", "posgrado", "investigación", "intercambio"],
+    isFree: true, lang: "both", level: "universitario",
+  },
+  {
+    id: "becas-santander",
+    nameEs: "Becas Santander",
+    nameEn: "Santander Scholarships",
+    orgEs: "Banco Santander",
+    orgEn: "Banco Santander",
+    descEs: "Miles de becas anuales para estudiantes universitarios latinoamericanos: movilidad, emprendimiento, idiomas, tecnología y más.",
+    descEn: "Thousands of annual scholarships for Latin American university students: mobility, entrepreneurship, languages, technology, and more.",
+    url: "https://www.becas-santander.com/",
+    category: "becas",
+    tags: ["beca", "movilidad", "universitario", "idiomas", "tech"],
+    isFree: true, lang: "both", level: "universitario",
+  },
+  {
+    id: "oas",
+    nameEs: "Becas OEA",
+    nameEn: "OAS Scholarships",
+    orgEs: "Organización de los Estados Americanos",
+    orgEn: "Organization of American States",
+    descEs: "Becas para ciudadanos peruanos para estudios de posgrado, investigación y desarrollo profesional en cualquier país de las Américas.",
+    descEn: "Scholarships for Peruvian citizens for graduate studies, research, and professional development across the Americas.",
+    url: "https://www.oas.org/es/becas/",
+    category: "becas",
+    tags: ["americas", "posgrado", "investigación"],
+    isFree: true, lang: "both", level: "universitario",
+  },
+  {
+    id: "yygs",
+    nameEs: "YYGS — Yale Young Global Scholars",
+    nameEn: "YYGS — Yale Young Global Scholars",
+    orgEs: "Universidad de Yale",
+    orgEn: "Yale University",
+    descEs: "Programa académico de 2 semanas residencial en Yale para los mejores estudiantes secundarios del mundo. Ciencias, política y más.",
+    descEn: "2-week residential academic program at Yale for top high school students worldwide. Science, policy, and more tracks.",
+    url: "https://globalscholars.yale.edu/",
+    category: "liderazgo",
+    tags: ["yale", "liderazgo", "secundaria", "usa"],
+    ageMin: 15, ageMax: 18,
+    isFree: false, lang: "en", level: "escolar",
+  },
+  {
+    id: "concytec",
+    nameEs: "Olimpiadas Científicas — CONCYTEC",
+    nameEn: "Science Olympiads — CONCYTEC",
+    orgEs: "Consejo Nacional de Ciencia, Tecnología e Innovación Tecnológica",
+    orgEn: "National Council of Science, Technology and Technological Innovation",
+    descEs: "Olimpiadas nacionales de biología, química, física e informática. Los mejores representan al Perú en competencias internacionales.",
+    descEn: "National olympiads in biology, chemistry, physics, and computer science. Top students represent Peru internationally.",
+    url: "https://www.concytec.gob.pe/",
+    category: "competencias",
+    tags: ["ciencias", "olimpiada", "stem", "investigación"],
+    ageMin: 12, ageMax: 19,
+    isFree: true, lang: "es", level: "escolar",
+  },
+  {
+    id: "pcimun",
+    nameEs: "PCIMUN — Pontificia Conferencia Intl. MUN",
+    nameEn: "PCIMUN — Pontifical International MUN",
+    orgEs: "Pontificia Universidad Católica del Perú (PUCP)",
+    orgEn: "Pontifical Catholic University of Peru (PUCP)",
+    descEs: "Uno de los Modelos de Naciones Unidas más reconocidos de Latinoamérica, organizado por la PUCP. Delegados de toda la región.",
+    descEn: "One of Latin America's most prestigious Model UN conferences, organized by PUCP. Delegates from across the region.",
+    url: "https://www.instagram.com/pcimun_oficial/",
+    category: "mun",
+    tags: ["mun", "diplomacia", "oratoria", "debate", "lima", "pucp"],
+    ageMin: 15, ageMax: 25,
+    isFree: false, lang: "both", level: "ambos",
+  },
+  {
+    id: "limamun",
+    nameEs: "Lima MUN",
+    nameEn: "Lima MUN",
+    orgEs: "Lima Model United Nations",
+    orgEn: "Lima Model United Nations",
+    descEs: "Conferencia anual de Modelo de Naciones Unidas en Lima. Ideal para estudiantes que se inician en el debate y la diplomacia.",
+    descEn: "Annual Model United Nations conference in Lima. Ideal for students beginning their journey in debate and diplomacy.",
+    url: "https://www.instagram.com/limamun/",
+    category: "mun",
+    tags: ["mun", "debate", "diplomacia", "lima"],
+    ageMin: 14, ageMax: 22,
+    isFree: false, lang: "both", level: "ambos",
+  },
+  {
+    id: "google-gen",
+    nameEs: "Generation Google Scholars — LATAM",
+    nameEn: "Generation Google Scholars — LATAM",
+    orgEs: "Google",
+    orgEn: "Google",
+    descEs: "Beca anual de Google para universitarios latinoamericanos en carreras de tecnología e informática. Incluye apoyo económico y red de mentores.",
+    descEn: "Annual Google scholarship for Latin American university students in technology and computer science. Includes financial support and mentor network.",
+    url: "https://buildyourfuture.withgoogle.com/scholarships/generation-google-scholarship-latin-america",
+    category: "tech",
+    tags: ["google", "tech", "beca", "universitario", "stem"],
+    ageMin: 18,
+    isFree: true, lang: "both", level: "universitario",
+  },
+  {
+    id: "mtpe",
+    nameEs: "Red de Mentores MTPE",
+    nameEn: "MTPE Mentor Network",
+    orgEs: "Ministerio de Trabajo y Promoción del Empleo del Perú",
+    orgEn: "Ministry of Labor and Employment Promotion of Peru",
+    descEs: "Programa oficial del Estado peruano que conecta jóvenes de 18–29 años con profesionales que los orientan en su desarrollo de carrera.",
+    descEn: "Official Peruvian government program connecting youth aged 18–29 with professionals who guide their career development.",
+    url: "https://www.gob.pe/mtpe",
+    category: "mentoria",
+    tags: ["mentoría", "carrera", "empleo", "gobierno"],
+    ageMin: 18, ageMax: 29,
+    isFree: true, lang: "es", level: "universitario",
+  },
 ];
 
-// ─── Category config (Lucide icons, no emojis) ────────────────────────────────
+// ─── Category config ──────────────────────────────────────────────────────────
 
-const CATS: { value: Category; icon: React.ReactNode; labelEs: string; labelEn: string; bg: string; text: string }[] = [
-  { value:"all",          icon:<Globe className="w-4 h-4" />,          labelEs:"Todas",       labelEn:"All",           bg:"#f1f5f9", text:"#334155" },
-  { value:"becas",        icon:<GraduationCap className="w-4 h-4" />,  labelEs:"Becas",       labelEn:"Scholarships",  bg:"#dbeafe", text:"#1e40af" },
-  { value:"liderazgo",    icon:<Rocket className="w-4 h-4" />,         labelEs:"Liderazgo",   labelEn:"Leadership",    bg:"#ede9fe", text:"#5b21b6" },
-  { value:"competencias", icon:<Trophy className="w-4 h-4" />,         labelEs:"Olimpiadas",  labelEn:"Olympiads",     bg:"#fef3c7", text:"#92400e" },
-  { value:"mun",          icon:<Users className="w-4 h-4" />,          labelEs:"MUN",         labelEn:"MUN",           bg:"#ccfbf1", text:"#0f766e" },
-  { value:"mentoria",     icon:<Lightbulb className="w-4 h-4" />,      labelEs:"Mentoría",    labelEn:"Mentoring",     bg:"#dcfce7", text:"#14532d" },
-  { value:"tech",         icon:<Code className="w-4 h-4" />,           labelEs:"Tecnología",  labelEn:"Technology",    bg:"#fce7f3", text:"#831843" },
+const CATS: {
+  value: Category;
+  icon: React.ReactNode;
+  labelEs: string;
+  labelEn: string;
+  color: string;
+  bg: string;
+  darkBg: string;
+  count?: number;
+}[] = [
+  { value: "all",          icon: <Sparkles className="w-5 h-5" />,      labelEs: "Todas",       labelEn: "All",          color: "#ffffff", bg: "#0f172a", darkBg: "#1e293b" },
+  { value: "becas",        icon: <GraduationCap className="w-5 h-5" />, labelEs: "Becas",       labelEn: "Scholarships", color: "#1e40af", bg: "#dbeafe", darkBg: "#1e3a5f" },
+  { value: "liderazgo",    icon: <Rocket className="w-5 h-5" />,        labelEs: "Liderazgo",   labelEn: "Leadership",   color: "#5b21b6", bg: "#ede9fe", darkBg: "#3b1f6e" },
+  { value: "competencias", icon: <Trophy className="w-5 h-5" />,        labelEs: "Olimpiadas",  labelEn: "Olympiads",    color: "#92400e", bg: "#fef3c7", darkBg: "#4a2006" },
+  { value: "mun",          icon: <Globe className="w-5 h-5" />,         labelEs: "MUN",         labelEn: "MUN",          color: "#0f766e", bg: "#ccfbf1", darkBg: "#0f3d38" },
+  { value: "mentoria",     icon: <Lightbulb className="w-5 h-5" />,     labelEs: "Mentoría",    labelEn: "Mentoring",    color: "#14532d", bg: "#dcfce7", darkBg: "#0a2e18" },
+  { value: "tech",         icon: <Code className="w-5 h-5" />,          labelEs: "Tecnología",  labelEn: "Technology",   color: "#9f1239", bg: "#fce7f3", darkBg: "#4a0a21" },
 ];
 
-const CAT_GRADIENT: Record<Exclude<Category,"all">, string> = {
+const CAT_GRADIENT: Record<Exclude<Category, "all">, string> = {
   becas:        "from-blue-500 to-indigo-600",
   liderazgo:    "from-violet-500 to-purple-700",
   competencias: "from-amber-400 to-orange-500",
@@ -68,200 +216,243 @@ const CAT_GRADIENT: Record<Exclude<Category,"all">, string> = {
   tech:         "from-rose-500 to-pink-600",
 };
 
-const CAT_ICON_BG: Record<Exclude<Category,"all">, string> = {
-  becas:"#dbeafe", liderazgo:"#ede9fe", competencias:"#fef3c7",
-  mun:"#ccfbf1",   mentoria:"#dcfce7",  tech:"#fce7f3",
-};
-const CAT_ICON_TEXT: Record<Exclude<Category,"all">, string> = {
-  becas:"#1e40af", liderazgo:"#5b21b6", competencias:"#92400e",
-  mun:"#0f766e",   mentoria:"#14532d",  tech:"#831843",
-};
-
 // ─── Marquee ──────────────────────────────────────────────────────────────────
 
-const MARQUEE_LABELS = ["Becas", "Olimpiadas", "Liderazgo", "MUN", "Mentoría", "Tecnología", "Yale", "PRONABEC", "Google", "PUCP", "Fulbright", "DAAD", "OEA", "LALA"];
-const MARQUEE_ICONS  = [GraduationCap, Trophy, Rocket, Users, Lightbulb, Code, Star, Award, TrendingUp, Globe, Handshake, BookOpen, Globe, Rocket];
+function Marquee({ lang }: { lang: "es" | "en" }) {
+  const labels = lang === "es"
+    ? ["Becas", "Olimpiadas", "Liderazgo", "MUN", "Mentoría", "Tecnología", "Yale", "PRONABEC", "Google", "PUCP", "Fulbright", "OEA", "Santander", "Lima MUN"]
+    : ["Scholarships", "Olympiads", "Leadership", "MUN", "Mentoring", "Technology", "Yale", "PRONABEC", "Google", "PUCP", "Fulbright", "OAS", "Santander", "Lima MUN"];
+  const icons = [GraduationCap, Trophy, Rocket, Globe, Lightbulb, Code, Star, Award, TrendingUp, Handshake, BookOpen, Globe, Rocket, Globe];
+  const doubled = [...labels, ...labels];
 
-function Marquee() {
-  const doubled = [...MARQUEE_LABELS, ...MARQUEE_LABELS];
   return (
-    <div className="overflow-hidden py-4 border-y" style={{ borderColor:"rgba(255,255,255,0.07)" }}>
-      <div className="flex gap-6 whitespace-nowrap" style={{ animation:"marquee 28s linear infinite" }}>
+    <div className="overflow-hidden py-3" style={{ borderTop: "1px solid rgba(255,255,255,0.07)", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+      <div className="flex gap-5 whitespace-nowrap" style={{ animation: "marqueeX 32s linear infinite" }}>
         {doubled.map((label, i) => {
-          const Icon = MARQUEE_ICONS[i % MARQUEE_ICONS.length];
+          const Icon = icons[i % icons.length];
           return (
-            <span key={i} className="inline-flex items-center gap-2 text-sm font-semibold px-4 py-2 rounded-full" style={{ background:"rgba(255,255,255,0.06)", color:"rgba(255,255,255,0.5)" }}>
-              <Icon className="w-3.5 h-3.5" style={{ color:"#84cc16" }} /> {label}
+            <span key={i} className="inline-flex items-center gap-2 text-[13px] font-semibold px-4 py-1.5 rounded-full shrink-0"
+              style={{ background: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.45)" }}>
+              <Icon className="w-3.5 h-3.5" style={{ color: "#84cc16" }} />
+              {label}
             </span>
           );
         })}
       </div>
-      <style>{`@keyframes marquee { 0% { transform:translateX(0); } 100% { transform:translateX(-50%); } }`}</style>
+      <style>{`@keyframes marqueeX { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }`}</style>
     </div>
   );
 }
 
-// ─── Quiz ─────────────────────────────────────────────────────────────────────
+// ─── Quiz / ESF IA ───────────────────────────────────────────────────────────
 
-interface QuizQ { id:string; qEs:string; qEn:string; options:{ labelEs:string; labelEn:string; value:string }[] }
+interface QuizQ {
+  id: string;
+  qEs: string;
+  qEn: string;
+  options: { labelEs: string; labelEn: string; value: string }[];
+}
 
 const QS: QuizQ[] = [
-  { id:"age",      qEs:"¿En qué etapa estás?",           qEn:"What stage are you in?",                options:[{ labelEs:"Colegio (12–17 años)",labelEn:"High school (12–17)",value:"escolar"},{ labelEs:"Universidad (18–25 años)",labelEn:"University (18–25)",value:"universitario"},{ labelEs:"Egresado / Profesional",labelEn:"Graduate / Professional",value:"profesional"}] },
-  { id:"interest", qEs:"¿Qué área te apasiona?",         qEn:"What area are you most passionate about?", options:[{ labelEs:"Ciencias y Matemáticas (STEM)",labelEn:"Science & Math (STEM)",value:"stem"},{ labelEs:"Liderazgo y Diplomacia",labelEn:"Leadership & Diplomacy",value:"liderazgo"},{ labelEs:"Tecnología y Programación",labelEn:"Technology & Coding",value:"tech"},{ labelEs:"Sociales y Humanidades",labelEn:"Social Sciences",value:"humanidades"}] },
-  { id:"goal",     qEs:"¿Cuál es tu meta?",              qEn:"What is your main goal?",               options:[{ labelEs:"Conseguir una beca",labelEn:"Get a scholarship",value:"beca"},{ labelEs:"Competir y ganar",labelEn:"Compete and win",value:"competencia"},{ labelEs:"Hacer networking",labelEn:"Network and grow",value:"networking"},{ labelEs:"Encontrar un mentor",labelEn:"Find a mentor",value:"mentoria"}] },
-  { id:"english",  qEs:"¿Tu nivel de inglés?",           qEn:"Your English level?",                   options:[{ labelEs:"Básico",labelEn:"Basic",value:"basic"},{ labelEs:"Intermedio",labelEn:"Intermediate",value:"intermediate"},{ labelEs:"Avanzado",labelEn:"Advanced",value:"advanced"}] },
-  { id:"time",     qEs:"¿Cuánto tiempo puedes dedicar?", qEn:"How much time can you commit?",         options:[{ labelEs:"Pocas horas semanales",labelEn:"A few hours a week",value:"light"},{ labelEs:"Vacaciones / verano",labelEn:"Full summer / break",value:"summer"},{ labelEs:"Un año completo",labelEn:"A full year",value:"year"}] },
+  { id: "age",     qEs: "¿En qué etapa de tu vida estás?",    qEn: "What stage of life are you in?",         options: [{ labelEs: "Colegio (12–17)",      labelEn: "High school (12–17)", value: "escolar" }, { labelEs: "Universidad (18–25)", labelEn: "University (18–25)", value: "universitario" }, { labelEs: "Egresado / Profesional", labelEn: "Graduate / Professional", value: "profesional" }] },
+  { id: "interest",qEs: "¿Qué área te apasiona más?",         qEn: "What area excites you most?",            options: [{ labelEs: "Ciencias y Matemáticas", labelEn: "Science & Math", value: "stem" }, { labelEs: "Liderazgo y Diplomacia", labelEn: "Leadership & Diplomacy", value: "liderazgo" }, { labelEs: "Tecnología", labelEn: "Technology", value: "tech" }, { labelEs: "Humanidades y Sociales", labelEn: "Humanities & Social Sciences", value: "humanidades" }] },
+  { id: "goal",    qEs: "¿Cuál es tu objetivo principal?",    qEn: "What is your main objective?",           options: [{ labelEs: "Conseguir una beca", labelEn: "Get a scholarship", value: "beca" }, { labelEs: "Competir y destacar", labelEn: "Compete and stand out", value: "competencia" }, { labelEs: "Conectar y hacer networking", labelEn: "Network and connect", value: "networking" }, { labelEs: "Encontrar un mentor", labelEn: "Find a mentor", value: "mentoria" }] },
+  { id: "english", qEs: "¿Cómo está tu inglés?",              qEn: "How is your English?",                   options: [{ labelEs: "Básico", labelEn: "Basic", value: "basic" }, { labelEs: "Intermedio", labelEn: "Intermediate", value: "intermediate" }, { labelEs: "Avanzado / Fluido", labelEn: "Advanced / Fluent", value: "advanced" }] },
+  { id: "time",    qEs: "¿De cuánto tiempo dispones?",        qEn: "How much time can you dedicate?",        options: [{ labelEs: "Unas horas por semana", labelEn: "A few hours per week", value: "light" }, { labelEs: "Todo un verano / vacaciones", labelEn: "A full summer / vacation", value: "summer" }, { labelEs: "Un año completo", labelEn: "A full year", value: "year" }] },
 ];
 
 function matchOpps(a: Record<string, string>): Opportunity[] {
   return OPPORTUNITIES.map(opp => {
     let s = 0;
-    if (a.age==="escolar"       && (opp.level==="escolar"       || opp.level==="ambos"))          s+=3;
-    if (a.age==="universitario" && (opp.level==="universitario"  || opp.level==="ambos"))          s+=3;
-    if (a.age==="profesional"   && opp.level==="universitario")                                    s+=2;
-    if (a.interest==="stem"     && (opp.tags.includes("stem")    || opp.tags.includes("matemáticas"))) s+=3;
-    if (a.interest==="liderazgo"&& (opp.category==="liderazgo"  || opp.category==="mun"))         s+=3;
-    if (a.interest==="tech"     && opp.category==="tech")                                          s+=3;
-    if (a.interest==="humanidades"&& (opp.category==="mun"       || opp.category==="liderazgo"))  s+=2;
-    if (a.goal==="beca"         && opp.category==="becas")                                         s+=4;
-    if (a.goal==="competencia"  && opp.category==="competencias")                                  s+=4;
-    if (a.goal==="networking"   && (opp.category==="liderazgo"  || opp.category==="mun"))         s+=4;
-    if (a.goal==="mentoria"     && opp.category==="mentoria")                                      s+=4;
-    if (a.english==="basic"     && opp.lang==="es")                                                s+=2;
-    if (a.english==="intermediate"&&(opp.lang==="es"||opp.lang==="both"))                          s+=2;
-    if (a.english==="advanced")                                                                     s+=1;
-    if (a.time==="summer"       && opp.category==="liderazgo")                                     s+=2;
-    if (a.time==="year"         && opp.category==="becas")                                         s+=2;
-    if (opp.isFree) s+=1;
+    if (a.age === "escolar"        && (opp.level === "escolar"       || opp.level === "ambos")) s += 3;
+    if (a.age === "universitario"  && (opp.level === "universitario"  || opp.level === "ambos")) s += 3;
+    if (a.age === "profesional"    && opp.level === "universitario")                              s += 2;
+    if (a.interest === "stem"      && (opp.tags.includes("stem") || opp.tags.includes("ciencias"))) s += 3;
+    if (a.interest === "liderazgo" && (opp.category === "liderazgo" || opp.category === "mun"))  s += 3;
+    if (a.interest === "tech"      && opp.category === "tech")                                    s += 3;
+    if (a.interest === "humanidades" && (opp.category === "mun" || opp.category === "liderazgo")) s += 2;
+    if (a.goal === "beca"          && opp.category === "becas")                                   s += 4;
+    if (a.goal === "competencia"   && opp.category === "competencias")                            s += 4;
+    if (a.goal === "networking"    && (opp.category === "liderazgo" || opp.category === "mun"))   s += 4;
+    if (a.goal === "mentoria"      && opp.category === "mentoria")                                s += 4;
+    if (a.english === "basic"      && opp.lang === "es")                                          s += 2;
+    if (a.english === "intermediate" && (opp.lang === "es" || opp.lang === "both"))               s += 2;
+    if (a.english === "advanced")                                                                  s += 1;
+    if (a.time === "summer"        && opp.category === "liderazgo")                               s += 2;
+    if (a.time === "year"          && opp.category === "becas")                                   s += 2;
+    if (opp.isFree) s += 1;
     return { opp, s };
-  }).sort((a,b)=>b.s-a.s).slice(0,3).map(x=>x.opp);
+  }).sort((a, b) => b.s - a.s).slice(0, 3).map(x => x.opp);
 }
 
-// ─── ESF Match ────────────────────────────────────────────────────────────────
+function ESFMatch({ lang }: { lang: "es" | "en" }) {
+  const t = lang === "es";
+  const [step, setStep] = useState<"intro" | "quiz" | "results">("intro");
+  const [cur, setCur] = useState(0);
+  const [ans, setAns] = useState<Record<string, string>>({});
+  const [res, setRes] = useState<Opportunity[]>([]);
 
-function ESFMatch({ lang }: { lang:"es"|"en" }) {
-  const t = lang==="es";
-  const [step, setStep] = useState<"intro"|"quiz"|"results">("intro");
-  const [cur,  setCur]  = useState(0);
-  const [ans,  setAns]  = useState<Record<string,string>>({});
-  const [res,  setRes]  = useState<Opportunity[]>([]);
-
-  function pick(val:string) {
+  function pick(val: string) {
     const next = { ...ans, [QS[cur].id]: val };
     setAns(next);
-    if (cur+1 < QS.length) setCur(c=>c+1);
+    if (cur + 1 < QS.length) setCur(c => c + 1);
     else { setRes(matchOpps(next)); setStep("results"); }
   }
   function reset() { setStep("intro"); setCur(0); setAns({}); setRes([]); }
 
   const q = QS[cur];
-  const pct = (cur/QS.length)*100;
+  const pct = Math.round((cur / QS.length) * 100);
 
   return (
-    <div className="rounded-3xl overflow-hidden" style={{ background:"linear-gradient(135deg,#0f172a 0%,#1e1b4b 50%,#0f172a 100%)", border:"1px solid rgba(255,255,255,0.08)" }}>
-      {/* Header */}
-      <div className="flex items-center justify-between px-8 py-5 border-b" style={{ borderColor:"rgba(255,255,255,0.08)" }}>
+    <div
+      className="rounded-3xl overflow-hidden"
+      style={{
+        background: "linear-gradient(145deg, #0c1220 0%, #0f1f3d 40%, #0c1220 100%)",
+        border: "1px solid rgba(132,204,22,0.15)",
+        boxShadow: "0 0 60px rgba(132,204,22,0.05), 0 20px 60px rgba(0,0,0,0.4)",
+      }}
+    >
+      {/* Top bar */}
+      <div className="flex items-center justify-between px-7 py-4 border-b" style={{ borderColor: "rgba(255,255,255,0.07)" }}>
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-xl flex items-center justify-center" style={{ background:"#84cc16" }}>
+          <div className="w-8 h-8 rounded-xl flex items-center justify-center" style={{ background: "linear-gradient(135deg,#84cc16,#65a30d)" }}>
             <Brain className="w-4 h-4 text-slate-900" />
           </div>
           <div>
-            <p className="text-white font-bold text-sm" style={{ fontFamily:"'Fredoka',sans-serif" }}>ESF Match</p>
-            <p className="text-xs" style={{ color:"rgba(255,255,255,0.4)" }}>{t?"Tu brújula de oportunidades":"Your opportunity compass"}</p>
+            <div className="flex items-center gap-2">
+              <span className="text-white font-bold text-sm" style={{ fontFamily: "'Fredoka',sans-serif", letterSpacing: "0.01em" }}>ESF IA</span>
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full" style={{ background: "rgba(132,204,22,0.2)", color: "#84cc16", border: "1px solid rgba(132,204,22,0.3)" }}>BETA</span>
+            </div>
+            <p className="text-[11px]" style={{ color: "rgba(255,255,255,0.35)" }}>
+              {t ? "Inteligencia de oportunidades" : "Opportunity intelligence"}
+            </p>
           </div>
         </div>
-        <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background:"rgba(132,204,22,0.15)", color:"#84cc16" }}>
-          {t?"Sin IA · Solo match real":"No AI · Real match"}
-        </span>
+        <Sparkles className="w-5 h-5" style={{ color: "rgba(132,204,22,0.5)" }} />
       </div>
 
-      <div className="p-8 md:p-12">
-        {step==="intro" && (
+      <div className="p-7 md:p-10">
+        {step === "intro" && (
           <div className="text-center">
-            <div className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-6" style={{ background:"rgba(132,204,22,0.15)" }}>
-              <Target className="w-7 h-7" style={{ color:"#84cc16" }} />
+            <div className="relative mx-auto mb-7 w-16 h-16">
+              <div className="absolute inset-0 rounded-2xl blur-xl" style={{ background: "rgba(132,204,22,0.25)" }} />
+              <div className="relative w-16 h-16 rounded-2xl flex items-center justify-center" style={{ background: "linear-gradient(135deg,#84cc16,#65a30d)" }}>
+                <Target className="w-8 h-8 text-slate-900" />
+              </div>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4" style={{ fontFamily:"'Fredoka',sans-serif" }}>
-              {t?"¿Cuál oportunidad\nes para ti?":"Which opportunity\nis for you?"}
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3" style={{ fontFamily: "'Fredoka',sans-serif", lineHeight: 1.1 }}>
+              {t ? "¿Qué oportunidad\nencaja contigo?" : "Which opportunity\nfits you?"}
             </h2>
-            <p className="mb-8 max-w-md mx-auto" style={{ color:"rgba(255,255,255,0.5)", lineHeight:1.6 }}>
-              {t?"5 preguntas rápidas y te decimos exactamente qué programas aplican a tu perfil.":"5 quick questions and we'll tell you which programs match your profile."}
+            <p className="text-base max-w-sm mx-auto mb-8" style={{ color: "rgba(255,255,255,0.45)", lineHeight: 1.65 }}>
+              {t
+                ? "Responde 5 preguntas y te mostramos las oportunidades que mejor encajan con tu perfil."
+                : "Answer 5 questions and we'll show you the opportunities that best match your profile."}
             </p>
-            <div className="flex flex-wrap justify-center gap-6 mb-10 text-sm">
-              {[{ Icon:Target, label:t?"5 preguntas":"5 questions" },{ Icon:Zap, label:t?"2 minutos":"2 minutes" },{ Icon:Award, label:t?"3 match personalizados":"3 personalized matches" }].map(({ Icon, label }) => (
-                <div key={label} className="flex items-center gap-2" style={{ color:"rgba(255,255,255,0.5)" }}>
-                  <Icon className="w-4 h-4" style={{ color:"rgba(255,255,255,0.7)" }} /> {label}
-                </div>
+            <div className="flex flex-wrap justify-center gap-5 mb-9 text-[13px]" style={{ color: "rgba(255,255,255,0.4)" }}>
+              {[
+                { Icon: Target,   label: t ? "5 preguntas" : "5 questions" },
+                { Icon: Zap,      label: t ? "< 2 minutos" : "< 2 minutes" },
+                { Icon: Award,    label: t ? "3 resultados" : "3 results" },
+              ].map(({ Icon, label }) => (
+                <span key={label} className="flex items-center gap-1.5">
+                  <Icon className="w-3.5 h-3.5" style={{ color: "#84cc16" }} /> {label}
+                </span>
               ))}
             </div>
-            <button onClick={()=>setStep("quiz")} className="inline-flex items-center gap-3 font-bold text-base px-8 py-4 rounded-2xl transition-all hover:scale-105 active:scale-100" style={{ background:"#84cc16", color:"#0f172a" }}>
-              {t?"Descubrir mis oportunidades":"Discover my opportunities"} <ChevronRight className="w-5 h-5" />
+            <button
+              onClick={() => setStep("quiz")}
+              className="inline-flex items-center gap-2.5 font-bold text-[15px] px-8 py-4 rounded-2xl transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-100"
+              style={{ background: "linear-gradient(135deg,#84cc16,#65a30d)", color: "#0f172a", boxShadow: "0 8px 24px rgba(132,204,22,0.25)" }}
+            >
+              {t ? "Comenzar análisis" : "Start analysis"}
+              <ChevronRight className="w-5 h-5" />
             </button>
           </div>
         )}
 
-        {step==="quiz" && (
-          <div className="max-w-xl mx-auto">
-            <div className="mb-8">
-              <div className="flex justify-between text-xs mb-2" style={{ color:"rgba(255,255,255,0.4)" }}>
-                <span>{t?`Pregunta ${cur+1} de ${QS.length}`:`Question ${cur+1} of ${QS.length}`}</span>
-                <span>{Math.round(pct)}%</span>
+        {step === "quiz" && (
+          <div className="max-w-lg mx-auto">
+            <div className="flex items-center gap-3 mb-7">
+              <div className="flex-1 h-1.5 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.08)" }}>
+                <div className="h-full rounded-full transition-all duration-700" style={{ width: `${pct}%`, background: "linear-gradient(90deg,#84cc16,#a3e635)" }} />
               </div>
-              <div className="h-1.5 rounded-full" style={{ background:"rgba(255,255,255,0.1)" }}>
-                <div className="h-full rounded-full transition-all duration-500" style={{ width:`${pct}%`, background:"#84cc16" }} />
-              </div>
+              <span className="text-[11px] font-semibold shrink-0" style={{ color: "#84cc16" }}>{cur + 1}/{QS.length}</span>
             </div>
-            <h3 className="text-2xl font-bold text-white mb-6 text-center" style={{ fontFamily:"'Fredoka',sans-serif" }}>{t?q.qEs:q.qEn}</h3>
-            <div className="flex flex-col gap-3">
-              {q.options.map((opt,i) => (
-                <button key={opt.value} onClick={()=>pick(opt.value)}
-                  className="flex items-center gap-4 text-left px-5 py-4 rounded-2xl font-medium transition-all hover:scale-[1.02] active:scale-100"
-                  style={{ background:"rgba(255,255,255,0.05)", border:"1px solid rgba(255,255,255,0.1)", color:"rgba(255,255,255,0.85)" }}
-                  onMouseEnter={e=>{ const b=e.currentTarget; b.style.background="rgba(132,204,22,0.1)"; b.style.borderColor="rgba(132,204,22,0.4)"; }}
-                  onMouseLeave={e=>{ const b=e.currentTarget; b.style.background="rgba(255,255,255,0.05)"; b.style.borderColor="rgba(255,255,255,0.1)"; }}
+            <p className="text-[11px] font-bold uppercase tracking-widest mb-2" style={{ color: "rgba(255,255,255,0.3)" }}>
+              {t ? "Pregunta" : "Question"} {cur + 1}
+            </p>
+            <h3 className="text-xl font-bold text-white mb-6" style={{ fontFamily: "'Fredoka',sans-serif" }}>
+              {t ? q.qEs : q.qEn}
+            </h3>
+            <div className="flex flex-col gap-2.5">
+              {q.options.map((opt, i) => (
+                <button
+                  key={opt.value}
+                  onClick={() => pick(opt.value)}
+                  className="flex items-center gap-3.5 text-left px-5 py-4 rounded-xl font-medium text-[14px] transition-all duration-150 hover:scale-[1.015]"
+                  style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.8)" }}
+                  onMouseEnter={e => { const b = e.currentTarget; b.style.background = "rgba(132,204,22,0.08)"; b.style.borderColor = "rgba(132,204,22,0.3)"; b.style.color = "#ffffff"; }}
+                  onMouseLeave={e => { const b = e.currentTarget; b.style.background = "rgba(255,255,255,0.04)"; b.style.borderColor = "rgba(255,255,255,0.08)"; b.style.color = "rgba(255,255,255,0.8)"; }}
                 >
-                  <span className="w-8 h-8 rounded-xl text-sm font-bold flex items-center justify-center shrink-0" style={{ background:"rgba(255,255,255,0.08)", color:"#84cc16" }}>
-                    {String.fromCharCode(65+i)}
+                  <span className="w-7 h-7 rounded-lg text-[11px] font-bold flex items-center justify-center shrink-0"
+                    style={{ background: "rgba(132,204,22,0.12)", color: "#84cc16" }}>
+                    {String.fromCharCode(65 + i)}
                   </span>
-                  {t?opt.labelEs:opt.labelEn}
+                  {t ? opt.labelEs : opt.labelEn}
                 </button>
               ))}
             </div>
           </div>
         )}
 
-        {step==="results" && (
+        {step === "results" && (
           <div>
-            <div className="text-center mb-8">
-              <div className="w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4" style={{ background:"rgba(132,204,22,0.15)" }}>
-                <Award className="w-6 h-6" style={{ color:"#84cc16" }} />
+            <div className="text-center mb-7">
+              <div className="w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4" style={{ background: "linear-gradient(135deg,#84cc16,#65a30d)" }}>
+                <Award className="w-6 h-6 text-slate-900" />
               </div>
-              <h3 className="text-2xl font-bold text-white" style={{ fontFamily:"'Fredoka',sans-serif" }}>{t?"¡Tu match perfecto!":"Your perfect match!"}</h3>
-              <p className="text-sm mt-1" style={{ color:"rgba(255,255,255,0.45)" }}>{t?"Estas oportunidades aplican a tu perfil:":"These opportunities match your profile:"}</p>
+              <h3 className="text-2xl font-bold text-white mb-1" style={{ fontFamily: "'Fredoka',sans-serif" }}>
+                {t ? "Tu perfil encaja con:" : "Your profile matches:"}
+              </h3>
+              <p className="text-[13px]" style={{ color: "rgba(255,255,255,0.4)" }}>
+                {t ? "Haz clic para ir directo a la oportunidad." : "Click to go directly to the opportunity."}
+              </p>
             </div>
-            <div className="flex flex-col gap-4 mb-8">
-              {res.map(opp => {
-                const catCfg = CATS.find(c=>c.value===opp.category)!;
+            <div className="flex flex-col gap-3 mb-7">
+              {res.map((opp, idx) => {
+                const catCfg = CATS.find(c => c.value === opp.category)!;
                 const grad = CAT_GRADIENT[opp.category];
                 return (
                   <a key={opp.id} href={opp.url} target="_blank" rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-5 rounded-2xl transition-all hover:scale-[1.01]"
-                    style={{ background:"rgba(255,255,255,0.05)", border:"1px solid rgba(255,255,255,0.08)" }}
+                    className="flex items-center gap-4 p-4 rounded-xl transition-all hover:scale-[1.01] group"
+                    style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)" }}
                   >
-                    <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${grad} shrink-0 flex items-center justify-center text-white`}>{catCfg.icon}</div>
-                    <div className="flex-1 min-w-0">
-                      <p className="font-bold text-white text-sm leading-tight">{t?opp.nameEs:opp.nameEn}</p>
-                      <p className="text-xs mt-0.5" style={{ color:"rgba(255,255,255,0.4)" }}>{t?opp.orgEs:opp.orgEn}</p>
+                    <div className="flex items-center justify-center w-8 h-8 rounded-lg shrink-0 font-bold text-sm" style={{ background: "rgba(132,204,22,0.15)", color: "#84cc16" }}>
+                      {idx + 1}
                     </div>
-                    <ExternalLink className="w-4 h-4 shrink-0" style={{ color:"rgba(255,255,255,0.3)" }} />
+                    <div className={`w-9 h-9 rounded-xl bg-gradient-to-br ${grad} shrink-0 flex items-center justify-center text-white`}>
+                      {catCfg.icon}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="font-semibold text-white text-sm leading-tight">{t ? opp.nameEs : opp.nameEn}</p>
+                      <p className="text-[11px] mt-0.5" style={{ color: "rgba(255,255,255,0.35)" }}>{t ? opp.orgEs : opp.orgEn}</p>
+                    </div>
+                    <ExternalLink className="w-4 h-4 shrink-0 group-hover:opacity-100 transition-opacity" style={{ color: "rgba(132,204,22,0.5)" }} />
                   </a>
                 );
               })}
             </div>
-            <div className="text-center">
-              <button onClick={reset} className="inline-flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-xl transition-all hover:opacity-80" style={{ background:"rgba(255,255,255,0.08)", color:"rgba(255,255,255,0.6)", border:"1px solid rgba(255,255,255,0.1)" }}>
-                <RefreshCw className="w-4 h-4" /> {t?"Intentar de nuevo":"Try again"}
+            <div className="flex items-center justify-center gap-4">
+              <button onClick={reset} className="inline-flex items-center gap-2 text-[13px] font-semibold px-5 py-2.5 rounded-xl transition-all hover:opacity-80"
+                style={{ background: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.55)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                <RefreshCw className="w-3.5 h-3.5" />
+                {t ? "Volver a empezar" : "Start over"}
               </button>
+              <Link to="/oportunidades" className="inline-flex items-center gap-2 text-[13px] font-semibold px-5 py-2.5 rounded-xl transition-all hover:opacity-90"
+                style={{ background: "rgba(132,204,22,0.15)", color: "#84cc16", border: "1px solid rgba(132,204,22,0.2)" }}>
+                {t ? "Ver todas" : "See all"}
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
             </div>
           </div>
         )}
@@ -270,53 +461,104 @@ function ESFMatch({ lang }: { lang:"es"|"en" }) {
   );
 }
 
-// ─── Opportunity Card ─────────────────────────────────────────────────────────
+// ─── Category large card (AccessPlus style) ───────────────────────────────────
 
-function OppCard({ opp, lang }: { opp:Opportunity; lang:"es"|"en" }) {
-  const t = lang==="es";
-  const catCfg = CATS.find(c=>c.value===opp.category)!;
-  const grad = CAT_GRADIENT[opp.category];
+function CatCard({ cat, active, onClick, count, lang }: {
+  cat: typeof CATS[number]; active: boolean; onClick: () => void; count: number; lang: "es" | "en";
+}) {
+  const label = lang === "es" ? cat.labelEs : cat.labelEn;
   return (
-    <article className="group bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col overflow-hidden" style={{ border:"1px solid rgba(0,0,0,0.06)" }}>
-      <div className={`h-1 w-full bg-gradient-to-r ${grad}`} />
-      <div className="p-5 flex flex-col gap-3 flex-1">
-        <div className="flex items-start justify-between gap-2">
-          <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style={{ background:CAT_ICON_BG[opp.category], color:CAT_ICON_TEXT[opp.category] }}>
-            {catCfg.icon}
-          </div>
-          {opp.isFree && (
-            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full" style={{ background:"#dcfce7", color:"#15803d" }}>GRATIS</span>
-          )}
-        </div>
-        <div>
-          <h3 className="font-bold text-slate-900 text-sm leading-tight group-hover:text-blue-700 transition-colors">{t?opp.nameEs:opp.nameEn}</h3>
-          <p className="text-slate-400 text-xs mt-0.5">{t?opp.orgEs:opp.orgEn}</p>
-        </div>
-        <p className="text-slate-600 text-xs leading-relaxed flex-1">{t?opp.descEs:opp.descEn}</p>
-        <div className="flex items-center gap-3 text-[10px] text-slate-400 pt-1 border-t border-slate-100">
-          {(opp.ageMin||opp.ageMax) && (
-            <span className="flex items-center gap-1"><Users className="w-3 h-3" />{opp.ageMin&&opp.ageMax?`${opp.ageMin}–${opp.ageMax}`:opp.ageMin?`${opp.ageMin}+`:""} años</span>
-          )}
-          <span className="flex items-center gap-1"><Globe className="w-3 h-3" />{opp.lang==="es"?"Español":opp.lang==="en"?"English":"ES/EN"}</span>
-        </div>
-        <a href={opp.url} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center justify-center gap-1.5 w-full py-2.5 rounded-xl text-xs font-bold text-white bg-gradient-to-r ${grad} hover:opacity-90 transition-opacity`}>
-          {t?"Ver oportunidad":"View opportunity"} <ArrowRight className="w-3.5 h-3.5" />
-        </a>
+    <button
+      onClick={onClick}
+      className="flex flex-col items-center gap-3 p-5 rounded-2xl transition-all duration-200 hover:scale-105 hover:shadow-md active:scale-100 group"
+      style={active
+        ? { background: cat.bg, border: `2px solid ${cat.color}22`, boxShadow: `0 8px 24px ${cat.color}22` }
+        : { background: "#f8fafc", border: "2px solid #e2e8f0" }
+      }
+    >
+      <div className="w-12 h-12 rounded-2xl flex items-center justify-center transition-all"
+        style={active
+          ? { background: cat.bg, color: cat.color, border: `1.5px solid ${cat.color}44` }
+          : { background: "#e2e8f0", color: "#64748b" }
+        }
+      >
+        {cat.icon}
       </div>
-    </article>
+      <span className="text-[13px] font-bold text-center leading-tight" style={{ color: active ? cat.color : "#64748b" }}>
+        {label}
+      </span>
+      {cat.value !== "all" && (
+        <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full" style={{ background: active ? `${cat.color}18` : "#f1f5f9", color: active ? cat.color : "#94a3b8" }}>
+          {count}
+        </span>
+      )}
+    </button>
   );
 }
 
-// ─── Category chip ────────────────────────────────────────────────────────────
+// ─── Opportunity card ─────────────────────────────────────────────────────────
 
-function CatChip({ cat, active, onClick, lang }: { cat:typeof CATS[number]; active:boolean; onClick:()=>void; lang:"es"|"en" }) {
+function OppCard({ opp, lang }: { opp: Opportunity; lang: "es" | "en" }) {
+  const t = lang === "es";
+  const catCfg = CATS.find(c => c.value === opp.category)!;
+  const grad = CAT_GRADIENT[opp.category];
+
   return (
-    <button onClick={onClick} className="inline-flex items-center gap-2 text-sm font-semibold px-4 py-2 rounded-full transition-all hover:scale-105 active:scale-100"
-      style={active ? { background:"#0f0f0f", color:"#ffffff", boxShadow:"0 4px 12px rgba(0,0,0,0.2)" } : { background:cat.bg, color:cat.text }}
+    <article
+      className="group bg-white rounded-2xl flex flex-col overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
+      style={{ border: "1.5px solid #e2e8f0" }}
     >
-      {cat.icon}
-      {lang==="es"?cat.labelEs:cat.labelEn}
-    </button>
+      <div className={`h-1 w-full bg-gradient-to-r ${grad} shrink-0`} />
+      <div className="p-5 flex flex-col gap-3.5 flex-1">
+        {/* Icon + badge row */}
+        <div className="flex items-start justify-between gap-2">
+          <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
+            style={{ background: catCfg.bg, color: catCfg.color }}>
+            {catCfg.icon}
+          </div>
+          <div className="flex gap-1.5 flex-wrap justify-end">
+            {opp.isFree && (
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full" style={{ background: "#dcfce7", color: "#15803d" }}>GRATIS</span>
+            )}
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full" style={{ background: "#f1f5f9", color: "#64748b" }}>
+              {opp.lang === "es" ? "ES" : opp.lang === "en" ? "EN" : "ES/EN"}
+            </span>
+          </div>
+        </div>
+
+        {/* Name + org */}
+        <div>
+          <h3 className="font-bold text-slate-900 text-[14px] leading-tight group-hover:text-blue-700 transition-colors">
+            {t ? opp.nameEs : opp.nameEn}
+          </h3>
+          <p className="text-slate-400 text-[12px] mt-0.5 leading-tight">{t ? opp.orgEs : opp.orgEn}</p>
+        </div>
+
+        {/* Description */}
+        <p className="text-slate-500 text-[13px] leading-relaxed flex-1">
+          {t ? opp.descEs : opp.descEn}
+        </p>
+
+        {/* Meta */}
+        {(opp.ageMin || opp.ageMax) && (
+          <div className="flex items-center gap-1.5 text-[11px] text-slate-400">
+            <Users className="w-3 h-3 shrink-0" />
+            {opp.ageMin && opp.ageMax ? `${opp.ageMin}–${opp.ageMax} años` : `${opp.ageMin}+ años`}
+          </div>
+        )}
+
+        {/* CTA */}
+        <a
+          href={opp.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`inline-flex items-center justify-center gap-1.5 w-full py-2.5 rounded-xl text-[13px] font-bold text-white bg-gradient-to-r ${grad} hover:opacity-90 transition-opacity mt-auto`}
+        >
+          {t ? "Cómo postular" : "How to apply"}
+          <ExternalLink className="w-3.5 h-3.5" />
+        </a>
+      </div>
+    </article>
   );
 }
 
@@ -324,91 +566,167 @@ function CatChip({ cat, active, onClick, lang }: { cat:typeof CATS[number]; acti
 
 export default function OportunidadesPage() {
   const { lang } = useLanguage();
-  const t = lang==="es";
+  const t = lang === "es";
   const [active, setActive] = useState<Category>("all");
-  const filtered = active==="all" ? OPPORTUNITIES : OPPORTUNITIES.filter(o=>o.category===active);
+
+  const filtered = active === "all" ? OPPORTUNITIES : OPPORTUNITIES.filter(o => o.category === active);
+  const freeCount = OPPORTUNITIES.filter(o => o.isFree).length;
 
   return (
-    <div style={{ background:"#fafafa" }}>
+    <div className="min-h-screen bg-white">
 
-      {/* ── Hero ─────────────────────────────────────────────────────────────── */}
-      <section style={{ background:"linear-gradient(160deg,#0c0c14 0%,#111827 60%,#0c1425 100%)" }} className="px-5 pt-16 pb-0">
+      {/* ── Dark hero ────────────────────────────────────────────────────────── */}
+      <section style={{ background: "linear-gradient(160deg, #080d1a 0%, #0d1b38 55%, #080d1a 100%)" }} className="px-5 pt-14 pb-0">
         <div className="container-page">
-          <div className="flex justify-center mb-6">
-            <span className="inline-flex items-center gap-2 text-xs font-bold px-4 py-2 rounded-full uppercase tracking-widest" style={{ background:"rgba(132,204,22,0.12)", color:"#84cc16", border:"1px solid rgba(132,204,22,0.2)" }}>
-              <MapPin className="w-3.5 h-3.5" /> {t?"Solo para peruanos":"For Peruvians only"}
+
+          {/* Location badge */}
+          <div className="flex justify-center mb-8">
+            <span className="inline-flex items-center gap-2 text-[12px] font-bold px-4 py-2 rounded-full uppercase tracking-widest"
+              style={{ background: "rgba(132,204,22,0.1)", color: "#84cc16", border: "1px solid rgba(132,204,22,0.2)" }}>
+              <MapPin className="w-3 h-3" />
+              {t ? "Oportunidades para peruanos" : "Opportunities for Peruvians"}
             </span>
           </div>
-          <h1 className="text-center text-white leading-tight mb-6" style={{ fontFamily:"'Fredoka',sans-serif", fontSize:"clamp(2.5rem,7vw,5rem)", fontWeight:700 }}>
-            {t ? <>{t?"¿Buscando":""} <span style={{ color:"#84cc16" }}>{t?"oportunidades":"opportunities"}</span>{"?"}</> : <>{"Looking for"} <span style={{ color:"#84cc16" }}>{"opportunities"}</span>{"?"}</>}
+
+          {/* Headline */}
+          <h1 className="text-center text-white mb-5"
+            style={{ fontFamily: "'Fredoka',sans-serif", fontSize: "clamp(2.8rem,7.5vw,5.5rem)", fontWeight: 700, lineHeight: 1.05, textWrap: "balance" }}>
+            {t ? <>¿Buscando{" "}<span style={{ color: "#84cc16" }}>oportunidades</span>?</>
+                : <>Looking for{" "}<span style={{ color: "#84cc16" }}>opportunities</span>?</>}
           </h1>
-          <p className="text-center max-w-xl mx-auto mb-10" style={{ color:"rgba(255,255,255,0.5)", lineHeight:1.7, fontSize:"1.05rem" }}>
-            {t?"Becas, olimpiadas, MUNs, liderazgo y más — todo verificado, con links directos. Para ti, estudiante peruano.":"Scholarships, olympiads, MUNs, leadership programs and more — all verified, with direct links. For you, Peruvian student."}
+
+          {/* Sub */}
+          <p className="text-center max-w-lg mx-auto mb-10 text-[16px] leading-relaxed"
+            style={{ color: "rgba(255,255,255,0.45)" }}>
+            {t
+              ? "Becas, olimpiadas, MUNs, liderazgo, tecnología y mentoría — todo verificado, con links directos."
+              : "Scholarships, olympiads, MUNs, leadership, technology, and mentoring — all verified, with direct links."}
           </p>
-          <div className="flex flex-wrap justify-center gap-8 mb-12">
+
+          {/* Stats */}
+          <div className="flex flex-wrap justify-center gap-10 mb-12">
             {[
-              { num:`${OPPORTUNITIES.length}+`, label:t?"oportunidades":"opportunities" },
-              { num:`${OPPORTUNITIES.filter(o=>o.isFree).length}`,  label:t?"gratuitas":"free" },
-              { num:"6",    label:t?"categorías":"categories" },
-              { num:"100%", label:t?"verificadas":"verified" },
-            ].map(s => (
-              <div key={s.label} className="text-center">
-                <p className="text-white font-bold" style={{ fontFamily:"'Fredoka',sans-serif", fontSize:"2.25rem" }}>{s.num}</p>
-                <p className="text-xs mt-0.5" style={{ color:"rgba(255,255,255,0.4)" }}>{s.label}</p>
+              { n: `${OPPORTUNITIES.length}+`, l: t ? "oportunidades" : "opportunities" },
+              { n: `${freeCount}`,              l: t ? "gratuitas"     : "free" },
+              { n: "6",                         l: t ? "categorías"    : "categories" },
+              { n: "100%",                      l: t ? "verificadas"   : "verified" },
+            ].map(({ n, l }) => (
+              <div key={l} className="text-center">
+                <p className="text-white font-bold" style={{ fontFamily: "'Fredoka',sans-serif", fontSize: "2.5rem", lineHeight: 1 }}>{n}</p>
+                <p className="text-[12px] mt-1" style={{ color: "rgba(255,255,255,0.35)" }}>{l}</p>
               </div>
             ))}
           </div>
-          <div className="flex flex-wrap justify-center gap-3 pb-12">
-            {CATS.map(cat => (
-              <CatChip key={cat.value} cat={cat} active={active===cat.value} onClick={()=>setActive(cat.value)} lang={lang} />
-            ))}
-          </div>
+
         </div>
-        <Marquee />
+
+        {/* Marquee */}
+        <Marquee lang={lang} />
       </section>
 
-      {/* ── ESF Match ────────────────────────────────────────────────────────── */}
-      <section className="px-5 py-16">
-        <div className="container-page max-w-3xl"><ESFMatch lang={lang} /></div>
-      </section>
+      {/* ── White content area ───────────────────────────────────────────────── */}
+      <div className="bg-white">
 
-      {/* ── Cards ────────────────────────────────────────────────────────────── */}
-      <section className="px-5 pb-20">
-        <div className="container-page">
-          <div className="flex items-center justify-between mb-8 flex-wrap gap-4">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1">{t?"Oportunidades":"Opportunities"}</p>
-              <h2 className="text-2xl font-bold text-slate-900" style={{ fontFamily:"'Fredoka',sans-serif" }}>{t?"Revisa todas las categorías":"Browse all categories"}</h2>
+        {/* ── Category cards (AccessPlus style) ──────────────────────────────── */}
+        <section className="px-5 py-12">
+          <div className="container-page">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <p className="text-[11px] font-bold uppercase tracking-widest text-slate-400 mb-1">
+                  {t ? "Categorías" : "Categories"}
+                </p>
+                <h2 className="text-2xl font-bold text-slate-900" style={{ fontFamily: "'Fredoka',sans-serif" }}>
+                  {t ? "Explora por área" : "Browse by area"}
+                </h2>
+              </div>
+              {active !== "all" && (
+                <button onClick={() => setActive("all")} className="text-[13px] font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1">
+                  {t ? "Ver todas" : "See all"} <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              )}
             </div>
-            <span className="text-sm font-semibold px-4 py-1.5 rounded-full bg-slate-100 text-slate-500 flex items-center gap-1.5">
-              <Filter className="w-3.5 h-3.5" />{filtered.length} {t?"resultados":"results"}
-            </span>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-            {filtered.map(opp => <OppCard key={opp.id} opp={opp} lang={lang} />)}
-          </div>
-          {filtered.length===0 && (
-            <div className="text-center py-20 text-slate-400">
-              <BookOpen className="w-10 h-10 mx-auto mb-3 opacity-40" />
-              <p>{t?"Sin resultados para este filtro.":"No results for this filter."}</p>
-            </div>
-          )}
-        </div>
-      </section>
 
-      {/* ── CTA ──────────────────────────────────────────────────────────────── */}
-      <section className="px-5 py-16 text-center" style={{ background:"#0f172a" }}>
-        <div className="container-page max-w-xl">
-          <div className="w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4" style={{ background:"rgba(132,204,22,0.15)" }}>
-            <Briefcase className="w-6 h-6" style={{ color:"#84cc16" }} />
+            <div className="grid grid-cols-4 sm:grid-cols-7 gap-3">
+              {CATS.map(cat => (
+                <CatCard
+                  key={cat.value}
+                  cat={cat}
+                  active={active === cat.value}
+                  onClick={() => setActive(cat.value)}
+                  count={OPPORTUNITIES.filter(o => o.category === cat.value).length}
+                  lang={lang}
+                />
+              ))}
+            </div>
           </div>
-          <h2 className="text-2xl font-bold text-white mb-3" style={{ fontFamily:"'Fredoka',sans-serif" }}>{t?"¿Conoces una oportunidad que falta?":"Know an opportunity we're missing?"}</h2>
-          <p className="mb-6" style={{ color:"rgba(255,255,255,0.45)" }}>{t?"Escríbenos y la agregamos. Esta lista es para todos los estudiantes peruanos.":"Write to us and we'll add it. This list is for all Peruvian students."}</p>
-          <a href="mailto:moonjab.com@gmail.com?subject=Oportunidad para ESF" className="inline-flex items-center gap-2 font-bold px-7 py-3.5 rounded-2xl transition-all hover:scale-105" style={{ background:"#84cc16", color:"#0f172a" }}>
-            <Rocket className="w-4 h-4" /> {t?"Sugerir oportunidad":"Suggest opportunity"}
-          </a>
+        </section>
+
+        {/* ── ESF IA ─────────────────────────────────────────────────────────── */}
+        <section className="px-5 py-2 pb-12">
+          <div className="container-page max-w-2xl">
+            <ESFMatch lang={lang} />
+          </div>
+        </section>
+
+        {/* ── Divider with count ─────────────────────────────────────────────── */}
+        <div className="px-5 pb-6">
+          <div className="container-page">
+            <div className="flex items-center justify-between border-t pt-6" style={{ borderColor: "#e2e8f0" }}>
+              <div className="flex items-center gap-2 text-slate-500 text-[13px]">
+                <Filter className="w-4 h-4" />
+                <span>{t ? "Mostrando" : "Showing"} <strong className="text-slate-900">{filtered.length}</strong> {t ? "oportunidades" : "opportunities"}</span>
+              </div>
+              {active !== "all" && (
+                <button onClick={() => setActive("all")} className="text-[13px] font-semibold text-slate-400 hover:text-slate-700 transition-colors">
+                  {t ? "Limpiar filtro" : "Clear filter"} ×
+                </button>
+              )}
+            </div>
+          </div>
         </div>
-      </section>
+
+        {/* ── Cards grid ─────────────────────────────────────────────────────── */}
+        <section className="px-5 pb-16">
+          <div className="container-page">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+              {filtered.map(opp => <OppCard key={opp.id} opp={opp} lang={lang} />)}
+            </div>
+
+            {filtered.length === 0 && (
+              <div className="text-center py-20" style={{ color: "#94a3b8" }}>
+                <Globe className="w-10 h-10 mx-auto mb-3 opacity-30" />
+                <p className="font-medium">{t ? "No hay resultados para este filtro." : "No results for this filter."}</p>
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* ── Suggest CTA ────────────────────────────────────────────────────── */}
+        <section className="px-5 py-14" style={{ background: "#f8fafc", borderTop: "1px solid #e2e8f0" }}>
+          <div className="container-page max-w-xl text-center">
+            <div className="w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4" style={{ background: "#dbeafe", color: "#1e40af" }}>
+              <Briefcase className="w-6 h-6" />
+            </div>
+            <h2 className="text-2xl font-bold text-slate-900 mb-2" style={{ fontFamily: "'Fredoka',sans-serif" }}>
+              {t ? "¿Conoces una oportunidad que falta?" : "Know of a missing opportunity?"}
+            </h2>
+            <p className="text-slate-500 text-[14px] mb-6 max-w-sm mx-auto leading-relaxed">
+              {t
+                ? "Mándanos el link verificado y la agregamos. Esta lista es para todos los estudiantes peruanos."
+                : "Send us the verified link and we'll add it. This list is for all Peruvian students."}
+            </p>
+            <a
+              href="mailto:moonjab.com@gmail.com?subject=Oportunidad para ESF"
+              className="inline-flex items-center gap-2 font-bold px-7 py-3.5 rounded-2xl text-white transition-all hover:opacity-90 hover:scale-105"
+              style={{ background: "linear-gradient(135deg,#1e40af,#3b82f6)", boxShadow: "0 6px 20px rgba(59,130,246,0.25)" }}
+            >
+              <Rocket className="w-4 h-4" />
+              {t ? "Sugerir oportunidad" : "Suggest opportunity"}
+            </a>
+          </div>
+        </section>
+
+      </div>
     </div>
   );
 }
