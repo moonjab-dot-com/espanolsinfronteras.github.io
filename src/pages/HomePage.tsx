@@ -57,6 +57,10 @@ function HeroSection() {
       {/* Subtle dot-grid texture */}
       <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(255,255,255,0.045) 1px, transparent 1px)", backgroundSize: "32px 32px", pointerEvents: "none" }} />
 
+      {/* SVG illustration — Translate / language — faint behind hero text */}
+      <img src="/Translate-Streamline.svg" alt="" aria-hidden="true"
+        style={{ position: "absolute", left: "0px", bottom: "0px", width: "280px", opacity: 0.035, pointerEvents: "none", userSelect: "none" }} />
+
       {/* Warm glow behind owl */}
       <div style={{ position: "absolute", right: "-80px", top: "50%", transform: "translateY(-50%)", width: "600px", height: "600px", borderRadius: "50%", background: "radial-gradient(circle, rgba(132,204,22,0.12) 0%, rgba(132,204,22,0.04) 40%, transparent 70%)", pointerEvents: "none" }} />
 
@@ -223,7 +227,12 @@ function CoursesSection() {
                       <img src={mascot} alt="" className="relative w-full h-full object-contain opacity-[0.18] group-hover:opacity-[0.32] transition-opacity duration-300 select-none" loading="lazy" draggable={false} />
                     </div>
                   )}
-                  <div className={`w-14 h-14 rounded-2xl ${color.icon} flex items-center justify-center mb-5 transition-transform duration-200 group-hover:scale-110 group-hover:-rotate-3 relative z-10 border-2`} style={{ borderColor: color.accent }}>
+                  <div
+                    className={`w-14 h-14 rounded-2xl ${color.icon} flex items-center justify-center mb-5 relative z-10 border-2`}
+                    style={{ borderColor: color.accent, transition: "transform 0.35s cubic-bezier(0.175,0.885,0.32,1.275)", transformStyle: "preserve-3d" }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = "perspective(300px) rotateX(-12deg) rotateY(14deg) scale(1.18)"; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = "perspective(300px) rotateX(0deg) rotateY(0deg) scale(1)"; }}
+                  >
                     {Icon && <Icon className="w-6 h-6" strokeWidth={2.25} />}
                   </div>
                   <h3 className="relative z-10 text-base font-extrabold text-foreground mb-1.5 group-hover:text-primary transition-colors">{t?course.titleEs:course.titleEn}</h3>
@@ -282,57 +291,214 @@ function ImpactSection() {
 }
 
 // ─── OPPORTUNITIES TEASER ─────────────────────────────────────────────────────
+// Neo-brutalist: thick borders, offset shadows, bold Fredoka type, high contrast
+
+const FEATURED_OPPS = [
+  {
+    id: "yygs",
+    nameEs: "YYGS — Yale Young Global Scholars",
+    nameEn: "YYGS — Yale Young Global Scholars",
+    orgEs: "Universidad de Yale",
+    orgEn: "Yale University",
+    deadlineEs: "Oct / Nov",
+    deadlineEn: "Oct / Nov",
+    ageRange: "15–18",
+    catColor: "#5b21b6",
+    catLabelEs: "Liderazgo",
+    catLabelEn: "Leadership",
+    isFree: false,
+    svgIcon: "/Startup-Streamline.svg",
+  },
+  {
+    id: "beca18",
+    nameEs: "Beca 18 — PRONABEC",
+    nameEn: "Beca 18 — PRONABEC",
+    orgEs: "Gobierno del Perú",
+    orgEn: "Government of Peru",
+    deadlineEs: "Ene / Feb",
+    deadlineEn: "Jan / Feb",
+    ageRange: "16–22",
+    catColor: "#22577a",
+    catLabelEs: "Becas",
+    catLabelEn: "Scholarships",
+    isFree: true,
+    svgIcon: "/BusinessmanKeynote-Streamline.svg",
+  },
+  {
+    id: "fulbright",
+    nameEs: "Fulbright Perú",
+    nameEn: "Fulbright Peru",
+    orgEs: "Comisión Fulbright",
+    orgEn: "Fulbright Commission",
+    deadlineEs: "Ago / Sep",
+    deadlineEn: "Aug / Sep",
+    ageRange: "22+",
+    catColor: "#0f766e",
+    catLabelEs: "Becas",
+    catLabelEn: "Scholarships",
+    isFree: true,
+    svgIcon: "/WalkTogether-Streamline.svg",
+  },
+  {
+    id: "google-gen",
+    nameEs: "Generation Google Scholars",
+    nameEn: "Generation Google Scholars",
+    orgEs: "Google LATAM",
+    orgEn: "Google LATAM",
+    deadlineEs: "Dic / Ene",
+    deadlineEn: "Dec / Jan",
+    ageRange: "18+",
+    catColor: "#84cc16",
+    catLabelEs: "Tecnología",
+    catLabelEn: "Technology",
+    isFree: true,
+    svgIcon: "/OnlineLearning-Streamline.svg",
+  },
+];
 
 function OpportunitiesTeaser() {
   const { lang } = useLanguage();
   const t = lang === "es";
 
-  const items = [
-    { icon: GraduationCap, color: "bg-blue-50 text-blue-600",    label: t?"Becas":"Scholarships",    sub: t?"PRONABEC, Fulbright, OEA":"PRONABEC, Fulbright, OAS" },
-    { icon: Trophy,        color: "bg-amber-50 text-amber-600",  label: t?"Olimpiadas":"Olympiads",  sub: t?"Matemáticas, Ciencias":"Math, Science" },
-    { icon: Rocket,        color: "bg-violet-50 text-violet-600",label: t?"Liderazgo":"Leadership",  sub: t?"Yale YYGS, Santander":"Yale YYGS, Santander" },
-    { icon: Globe,         color: "bg-teal-50 text-teal-600",    label: "MUN",                       sub: "PCIMUN, Lima MUN" },
-    { icon: Zap,           color: "bg-rose-50 text-rose-600",    label: t?"Tecnología":"Technology", sub: "Google, Microsoft" },
-    { icon: Mail,          color: "bg-emerald-50 text-emerald-600", label: t?"Mentoría":"Mentoring", sub: t?"MTPE, expertos":"MTPE, experts" },
-  ];
-
   return (
-    <section className="section-padding" style={{ background: "#ffffff" }}>
-      <div className="container-page">
+    <section style={{ background: "#0A1628", padding: "80px 0 0", position: "relative", overflow: "hidden" }}>
+
+      {/* Background SVG illustration — faint */}
+      <img src="/Advertising-Streamline.svg" alt="" aria-hidden="true"
+        style={{ position: "absolute", right: "-40px", top: "20px", width: "340px", opacity: 0.04, pointerEvents: "none", userSelect: "none" }} />
+
+      <div className="container-page" style={{ position: "relative", zIndex: 1 }}>
+
+        {/* ── Header ── */}
         <Reveal>
-          <div className="mb-12 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
-            <div>
-              <p className="section-eyebrow"><Rocket className="w-3.5 h-3.5" />{t ? "Solo para peruanos" : "For Peruvians"}</p>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-2">
-                {t ? "Oportunidades reales" : "Real opportunities"}
-              </h2>
-              <p className="text-muted-foreground text-base max-w-xs">
-                {t
-                  ? "Becas, olimpiadas y más — links verificados."
-                  : "Scholarships, olympiads & more — verified links."}
-              </p>
+          <div style={{ marginBottom: "48px" }}>
+            {/* Eyebrow pill */}
+            <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "6px 16px", borderRadius: "99px", background: "rgba(132,204,22,0.1)", border: "1px solid rgba(132,204,22,0.25)", marginBottom: "20px" }}>
+              <Rocket style={{ width: "13px", height: "13px", color: "#84cc16" }} />
+              <span style={{ fontSize: "11px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.14em", color: "#84cc16" }}>
+                {t ? "Solo para peruanos · Links verificados" : "For Peruvians · Verified links"}
+              </span>
             </div>
+
+            {/* Headline — massive, stacked, Fredoka */}
+            <h2 style={{
+              fontFamily: "var(--font-display)", fontWeight: 700,
+              fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
+              lineHeight: 1.0, letterSpacing: "-0.03em", color: "#ffffff",
+              marginBottom: "16px",
+            }}>
+              {t ? (
+                <>Tu siguiente<br /><span style={{ color: "#84cc16" }}>gran oportunidad</span><br />existe. ¿La tomas?</>
+              ) : (
+                <>Your next<br /><span style={{ color: "#84cc16" }}>great opportunity</span><br />exists. Take it?</>
+              )}
+            </h2>
+
+            <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "16px", maxWidth: "420px", lineHeight: 1.6 }}>
+              {t
+                ? "11 oportunidades verificadas para jóvenes peruanos. Becas, olimpiadas, liderazgo, MUN y más."
+                : "11 verified opportunities for Peruvian students. Scholarships, olympiads, leadership, MUN and more."}
+            </p>
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-10">
-          {items.map(({ icon: Icon, color, label, sub }, i) => (
-            <Reveal key={label} delay={i * 60}>
-              <div className="bg-white rounded-2xl border border-slate-200/80 p-5 flex flex-col items-center text-center gap-3 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
-                <div className={`w-11 h-11 rounded-xl ${color} flex items-center justify-center`}><Icon className="w-5 h-5" /></div>
-                <div>
-                  <p className="font-bold text-slate-900 text-sm">{label}</p>
-                  <p className="text-slate-400 text-[11px] mt-0.5">{sub}</p>
+        {/* ── 4 Feature cards — Neo-brutalist ── */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "16px", marginBottom: "0" }}>
+          {FEATURED_OPPS.map((opp, i) => (
+            <Reveal key={opp.id} delay={i * 80}>
+              <Link
+                to={`/oportunidades/${opp.id}`}
+                style={{
+                  display: "flex", flexDirection: "column",
+                  background: "#111827",
+                  border: `2px solid ${opp.catColor}`,
+                  borderRadius: "16px",
+                  overflow: "hidden",
+                  textDecoration: "none",
+                  boxShadow: `4px 4px 0 ${opp.catColor}`,
+                  transition: "transform 0.15s ease, box-shadow 0.15s ease",
+                  position: "relative",
+                }}
+                onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translate(-2px,-2px)"; el.style.boxShadow = `6px 6px 0 ${opp.catColor}`; }}
+                onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translate(0,0)"; el.style.boxShadow = `4px 4px 0 ${opp.catColor}`; }}
+              >
+                {/* Top accent bar */}
+                <div style={{ height: "4px", background: opp.catColor, flexShrink: 0 }} />
+
+                <div style={{ padding: "20px", flex: 1, display: "flex", flexDirection: "column", gap: "12px" }}>
+                  {/* Category + Free badge */}
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                    <span style={{ fontSize: "11px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.12em", color: opp.catColor }}>
+                      {t ? opp.catLabelEs : opp.catLabelEn}
+                    </span>
+                    {opp.isFree && (
+                      <span style={{ fontSize: "10px", fontWeight: 800, padding: "2px 8px", borderRadius: "6px", background: "rgba(132,204,22,0.15)", color: "#84cc16", border: "1px solid rgba(132,204,22,0.3)" }}>
+                        {t ? "GRATIS" : "FREE"}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Name */}
+                  <div>
+                    <h3 style={{ fontFamily: "var(--font-display)", fontSize: "17px", fontWeight: 700, color: "#ffffff", lineHeight: 1.2, marginBottom: "4px", letterSpacing: "-0.01em" }}>
+                      {t ? opp.nameEs : opp.nameEn}
+                    </h3>
+                    <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.4)", fontWeight: 500 }}>
+                      {t ? opp.orgEs : opp.orgEn}
+                    </p>
+                  </div>
+
+                  {/* Meta chips */}
+                  <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+                    <span style={{ fontSize: "11px", fontWeight: 600, padding: "3px 10px", borderRadius: "6px", background: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.55)", display: "flex", alignItems: "center", gap: "4px" }}>
+                      <Trophy style={{ width: "10px", height: "10px" }} />
+                      {t ? opp.deadlineEs : opp.deadlineEn}
+                    </span>
+                    <span style={{ fontSize: "11px", fontWeight: 600, padding: "3px 10px", borderRadius: "6px", background: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.55)", display: "flex", alignItems: "center", gap: "4px" }}>
+                      <Globe style={{ width: "10px", height: "10px" }} />
+                      {opp.ageRange} {t ? "años" : "yrs"}
+                    </span>
+                  </div>
+
+                  {/* CTA */}
+                  <div style={{ marginTop: "auto", display: "flex", alignItems: "center", gap: "6px", color: opp.catColor, fontSize: "13px", fontWeight: 700 }}>
+                    {t ? "Ver detalles" : "See details"}
+                    <ArrowRight style={{ width: "14px", height: "14px" }} />
+                  </div>
                 </div>
-              </div>
+              </Link>
             </Reveal>
           ))}
         </div>
 
-        <Reveal delay={200}>
-          <div className="text-center">
-            <Link to="/oportunidades" className="inline-flex items-center gap-2 font-bold px-7 py-3.5 rounded-2xl text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:opacity-90 hover:scale-105 transition-all shadow-lg shadow-blue-500/20">
-              {t?"Ver todas las oportunidades":"See all opportunities"} <ArrowRight className="w-4 h-4" />
+        {/* ── Stats + CTA bar ── */}
+        <Reveal delay={300}>
+          <div style={{
+            marginTop: "32px",
+            padding: "20px 32px",
+            background: "#84cc16",
+            display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "16px",
+          }}>
+            <div style={{ display: "flex", gap: "32px", flexWrap: "wrap" }}>
+              {[
+                { v: "11", l: t ? "oportunidades" : "opportunities" },
+                { v: "8",  l: t ? "gratuitas"     : "free" },
+                { v: "6",  l: t ? "categorías"    : "categories" },
+                { v: "100%", l: t ? "verificadas"  : "verified" },
+              ].map(({ v, l }) => (
+                <div key={l} style={{ display: "flex", flexDirection: "column" }}>
+                  <span style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", fontWeight: 700, color: "#0A1628", lineHeight: 1, letterSpacing: "-0.03em" }}>{v}</span>
+                  <span style={{ fontSize: "11px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: "rgba(10,22,40,0.55)" }}>{l}</span>
+                </div>
+              ))}
+            </div>
+            <Link
+              to="/oportunidades"
+              style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "12px 24px", background: "#0A1628", color: "#84cc16", fontSize: "14px", fontWeight: 800, borderRadius: "10px", textDecoration: "none", letterSpacing: "0.02em", transition: "opacity 0.15s" }}
+              onMouseEnter={e => (e.currentTarget.style.opacity = "0.85")}
+              onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
+            >
+              {t ? "Ver todas las oportunidades" : "See all opportunities"} <ArrowRight style={{ width: "16px", height: "16px" }} />
             </Link>
           </div>
         </Reveal>
@@ -352,8 +518,11 @@ function TestimonialsSection() {
   const col3 = items.filter((_,i) => i % 3 === 2);
 
   return (
-    <section className="section-padding bg-white" id="comentarios">
-      <div className="container-page">
+    <section className="section-padding bg-white" id="comentarios" style={{ position: "relative", overflow: "hidden" }}>
+      {/* SVG watermark illustration */}
+      <img src="/FacetimeMeeting-Streamline.svg" alt="" aria-hidden="true"
+        style={{ position: "absolute", right: "-20px", top: "40px", width: "260px", opacity: 0.05, pointerEvents: "none", userSelect: "none" }} />
+      <div className="container-page" style={{ position: "relative", zIndex: 1 }}>
         <Reveal>
           <div className="text-center mb-12 max-w-lg mx-auto">
             <p className="section-eyebrow justify-center"><Quote className="w-3.5 h-3.5" />{t?"Testimonios":"Testimonials"}</p>
