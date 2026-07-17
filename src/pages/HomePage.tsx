@@ -310,21 +310,6 @@ const FEATURED_OPPS = [
     svgIcon: "/Startup-Streamline.svg",
   },
   {
-    id: "beca18",
-    nameEs: "Beca 18 — PRONABEC",
-    nameEn: "Beca 18 — PRONABEC",
-    orgEs: "Gobierno del Perú",
-    orgEn: "Government of Peru",
-    deadlineEs: "Ene / Feb",
-    deadlineEn: "Jan / Feb",
-    ageRange: "16–22",
-    catColor: "#22577a",
-    catLabelEs: "Becas",
-    catLabelEn: "Scholarships",
-    isFree: true,
-    svgIcon: "/BusinessmanKeynote-Streamline.svg",
-  },
-  {
     id: "fulbright",
     nameEs: "Fulbright Perú",
     nameEn: "Fulbright Peru",
@@ -361,7 +346,7 @@ function OpportunitiesTeaser() {
   const t = lang === "es";
 
   return (
-    <section style={{ background: "#0A1628", padding: "80px 0 0", position: "relative", overflow: "hidden" }}>
+    <section style={{ background: "#080D1C", padding: "80px 0 0", position: "relative", overflow: "hidden" }}>
 
       {/* Background SVG illustration — faint */}
       <img src="/Advertising-Streamline.svg" alt="" aria-hidden="true"
@@ -403,7 +388,7 @@ function OpportunitiesTeaser() {
         </Reveal>
 
         {/* ── 4 Feature cards — Neo-brutalist ── */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "16px", marginBottom: "0" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "20px", marginBottom: "0" }}>
           {FEATURED_OPPS.map((opp, i) => (
             <Reveal key={opp.id} delay={i * 80}>
               <Link
@@ -494,7 +479,7 @@ function OpportunitiesTeaser() {
             </div>
             <Link
               to="/oportunidades"
-              style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "12px 24px", background: "#0A1628", color: "#84cc16", fontSize: "14px", fontWeight: 800, borderRadius: "10px", textDecoration: "none", letterSpacing: "0.02em", transition: "opacity 0.15s" }}
+              style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "12px 24px", background: "#080D1C", color: "#84cc16", fontSize: "14px", fontWeight: 800, borderRadius: "10px", textDecoration: "none", letterSpacing: "0.02em", transition: "opacity 0.15s" }}
               onMouseEnter={e => (e.currentTarget.style.opacity = "0.85")}
               onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
             >
