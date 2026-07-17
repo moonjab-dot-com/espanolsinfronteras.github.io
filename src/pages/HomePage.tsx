@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/context/LanguageContext";
 import { courses, testimonials } from "@/data/courses";
 import {
-  ArrowRight, BookOpen, ChevronRight, Code, DollarSign,
+  ArrowRight, Backpack, BookOpen, ChevronRight, Code, DollarSign,
   ExternalLink, Flame, FlaskConical, Globe, GraduationCap,
-  Heart, Mail, PartyPopper, Quote, Rocket, Sparkles, Trophy, Zap,
+  Heart, Lightbulb, Mail, PartyPopper, Quote, Rocket, Sparkles, Trophy, Users, Zap,
 } from "lucide-react";
 import { courseIconMap } from "@/lib/course-icons";
 import { COURSE_MASCOTS } from "@/lib/course-mascots";
@@ -492,6 +492,77 @@ function OpportunitiesTeaser() {
   );
 }
 
+// ─── NOSOTROS TEASER ──────────────────────────────────────────────────────────
+
+function NosotrosTeaser() {
+  const { lang } = useLanguage();
+  const t = lang === "es";
+
+  const cards = [
+    { icon: Lightbulb, accent: "#3b82f6", textEs: <>Aprender no debería depender del <strong>dinero</strong> ni de las circunstancias.</>, textEn: <>Learning shouldn't depend on <strong>money</strong> or circumstances.</> },
+    { icon: Rocket,    accent: "#10b981", textEs: <>277+ capítulos gratuitos creados desde <strong>cero en 2024</strong>.</>,              textEn: <>277+ free chapters built from <strong>scratch in 2024</strong>.</>              },
+    { icon: Globe,     accent: "#8b5cf6", textEs: <>Estudiantes en más de <strong>72 países</strong> sin registro y sin barreras.</>,        textEn: <>Students in over <strong>72 countries</strong>, no sign-up, no barriers.</>   },
+    { icon: Backpack,  accent: "#f59e0b", textEs: <>Más de <strong>1,471 libros</strong> donados en Lima fuera de la plataforma.</>,         textEn: <>Over <strong>1,471 books</strong> donated in Lima beyond the platform.</>    },
+  ];
+
+  return (
+    <section style={{ background: "#EEF1F9", padding: "80px 0", position: "relative", overflow: "hidden" }}>
+      {/* Faint "GRATIS" watermark */}
+      <div aria-hidden="true" style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%) rotate(-10deg)", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "clamp(100px,16vw,200px)", color: "rgba(132,204,22,0.03)", whiteSpace: "nowrap", userSelect: "none", pointerEvents: "none" }}>
+        ESF
+      </div>
+      <div className="container-page" style={{ position: "relative", zIndex: 1 }}>
+        {/* Header */}
+        <Reveal>
+          <div style={{ display: "flex", flexDirection: "column", gap: "0", marginBottom: "48px" }}>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "6px 16px", borderRadius: "99px", background: "rgba(132,204,22,0.1)", border: "1px solid rgba(132,204,22,0.25)", marginBottom: "20px", width: "fit-content" }}>
+              <Heart style={{ width: "13px", height: "13px", color: "#84cc16" }} />
+              <span style={{ fontSize: "11px", fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.14em", color: "#84cc16" }}>{t ? "Sobre nosotros" : "About us"}</span>
+            </div>
+            <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: "20px", flexWrap: "wrap" }}>
+              <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 700, color: "#0f172a", lineHeight: 1.1, letterSpacing: "-0.02em", maxWidth: "480px" }}>
+                {t ? <>Un futuro más justo <span style={{ color: "#84cc16" }}>comienza con acceso</span></> : <>A fairer future <span style={{ color: "#84cc16" }}>starts with access</span></>}
+              </h2>
+              <Link to="/nosotros"
+                style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "11px 22px", background: "#080D1C", color: "#84cc16", fontSize: "13px", fontWeight: 800, borderRadius: "10px", textDecoration: "none", letterSpacing: "0.03em", flexShrink: 0, transition: "opacity 0.15s" }}
+                onMouseEnter={e => (e.currentTarget.style.opacity = "0.85")}
+                onMouseLeave={e => (e.currentTarget.style.opacity = "1")}>
+                {t ? "Conoce la historia" : "Our story"} <ArrowRight style={{ width: "14px", height: "14px" }} />
+              </Link>
+            </div>
+          </div>
+        </Reveal>
+
+        {/* Founder quote */}
+        <Reveal delay={80}>
+          <div style={{ padding: "28px 32px", background: "#fff", border: "2px solid #f59e0b", borderRadius: "18px", boxShadow: "5px 5px 0 #f59e0b", marginBottom: "24px", maxWidth: "640px", position: "relative" }}>
+            <Quote style={{ position: "absolute", top: "18px", left: "22px", width: "22px", height: "22px", color: "#f59e0b", opacity: 0.4 }} />
+            <blockquote style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.1rem, 2.5vw, 1.4rem)", fontWeight: 700, color: "#0f172a", lineHeight: 1.4 }}>
+              {t ? '"Nadie debería quedarse sin estudiar por falta de tiempo o dinero."' : '"No one should miss out on education due to lack of time or money."'}
+            </blockquote>
+            <p style={{ marginTop: "12px", fontSize: "12px", fontWeight: 700, color: "#92400e" }}>— Salvador B., {t ? "Fundador" : "Founder"}</p>
+          </div>
+        </Reveal>
+
+        {/* 4 story cards */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "14px", maxWidth: "760px" }}>
+          {cards.map((card, i) => (
+            <Reveal key={i} delay={i * 70}>
+              <div
+                style={{ padding: "20px 22px", background: "#fff", border: `2px solid ${card.accent}`, borderRadius: "14px", boxShadow: `4px 4px 0 ${card.accent}`, display: "flex", alignItems: "flex-start", gap: "12px", transition: "transform 0.15s, box-shadow 0.15s" }}
+                onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translate(-2px,-2px)"; el.style.boxShadow = `6px 6px 0 ${card.accent}`; }}
+                onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "none"; el.style.boxShadow = `4px 4px 0 ${card.accent}`; }}>
+                <card.icon style={{ width: "20px", height: "20px", color: card.accent, flexShrink: 0, marginTop: "2px" }} />
+                <p style={{ fontSize: "13px", color: "#374151", lineHeight: 1.65, fontWeight: 500 }}>{t ? card.textEs : card.textEn}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ─── TESTIMONIALS (compact) ───────────────────────────────────────────────────
 
 function TestimonialsSection() {
@@ -577,6 +648,7 @@ const HomePage = () => (
     <CoursesSection />
     <ImpactSection />
     <OpportunitiesTeaser />
+    <NosotrosTeaser />
     <TestimonialsSection />
     <ContactSection />
   </>

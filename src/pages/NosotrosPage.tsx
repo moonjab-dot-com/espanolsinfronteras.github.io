@@ -115,7 +115,7 @@ export default function NosotrosPage() {
             {/* Right — owl mascot */}
             <div className="hidden lg:block" style={{ width: "260px", height: "320px", position: "relative" }}>
               <div style={{ position: "absolute", bottom: "20px", left: "50%", transform: "translateX(-50%)", width: "220px", height: "220px", borderRadius: "50%", background: "radial-gradient(circle, rgba(251,191,36,0.15) 0%, transparent 70%)", filter: "blur(20px)" }} />
-              <img src="/8KBUHO.jpeg" alt={t ? "Mascota ESF" : "ESF Mascot"} className="animate-float-slow"
+              <img src="/owl-logo.png" alt={t ? "Mascota ESF" : "ESF Mascot"} className="animate-float-slow"
                 style={{ width: "100%", height: "100%", objectFit: "contain", filter: "drop-shadow(0 20px 40px rgba(132,204,22,0.2))", position: "relative", zIndex: 1 }} loading="eager" />
             </div>
           </div>
@@ -245,12 +245,9 @@ export default function NosotrosPage() {
           </Reveal>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "16px" }}>
             {[
-              { src: "/DrawImage.jpg",  captionEs: "Creatividad y aprendizaje", captionEn: "Creativity and learning", accent: "#84cc16" },
-              { src: "/media1.png",     captionEs: "Educación en acción",        captionEn: "Education in action",      accent: "#38a3a5" },
-              { src: "/WoodImage.jpg",  captionEs: "Comunidad ESF",              captionEn: "ESF Community",            accent: "#5b21b6" },
-              { src: "/media2.png",     captionEs: "Nuestro impacto",            captionEn: "Our impact",               accent: "#f59e0b" },
-              { src: "/media3.png",     captionEs: "Conexión global",            captionEn: "Global connection",        accent: "#f43f5e" },
-              { src: "/media1.png",     captionEs: "Estudiantes del mundo",      captionEn: "Students worldwide",       accent: "#22c55e" },
+              { src: "/media1.png", captionEs: "Educación en acción",  captionEn: "Education in action", accent: "#84cc16" },
+              { src: "/media2.png", captionEs: "Nuestro impacto",      captionEn: "Our impact",          accent: "#38a3a5" },
+              { src: "/media3.png", captionEs: "Comunidad ESF",        captionEn: "ESF Community",       accent: "#5b21b6" },
             ].map(({ src, captionEs, captionEn, accent }, i) => (
               <Reveal key={i} delay={i * 70}>
                 <div style={{ borderRadius: "16px", border: `2px solid ${accent}`, overflow: "hidden", background: "#111827", boxShadow: `4px 4px 0 ${accent}`, transition: "transform 0.15s, box-shadow 0.15s" }}
