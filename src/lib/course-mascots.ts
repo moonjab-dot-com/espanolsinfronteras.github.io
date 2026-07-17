@@ -5,15 +5,18 @@
  */
 
 export const COURSE_MASCOTS: Record<string, string> = {
-  espanol:             "/OWL_WITH_SPAIN_FLAG.png",
-  "herencia-peruana":  "/OWL_INVESTIGADOR_WITH_BOOK.png",
-  "global-finance":    "/OWL_WITH_THE_EARTH.png",
-  finanzas:            "/OWL_COMPETITOR.png",
-  programacion:        "/OWL_CODING.png",
-  matematicas:         "/OWL_NUMBER_ONE.png",
-  ciencias:            "/OWL_SCIENCE.png",
-  ciberseguridad:      "/OWL_INVESTIGATOR_WITH_COMPUTER.png",
-  ingles:              "/OWL_READING.png",
+  espanol:              "/OWL_WITH_SPAIN_FLAG.png",
+  "herencia-peruana":   "/OWL_INVESTIGADOR_WITH_BOOK.png",
+  "global-finance":     "/OWL_WITH_THE_EARTH.png",
+  finanzas:             "/OWL_COMPETITOR.png",
+  programacion:         "/OWL_CODING.png",
+  matematicas:          "/OWL_NUMBER_ONE.png",
+  ciencias:             "/OWL_SCIENCE.png",
+  ciberseguridad:       "/OWL_INVESTIGATOR_WITH_COMPUTER.png",
+  ingles:               "/OWL_READING.png",
+  ia:                   "/OWL_INVESTIGATOR_WITH_COMPUTER.png",
+  economia:             "/OWL_COMPETITOR.png",
+  "mercados-financieros": "/OWL_WITH_THE_EARTH.png",
 };
 
 export const UNIT_NAMES: Record<string, string[]> = {

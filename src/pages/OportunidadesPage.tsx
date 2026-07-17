@@ -5,45 +5,25 @@ import {
   ArrowRight, Brain, Briefcase, ChevronRight, ExternalLink,
   Filter, Globe, GraduationCap, Lightbulb, MapPin,
   RefreshCw, Rocket, Sparkles, Star, Target, Trophy, Users, Zap,
-  Code, Award, BookOpen, TrendingUp, Handshake,
+  Code, Award, BookOpen, TrendingUp, Handshake, Info,
 } from "lucide-react";
+import { OPPORTUNITIES as ALL_OPPS, type OppCategory } from "@/data/opportunities";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-type Category = "all" | "becas" | "liderazgo" | "competencias" | "mun" | "mentoria" | "tech";
+type Category = "all" | OppCategory;
 
-interface Opportunity {
-  id: string;
-  nameEs: string;
-  nameEn: string;
-  orgEs: string;
-  orgEn: string;
-  descEs: string;
-  descEn: string;
-  url: string;
-  category: Exclude<Category, "all">;
-  tags: string[];
-  ageMin?: number;
-  ageMax?: number;
-  isFree: boolean;
-  lang: "es" | "en" | "both";
-  level: "escolar" | "universitario" | "ambos";
-}
+// Re-export from shared data (keeping local variable name for compatibility)
+const OPPORTUNITIES = ALL_OPPS;
 
-// ─── Verified opportunities only ──────────────────────────────────────────────
-// Every URL below has been checked. Unverified links removed.
+// ─── (local data imported from @/data/opportunities) ─────────────────────────
 
-const OPPORTUNITIES: Opportunity[] = [
+const _legacy_placeholder = [
   {
-    id: "beca18",
-    nameEs: "Beca 18",
-    nameEn: "Beca 18",
-    orgEs: "PRONABEC – Gobierno del Perú",
-    orgEn: "PRONABEC – Government of Peru",
-    descEs: "La beca más importante del Perú para jóvenes de alto rendimiento con bajos recursos económicos. Cubre matrícula, pensión, hospedaje y materiales.",
-    descEn: "Peru's most important scholarship for high-achieving youth from low-income families. Covers tuition, living expenses, and materials.",
-    url: "https://www.gob.pe/pronabec",
-    category: "becas",
+    id: "__placeholder__",
+    nameEs: "", nameEn: "", orgEs: "", orgEn: "", descEs: "", descEn: "",
+    url: "",
+    category: "becas" as const,
     tags: ["beca", "universidad", "stem", "humanidades"],
     ageMin: 16, ageMax: 22,
     isFree: true, lang: "es", level: "universitario",
@@ -169,20 +149,6 @@ const OPPORTUNITIES: Opportunity[] = [
     tags: ["google", "tech", "beca", "universitario", "stem"],
     ageMin: 18,
     isFree: true, lang: "both", level: "universitario",
-  },
-  {
-    id: "mtpe",
-    nameEs: "Red de Mentores MTPE",
-    nameEn: "MTPE Mentor Network",
-    orgEs: "Ministerio de Trabajo y Promoción del Empleo del Perú",
-    orgEn: "Ministry of Labor and Employment Promotion of Peru",
-    descEs: "Programa oficial del Estado peruano que conecta jóvenes de 18–29 años con profesionales que los orientan en su desarrollo de carrera.",
-    descEn: "Official Peruvian government program connecting youth aged 18–29 with professionals who guide their career development.",
-    url: "https://www.gob.pe/mtpe",
-    category: "mentoria",
-    tags: ["mentoría", "carrera", "empleo", "gobierno"],
-    ageMin: 18, ageMax: 29,
-    isFree: true, lang: "es", level: "universitario",
   },
 ];
 
@@ -547,16 +513,26 @@ function OppCard({ opp, lang }: { opp: Opportunity; lang: "es" | "en" }) {
           </div>
         )}
 
-        {/* CTA */}
-        <a
-          href={opp.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`inline-flex items-center justify-center gap-1.5 w-full py-2.5 rounded-xl text-[13px] font-bold text-white bg-gradient-to-r ${grad} hover:opacity-90 transition-opacity mt-auto`}
-        >
-          {t ? "Cómo postular" : "How to apply"}
-          <ExternalLink className="w-3.5 h-3.5" />
-        </a>
+        {/* CTAs */}
+        <div className="flex gap-2 mt-auto">
+          <Link
+            to={`/oportunidades/${opp.id}`}
+            className="inline-flex items-center justify-center gap-1.5 flex-1 py-2.5 rounded-xl text-[13px] font-bold transition-all"
+            style={{ background: "#f1f5f9", color: "#22577a", border: "1.5px solid #e2e8f0" }}
+          >
+            <Info className="w-3.5 h-3.5" />
+            {t ? "Ver detalles" : "Details"}
+          </Link>
+          <a
+            href={opp.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`inline-flex items-center justify-center gap-1.5 flex-1 py-2.5 rounded-xl text-[13px] font-bold text-white bg-gradient-to-r ${grad} hover:opacity-90 transition-opacity`}
+          >
+            {t ? "Postular" : "Apply"}
+            <ExternalLink className="w-3.5 h-3.5" />
+          </a>
+        </div>
       </div>
     </article>
   );
