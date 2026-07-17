@@ -628,6 +628,15 @@ export const partners: Partner[] = [
     logo: "/LibreHaus Icon.jpeg",
     color: "bg-indigo-50 text-indigo-600 border-indigo-100",
   },
+  {
+    name: "TB Trade",
+    abbr: "TBT",
+    taglineEs: "Trading y mercados financieros",
+    taglineEn: "Trading & financial markets",
+    category: "finance",
+    logo: "/TB Trade.png",
+    color: "bg-cyan-50 text-cyan-600 border-cyan-100",
+  },
 ];
 
 export const socialLinks = [
