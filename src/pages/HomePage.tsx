@@ -648,7 +648,6 @@ const HomePage = () => (
     <CoursesSection />
     <ImpactSection />
     <OpportunitiesTeaser />
-    <NosotrosTeaser />
     <TestimonialsSection />
     <ContactSection />
   </>
