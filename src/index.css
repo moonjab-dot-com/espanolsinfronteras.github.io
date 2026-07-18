@@ -6,6 +6,38 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─── Selection color — ESF lime ────────────────────────────────────────────── */
+::selection        { background: rgba(132, 204, 22, 0.28); color: #0f172a; }
+::-moz-selection   { background: rgba(132, 204, 22, 0.28); color: #0f172a; }
+
+/* ─── Responsive grid utilities ─────────────────────────────────────────────── */
+.grid-impact {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+@media (max-width: 640px) {
+  .grid-impact { grid-template-columns: repeat(2, 1fr); }
+}
+.grid-opp-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+@media (max-width: 768px) {
+  .grid-opp-cards { grid-template-columns: 1fr; }
+}
+@media (min-width: 640px) and (max-width: 768px) {
+  .grid-opp-cards { grid-template-columns: repeat(2, 1fr); }
+}
+.grid-tutores {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}
+@media (max-width: 640px) {
+  .grid-tutores { grid-template-columns: repeat(3, 1fr); }
+}
+
 /* ─── Design Tokens ──────────────────────────────────────────────────────────
    Single source of truth for the visual system. All components use these. */
 @layer base {

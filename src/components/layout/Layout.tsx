@@ -58,13 +58,10 @@ function Nav() {
           <img
             src="/esf-logo.png"
             alt="Español Sin Fronteras"
-            className="h-8 w-auto group-hover:brightness-110 transition-all duration-200"
-            width={32}
-            height={32}
+            className="h-9 w-auto group-hover:brightness-110 transition-all duration-200"
+            width={120}
+            height={36}
           />
-          <span className="hidden sm:block text-white/90 font-semibold text-sm tracking-tight group-hover:text-white transition-colors">
-            Español Sin Fronteras
-          </span>
         </Link>
 
         {/* Desktop nav */}
@@ -155,9 +152,9 @@ function Footer() {
               <img
                 src="/esf-logo.png"
                 alt="Español Sin Fronteras"
-                className="h-7 w-auto opacity-75 hover:opacity-100 transition-opacity"
-                width={28}
-                height={28}
+                className="h-8 w-auto opacity-75 hover:opacity-100 transition-opacity"
+                width={110}
+                height={32}
               />
             </Link>
             <p className="text-white/30 text-xs max-w-[220px] leading-relaxed">

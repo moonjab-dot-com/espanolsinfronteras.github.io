@@ -152,7 +152,7 @@ export default function NosotrosPage() {
           </Reveal>
 
           {/* Story cards 2×2 */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "16px", maxWidth: "720px" }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2" style={{ gap: "16px", maxWidth: "720px" }}>
             {[
               { icon: Lightbulb, accent: "#3b82f6", textEs: <>Nació con una idea clara: aprender no debería depender del <strong>dinero</strong> ni de las circunstancias.</>, textEn: <>Born from one clear idea: learning shouldn't depend on <strong>money</strong> or circumstances.</> },
               { icon: Rocket,    accent: "#10b981", textEs: <>En 2024, Salvador convirtió esa idea en una plataforma 100% gratuita con más de <strong>277 capítulos</strong> prácticos.</>, textEn: <>In 2024, Salvador turned that idea into a 100% free platform with over <strong>277 practical chapters</strong>.</> },
@@ -183,7 +183,7 @@ export default function NosotrosPage() {
               </h2>
             </div>
           </Reveal>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(6, 1fr)", gap: "16px", maxWidth: "800px" }}>
+          <div className="grid-tutores" style={{ maxWidth: "800px" }}>
             {owls.map(({ src, labelEs, labelEn, accent }, i) => (
               <Reveal key={src} delay={i * 70}>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "10px" }}>
@@ -243,7 +243,7 @@ export default function NosotrosPage() {
               </h2>
             </div>
           </Reveal>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "16px" }}>
+          <div className="grid grid-cols-1 sm:grid-cols-3" style={{ gap: "16px" }}>
             {[
               { src: "/media1.png", captionEs: "Educación en acción",  captionEn: "Education in action", accent: "#84cc16" },
               { src: "/media2.png", captionEs: "Nuestro impacto",      captionEn: "Our impact",          accent: "#38a3a5" },

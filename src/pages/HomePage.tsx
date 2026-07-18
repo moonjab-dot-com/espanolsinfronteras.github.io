@@ -254,21 +254,31 @@ function CoursesSection() {
 }
 
 // ─── IMPACT ───────────────────────────────────────────────────────────────────
-// Slim horizontal strip — no longer a heavy separate section
 
 function ImpactSection() {
   const { lang } = useLanguage();
   const t = lang === "es";
   const stats = [
-    { value: "72+",  Icon: Globe,          color: "#3B82F6", label: t ? "Países"    : "Countries",  desc: t ? "en todo el mundo"          : "worldwide"             },
-    { value: "277+", Icon: BookOpen,       color: "#22C55E", label: t ? "Lecciones" : "Lessons",    desc: t ? "capítulos gratuitos"        : "free chapters"         },
-    { value: "12",   Icon: GraduationCap,  color: "#8B5CF6", label: t ? "Materias"  : "Subjects",   desc: t ? "STEM, idiomas y más"        : "STEM, languages & more" },
-    { value: "$0",   Icon: Heart,          color: "#F43F5E", label: t ? "Costo"     : "Cost",       desc: t ? "siempre gratis"             : "always free"           },
+    { value: "72+",  Icon: Globe,         color: "#3B82F6", label: t ? "Países"    : "Countries",  desc: t ? "en todo el mundo"   : "worldwide"              },
+    { value: "277+", Icon: BookOpen,      color: "#22C55E", label: t ? "Lecciones" : "Lessons",    desc: t ? "capítulos gratuitos": "free chapters"           },
+    { value: "12",   Icon: GraduationCap, color: "#8B5CF6", label: t ? "Materias"  : "Subjects",   desc: t ? "STEM, idiomas y más": "STEM, languages & more"  },
+    { value: "$0",   Icon: Heart,         color: "#F43F5E", label: t ? "Costo"     : "Cost",       desc: t ? "siempre gratis"     : "always free"             },
   ];
   return (
-    <section style={{ background: "#080D1C", padding: "0" }}>
+    <section style={{ background: "#080D1C", padding: "48px 0 0" }}>
+      {/* ESF logo header — "Todo lo que encuentras en ESF" */}
+      <div className="container-page" style={{ paddingBottom: "32px", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+        <Reveal>
+          <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+            <span style={{ fontSize: "11px", fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.16em", color: "rgba(255,255,255,0.3)" }}>
+              {t ? "Todo lo que encuentras en" : "Everything you find in"}
+            </span>
+            <img src="/esf-logo.png" alt="Español Sin Fronteras" style={{ height: "36px", width: "auto", opacity: 0.9 }} />
+          </div>
+        </Reveal>
+      </div>
       <div className="container-page" style={{ padding: "0 20px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "0", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+        <div className="grid-impact" style={{ gap: "0" }}>
           {stats.map(({ value, Icon, color, label, desc }, i) => (
             <Reveal key={value} delay={i * 60}>
               <div style={{
@@ -277,7 +287,7 @@ function ImpactSection() {
               }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "6px" }}>
                   <Icon style={{ width: "14px", height: "14px", color }} />
-                  <span style={{ fontSize: "11px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.12em", color: "rgba(255,255,255,0.3)" }}>{label}</span>
+                  <span style={{ fontSize: "11px", fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.12em", color: "rgba(255,255,255,0.3)" }}>{label}</span>
                 </div>
                 <span style={{ fontFamily: "var(--font-display)", fontSize: "2.5rem", fontWeight: 700, letterSpacing: "-0.04em", color: "#fff", lineHeight: 1 }}>{value}</span>
                 <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.28)", lineHeight: 1.4 }}>{desc}</span>
@@ -387,8 +397,8 @@ function OpportunitiesTeaser() {
           </div>
         </Reveal>
 
-        {/* ── 4 Feature cards — Neo-brutalist ── */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "20px", marginBottom: "0" }}>
+        {/* ── 3 Feature cards — Neo-brutalist ── */}
+        <div className="grid-opp-cards" style={{ marginBottom: "0" }}>
           {FEATURED_OPPS.map((opp, i) => (
             <Reveal key={opp.id} delay={i * 80}>
               <Link
@@ -456,38 +466,39 @@ function OpportunitiesTeaser() {
           ))}
         </div>
 
-        {/* ── Stats + CTA bar ── */}
-        <Reveal delay={300}>
-          <div style={{
-            marginTop: "32px",
-            padding: "20px 32px",
-            background: "#84cc16",
-            display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "16px",
-          }}>
-            <div style={{ display: "flex", gap: "32px", flexWrap: "wrap" }}>
-              {[
-                { v: "11", l: t ? "oportunidades" : "opportunities" },
-                { v: "8",  l: t ? "gratuitas"     : "free" },
-                { v: "6",  l: t ? "categorías"    : "categories" },
-                { v: "100%", l: t ? "verificadas"  : "verified" },
-              ].map(({ v, l }) => (
-                <div key={l} style={{ display: "flex", flexDirection: "column" }}>
-                  <span style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", fontWeight: 700, color: "#0A1628", lineHeight: 1, letterSpacing: "-0.03em" }}>{v}</span>
-                  <span style={{ fontSize: "11px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: "rgba(10,22,40,0.55)" }}>{l}</span>
-                </div>
-              ))}
-            </div>
-            <Link
-              to="/oportunidades"
-              style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "12px 24px", background: "#080D1C", color: "#84cc16", fontSize: "14px", fontWeight: 800, borderRadius: "10px", textDecoration: "none", letterSpacing: "0.02em", transition: "opacity 0.15s" }}
-              onMouseEnter={e => (e.currentTarget.style.opacity = "0.85")}
-              onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
-            >
-              {t ? "Ver todas las oportunidades" : "See all opportunities"} <ArrowRight style={{ width: "16px", height: "16px" }} />
-            </Link>
-          </div>
-        </Reveal>
       </div>
+
+      {/* ── Stats + CTA bar — full width outside container ── */}
+      <Reveal delay={300}>
+        <div style={{
+          marginTop: "32px",
+          padding: "20px 40px",
+          background: "#84cc16",
+          display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "16px",
+        }}>
+          <div style={{ display: "flex", gap: "32px", flexWrap: "wrap" }}>
+            {[
+              { v: "11", l: t ? "oportunidades" : "opportunities" },
+              { v: "8",  l: t ? "gratuitas"     : "free" },
+              { v: "6",  l: t ? "categorías"    : "categories" },
+              { v: "100%", l: t ? "verificadas" : "verified" },
+            ].map(({ v, l }) => (
+              <div key={l} style={{ display: "flex", flexDirection: "column" }}>
+                <span style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", fontWeight: 700, color: "#080D1C", lineHeight: 1, letterSpacing: "-0.03em" }}>{v}</span>
+                <span style={{ fontSize: "11px", fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.1em", color: "rgba(8,13,28,0.55)" }}>{l}</span>
+              </div>
+            ))}
+          </div>
+          <Link
+            to="/oportunidades"
+            style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "12px 24px", background: "#080D1C", color: "#84cc16", fontSize: "14px", fontWeight: 800, borderRadius: "10px", textDecoration: "none", letterSpacing: "0.02em", transition: "opacity 0.15s" }}
+            onMouseEnter={e => (e.currentTarget.style.opacity = "0.85")}
+            onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
+          >
+            {t ? "Ver todas las oportunidades" : "See all opportunities"} <ArrowRight style={{ width: "16px", height: "16px" }} />
+          </Link>
+        </div>
+      </Reveal>
     </section>
   );
 }
@@ -563,52 +574,61 @@ function NosotrosTeaser() {
   );
 }
 
-// ─── TESTIMONIALS (compact) ───────────────────────────────────────────────────
+// ─── TESTIMONIALS ─────────────────────────────────────────────────────────────
 
 function TestimonialsSection() {
   const { lang } = useLanguage();
   const t = lang === "es";
   const items = testimonials.map((tm, i) => ({ text: tm.text, author: tm.author, colorIndex: i }));
-  const col1 = items.filter((_,i) => i % 3 === 0);
-  const col2 = items.filter((_,i) => i % 3 === 1);
-  const col3 = items.filter((_,i) => i % 3 === 2);
 
   return (
-    <section className="section-padding bg-white" id="comentarios" style={{ position: "relative", overflow: "hidden" }}>
-      {/* SVG watermark illustration */}
+    <section style={{ background: "#EEF1F9", padding: "80px 0", position: "relative", overflow: "hidden" }} id="comentarios">
       <img src="/FacetimeMeeting-Streamline.svg" alt="" aria-hidden="true"
-        style={{ position: "absolute", right: "-20px", top: "40px", width: "260px", opacity: 0.05, pointerEvents: "none", userSelect: "none" }} />
+        style={{ position: "absolute", right: "-20px", top: "30px", width: "240px", opacity: 0.05, pointerEvents: "none", userSelect: "none" }} />
       <div className="container-page" style={{ position: "relative", zIndex: 1 }}>
         <Reveal>
-          <div className="text-center mb-12 max-w-lg mx-auto">
-            <p className="section-eyebrow justify-center"><Quote className="w-3.5 h-3.5" />{t?"Testimonios":"Testimonials"}</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-3">{t?"Lo que dicen nuestros estudiantes":"What our students say"}</h2>
-            <p className="text-muted-foreground text-base">{t?"Historias reales de personas que estudian entre el trabajo, el bus y la casa.":"Real stories from people studying between work, the bus, and home."}</p>
+          <div style={{ marginBottom: "48px" }}>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "6px 16px", borderRadius: "99px", background: "rgba(132,204,22,0.1)", border: "1px solid rgba(132,204,22,0.25)", marginBottom: "20px" }}>
+              <Quote style={{ width: "13px", height: "13px", color: "#84cc16" }} />
+              <span style={{ fontSize: "11px", fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.14em", color: "#84cc16" }}>{t ? "Testimonios" : "Testimonials"}</span>
+            </div>
+            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 700, color: "#0f172a", lineHeight: 1.1, letterSpacing: "-0.02em", marginBottom: "8px" }}>
+              {t ? "Lo que dicen nuestros estudiantes" : "What our students say"}
+            </h2>
+            <p style={{ fontSize: "15px", color: "#6b7280", maxWidth: "420px" }}>
+              {t ? "Historias reales de personas que estudian entre el trabajo, el bus y la casa." : "Real stories from people studying between work, the bus, and home."}
+            </p>
           </div>
         </Reveal>
-        <Reveal delay={100}>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
-            {[{ items: col1, dur: 24 }, { items: col2, dur: 29 }, { items: col3, dur: 26 }].map(({ items: colItems, dur }, col) => (
-              <div key={col} className={col === 2 ? "hidden lg:block" : ""}>
-                <div className="overflow-hidden h-[640px] [mask-image:linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)]">
-                  <div className="flex flex-col gap-5 animate-marquee-y" style={{ "--marquee-duration": `${dur}s` } as React.CSSProperties}>
-                    {[0, 1].map(dup => (
-                      <div key={dup} className="flex flex-col gap-5" aria-hidden={dup === 1}>
-                        {colItems.map((item, i) => (
-                          <div key={`${dup}-${i}`} className="p-6 rounded-3xl border-2 border-border bg-white shadow-sm w-full">
-                            <p className="text-[14px] text-foreground leading-relaxed mb-4">"{item.text}"</p>
-                            <div className="flex items-center gap-3">
-                              <div className={`w-10 h-10 rounded-full ${AVATAR_PALETTE[item.colorIndex % AVATAR_PALETTE.length]} flex items-center justify-center text-white font-bold text-sm shrink-0`}>{item.author.trim().charAt(0).toUpperCase()}</div>
-                              <span className="font-bold text-sm text-foreground leading-tight">{item.author}</span>
+        <Reveal delay={80}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl">
+            {[0, 1, 2].map(col => {
+              const colItems = items.filter((_, i) => i % 3 === col);
+              const dur = [24, 29, 26][col];
+              return (
+                <div key={col} className={col === 2 ? "hidden lg:block" : ""}>
+                  <div className="overflow-hidden h-[600px] [mask-image:linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)]">
+                    <div className="flex flex-col gap-4 animate-marquee-y" style={{ "--marquee-duration": `${dur}s` } as React.CSSProperties}>
+                      {[0, 1].map(dup => (
+                        <div key={dup} className="flex flex-col gap-4" aria-hidden={dup === 1}>
+                          {colItems.map((item, i) => (
+                            <div key={`${dup}-${i}`} style={{ padding: "20px 22px", borderRadius: "16px", border: "2px solid #e5e7eb", background: "#fff", boxShadow: "2px 2px 0 #e5e7eb" }}>
+                              <p style={{ fontSize: "13px", color: "#374151", lineHeight: 1.6, marginBottom: "14px" }}>"{item.text}"</p>
+                              <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                                <div className={`w-9 h-9 rounded-full ${AVATAR_PALETTE[item.colorIndex % AVATAR_PALETTE.length]} flex items-center justify-center text-white font-bold text-sm shrink-0`}>
+                                  {item.author.trim().charAt(0).toUpperCase()}
+                                </div>
+                                <span style={{ fontSize: "13px", fontWeight: 700, color: "#0f172a" }}>{item.author}</span>
+                              </div>
                             </div>
-                          </div>
-                        ))}
-                      </div>
-                    ))}
+                          ))}
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </Reveal>
       </div>
@@ -621,17 +641,51 @@ function TestimonialsSection() {
 function ContactSection() {
   const { lang } = useLanguage();
   const t = lang === "es";
+  const { socialLinks } = { socialLinks: [
+    { name: "Instagram", url: "https://www.instagram.com/espanol_sin_fronteras_org" },
+    { name: "TikTok",    url: "https://www.tiktok.com/@espanolsinfronteras.org" },
+    { name: "LinkedIn",  url: "https://www.linkedin.com/company/espa%C3%B1ol-sin-fronteras" },
+    { name: "Spotify",   url: "https://open.spotify.com/show/02sYDMUgYDPOZg2ypgDnhd" },
+  ]};
   return (
-    <section className="section-padding bg-[hsl(220,16%,97%)]" id="contacto">
-      <div className="container-page">
+    <section style={{ background: "#080D1C", padding: "80px 0", position: "relative", overflow: "hidden" }} id="contacto">
+      <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px)", backgroundSize: "28px 28px", pointerEvents: "none" }} />
+      <div style={{ position: "absolute", left: "50%", top: "50%", transform: "translate(-50%,-50%)", width: "600px", height: "400px", borderRadius: "50%", background: "radial-gradient(circle, rgba(132,204,22,0.08) 0%, transparent 70%)", pointerEvents: "none" }} />
+      <img src="/OnlineLearning-Streamline.svg" alt="" aria-hidden="true"
+        style={{ position: "absolute", right: "-20px", bottom: "-20px", width: "280px", opacity: 0.04, pointerEvents: "none", userSelect: "none" }} />
+      <div className="container-page" style={{ position: "relative", zIndex: 1, textAlign: "center" }}>
         <Reveal>
-          <div className="max-w-2xl mx-auto rounded-3xl bg-[hsl(222,47%,8%)] px-8 py-16 text-center relative overflow-hidden">
-            <div className="absolute inset-0 pointer-events-none"><div className="absolute -top-24 -left-24 w-64 h-64 rounded-full bg-primary/10 blur-3xl" /><div className="absolute -bottom-16 -right-16 w-48 h-48 rounded-full bg-emerald-500/8 blur-3xl" /></div>
-            <div className="relative z-10 mx-auto w-16 h-16 mb-6"><img src="/OWL_WITH_THE_EARTH.png" alt="" className="w-full h-full object-contain opacity-60 animate-float-slow" loading="lazy" /></div>
-            <div className="relative z-10">
-              <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-3">{t?"¿Hablamos?":"Let's connect?"}</h2>
-              <p className="text-white/45 mb-8 max-w-xs mx-auto text-[15px] leading-relaxed">{t?"¿Tienes preguntas, sugerencias o quieres colaborar? Nos encantaría escucharte.":"Have questions, suggestions, or want to collaborate? We'd love to hear from you."}</p>
-              <a href="mailto:espanolsinfronteras1@gmail.com" className="btn-accent"><Mail className="w-4 h-4" />{t?"Escribirnos":"Write to us"}</a>
+          <div style={{ maxWidth: "560px", margin: "0 auto" }}>
+            <div style={{ width: "72px", height: "72px", margin: "0 auto 24px" }}>
+              <img src="/owl-logo.png" alt="" aria-hidden="true" className="animate-float-slow"
+                style={{ width: "100%", height: "100%", objectFit: "contain", opacity: 0.75 }} loading="lazy" />
+            </div>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "6px 16px", borderRadius: "99px", background: "rgba(132,204,22,0.1)", border: "1px solid rgba(132,204,22,0.25)", marginBottom: "20px" }}>
+              <Sparkles style={{ width: "13px", height: "13px", color: "#84cc16" }} />
+              <span style={{ fontSize: "11px", fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.14em", color: "#84cc16" }}>{t ? "¿Hablamos?" : "Let's connect"}</span>
+            </div>
+            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2.2rem, 5vw, 3.5rem)", fontWeight: 700, color: "#fff", lineHeight: 1.05, letterSpacing: "-0.03em", marginBottom: "16px" }}>
+              {t ? <>¿Tienes algo<br /><span style={{ color: "#84cc16" }}>que decirnos?</span></> : <>Something<br /><span style={{ color: "#84cc16" }}>to tell us?</span></>}
+            </h2>
+            <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.45)", lineHeight: 1.7, maxWidth: "380px", margin: "0 auto 36px" }}>
+              {t ? "¿Tienes preguntas, sugerencias o quieres colaborar? Nos encantaría escucharte." : "Have questions, suggestions, or want to collaborate? We'd love to hear from you."}
+            </p>
+            <a href="mailto:espanolsinfronteras1@gmail.com"
+              style={{ display: "inline-flex", alignItems: "center", gap: "10px", padding: "16px 36px", background: "#84cc16", color: "#080D1C", fontSize: "15px", fontWeight: 800, borderRadius: "12px", textDecoration: "none", letterSpacing: "0.03em", transition: "opacity 0.15s" }}
+              onMouseEnter={e => (e.currentTarget.style.opacity = "0.9")}
+              onMouseLeave={e => (e.currentTarget.style.opacity = "1")}>
+              <Mail style={{ width: "16px", height: "16px" }} />
+              {t ? "Escribirnos" : "Write to us"}
+            </a>
+            <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "24px", marginTop: "40px", paddingTop: "32px", borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+              {socialLinks.map(link => (
+                <a key={link.name} href={link.url} target="_blank" rel="noopener noreferrer"
+                  style={{ fontSize: "13px", fontWeight: 600, color: "rgba(255,255,255,0.3)", textDecoration: "none", transition: "color 0.15s" }}
+                  onMouseEnter={e => (e.currentTarget.style.color = "rgba(255,255,255,0.8)")}
+                  onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.3)")}>
+                  {link.name}
+                </a>
+              ))}
             </div>
           </div>
         </Reveal>
