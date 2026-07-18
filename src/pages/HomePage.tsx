@@ -60,6 +60,10 @@ function HeroSection() {
       {/* SVG illustration — Translate / language — faint behind hero text */}
       <img src="/Translate-Streamline.svg" alt="" aria-hidden="true"
         style={{ position: "absolute", left: "0px", bottom: "0px", width: "280px", opacity: 0.035, pointerEvents: "none", userSelect: "none" }} />
+      {/* Lets-Start illustration — faint, bottom-left energizer */}
+      <img src="/Lets-Start-1--Streamline-Barcelona.png" alt="" aria-hidden="true"
+        draggable={false} onContextMenu={e => e.preventDefault()} onDragStart={e => e.preventDefault()}
+        style={{ position: "absolute", left: "2%", top: "15%", height: "180px", width: "auto", opacity: 0.07, pointerEvents: "none", userSelect: "none", filter: "brightness(3) saturate(0)" }} />
 
       {/* Warm glow behind owl */}
       <div style={{ position: "absolute", right: "-80px", top: "50%", transform: "translateY(-50%)", width: "600px", height: "600px", borderRadius: "50%", background: "radial-gradient(circle, rgba(132,204,22,0.12) 0%, rgba(132,204,22,0.04) 40%, transparent 70%)", pointerEvents: "none" }} />
@@ -182,6 +186,10 @@ function CoursesSection() {
   const t = lang === "es";
   return (
     <section id="cursos" style={{ background: "#EEF1F9", paddingTop: "80px", paddingBottom: "80px", position: "relative", overflow: "hidden" }}>
+      {/* Ride illustration — bottom right energizer */}
+      <img src="/Ride-E-Scooter-1--Streamline-Barcelona.png" alt="" aria-hidden="true"
+        draggable={false} onContextMenu={e => e.preventDefault()} onDragStart={e => e.preventDefault()}
+        style={{ position: "absolute", right: "0", bottom: "0", height: "220px", width: "auto", opacity: 0.1, pointerEvents: "none", userSelect: "none", filter: "saturate(0.3)" }} />
       {/* Watermark — "GRATIS" typographic flourish */}
       <div aria-hidden="true" style={{
         position: "absolute", top: "50%", left: "50%",
@@ -600,6 +608,12 @@ function TestimonialsSection() {
     <section style={{ background: "#EEF1F9", padding: "80px 0", position: "relative", overflow: "hidden" }} id="comentarios">
       <img src="/FacetimeMeeting-Streamline.svg" alt="" aria-hidden="true"
         style={{ position: "absolute", right: "-20px", top: "30px", width: "240px", opacity: 0.05, pointerEvents: "none", userSelect: "none" }} />
+      <img src="/Team-Success-1--Streamline-Barcelona.png" alt="" aria-hidden="true"
+        draggable={false} onContextMenu={e => e.preventDefault()} onDragStart={e => e.preventDefault()}
+        style={{ position: "absolute", right: "2%", bottom: 0, height: "55%", width: "auto", opacity: 0.08, pointerEvents: "none", userSelect: "none", filter: "saturate(0)" }} />
+      <img src="/Digital-Nomad-Working-In-Airport-2--Streamline-Barcelona.png" alt="" aria-hidden="true"
+        draggable={false} onContextMenu={e => e.preventDefault()} onDragStart={e => e.preventDefault()}
+        style={{ position: "absolute", left: "0", bottom: "0", height: "55%", width: "auto", opacity: 0.07, pointerEvents: "none", userSelect: "none", filter: "saturate(0)" }} />
       <div className="container-page" style={{ position: "relative", zIndex: 1 }}>
         <Reveal>
           <div style={{ marginBottom: "48px" }}>
@@ -689,6 +703,9 @@ function ContactSection() {
       <div style={{ position: "absolute", left: "50%", top: "50%", transform: "translate(-50%,-50%)", width: "600px", height: "400px", borderRadius: "50%", background: "radial-gradient(circle, rgba(132,204,22,0.08) 0%, transparent 70%)", pointerEvents: "none" }} />
       <img src="/OnlineLearning-Streamline.svg" alt="" aria-hidden="true"
         style={{ position: "absolute", right: "-20px", bottom: "-20px", width: "280px", opacity: 0.04, pointerEvents: "none", userSelect: "none" }} />
+      <img src="/Becoming-Rich-1--Streamline-Barcelona.png" alt="" aria-hidden="true"
+        draggable={false} onContextMenu={e => e.preventDefault()} onDragStart={e => e.preventDefault()}
+        style={{ position: "absolute", left: "3%", bottom: 0, height: "70%", width: "auto", opacity: 0.09, pointerEvents: "none", userSelect: "none", filter: "brightness(2) saturate(0)" }} />
       <div className="container-page" style={{ position: "relative", zIndex: 1, textAlign: "center" }}>
         <Reveal>
           <div style={{ maxWidth: "560px", margin: "0 auto" }}>
