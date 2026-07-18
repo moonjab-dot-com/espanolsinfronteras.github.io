@@ -622,7 +622,7 @@ export default function OportunidadesPage() {
               )}
             </div>
 
-            <div className="grid grid-cols-4 sm:grid-cols-7 gap-3">
+            <div className="grid grid-cols-3 sm:grid-cols-7 gap-3">
               {CATS.map(cat => (
                 <CatCard
                   key={cat.value}

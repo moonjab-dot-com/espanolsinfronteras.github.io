@@ -70,7 +70,7 @@ export default function BlogPostPage() {
 
       {/* ── Content ── */}
       <div className="container-page" style={{ paddingTop: "48px", paddingBottom: "64px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr min(300px, 100%)", gap: "40px", alignItems: "start" }} className="grid-opp-detail">
+        <div className="grid-opp-detail">
 
           {/* Article body */}
           <article
