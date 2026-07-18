@@ -169,7 +169,6 @@ const CATS: {
   { value: "liderazgo",    icon: <Rocket className="w-5 h-5" />,        labelEs: "Liderazgo",   labelEn: "Leadership",   color: "#5b21b6", bg: "#ede9fe", darkBg: "#3b1f6e" },
   { value: "competencias", icon: <Trophy className="w-5 h-5" />,        labelEs: "Olimpiadas",  labelEn: "Olympiads",    color: "#92400e", bg: "#fef3c7", darkBg: "#4a2006" },
   { value: "mun",          icon: <Globe className="w-5 h-5" />,         labelEs: "MUN",         labelEn: "MUN",          color: "#0f766e", bg: "#ccfbf1", darkBg: "#0f3d38" },
-  { value: "mentoria",     icon: <Lightbulb className="w-5 h-5" />,     labelEs: "Mentoría",    labelEn: "Mentoring",    color: "#14532d", bg: "#dcfce7", darkBg: "#0a2e18" },
   { value: "tech",         icon: <Code className="w-5 h-5" />,          labelEs: "Tecnología",  labelEn: "Technology",   color: "#9f1239", bg: "#fce7f3", darkBg: "#4a0a21" },
 ];
 
@@ -178,7 +177,6 @@ const CAT_GRADIENT: Record<Exclude<Category, "all">, string> = {
   liderazgo:    "from-violet-500 to-purple-700",
   competencias: "from-amber-400 to-orange-500",
   mun:          "from-teal-500 to-cyan-600",
-  mentoria:     "from-emerald-500 to-green-600",
   tech:         "from-rose-500 to-pink-600",
 };
 
@@ -186,8 +184,8 @@ const CAT_GRADIENT: Record<Exclude<Category, "all">, string> = {
 
 function Marquee({ lang }: { lang: "es" | "en" }) {
   const labels = lang === "es"
-    ? ["Becas", "Olimpiadas", "Liderazgo", "MUN", "Mentoría", "Tecnología", "Yale", "PRONABEC", "Google", "PUCP", "Fulbright", "OEA", "Santander", "Lima MUN"]
-    : ["Scholarships", "Olympiads", "Leadership", "MUN", "Mentoring", "Technology", "Yale", "PRONABEC", "Google", "PUCP", "Fulbright", "OAS", "Santander", "Lima MUN"];
+    ? ["Becas", "Olimpiadas", "Liderazgo", "MUN", "Tecnología", "Yale", "PRONABEC", "Google", "PUCP", "Fulbright", "OEA", "Santander", "Harvard", "Oxford", "IMO", "UWC"]
+    : ["Scholarships", "Olympiads", "Leadership", "MUN", "Technology", "Yale", "PRONABEC", "Google", "PUCP", "Fulbright", "OAS", "Santander", "Harvard", "Oxford", "IMO", "UWC"];
   const icons = [GraduationCap, Trophy, Rocket, Globe, Lightbulb, Code, Star, Award, TrendingUp, Handshake, BookOpen, Globe, Rocket, Globe];
   const doubled = [...labels, ...labels];
 
@@ -240,7 +238,7 @@ function matchOpps(a: Record<string, string>): Opportunity[] {
     if (a.goal === "beca"          && opp.category === "becas")                                   s += 4;
     if (a.goal === "competencia"   && opp.category === "competencias")                            s += 4;
     if (a.goal === "networking"    && (opp.category === "liderazgo" || opp.category === "mun"))   s += 4;
-    if (a.goal === "mentoria"      && opp.category === "mentoria")                                s += 4;
+    if (a.goal === "mentoria"      && opp.category === "liderazgo")                              s += 4;
     if (a.english === "basic"      && opp.lang === "es")                                          s += 2;
     if (a.english === "intermediate" && (opp.lang === "es" || opp.lang === "both"))               s += 2;
     if (a.english === "advanced")                                                                  s += 1;
@@ -562,6 +560,20 @@ export default function OportunidadesPage() {
               <MapPin className="w-3 h-3" />
               {t ? "Oportunidades para peruanos" : "Opportunities for Peruvians"}
             </span>
+          </div>
+
+          {/* Floating illustration */}
+          <div className="hidden md:flex justify-center mb-4">
+            <img
+              src="/Success-2--Streamline-Barcelona.png"
+              alt=""
+              aria-hidden="true"
+              draggable={false}
+              onContextMenu={e => e.preventDefault()}
+              onDragStart={e => e.preventDefault()}
+              style={{ height: "140px", width: "auto", objectFit: "contain", filter: "drop-shadow(0 10px 24px rgba(132,204,22,0.2))", userSelect: "none" }}
+              loading="eager"
+            />
           </div>
 
           {/* Headline */}

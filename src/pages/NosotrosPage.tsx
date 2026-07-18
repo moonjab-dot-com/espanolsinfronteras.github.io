@@ -125,49 +125,72 @@ export default function NosotrosPage() {
       </section>
 
       {/* ── HISTORIA ─────────────────────────────────────────────────────────── */}
-      <section style={{ background: "#fff", padding: "80px 0", position: "relative", overflow: "hidden" }} id="historia">
-        {/* Faint typographic watermark */}
-        <div aria-hidden="true" style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%) rotate(-10deg)", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "clamp(100px,16vw,200px)", color: "rgba(132,204,22,0.03)", whiteSpace: "nowrap", userSelect: "none", pointerEvents: "none", zIndex: 0 }}>
-          {t ? "HISTORIA" : "STORY"}
-        </div>
+      <section style={{ background: "#080D1C", padding: "80px 0", position: "relative", overflow: "hidden" }} id="historia">
+        {/* Dot grid */}
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px)", backgroundSize: "28px 28px", pointerEvents: "none" }} />
+        {/* Lime accent blob */}
+        <div style={{ position: "absolute", top: "-100px", right: "-100px", width: "500px", height: "500px", borderRadius: "50%", background: "radial-gradient(circle, rgba(132,204,22,0.08) 0%, transparent 70%)", pointerEvents: "none" }} />
+
         <div className="container-page" style={{ position: "relative", zIndex: 1 }}>
-          <Reveal>
-            <div style={{ marginBottom: "48px" }}>
-              <Eyebrow icon={Heart}>{t ? "La historia" : "The story"}</Eyebrow>
-              <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 700, color: "#0f172a", lineHeight: 1.1, letterSpacing: "-0.02em", maxWidth: "520px" }}>
-                {t ? "La historia detrás de ESF" : "The story behind ESF"}
-              </h2>
-            </div>
-          </Reveal>
+          {/* Two-column layout: content + illustration */}
+          <div className="grid-opp-detail" style={{ gridTemplateColumns: "1fr auto", gap: "64px", alignItems: "center" }}>
 
-          {/* Founder quote — neo-brutalist */}
-          <Reveal delay={80}>
-            <div style={{ maxWidth: "700px", marginBottom: "40px", padding: "32px 36px", background: "#fffbeb", border: "2px solid #f59e0b", borderRadius: "20px", boxShadow: "6px 6px 0 #f59e0b", position: "relative" }}>
-              <Quote style={{ position: "absolute", top: "20px", left: "24px", width: "28px", height: "28px", color: "#f59e0b", opacity: 0.5 }} />
-              <blockquote style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.2rem, 2.5vw, 1.6rem)", fontWeight: 700, color: "#0f172a", lineHeight: 1.4, paddingLeft: "8px" }}>
-                {t ? '"Nadie debería quedarse sin estudiar por falta de tiempo o dinero."' : '"No one should miss out on education due to lack of time or money."'}
-              </blockquote>
-              <p style={{ marginTop: "16px", fontSize: "13px", fontWeight: 700, color: "#92400e" }}>— Salvador B., {t ? "Fundador" : "Founder"}</p>
-            </div>
-          </Reveal>
+            {/* Left: story content */}
+            <div style={{ minWidth: 0 }}>
+              <Reveal>
+                <Eyebrow icon={Heart}>{t ? "La historia" : "The story"}</Eyebrow>
+                <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2.2rem, 4.5vw, 3.5rem)", fontWeight: 700, color: "#fff", lineHeight: 1.0, letterSpacing: "-0.03em", marginBottom: "32px" }}>
+                  {t ? <>La historia<br /><span style={{ color: "#84cc16" }}>detrás de ESF</span></> : <>The story<br /><span style={{ color: "#84cc16" }}>behind ESF</span></>}
+                </h2>
+              </Reveal>
 
-          {/* Story cards 2×2 */}
-          <div className="grid grid-cols-1 sm:grid-cols-2" style={{ gap: "16px", maxWidth: "720px" }}>
-            {[
-              { icon: Lightbulb, accent: "#3b82f6", textEs: <>Nació con una idea clara: aprender no debería depender del <strong>dinero</strong> ni de las circunstancias.</>, textEn: <>Born from one clear idea: learning shouldn't depend on <strong>money</strong> or circumstances.</> },
-              { icon: Rocket,    accent: "#10b981", textEs: <>En 2024, Salvador convirtió esa idea en una plataforma 100% gratuita con más de <strong>277 capítulos</strong> prácticos.</>, textEn: <>In 2024, Salvador turned that idea into a 100% free platform with over <strong>277 practical chapters</strong>.</> },
-              { icon: Globe,     accent: "#8b5cf6", textEs: <>Hoy llega a estudiantes en más de <strong>72 países</strong>, demostrando que las ganas de aprender no tienen fronteras.</>, textEn: <>Today it reaches students in over <strong>72 countries</strong>, proving that the will to learn has no borders.</> },
-              { icon: Backpack,  accent: "#f59e0b", textEs: <>Fuera de la pantalla, se han donado más de <strong>1,471 libros</strong> y útiles escolares en Lima.</>, textEn: <>Beyond the screen, over <strong>1,471 books</strong> and school supplies donated in Lima.</> },
-            ].map((card, i) => (
-              <Reveal key={i} delay={i * 80}>
-                <div style={{ padding: "24px", background: "#fff", border: `2px solid ${card.accent}`, borderRadius: "16px", boxShadow: `4px 4px 0 ${card.accent}`, display: "flex", alignItems: "flex-start", gap: "14px", transition: "transform 0.15s, box-shadow 0.15s" }}
-                  onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translate(-2px,-2px)"; el.style.boxShadow = `6px 6px 0 ${card.accent}`; }}
-                  onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "none"; el.style.boxShadow = `4px 4px 0 ${card.accent}`; }}>
-                  <card.icon style={{ width: "22px", height: "22px", color: card.accent, flexShrink: 0, marginTop: "2px" }} />
-                  <p style={{ fontSize: "14px", color: "#374151", lineHeight: 1.7, fontWeight: 500 }}>{t ? card.textEs : card.textEn}</p>
+              {/* Founder quote — brutalist dark */}
+              <Reveal delay={60}>
+                <div style={{ marginBottom: "36px", padding: "28px 32px", background: "rgba(132,204,22,0.06)", border: "2px solid #84cc16", borderRadius: "16px", boxShadow: "6px 6px 0 #84cc16", position: "relative" }}>
+                  <Quote style={{ position: "absolute", top: "18px", left: "20px", width: "24px", height: "24px", color: "#84cc16", opacity: 0.4 }} />
+                  <blockquote style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.1rem, 2.2vw, 1.5rem)", fontWeight: 700, color: "#fff", lineHeight: 1.4, paddingLeft: "4px" }}>
+                    {t ? '"Nadie debería quedarse sin estudiar por falta de tiempo o dinero."' : '"No one should miss out on education due to lack of time or money."'}
+                  </blockquote>
+                  <p style={{ marginTop: "14px", fontSize: "12px", fontWeight: 700, color: "#84cc16", letterSpacing: "0.08em" }}>— SALVADOR B., {t ? "FUNDADOR" : "FOUNDER"}</p>
                 </div>
               </Reveal>
-            ))}
+
+              {/* Timeline cards */}
+              <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                {[
+                  { icon: Lightbulb, accent: "#3b82f6", num: "01", textEs: <>Una idea clara: aprender no debería depender del <strong style={{ color: "#fff" }}>dinero</strong> ni de las circunstancias.</>, textEn: <>One clear idea: learning shouldn't depend on <strong style={{ color: "#fff" }}>money</strong> or circumstances.</> },
+                  { icon: Rocket,    accent: "#84cc16", num: "02", textEs: <>En 2024, esa idea se convirtió en una plataforma con más de <strong style={{ color: "#fff" }}>277 capítulos</strong> 100% gratuitos.</>, textEn: <>In 2024, that idea became a platform with over <strong style={{ color: "#fff" }}>277 chapters</strong>, 100% free.</> },
+                  { icon: Globe,     accent: "#8b5cf6", num: "03", textEs: <>Llega a estudiantes en más de <strong style={{ color: "#fff" }}>72 países</strong>. El conocimiento no tiene fronteras.</>, textEn: <>Reaches students in over <strong style={{ color: "#fff" }}>72 countries</strong>. Knowledge knows no borders.</> },
+                  { icon: Backpack,  accent: "#f59e0b", num: "04", textEs: <>Más allá de lo digital: <strong style={{ color: "#fff" }}>1,471+ libros</strong> y útiles donados en Lima.</>, textEn: <>Beyond digital: <strong style={{ color: "#fff" }}>1,471+ books</strong> and supplies donated in Lima.</> },
+                ].map((card, i) => (
+                  <Reveal key={i} delay={i * 70}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "16px", padding: "18px 22px", background: "rgba(255,255,255,0.04)", border: `2px solid ${card.accent}22`, borderRadius: "14px", boxShadow: `3px 3px 0 ${card.accent}33`, transition: "transform 0.15s, box-shadow 0.15s, border-color 0.15s" }}
+                      onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translate(-2px,-2px)"; el.style.boxShadow = `5px 5px 0 ${card.accent}66`; el.style.borderColor = `${card.accent}55`; }}
+                      onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "none"; el.style.boxShadow = `3px 3px 0 ${card.accent}33`; el.style.borderColor = `${card.accent}22`; }}>
+                      <div style={{ flexShrink: 0, width: "40px", height: "40px", borderRadius: "12px", background: `${card.accent}18`, border: `1.5px solid ${card.accent}44`, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                        <card.icon style={{ width: "18px", height: "18px", color: card.accent }} />
+                      </div>
+                      <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.65)", lineHeight: 1.6, fontWeight: 500 }}>{t ? card.textEs : card.textEn}</p>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: illustration */}
+            <div className="hidden lg:block" style={{ width: "340px", flexShrink: 0, position: "relative" }}>
+              {/* Glow behind illustration */}
+              <div style={{ position: "absolute", inset: "20%", borderRadius: "50%", background: "radial-gradient(circle, rgba(132,204,22,0.12) 0%, transparent 70%)", filter: "blur(30px)", pointerEvents: "none" }} />
+              <img
+                src="/About-Our-Team-1--Streamline-Barcelona.png"
+                alt={t ? "El equipo de Español Sin Fronteras" : "The Español Sin Fronteras team"}
+                draggable={false}
+                onContextMenu={e => e.preventDefault()}
+                onDragStart={e => e.preventDefault()}
+                style={{ width: "100%", height: "auto", objectFit: "contain", position: "relative", zIndex: 1, filter: "drop-shadow(0 20px 40px rgba(132,204,22,0.15))" }}
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </section>

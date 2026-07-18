@@ -20,6 +20,9 @@ export default function BlogPage() {
       <section style={{ background: "#080D1C", padding: "64px 0 56px", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px)", backgroundSize: "28px 28px", pointerEvents: "none" }} />
         <div style={{ position: "absolute", left: "50%", top: "50%", transform: "translate(-50%,-50%)", width: "500px", height: "300px", borderRadius: "50%", background: "radial-gradient(circle, rgba(132,204,22,0.07) 0%, transparent 70%)", pointerEvents: "none" }} />
+        <img src="/Digital-Nomad-Work-Beach-2--Streamline-Barcelona.png" alt="" aria-hidden="true"
+          draggable={false}
+          style={{ position: "absolute", right: "4%", bottom: 0, height: "90%", width: "auto", objectFit: "contain", opacity: 0.13, pointerEvents: "none", userSelect: "none", filter: "brightness(2) saturate(0)" }} />
         <div className="container-page" style={{ position: "relative", zIndex: 1 }}>
           <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "6px 16px", borderRadius: "99px", background: "rgba(132,204,22,0.1)", border: "1px solid rgba(132,204,22,0.25)", marginBottom: "20px" }}>
             <BookOpen style={{ width: "13px", height: "13px", color: "#84cc16" }} />

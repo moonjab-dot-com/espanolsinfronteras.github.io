@@ -198,7 +198,7 @@ function CoursesSection() {
       <div className="container-page" style={{ position: "relative", zIndex: 1 }}>
         <Reveal>
           {/* Left-aligned header — breaks the "everything centered" pattern */}
-          <div className="mb-12 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+          <div className="mb-12 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
             <div>
               <p className="section-eyebrow"><BookOpen className="w-3.5 h-3.5" />{t ? "Cursos gratuitos" : "Free courses"}</p>
               <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-2">
@@ -208,8 +208,17 @@ function CoursesSection() {
                 {t ? "12 materias · 277+ capítulos · Sin registro" : "12 subjects · 277+ chapters · No sign-up"}
               </p>
             </div>
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-50 border-2 border-emerald-200 text-emerald-700 text-sm font-bold shrink-0 self-start sm:self-auto">
-              <Sparkles className="w-4 h-4" />{t ? "Empieza ya" : "Start now"}
+            <div className="hidden md:flex items-center gap-5">
+              <img
+                src="/Online-Learning-1--Streamline-Barcelona.png"
+                alt=""
+                aria-hidden="true"
+                draggable={false}
+                onContextMenu={e => e.preventDefault()}
+                onDragStart={e => e.preventDefault()}
+                style={{ height: "120px", width: "auto", objectFit: "contain", opacity: 0.92, filter: "drop-shadow(0 8px 20px rgba(34,87,122,0.18))", userSelect: "none" }}
+                loading="lazy"
+              />
             </div>
           </div>
         </Reveal>
@@ -361,6 +370,12 @@ function OpportunitiesTeaser() {
       {/* Background SVG illustration — faint */}
       <img src="/Advertising-Streamline.svg" alt="" aria-hidden="true"
         style={{ position: "absolute", right: "-40px", top: "20px", width: "340px", opacity: 0.04, pointerEvents: "none", userSelect: "none" }} />
+      {/* Floating illustration — Get Job Promotion */}
+      <img src="/Get-Job-Promotion-1--Streamline-Barcelona.png" alt="" aria-hidden="true"
+        draggable={false}
+        onContextMenu={e => e.preventDefault()}
+        onDragStart={e => e.preventDefault()}
+        style={{ position: "absolute", right: "5%", bottom: "120px", height: "200px", width: "auto", opacity: 0.12, pointerEvents: "none", userSelect: "none", filter: "brightness(2) saturate(0)" }} />
 
       <div className="container-page" style={{ position: "relative", zIndex: 1 }}>
 
