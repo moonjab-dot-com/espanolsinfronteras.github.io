@@ -7,8 +7,8 @@
 @tailwind utilities;
 
 /* ─── Selection color — ESF lime ────────────────────────────────────────────── */
-::selection        { background: rgba(132, 204, 22, 0.28); color: #0f172a; }
-::-moz-selection   { background: rgba(132, 204, 22, 0.28); color: #0f172a; }
+::selection        { background: #84cc16 !important; color: #0f172a !important; }
+::-moz-selection   { background: #84cc16 !important; color: #0f172a !important; }
 
 /* ─── Responsive grid utilities ─────────────────────────────────────────────── */
 .grid-impact {
