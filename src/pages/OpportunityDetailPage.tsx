@@ -110,7 +110,7 @@ export default function OpportunityDetailPage() {
 
       {/* ── Content ───────────────────────────────────────────── */}
       <div className="container-page" style={{ paddingTop: "48px", paddingBottom: "80px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr min(320px, 100%)", gap: "32px", alignItems: "start" }}>
+        <div className="grid-opp-detail">
 
           {/* ── Main column ────────────────────────────── */}
           <div style={{ display: "flex", flexDirection: "column", gap: "28px", minWidth: 0 }}>

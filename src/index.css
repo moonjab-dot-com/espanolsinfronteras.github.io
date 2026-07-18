@@ -29,6 +29,21 @@
 @media (min-width: 640px) and (max-width: 768px) {
   .grid-opp-cards { grid-template-columns: repeat(2, 1fr); }
 }
+/* Opportunity detail: main + sidebar, stacks on mobile */
+.grid-opp-detail {
+  display: grid;
+  grid-template-columns: 1fr min(320px, 100%);
+  gap: 32px;
+  align-items: start;
+}
+@media (max-width: 768px) {
+  .grid-opp-detail {
+    grid-template-columns: 1fr;
+  }
+  .grid-opp-detail > *:last-child {
+    position: static !important;
+  }
+}
 .grid-tutores {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
