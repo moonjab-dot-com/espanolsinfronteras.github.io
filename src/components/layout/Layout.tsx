@@ -18,6 +18,7 @@ const NAV_ITEMS: NavItem[] = [
   { href: "/#cursos",       labelEs: "Cursos",        labelEn: "Courses"       },
   { href: "/oportunidades", labelEs: "Oportunidades", labelEn: "Opportunities" },
   { href: "/nosotros",      labelEs: "Nosotros",      labelEn: "About"         },
+  { href: "/blog",          labelEs: "Blog",           labelEn: "Blog"          },
   { href: "/#contacto",     labelEs: "Contacto",      labelEn: "Contact"       },
 ];
 

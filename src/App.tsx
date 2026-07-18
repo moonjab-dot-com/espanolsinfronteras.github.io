@@ -13,6 +13,8 @@ const CoursePage            = lazy(() => import("@/pages/CoursePage"));
 const OportunidadesPage     = lazy(() => import("@/pages/OportunidadesPage"));
 const OpportunityDetailPage = lazy(() => import("@/pages/OpportunityDetailPage"));
 const NosotrosPage          = lazy(() => import("@/pages/NosotrosPage"));
+const BlogPage              = lazy(() => import("@/pages/BlogPage"));
+const BlogPostPage          = lazy(() => import("@/pages/BlogPostPage"));
 const NotFound              = lazy(() => import("@/pages/NotFound"));
 
 // ─── Query Client ─────────────────────────────────────────────────────────────
@@ -44,6 +46,8 @@ const App = () => (
                 <Route path="/oportunidades"          element={<OportunidadesPage />} />
                 <Route path="/oportunidades/:id"      element={<OpportunityDetailPage />} />
                 <Route path="/nosotros"               element={<NosotrosPage />} />
+                <Route path="/blog"                   element={<BlogPage />} />
+                <Route path="/blog/:slug"             element={<BlogPostPage />} />
                 <Route path="*"             element={<NotFound />} />
               </Routes>
             </Suspense>

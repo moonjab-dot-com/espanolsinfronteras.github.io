@@ -44,6 +44,17 @@
     position: static !important;
   }
 }
+
+/* ─── Blog article typography ─────────────────────────────────────────────── */
+.blog-content h2 { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; color: #0f172a; margin: 2rem 0 0.75rem; letter-spacing: -0.01em; line-height: 1.25; }
+.blog-content h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: #22577a; margin: 1.5rem 0 0.5rem; }
+.blog-content p  { margin: 0 0 1rem; color: #374151; font-size: 15px; }
+.blog-content ul, .blog-content ol { padding-left: 1.4rem; margin: 0 0 1rem; color: #374151; font-size: 15px; }
+.blog-content li { margin-bottom: 0.4rem; }
+.blog-content strong { color: #0f172a; font-weight: 700; }
+.blog-content a { color: #22577a; font-weight: 600; text-decoration: underline; text-decoration-color: rgba(34,87,122,0.3); text-underline-offset: 3px; }
+.blog-content a:hover { color: #84cc16; text-decoration-color: #84cc16; }
+
 .grid-tutores {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
