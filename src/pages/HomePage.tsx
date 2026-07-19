@@ -723,9 +723,46 @@ function ContactSection() {
             <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.45)", lineHeight: 1.7, maxWidth: "380px", margin: "0 auto 36px" }}>
               {t ? "¿Tienes preguntas, sugerencias o quieres colaborar? Nos encantaría escucharte." : "Have questions, suggestions, or want to collaborate? We'd love to hear from you."}
             </p>
+            {/* Email capture form */}
+            <form
+              action="https://formsubmit.co/espanolsinfronteras1@gmail.com"
+              method="POST"
+              style={{ marginBottom: "24px" }}
+            >
+              <input type="hidden" name="_subject" value="Nueva suscripción ESF — avísame de oportunidades" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.5)", marginBottom: "12px" }}>
+                {t ? "Recibe nuevas oportunidades directamente en tu correo:" : "Get new opportunities directly in your inbox:"}
+              </p>
+              <div style={{ display: "flex", gap: "8px", maxWidth: "400px", margin: "0 auto" }}>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder={t ? "Tu correo electrónico" : "Your email address"}
+                  style={{
+                    flex: 1, padding: "12px 16px", borderRadius: "10px",
+                    border: "1.5px solid rgba(132,204,22,0.3)", background: "rgba(255,255,255,0.06)",
+                    color: "#fff", fontSize: "14px", outline: "none",
+                  }}
+                  onFocus={e => (e.currentTarget.style.borderColor = "#84cc16")}
+                  onBlur={e => (e.currentTarget.style.borderColor = "rgba(132,204,22,0.3)")}
+                />
+                <button
+                  type="submit"
+                  style={{ padding: "12px 20px", background: "#84cc16", color: "#080D1C", fontSize: "13px", fontWeight: 800, borderRadius: "10px", border: "none", cursor: "pointer", whiteSpace: "nowrap" as const, transition: "opacity 0.15s" }}
+                  onMouseEnter={e => (e.currentTarget.style.opacity = "0.9")}
+                  onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
+                >
+                  {t ? "Suscribirme" : "Subscribe"}
+                </button>
+              </div>
+            </form>
+
             <a href="mailto:espanolsinfronteras1@gmail.com"
-              style={{ display: "inline-flex", alignItems: "center", gap: "10px", padding: "16px 36px", background: "#84cc16", color: "#080D1C", fontSize: "15px", fontWeight: 800, borderRadius: "12px", textDecoration: "none", letterSpacing: "0.03em", transition: "opacity 0.15s" }}
-              onMouseEnter={e => (e.currentTarget.style.opacity = "0.9")}
+              style={{ display: "inline-flex", alignItems: "center", gap: "10px", padding: "16px 36px", background: "rgba(255,255,255,0.07)", color: "rgba(255,255,255,0.7)", fontSize: "15px", fontWeight: 700, borderRadius: "12px", textDecoration: "none", letterSpacing: "0.03em", transition: "opacity 0.15s", border: "1.5px solid rgba(255,255,255,0.1)" }}
+              onMouseEnter={e => (e.currentTarget.style.opacity = "0.8")}
               onMouseLeave={e => (e.currentTarget.style.opacity = "1")}>
               <Mail style={{ width: "16px", height: "16px" }} />
               {t ? "Escribirnos" : "Write to us"}

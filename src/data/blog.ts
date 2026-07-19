@@ -475,4 +475,325 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Find more information in our <a href="/oportunidades">verified opportunities section</a>.</p>
     `,
   },
+  {
+    slug: "olimpiada-matematica-peru-2026",
+    titleEs: "Olimpiada de Matemática Perú 2026: cómo participar, fechas y requisitos",
+    titleEn: "Math Olympiad Peru 2026: how to participate, dates and requirements",
+    excerptEs: "Todo lo que necesitas saber sobre la Olimpiada de Matemática del Perú 2026: etapas, fechas, requisitos y cómo prepararte para competir a nivel nacional e internacional.",
+    excerptEn: "Everything you need to know about the Peru Math Olympiad 2026: stages, dates, requirements and how to prepare to compete nationally and internationally.",
+    category: "Competencias",
+    categoryColor: "#f59e0b",
+    readingMinutes: 6,
+    publishedAt: "2026-07-15",
+    tags: ["olimpiada", "matemática", "perú", "competencia", "IMO", "escolar"],
+    contentEs: `
+<p>La Olimpiada de Matemática es una de las competencias más prestigiosas para estudiantes de secundaria en el Perú. Si te gusta la matemática o sabes de alguien con talento en esta área, aquí está todo lo que necesitas saber para participar en 2026.</p>
+
+<h2>¿Qué es la Olimpiada de Matemática del Perú?</h2>
+<p>La Olimpiada Nacional de Matemática (ONMEP) es organizada por la Sociedad Matemática Peruana. Es el proceso de selección oficial para representar al Perú en la Olimpiada Internacional de Matemática (IMO), la competencia más importante del mundo en esta área. Participan estudiantes de secundaria de todo el país.</p>
+
+<h2>¿Quién puede participar?</h2>
+<ul>
+<li>Estudiantes matriculados en colegios peruanos (públicos o privados)</li>
+<li>Cualquier grado de secundaria (1ro a 5to)</li>
+<li>Sin límite de edad específico, pero menores de 20 años para la fase internacional</li>
+<li>Participación gratuita en la fase escolar</li>
+</ul>
+
+<h2>Etapas de la competencia</h2>
+
+<h3>Fase 1 — Nivel escolar</h3>
+<p>La competencia comienza en cada colegio. Los mejores estudiantes de cada institución avanzan a la siguiente etapa. Las fechas varían, pero generalmente es en el primer trimestre del año escolar.</p>
+
+<h3>Fase 2 — Nivel distrital y provincial</h3>
+<p>Los ganadores escolares compiten a nivel distrital. Los mejores pasan a la fase provincial.</p>
+
+<h3>Fase 3 — Nivel regional</h3>
+<p>Competencia entre los mejores de cada provincia dentro de cada región del Perú.</p>
+
+<h3>Fase 4 — Nivel nacional (ONMEP)</h3>
+<p>Los mejores de cada región se reúnen en Lima para la olimpiada nacional. De aquí salen los representantes del Perú para la IMO.</p>
+
+<h3>Fase 5 — IMO (Internacional)</h3>
+<p>La Olimpiada Internacional de Matemática es el nivel máximo. Perú participa cada año y ha obtenido medallas. Para el IMO 2026, la convocatoria nacional es en los primeros meses del año.</p>
+
+<h2>¿Cómo prepararse?</h2>
+
+<h3>Recursos gratuitos para empezar</h3>
+<ul>
+<li><strong>AoPS (Art of Problem Solving)</strong> — artofproblemsolving.com — la mayor comunidad de olimpiadas matemáticas del mundo, con problemas y soluciones de todas las competencias internacionales</li>
+<li><strong>Problemas de IMO anteriores</strong> — imo-official.org — todos los problemas desde 1959 disponibles gratuitamente</li>
+<li><strong>Libros clásicos:</strong> "Combinatorics" de Vilenkin, "Geometry Revisited" de Coxeter, "Problems in Combinatorics" de Shkliarsky</li>
+</ul>
+
+<h3>Temas que debes dominar</h3>
+<ul>
+<li><strong>Álgebra:</strong> Desigualdades, polinomios, sucesiones y series</li>
+<li><strong>Geometría:</strong> Geometría euclidiana clásica, circunferencias, triángulos</li>
+<li><strong>Teoría de números:</strong> Divisibilidad, congruencias, números primos</li>
+<li><strong>Combinatoria:</strong> Conteo, grafos, principios de conteo</li>
+</ul>
+
+<h3>Rutina recomendada</h3>
+<p>Los estudiantes que llegan a nivel nacional dedican entre 1 y 2 horas diarias a resolver problemas de olimpiada. La clave no es memorizar fórmulas sino desarrollar la habilidad de pensar creativamente ante problemas nuevos.</p>
+
+<h2>Otras olimpiadas de matemática para peruanos</h2>
+<ul>
+<li><strong>OIPM</strong> — Olimpiada Iberoamericana de Matemática</li>
+<li><strong>Canguro Matemático</strong> — competencia internacional accesible para todos los niveles</li>
+<li><strong>AMC/AIME</strong> — competencias americanas reconocidas internacionalmente</li>
+<li><strong>TJM</strong> — Torneo Junior de Matemática (disponible en nuestra sección de <a href="/oportunidades">oportunidades</a>)</li>
+</ul>
+
+<h2>¿Qué beneficios tiene participar?</h2>
+<p>Más allá de los premios, participar en olimpiadas matemáticas mejora radicalmente tu capacidad de razonamiento lógico, te distingue en postulaciones universitarias y becas internacionales, y te conecta con una comunidad de estudiantes con habilidades similares. Muchos becarios de Fulbright, YYGS y programas similares tienen historia en olimpiadas.</p>
+
+<p>Puedes ver más competencias disponibles para peruanos en nuestra sección de <a href="/oportunidades">oportunidades verificadas</a>.</p>
+    `,
+    contentEn: `
+<p>The Math Olympiad is one of the most prestigious competitions for high school students in Peru. Here's everything you need to know to participate in 2026.</p>
+
+<h2>What is it?</h2>
+<p>The National Math Olympiad (ONMEP) is organized by the Peruvian Mathematical Society. It is the official selection process to represent Peru at the International Mathematical Olympiad (IMO).</p>
+
+<h2>Stages</h2>
+<ol>
+<li>School level — best students advance</li>
+<li>District and provincial level</li>
+<li>Regional level</li>
+<li>National level (ONMEP) — top students from each region compete in Lima</li>
+<li>IMO — international competition, Peru participates every year</li>
+</ol>
+
+<h2>Free preparation resources</h2>
+<ul>
+<li>Art of Problem Solving (artofproblemsolving.com) — largest olympiad math community</li>
+<li>IMO official website (imo-official.org) — all problems since 1959, free</li>
+</ul>
+
+<p>See more competitions for Peruvians in our <a href="/oportunidades">verified opportunities section</a>.</p>
+    `,
+  },
+  {
+    slug: "beca-18-2026-requisitos-como-postular",
+    titleEs: "Beca 18 en 2026: requisitos, fechas y cómo postular paso a paso",
+    titleEn: "Beca 18 in 2026: requirements, dates, and how to apply step by step",
+    excerptEs: "Guía completa para postular a Beca 18 en 2026: quién puede aplicar, qué documentos necesitas, cuándo son las fechas y qué hacer si no quedas la primera vez.",
+    excerptEn: "Complete guide to apply for Beca 18 in 2026: who can apply, what documents you need, when are the dates, and what to do if you don't get it the first time.",
+    category: "Becas",
+    categoryColor: "#22577a",
+    readingMinutes: 7,
+    publishedAt: "2026-07-12",
+    tags: ["beca 18", "PRONABEC", "beca", "perú", "universidad", "gratuita"],
+    contentEs: `
+<p>Beca 18 es el programa de becas más importante del Perú. Si eres egresado de secundaria con buen rendimiento académico y recursos económicos limitados, esto es para ti. Aquí está la guía más completa para postular en 2026.</p>
+
+<h2>¿Qué es Beca 18?</h2>
+<p>Beca 18 es el programa insignia de PRONABEC (Programa Nacional de Becas y Crédito Educativo del gobierno del Perú). Financia estudios universitarios o técnicos completos para jóvenes egresados de secundaria con alto rendimiento académico y bajos recursos económicos. Cubre absolutamente todo: matrícula, pensión mensual de manutención, seguro médico, materiales educativos y en muchos casos hospedaje.</p>
+
+<h2>¿Quién puede postular a Beca 18?</h2>
+<p>Para postular en 2026 necesitas cumplir todos estos requisitos:</p>
+<ul>
+<li><strong>Ser peruano</strong> (DNI vigente)</li>
+<li><strong>Haber egresado de 5to de secundaria</strong> de un colegio público o privado en condición vulnerable</li>
+<li><strong>Rendimiento académico:</strong> estar en el tercio superior de tu promoción (entre los mejores de tu colegio)</li>
+<li><strong>Condición socioeconómica:</strong> pertenecer a los grupos I o II del SISFOH (Sistema de Focalización de Hogares) — básicamente, ingresos familiares bajos</li>
+<li><strong>Edad:</strong> menores de 22 años al inicio del programa</li>
+</ul>
+
+<h2>¿Qué cubre exactamente Beca 18?</h2>
+<ul>
+<li>Matrícula y pensión universitaria o técnica completa</li>
+<li>Pensión mensual de manutención (entre S/. 800 y S/. 1,500 según la institución)</li>
+<li>Seguro médico SIS</li>
+<li>Materiales educativos (libros, útiles)</li>
+<li>Hospedaje en casos de estudiantes que se trasladan a otra ciudad</li>
+<li>Pasajes cuando corresponde</li>
+</ul>
+
+<h2>¿En qué universidades o institutos puedes estudiar con Beca 18?</h2>
+<p>PRONABEC tiene una lista de instituciones educativas acreditadas donde puedes estudiar con la beca. Incluye universidades públicas como la UNMSM, UNI, UNSA, y también institutos técnicos seleccionados. La lista completa está en el portal oficial de PRONABEC.</p>
+
+<h2>¿Cuándo es la convocatoria 2026?</h2>
+<p>Las fechas exactas varían cada año. Históricamente, la convocatoria de Beca 18 abre entre <strong>enero y marzo</strong>, coincidiendo con el fin del año escolar anterior. Para 2026, se esperan convocatorias similares.</p>
+<p><strong>Importante:</strong> Revisa el portal oficial de PRONABEC (gob.pe/pronabec) desde diciembre 2025 para estar al tanto de las fechas exactas. No confíes en terceros — ve directo a la fuente oficial.</p>
+
+<h2>Documentos que necesitas</h2>
+<ul>
+<li>DNI vigente (tuyo y de tus padres o apoderado)</li>
+<li>Certificado de estudios de 5to de secundaria (con notas)</li>
+<li>Constancia de clasificación SISFOH (la solicitas en la municipalidad de tu distrito)</li>
+<li>Certificado de nacimiento</li>
+<li>En algunos casos: constancia de discapacidad, condición de pobreza extrema u otras situaciones especiales</li>
+</ul>
+
+<h2>Proceso de postulación paso a paso</h2>
+<ol>
+<li><strong>Verifica tu condición SISFOH</strong> en la municipalidad de tu distrito. Este trámite puede tomar semanas — hazlo con anticipación.</li>
+<li><strong>Reúne todos tus documentos</strong> antes de que abra la convocatoria.</li>
+<li><strong>Regístrate en el portal PRONABEC</strong> (pronabec.gob.pe) cuando abra la convocatoria.</li>
+<li><strong>Completa tu ficha de postulación</strong> con todos tus datos académicos y socioeconómicos.</li>
+<li><strong>Sube los documentos requeridos</strong> en formato digital.</li>
+<li><strong>Espera los resultados</strong> — PRONABEC publica los listados de seleccionados en su portal.</li>
+<li>Si quedas seleccionado: <strong>firma el compromiso de Beca 18</strong> y comienza el proceso de matrícula en tu institución.</li>
+</ol>
+
+<h2>¿Qué pasa si no quedo seleccionado?</h2>
+<p>No te rindas. Beca 18 es muy competitiva — cada año hay más postulantes que plazas disponibles. Si no quedas en la primera convocatoria:</p>
+<ul>
+<li>Puedes postular nuevamente el siguiente año si todavía cumples los requisitos de edad</li>
+<li>Revisa el puntaje que obtuviste y qué aspectos puedes mejorar</li>
+<li>Considera otras becas como <a href="/oportunidades/becas-santander">Becas Santander</a>, <a href="/oportunidades/oas">Becas OEA</a> o los programas del MINEDU</li>
+<li>También existen becas de las propias universidades — consulta directamente con cada institución</li>
+</ul>
+
+<h2>Consejos para aumentar tus probabilidades</h2>
+<ul>
+<li><strong>Tramita el SISFOH con anticipación.</strong> Es el documento que más demora y es obligatorio.</li>
+<li><strong>Mantén tus notas altas.</strong> El rendimiento académico es el factor principal de selección.</li>
+<li><strong>No esperes a que abra la convocatoria.</strong> Prepara todos tus documentos con meses de anticipación.</li>
+<li><strong>Usa solo el portal oficial de PRONABEC.</strong> Hay estafadores que cobran por "tramitar" la beca — es completamente gratuito y lo haces tú mismo.</li>
+</ul>
+
+<p>Para más información sobre becas y oportunidades para jóvenes peruanos, visita nuestra sección de <a href="/oportunidades">oportunidades verificadas</a>.</p>
+    `,
+    contentEn: `
+<p>Beca 18 is Peru's most important scholarship program. If you graduated from high school with good grades and limited economic resources, this is for you.</p>
+
+<h2>What does Beca 18 cover?</h2>
+<p>Everything: full university or technical tuition, monthly living allowance (S/. 800-1,500), health insurance, educational materials, and housing when needed.</p>
+
+<h2>Who can apply?</h2>
+<ul>
+<li>Peruvian citizens (valid DNI)</li>
+<li>Recent secondary school graduates in the top third of their class</li>
+<li>SISFOH Group I or II classification (low-income households)</li>
+<li>Under 22 years old</li>
+</ul>
+
+<h2>Application timeline</h2>
+<p>The 2026 call typically opens January-March. Check the official PRONABEC portal (gob.pe/pronabec) from December 2025 for exact dates.</p>
+
+<h2>Step-by-step process</h2>
+<ol>
+<li>Verify your SISFOH status at your district municipality (takes weeks — do this first)</li>
+<li>Gather all documents before the call opens</li>
+<li>Register on the PRONABEC portal when the call opens</li>
+<li>Complete your application with academic and socioeconomic data</li>
+<li>Upload required documents</li>
+<li>Wait for results published on the PRONABEC portal</li>
+</ol>
+
+<p>Find more opportunities for Peruvian students in our <a href="/oportunidades">verified opportunities section</a>.</p>
+    `,
+  },
+  {
+    slug: "mun-lima-2026-colegios-como-participar",
+    titleEs: "MUN Lima 2026: todos los Modelos de Naciones Unidas de colegios y cómo participar",
+    titleEn: "MUN Lima 2026: all school Model United Nations and how to participate",
+    excerptEs: "Lista completa de MUNs en Lima para 2026: SSMUN, LNAGMUN, CarMUN, SLCMUN, MR MUN y más. Cómo inscribirte, qué esperar y por qué el MUN cambia tu vida.",
+    excerptEn: "Complete list of MUNs in Lima for 2026: SSMUN, LNAGMUN, CarMUN, SLCMUN, MR MUN and more. How to register, what to expect, and why MUN changes your life.",
+    category: "Liderazgo",
+    categoryColor: "#57cc99",
+    readingMinutes: 5,
+    publishedAt: "2026-07-18",
+    tags: ["MUN", "Lima", "2026", "debate", "colegios", "ONU", "liderazgo"],
+    contentEs: `
+<p>Si estás en secundaria en Lima y quieres desarrollar habilidades de debate, oratoria, inglés y diplomacia — el Modelo de Naciones Unidas es el camino más directo. En Lima hay una docena de MUNs activos organizados por colegios. Aquí está la lista completa para 2026 y cómo participar en cada uno.</p>
+
+<h2>¿Por qué participar en un MUN?</h2>
+<p>En un MUN representas a un país real, debates temas globales y negocías resoluciones con delegados de otros colegios. En el proceso desarrollas:</p>
+<ul>
+<li>Oratoria y confianza para hablar en público</li>
+<li>Inglés en contexto real (la mayoría de MUNs usan inglés como idioma principal)</li>
+<li>Pensamiento crítico y capacidad de argumentación</li>
+<li>Habilidades de negociación y trabajo en equipo</li>
+<li>Red de contactos con estudiantes de otros colegios</li>
+</ul>
+<p>Además, participar en MUNs es un diferenciador importante en postulaciones a universidades y programas internacionales como YYGS, becas de liderazgo y programas de intercambio.</p>
+
+<h2>MUNs de colegios en Lima 2026</h2>
+
+<h3>SSMUN — San Silvestre MUN</h3>
+<p><strong>Organizado por:</strong> Colegio San Silvestre<br>
+<strong>Idioma:</strong> Inglés y español<br>
+<strong>Nivel:</strong> Secundaria<br>
+<strong>Portal:</strong> mun.sansilvestre.edu.pe<br>
+Uno de los MUNs más reconocidos de Lima con comités bilingües y alto nivel académico.</p>
+
+<h3>LNAGMUN — Liceo Naval Almirante Guise MUN</h3>
+<p><strong>Organizado por:</strong> Liceo Naval Almirante Guise<br>
+<strong>Idioma:</strong> Español<br>
+<strong>Nivel:</strong> Secundaria<br>
+<strong>Contacto:</strong> @lnagmun en Instagram<br>
+Conocido por su alto nivel de preparación y comités temáticos bien estructurados.</p>
+
+<h3>CarMUN — Carmelitas MUN</h3>
+<p><strong>Organizado por:</strong> Colegio Carmelitas<br>
+<strong>Enfoque:</strong> Diplomacia moderna<br>
+<strong>Portal:</strong> carmelitas.edu.pe<br>
+Con un enfoque en diplomatia contemporánea y temas internacionales actuales.</p>
+
+<h3>SLCMUN — Salcantay MUN</h3>
+<p><strong>Organizado por:</strong> Colegio Salcantay<br>
+<strong>Idioma:</strong> Español e inglés<br>
+<strong>Contacto:</strong> @salcantaymun en Instagram</p>
+
+<h3>MR MUN — Santa María MUN</h3>
+<p><strong>Organizado por:</strong> Colegio María Reina<br>
+<strong>Contacto:</strong> @mun-mr en el portal del colegio (mariareina.edu.pe)</p>
+
+<h3>ST MUN — Saint Thomas MUN</h3>
+<p><strong>Organizado por:</strong> Colegio Saint Thomas<br>
+<strong>Contacto:</strong> @st_colegio en Instagram</p>
+
+<h3>TrenerMUN</h3>
+<p><strong>Contacto:</strong> @trenermodelun en Instagram<br>
+MUN intercolegial con participación de múltiples colegios de Lima.</p>
+
+<h3>Lord Byron MUN</h3>
+<p><strong>Contacto:</strong> @lordbyronmun en Instagram</p>
+
+<h3>CMB MUN — Casuarina</h3>
+<p><strong>Organizado por:</strong> Casuarina International Academy<br>
+Uno de los MUNs bilingües más activos de Lima.</p>
+
+<h3>ALMUN — Abraham Lincoln MUN</h3>
+<p>Organizado por el Colegio Abraham Lincoln, con comités en inglés.</p>
+
+<h2>¿Cómo me inscribo?</h2>
+<p>Cada MUN tiene su propio proceso de inscripción. La mayoría:</p>
+<ol>
+<li>Publican su convocatoria en Instagram o en el portal del colegio organizador (generalmente entre marzo y agosto)</li>
+<li>Requieren que tu colegio se registre como institución participante</li>
+<li>Asignan países y comités una vez confirmada la participación</li>
+<li>Pueden tener un costo de inscripción (varía entre S/. 50 y S/. 200 según el MUN)</li>
+</ol>
+<p>Si tu colegio no participa regularmente en MUNs, habla con tu tutora o coordinadora académica y muéstrale esta lista. Muchos colegios participan si un alumno toma la iniciativa.</p>
+
+<h2>Preparación básica para tu primer MUN</h2>
+<p>Revisa nuestra <a href="/blog/como-prepararse-primer-mun">guía completa para prepararte para tu primer MUN</a> — cubre todo desde el Position Paper hasta el protocolo del día del evento.</p>
+
+<h2>Todos los MUNs peruanos en un solo lugar</h2>
+<p>Tenemos una lista verificada de todos los MUNs disponibles para jóvenes peruanos en nuestra sección de <a href="/oportunidades">oportunidades</a>. Los encuentras bajo la categoría "MUN".</p>
+    `,
+    contentEn: `
+<p>If you're in high school in Lima and want to develop debate, public speaking, English, and diplomacy skills — Model United Nations is the most direct path. Lima has a dozen active MUNs organized by schools.</p>
+
+<h2>MUNs in Lima 2026</h2>
+<ul>
+<li><strong>SSMUN</strong> (San Silvestre) — mun.sansilvestre.edu.pe — bilingual, high level</li>
+<li><strong>LNAGMUN</strong> (Liceo Naval Almirante Guise) — @lnagmun on Instagram</li>
+<li><strong>CarMUN</strong> (Carmelitas) — carmelitas.edu.pe — modern diplomacy focus</li>
+<li><strong>SLCMUN</strong> (Salcantay) — @salcantaymun on Instagram</li>
+<li><strong>MR MUN</strong> (María Reina) — mariareina.edu.pe</li>
+<li><strong>TrenerMUN</strong> — @trenermodelun on Instagram</li>
+<li><strong>Lord Byron MUN</strong> — @lordbyronmun on Instagram</li>
+<li><strong>CMB MUN</strong> (Casuarina International Academy)</li>
+<li><strong>ALMUN</strong> (Abraham Lincoln)</li>
+</ul>
+
+<p>See our full verified list at <a href="/oportunidades">opportunities section</a> under the MUN category.</p>
+    `,
+  },
 ];

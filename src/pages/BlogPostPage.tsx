@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { useLanguage } from "@/context/LanguageContext";
 import { BLOG_POSTS } from "@/data/blog";
+import { useSEO } from "@/hooks/use-seo";
 import { ArrowLeft, Clock, BookOpen, Tag } from "lucide-react";
 
 function formatDate(iso: string, lang: string) {
@@ -27,6 +28,12 @@ export default function BlogPostPage() {
 
   const title   = t ? post.titleEs   : post.titleEn;
   const content = t ? post.contentEs : post.contentEn;
+
+  useSEO({
+    title: `${title} | Español Sin Fronteras`,
+    description: t ? post.excerptEs : post.excerptEn,
+    canonical: `https://espanolsinfronteras.org/blog/${post.slug}`,
+  });
 
   const relatedPosts = BLOG_POSTS.filter((p) => p.slug !== slug).slice(0, 3);
 
