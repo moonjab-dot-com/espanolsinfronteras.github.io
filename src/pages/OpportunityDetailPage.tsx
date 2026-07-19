@@ -16,6 +16,16 @@ export default function OpportunityDetailPage() {
 
   const opp = OPPORTUNITIES.find((o) => o.id === id);
 
+  useSEO({
+    title: opp
+      ? (t ? `${opp.nameEs} 2026 — ${opp.orgEs} | Español Sin Fronteras` : `${opp.nameEn} 2026 — ${opp.orgEn} | Español Sin Fronteras`)
+      : "Oportunidad | Español Sin Fronteras",
+    description: opp
+      ? (t ? `${opp.descEs} Información verificada y gratuita en Español Sin Fronteras — sin registro.` : `${opp.descEn} Verified and free information at Español Sin Fronteras — no sign-up.`)
+      : "Oportunidades verificadas para jóvenes peruanos — Español Sin Fronteras.",
+    canonical: opp ? `https://espanolsinfronteras.org/oportunidades/${opp.id}` : undefined,
+  });
+
   if (!opp) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-white gap-6 px-5">
@@ -28,16 +38,6 @@ export default function OpportunityDetailPage() {
   const name  = t ? opp.nameEs  : opp.nameEn;
   const org   = t ? opp.orgEs   : opp.orgEn;
   const desc  = t ? opp.longDescEs : opp.longDescEn;
-
-  useSEO({
-    title: t
-      ? `${opp.nameEs} 2026 — ${opp.orgEs} | Español Sin Fronteras`
-      : `${opp.nameEn} 2026 — ${opp.orgEn} | Español Sin Fronteras`,
-    description: t
-      ? `${opp.descEs} Información verificada y gratuita en Español Sin Fronteras — sin registro.`
-      : `${opp.descEn} Verified and free information at Español Sin Fronteras — no sign-up.`,
-    canonical: `https://espanolsinfronteras.org/oportunidades/${opp.id}`,
-  });
   const areas = t ? opp.areasEs : opp.areasEn;
   const cat   = CATEGORY_CONFIG[opp.category];
   const deadline = t ? opp.deadlineMonthEs : opp.deadlineMonthEn;

@@ -17,6 +17,16 @@ export default function BlogPostPage() {
 
   const post = BLOG_POSTS.find((p) => p.slug === slug);
 
+  useSEO({
+    title: post
+      ? `${t ? post.titleEs : post.titleEn} | Español Sin Fronteras`
+      : "Blog | Español Sin Fronteras",
+    description: post
+      ? (t ? post.excerptEs : post.excerptEn)
+      : "Recursos y guías para jóvenes peruanos — Español Sin Fronteras.",
+    canonical: post ? `https://espanolsinfronteras.org/blog/${post.slug}` : undefined,
+  });
+
   if (!post) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-white gap-6 px-5">
@@ -28,12 +38,6 @@ export default function BlogPostPage() {
 
   const title   = t ? post.titleEs   : post.titleEn;
   const content = t ? post.contentEs : post.contentEn;
-
-  useSEO({
-    title: `${title} | Español Sin Fronteras`,
-    description: t ? post.excerptEs : post.excerptEn,
-    canonical: `https://espanolsinfronteras.org/blog/${post.slug}`,
-  });
 
   const relatedPosts = BLOG_POSTS.filter((p) => p.slug !== slug).slice(0, 3);
 
