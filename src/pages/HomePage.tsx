@@ -501,7 +501,7 @@ function OpportunitiesTeaser() {
         }}>
           <div style={{ display: "flex", gap: "32px", flexWrap: "wrap" }}>
             {[
-              { v: "109", l: t ? "oportunidades" : "opportunities" },
+              { v: "131", l: t ? "oportunidades" : "opportunities" },
               { v: "20+",l: t ? "gratuitas"     : "free" },
               { v: "6",  l: t ? "categorías"    : "categories" },
               { v: "100%", l: t ? "verificadas" : "verified" },
