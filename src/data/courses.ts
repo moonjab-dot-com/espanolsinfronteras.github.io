@@ -437,39 +437,39 @@ export const courses: Course[] = [
 export const testimonials = [
   {
     text: "Gracias a ESF encontré la beca Chevening, la preparé bien y estoy aplicando este noviembre. Sin esta plataforma ni sabía que existía.",
-    author: "Rodrigo A., 4to de secundaria — Lima Norte",
+    author: "Rodrigo A.",
   },
   {
     text: "Usé el curso de inglés de ESF para prepararme para la entrevista de Jóvenes Embajadores. Pasé. Me voy a EE.UU. en enero.",
-    author: "Valeria C., 16 años — Arequipa",
+    author: "Valeria C.",
   },
   {
     text: "Mi profe de matemáticas nos compartió ESF antes de la ONMATH. Los capítulos de álgebra y geometría me ayudaron más que el libro del colegio.",
-    author: "Diego F., 5to de secundaria — Cusco",
+    author: "Diego F.",
   },
   {
     text: "Buscaba becas para estudiar fuera y no encontraba nada gratis y confiable. ESF tiene 131 oportunidades verificadas con todo explicado. Es diferente.",
-    author: "Lucía M., universitaria — Trujillo",
+    author: "Lucía M.",
   },
   {
     text: "Participé en la OPI gracias a que ESF me explicó cómo prepararme. No gané medalla pero quedé entre los 20 mejores del país.",
-    author: "Sebastián P., 15 años — Lima",
+    author: "Sebastián P.",
   },
   {
     text: "No tengo computadora, solo mi celular. El sitio carga rápido incluso con plan prepago. Hice todo el curso de programación desde el celular.",
-    author: "Kevin R., 17 años — San Juan de Lurigancho",
+    author: "Kevin R.",
   },
   {
     text: "Soy profesora y uso los materiales de ESF en clase. Es gratuito, en español claro, sin publicidad y mis alumnos no necesitan crear cuentas.",
-    author: "Camila T., docente — Callao",
+    author: "Camila T., docente",
   },
   {
     text: "Empecé el curso de finanzas sin saber qué era una acción. Hoy entiendo cómo funciona la bolsa y ayudo a mis padres a entender sus ahorros.",
-    author: "Ximena V., 18 años — Piura",
+    author: "Ximena V.",
   },
   {
     text: "Quería participar en un MUN pero no sabía por dónde empezar. El artículo de blog de ESF me explicó todo. Fui al TREMUN y quedé como mejor delegado.",
-    author: "Mateo S., 16 años — Miraflores",
+    author: "Mateo S.",
   },
 ];
 

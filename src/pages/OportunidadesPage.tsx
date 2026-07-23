@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/context/LanguageContext";
 import {
   ArrowRight, Brain, Briefcase, ChevronRight, ExternalLink,
   Filter, Globe, GraduationCap, Lightbulb, MapPin,
   RefreshCw, Rocket, Sparkles, Star, Target, Trophy, Users, Zap,
-  Code, Award, BookOpen, TrendingUp, Handshake, Info,
+  Code, Award, BookOpen, TrendingUp, Handshake, Info, Search, X,
 } from "lucide-react";
 import { OPPORTUNITIES as ALL_OPPS, type OppCategory } from "@/data/opportunities";
 
@@ -218,35 +218,96 @@ interface QuizQ {
 }
 
 const QS: QuizQ[] = [
-  { id: "age",     qEs: "¿En qué etapa de tu vida estás?",    qEn: "What stage of life are you in?",         options: [{ labelEs: "Colegio (12–17)",      labelEn: "High school (12–17)", value: "escolar" }, { labelEs: "Universidad (18–25)", labelEn: "University (18–25)", value: "universitario" }, { labelEs: "Egresado / Profesional", labelEn: "Graduate / Professional", value: "profesional" }] },
-  { id: "interest",qEs: "¿Qué área te apasiona más?",         qEn: "What area excites you most?",            options: [{ labelEs: "Ciencias y Matemáticas", labelEn: "Science & Math", value: "stem" }, { labelEs: "Liderazgo y Diplomacia", labelEn: "Leadership & Diplomacy", value: "liderazgo" }, { labelEs: "Tecnología", labelEn: "Technology", value: "tech" }, { labelEs: "Humanidades y Sociales", labelEn: "Humanities & Social Sciences", value: "humanidades" }] },
-  { id: "goal",    qEs: "¿Cuál es tu objetivo principal?",    qEn: "What is your main objective?",           options: [{ labelEs: "Conseguir una beca", labelEn: "Get a scholarship", value: "beca" }, { labelEs: "Competir y destacar", labelEn: "Compete and stand out", value: "competencia" }, { labelEs: "Conectar y hacer networking", labelEn: "Network and connect", value: "networking" }, { labelEs: "Encontrar un mentor", labelEn: "Find a mentor", value: "mentoria" }] },
-  { id: "english", qEs: "¿Cómo está tu inglés?",              qEn: "How is your English?",                   options: [{ labelEs: "Básico", labelEn: "Basic", value: "basic" }, { labelEs: "Intermedio", labelEn: "Intermediate", value: "intermediate" }, { labelEs: "Avanzado / Fluido", labelEn: "Advanced / Fluent", value: "advanced" }] },
-  { id: "time",    qEs: "¿De cuánto tiempo dispones?",        qEn: "How much time can you dedicate?",        options: [{ labelEs: "Unas horas por semana", labelEn: "A few hours per week", value: "light" }, { labelEs: "Todo un verano / vacaciones", labelEn: "A full summer / vacation", value: "summer" }, { labelEs: "Un año completo", labelEn: "A full year", value: "year" }] },
+  { id: "age",      qEs: "¿En qué etapa de tu vida estás?",          qEn: "What stage of life are you in?",
+    options: [
+      { labelEs: "Colegio (12–17)",         labelEn: "High school (12–17)",        value: "escolar" },
+      { labelEs: "Universidad (18–25)",      labelEn: "University (18–25)",         value: "universitario" },
+      { labelEs: "Egresado / Profesional",   labelEn: "Graduate / Professional",    value: "profesional" },
+    ],
+  },
+  { id: "interest", qEs: "¿Qué área te apasiona más?",               qEn: "What area excites you most?",
+    options: [
+      { labelEs: "Ciencias y Matemáticas",  labelEn: "Science & Math",             value: "stem" },
+      { labelEs: "Tecnología y Programación",labelEn: "Technology & Programming",  value: "tech" },
+      { labelEs: "Liderazgo y Diplomacia",  labelEn: "Leadership & Diplomacy",     value: "liderazgo" },
+      { labelEs: "Humanidades y Sociales",  labelEn: "Humanities & Social Sciences",value: "humanidades" },
+    ],
+  },
+  { id: "goal",     qEs: "¿Cuál es tu objetivo principal?",           qEn: "What is your main goal?",
+    options: [
+      { labelEs: "Conseguir una beca",       labelEn: "Get a scholarship",          value: "beca" },
+      { labelEs: "Competir en olimpiadas",   labelEn: "Compete in olympiads",       value: "competencia" },
+      { labelEs: "Networking y liderazgo",   labelEn: "Networking & leadership",    value: "networking" },
+      { labelEs: "Emprender o innovar",      labelEn: "Start a venture / innovate", value: "emprender" },
+    ],
+  },
+  { id: "english",  qEs: "¿Cómo está tu inglés?",                    qEn: "How is your English?",
+    options: [
+      { labelEs: "Básico (puedo leer un poco)", labelEn: "Basic (can read a bit)", value: "basic" },
+      { labelEs: "Intermedio",                  labelEn: "Intermediate",            value: "intermediate" },
+      { labelEs: "Avanzado / Fluido",           labelEn: "Advanced / Fluent",       value: "advanced" },
+    ],
+  },
+  { id: "cost",     qEs: "¿Puedes pagar costos de inscripción?",      qEn: "Can you pay application fees?",
+    options: [
+      { labelEs: "No, necesito solo gratis",  labelEn: "No, only free programs",    value: "free" },
+      { labelEs: "Sí, con ayuda financiera",  labelEn: "Yes, with financial aid",   value: "aid" },
+      { labelEs: "Sí, sin problema",          labelEn: "Yes, no problem",           value: "any" },
+    ],
+  },
+  { id: "time",     qEs: "¿De cuánto tiempo dispones?",               qEn: "How much time can you dedicate?",
+    options: [
+      { labelEs: "Pocas horas por semana",    labelEn: "A few hours per week",       value: "light" },
+      { labelEs: "Todo un verano / vacaciones",labelEn: "A full summer / vacation",  value: "summer" },
+      { labelEs: "Un año completo",           labelEn: "A full year",                value: "year" },
+    ],
+  },
+  { id: "location", qEs: "¿Dónde quieres que sea la experiencia?",    qEn: "Where do you want the experience?",
+    options: [
+      { labelEs: "En Perú (presencial/virtual)",  labelEn: "In Peru (in-person/virtual)", value: "peru" },
+      { labelEs: "En el extranjero (residencial)",labelEn: "Abroad (residential)",         value: "abroad" },
+      { labelEs: "100% virtual / remoto",         labelEn: "100% virtual / remote",        value: "virtual" },
+    ],
+  },
 ];
 
 function matchOpps(a: Record<string, string>): Opportunity[] {
   return OPPORTUNITIES.map(opp => {
     let s = 0;
-    if (a.age === "escolar"        && (opp.level === "escolar"       || opp.level === "ambos")) s += 3;
-    if (a.age === "universitario"  && (opp.level === "universitario"  || opp.level === "ambos")) s += 3;
-    if (a.age === "profesional"    && opp.level === "universitario")                              s += 2;
-    if (a.interest === "stem"      && (opp.tags.includes("stem") || opp.tags.includes("ciencias"))) s += 3;
-    if (a.interest === "liderazgo" && (opp.category === "liderazgo" || opp.category === "mun"))  s += 3;
-    if (a.interest === "tech"      && opp.category === "tech")                                    s += 3;
-    if (a.interest === "humanidades" && (opp.category === "mun" || opp.category === "liderazgo")) s += 2;
-    if (a.goal === "beca"          && opp.category === "becas")                                   s += 4;
-    if (a.goal === "competencia"   && opp.category === "competencias")                            s += 4;
-    if (a.goal === "networking"    && (opp.category === "liderazgo" || opp.category === "mun"))   s += 4;
-    if (a.goal === "mentoria"      && opp.category === "liderazgo")                              s += 4;
-    if (a.english === "basic"      && opp.lang === "es")                                          s += 2;
-    if (a.english === "intermediate" && (opp.lang === "es" || opp.lang === "both"))               s += 2;
-    if (a.english === "advanced")                                                                  s += 1;
-    if (a.time === "summer"        && opp.category === "liderazgo")                               s += 2;
-    if (a.time === "year"          && opp.category === "becas")                                   s += 2;
+    // Level match
+    if (a.age === "escolar"       && (opp.level === "escolar"       || opp.level === "ambos")) s += 4;
+    if (a.age === "universitario" && (opp.level === "universitario" || opp.level === "ambos")) s += 4;
+    if (a.age === "profesional"   && opp.level === "universitario")                            s += 3;
+    // Interest match
+    if (a.interest === "stem"        && (opp.tags.includes("stem") || opp.tags.includes("ciencias") || opp.category === "competencias")) s += 4;
+    if (a.interest === "liderazgo"   && (opp.category === "liderazgo" || opp.category === "mun"))  s += 4;
+    if (a.interest === "tech"        && opp.category === "tech")                                    s += 4;
+    if (a.interest === "humanidades" && (opp.category === "mun" || opp.category === "liderazgo"))  s += 3;
+    // Goal match
+    if (a.goal === "beca"        && opp.category === "becas")                                 s += 5;
+    if (a.goal === "competencia" && opp.category === "competencias")                          s += 5;
+    if (a.goal === "networking"  && (opp.category === "liderazgo" || opp.category === "mun")) s += 5;
+    if (a.goal === "emprender"   && (opp.category === "tech" || opp.tags.includes("emprendimiento"))) s += 5;
+    // English match
+    if (a.english === "basic"        && opp.lang === "es")   s += 3;
+    if (a.english === "intermediate" && (opp.lang === "es" || opp.lang === "both")) s += 3;
+    if (a.english === "advanced")                             s += 2;
+    // Cost preference
+    if (a.cost === "free" && opp.isFree)  s += 3;
+    if (a.cost === "free" && !opp.isFree) s -= 3;
+    if (a.cost === "any")                 s += 1;
+    // Time match
+    if (a.time === "summer" && opp.category === "liderazgo")   s += 2;
+    if (a.time === "year"   && opp.category === "becas")        s += 2;
+    if (a.time === "light"  && opp.category === "competencias") s += 2;
+    // Location preference
+    if (a.location === "peru"    && opp.lang === "es")                                            s += 2;
+    if (a.location === "abroad"  && (opp.category === "becas" || opp.category === "liderazgo"))  s += 2;
+    if (a.location === "virtual" && opp.tags.some(t => ["online", "virtual", "remoto", "digital"].includes(t))) s += 3;
+    // Base free bonus
     if (opp.isFree) s += 1;
     return { opp, s };
-  }).sort((a, b) => b.s - a.s).slice(0, 3).map(x => x.opp);
+  }).sort((a, b) => b.s - a.s).slice(0, 4).map(x => x.opp);
 }
 
 function ESFMatch({ lang }: { lang: "es" | "en" }) {
@@ -309,14 +370,14 @@ function ESFMatch({ lang }: { lang: "es" | "en" }) {
             </h2>
             <p className="text-base max-w-sm mx-auto mb-8" style={{ color: "rgba(255,255,255,0.45)", lineHeight: 1.65 }}>
               {t
-                ? "Responde 5 preguntas y te mostramos las oportunidades que mejor encajan con tu perfil."
-                : "Answer 5 questions and we'll show you the opportunities that best match your profile."}
+                ? "Responde 7 preguntas y te mostramos las 4 oportunidades que mejor encajan con tu perfil."
+                : "Answer 7 questions and we'll show you the 4 opportunities that best match your profile."}
             </p>
             <div className="flex flex-wrap justify-center gap-5 mb-9 text-[13px]" style={{ color: "rgba(255,255,255,0.4)" }}>
               {[
-                { Icon: Target,   label: t ? "5 preguntas" : "5 questions" },
+                { Icon: Target,   label: t ? "7 preguntas" : "7 questions" },
                 { Icon: Zap,      label: t ? "< 2 minutos" : "< 2 minutes" },
-                { Icon: Award,    label: t ? "3 resultados" : "3 results" },
+                { Icon: Award,    label: t ? "4 resultados" : "4 results" },
               ].map(({ Icon, label }) => (
                 <span key={label} className="flex items-center gap-1.5">
                   <Icon className="w-3.5 h-3.5" style={{ color: "#84cc16" }} /> {label}
@@ -542,9 +603,29 @@ export default function OportunidadesPage() {
   const { lang } = useLanguage();
   const t = lang === "es";
   const [active, setActive] = useState<Category>("all");
+  const [q, setQ] = useState("");
+  const [onlyFree, setOnlyFree] = useState(false);
+  const [level, setLevel] = useState<"all" | "escolar" | "universitario">("all");
 
-  const filtered = active === "all" ? OPPORTUNITIES : OPPORTUNITIES.filter(o => o.category === active);
+  const hasFilter = active !== "all" || q.trim() !== "" || onlyFree || level !== "all";
+
+  const filtered = useMemo(() => {
+    return OPPORTUNITIES.filter(o => {
+      if (active !== "all" && o.category !== active) return false;
+      if (onlyFree && !o.isFree) return false;
+      if (level !== "all" && o.level !== level && o.level !== "ambos") return false;
+      if (q.trim()) {
+        const ql = q.toLowerCase();
+        const hay = [t ? o.nameEs : o.nameEn, t ? o.orgEs : o.orgEn, t ? o.descEs : o.descEn, ...(o.tags ?? [])].join(" ").toLowerCase();
+        if (!hay.includes(ql)) return false;
+      }
+      return true;
+    });
+  }, [active, q, onlyFree, level, t]);
+
   const freeCount = OPPORTUNITIES.filter(o => o.isFree).length;
+
+  function clearAll() { setActive("all"); setQ(""); setOnlyFree(false); setLevel("all"); }
 
   return (
     <div className="min-h-screen bg-white">
@@ -656,17 +737,64 @@ export default function OportunidadesPage() {
           </div>
         </section>
 
-        {/* ── Divider with count ─────────────────────────────────────────────── */}
-        <div className="px-5 pb-6">
+        {/* ── Search + Filter bar ────────────────────────────────────────────── */}
+        <div className="px-5 pt-2 pb-6 border-t" style={{ borderColor: "#e2e8f0" }}>
           <div className="container-page">
-            <div className="flex items-center justify-between border-t pt-6" style={{ borderColor: "#e2e8f0" }}>
-              <div className="flex items-center gap-2 text-slate-500 text-[13px]">
-                <Filter className="w-4 h-4" />
-                <span>{t ? "Mostrando" : "Showing"} <strong className="text-slate-900">{filtered.length}</strong> {t ? "oportunidades" : "opportunities"}</span>
-              </div>
-              {active !== "all" && (
-                <button onClick={() => setActive("all")} className="text-[13px] font-semibold text-slate-400 hover:text-slate-700 transition-colors">
-                  {t ? "Limpiar filtro" : "Clear filter"} ×
+
+            {/* Search input */}
+            <div className="relative mb-4 max-w-lg">
+              <Search className="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+              <input
+                type="search"
+                value={q}
+                onChange={e => setQ(e.target.value)}
+                placeholder={t ? "Buscar por nombre, tema o habilidad…" : "Search by name, topic or skill…"}
+                className="w-full pl-11 pr-10 py-3 rounded-2xl text-[14px] text-slate-900 outline-none transition-all focus:ring-2 focus:ring-blue-200"
+                style={{ background: "#f8fafc", border: "1.5px solid #e2e8f0" }}
+              />
+              {q && (
+                <button onClick={() => setQ("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700">
+                  <X className="w-4 h-4" />
+                </button>
+              )}
+            </div>
+
+            {/* Pill filters */}
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-[11px] font-bold uppercase tracking-widest text-slate-400 mr-1">
+                <Filter className="w-3 h-3 inline mr-1" />{t ? "Filtros:" : "Filters:"}
+              </span>
+
+              {/* Free toggle */}
+              <button
+                onClick={() => setOnlyFree(f => !f)}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] font-bold transition-all"
+                style={onlyFree
+                  ? { background: "#dcfce7", color: "#15803d", border: "1.5px solid #86efac" }
+                  : { background: "#f1f5f9", color: "#64748b", border: "1.5px solid #e2e8f0" }}
+              >
+                {t ? "Solo gratis" : "Free only"}
+              </button>
+
+              {/* Level */}
+              {(["all", "escolar", "universitario"] as const).map(lv => (
+                <button key={lv} onClick={() => setLevel(lv)}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] font-bold transition-all"
+                  style={level === lv
+                    ? { background: "#dbeafe", color: "#1e40af", border: "1.5px solid #93c5fd" }
+                    : { background: "#f1f5f9", color: "#64748b", border: "1.5px solid #e2e8f0" }}
+                >
+                  {lv === "all" ? (t ? "Todos los niveles" : "All levels") : lv === "escolar" ? (t ? "Colegio" : "High school") : (t ? "Universidad" : "University")}
+                </button>
+              ))}
+
+              {/* Count + clear */}
+              <span className="ml-auto text-[12px] text-slate-400 font-medium">
+                {filtered.length} {t ? "resultado" : "result"}{filtered.length !== 1 ? "s" : ""}
+              </span>
+              {hasFilter && (
+                <button onClick={clearAll} className="text-[12px] font-semibold text-rose-500 hover:text-rose-700 flex items-center gap-1 transition-colors">
+                  <X className="w-3 h-3" />{t ? "Limpiar todo" : "Clear all"}
                 </button>
               )}
             </div>

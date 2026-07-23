@@ -796,4 +796,276 @@ Uno de los MUNs bilingües más activos de Lima.</p>
 <p>See our full verified list at <a href="/oportunidades">opportunities section</a> under the MUN category.</p>
     `,
   },
+  {
+    slug: "como-ganar-beca-chevening",
+    titleEs: "Cómo ganar la Beca Chevening siendo peruano: todo lo que necesitas saber",
+    titleEn: "How to win the Chevening Scholarship as a Peruvian: everything you need to know",
+    excerptEs: "La Beca Chevening es una de las más prestigiosas del mundo. Esta guía te explica los requisitos reales, cómo redactar tus ensayos y por qué los peruanos sí pueden ganarla.",
+    excerptEn: "The Chevening Scholarship is one of the most prestigious in the world. This guide explains the real requirements, how to write your essays, and why Peruvians can win it.",
+    category: "Becas",
+    categoryColor: "#22577a",
+    readingMinutes: 8,
+    publishedAt: "2026-07-20",
+    tags: ["Chevening", "beca", "Reino Unido", "maestría", "UK", "posgrado"],
+    contentEs: `
+<p>Cada año, decenas de peruanos postulan a la Beca Chevening del gobierno británico — y algunos la ganan. Esta guía te explica exactamente cómo funciona, qué buscan los evaluadores y cómo preparar una aplicación que destaque.</p>
+
+<h2>¿Qué es Chevening?</h2>
+<p>Chevening es el programa de becas del gobierno del Reino Unido para líderes globales de futuro. Financia una maestría completa en cualquier universidad del Reino Unido: matrícula, alojamiento, vuelos internacionales, seguro médico y una asignación mensual. Es 100% gratuita.</p>
+
+<h2>Requisitos para peruanos</h2>
+<ul>
+<li>Ser ciudadano peruano</li>
+<li>Tener al menos 2 años de experiencia laboral</li>
+<li>Tener un título universitario que permita el acceso a programas de maestría en el UK</li>
+<li>Comprometerse a regresar al Perú por al menos 2 años después de terminar la beca</li>
+<li>Nivel de inglés suficiente para la maestría elegida (generalmente IELTS 6.5+)</li>
+</ul>
+
+<h2>Los 4 ensayos — el corazón de tu aplicación</h2>
+<p>Chevening no evalúa solo tu currículo — evalúa quién eres como líder. Los 4 ensayos (500 palabras cada uno) son los más importantes:</p>
+
+<h3>1. Liderazgo</h3>
+<p>Describe una situación real en la que hayas demostrado liderazgo. No tiene que ser un cargo directivo — puede ser liderar un proyecto, una comunidad, un equipo estudiantil. Lo que importa es tu impacto concreto y cómo influyaste en otros.</p>
+
+<h3>2. Networking</h3>
+<p>Chevening valora mucho la capacidad de construir redes. Explica cómo has usado tus redes profesionales o académicas para lograr algo, y cómo la comunidad Chevening podría ayudarte a tus objetivos.</p>
+
+<h3>3. Influencia en tu campo</h3>
+<p>¿Cómo has influido o contribuido a tu sector, comunidad o país? Sé específico con datos y resultados.</p>
+
+<h3>4. Plan de estudios y carrera</h3>
+<p>¿Por qué esta maestría específica? ¿Por qué en el UK? ¿Cómo se conecta con tu pasado y tu plan futuro en Perú? Muestra una narrativa coherente y ambiciosa.</p>
+
+<h2>Errores más comunes</h2>
+<ul>
+<li><strong>Ensayos genéricos:</strong> "Desde siempre me apasionó el liderazgo" no convence a nadie. Usa historias concretas.</li>
+<li><strong>Aplicar sin experiencia laboral:</strong> Chevening no es para recién egresados. Necesitas al menos 2 años de trabajo real.</li>
+<li><strong>Elegir la universidad antes que el programa:</strong> Primero elige el programa académico que necesitas, luego busca qué universidades lo ofrecen.</li>
+<li><strong>Dejar los ensayos para el último momento:</strong> Cada ensayo puede tomar 10-20 horas de trabajo serio.</li>
+</ul>
+
+<h2>¿Cuándo postular?</h2>
+<p>La convocatoria Chevening abre en agosto y cierra en noviembre. Los resultados finales llegan entre febrero y abril del año siguiente. Planifica con tiempo.</p>
+
+<p>Encuentra más información y el link directo a la convocatoria en nuestra sección de <a href="/oportunidades">oportunidades verificadas</a>.</p>
+    `,
+    contentEn: `
+<p>Every year, dozens of Peruvians apply for the British government's Chevening Scholarship — and some win it. This guide explains exactly how it works, what evaluators look for, and how to prepare a standout application.</p>
+
+<h2>What is Chevening?</h2>
+<p>Chevening is the UK government's scholarship program for future global leaders. It funds a full master's degree at any UK university: tuition, housing, international flights, health insurance, and a monthly stipend. It is 100% free.</p>
+
+<h2>Requirements for Peruvians</h2>
+<ul>
+<li>Be a Peruvian citizen</li>
+<li>Have at least 2 years of work experience</li>
+<li>Hold an undergraduate degree that gives access to master's programs in the UK</li>
+<li>Commit to returning to Peru for at least 2 years after the scholarship</li>
+<li>English level sufficient for your chosen master's (usually IELTS 6.5+)</li>
+</ul>
+
+<h2>The 4 Essays — the heart of your application</h2>
+<p>Chevening doesn't just evaluate your CV — it evaluates who you are as a leader. The 4 essays (500 words each) are the most important part.</p>
+
+<h3>1. Leadership</h3>
+<p>Describe a real situation where you demonstrated leadership. It doesn't have to be a managerial role — leading a project, community, or student team counts. What matters is your concrete impact and how you influenced others.</p>
+
+<h3>2. Networking</h3>
+<p>Chevening highly values the ability to build networks. Explain how you've used professional or academic networks to achieve something, and how the Chevening community could help your goals.</p>
+
+<h2>Common mistakes</h2>
+<ul>
+<li><strong>Generic essays:</strong> "I've always been passionate about leadership" convinces no one. Use concrete stories.</li>
+<li><strong>Applying without work experience:</strong> Chevening is not for recent graduates. You need at least 2 real years of work.</li>
+<li><strong>Leaving essays to the last minute:</strong> Each essay can take 10-20 hours of serious work.</li>
+</ul>
+
+<p>Find more information and the direct link to the application in our <a href="/oportunidades">verified opportunities section</a>.</p>
+    `,
+  },
+  {
+    slug: "guia-completa-mun-lima-2026",
+    titleEs: "MUNs en Lima 2026: todos los eventos, fechas y cómo participar",
+    titleEn: "MUNs in Lima 2026: all events, dates and how to participate",
+    excerptEs: "Guía completa de los Modelos de Naciones Unidas en Lima: TREMUN, PCIMUN, LBMUN, MRMUN y más. Todo lo que necesitas saber para participar este año.",
+    excerptEn: "Complete guide to Model United Nations conferences in Lima: TREMUN, PCIMUN, LBMUN, MRMUN and more. Everything you need to know to participate this year.",
+    category: "Liderazgo",
+    categoryColor: "#8b5cf6",
+    readingMinutes: 5,
+    publishedAt: "2026-07-18",
+    tags: ["MUN", "Lima", "debate", "diplomacia", "oratoria", "TREMUN", "PCIMUN"],
+    contentEs: `
+<p>Lima tiene una de las escenas MUN más activas de Latinoamérica. Si quieres empezar en el mundo del debate y la diplomacia, aquí están todos los eventos que debes conocer para 2026.</p>
+
+<h2>¿Por qué hacer MUN?</h2>
+<p>El Modelo de Naciones Unidas desarrolla oratoria en español e inglés, pensamiento crítico, capacidad de negociación, redacción formal y confianza para hablar en público. Muchas universidades peruanas y extranjeras valoran la experiencia MUN en los procesos de admisión y becas.</p>
+
+<h2>MUNs en Lima 2026</h2>
+
+<h3>TREMUN — Trujillo y Lima</h3>
+<p>Uno de los MUNs más reconocidos del norte del país, con delegados de todo el Perú. Incluye comités en español e inglés. Ideal para principiantes y delegados con experiencia.</p>
+
+<h3>PCIMUN — PUCP</h3>
+<p>Organizado por la Pontificia Universidad Católica del Perú. Uno de los más prestigiosos de Latinoamérica, con delegados internacionales y comités especializados. Requiere mayor preparación previa.</p>
+
+<h3>LBMUN — La Bretaña MUN</h3>
+<p>Conferencia enfocada en colegios de Lima. Buena opción para estudiantes de 14-18 años que se inician en el mundo MUN.</p>
+
+<h3>MRMUN — Miguel Ruíz MUN</h3>
+<p>MUN escolar con enfoque en secundaria. Ambiente amigable para primeras experiencias.</p>
+
+<h3>SANJOMUN y STMUN</h3>
+<p>Organizados por colegios privados de Lima. Abiertos a delegados externos según convocatoria anual.</p>
+
+<h2>MUNs internacionales desde Lima</h2>
+<p>Si quieres ir más lejos, también puedes postular a:</p>
+<ul>
+<li><strong>YMUN</strong> — Yale Model United Nations (Connecticut, EE.UU.)</li>
+<li><strong>BMUN</strong> — Berkeley Model United Nations (California, EE.UU.)</li>
+<li><strong>YIMO</strong> — Yale International Model Organization</li>
+<li><strong>Harvard Model Congress</strong></li>
+</ul>
+<p>Todos tienen ayuda financiera disponible para estudiantes de países en desarrollo.</p>
+
+<h2>¿Cómo prepararme?</h2>
+<p>Lee nuestra <a href="/blog/como-prepararse-primer-mun">guía completa para tu primer MUN</a> y usa los materiales gratuitos de <a href="/curso/ingles">inglés de ESF</a> para mejorar tu nivel antes de la conferencia.</p>
+
+<p>Encuentra todos los MUNs verificados con links directos en la sección de <a href="/oportunidades">oportunidades</a>.</p>
+    `,
+    contentEn: `
+<p>Lima has one of the most active MUN scenes in Latin America. If you want to start in the world of debate and diplomacy, here are all the events you need to know for 2026.</p>
+
+<h2>Why do MUN?</h2>
+<p>Model United Nations develops public speaking in Spanish and English, critical thinking, negotiation skills, formal writing, and confidence to speak in front of audiences. Many Peruvian and international universities value MUN experience in admissions and scholarship processes.</p>
+
+<h2>MUNs in Lima 2026</h2>
+<p>Key conferences include TREMUN, PCIMUN (PUCP), LBMUN, MRMUN, SANJOMUN, and STMUN. Each has different levels of difficulty and age ranges, from beginner to advanced.</p>
+
+<h2>International MUNs from Lima</h2>
+<p>You can also apply to YMUN (Yale), BMUN (Berkeley), YIMO, and Harvard Model Congress — all with financial aid available for students from developing countries.</p>
+
+<p>Find all verified MUNs with direct links in the <a href="/oportunidades">opportunities section</a>.</p>
+    `,
+  },
+  {
+    slug: "rsi-programa-investigacion-mit",
+    titleEs: "RSI: el programa de investigación más competitivo del mundo para estudiantes de secundaria",
+    titleEn: "RSI: the world's most competitive research program for high school students",
+    excerptEs: "El Research Science Institute (RSI) del MIT es totalmente gratuito y aceptado por menos del 2% de los aplicantes. Te explicamos cómo funciona y cómo prepararte desde Perú.",
+    excerptEn: "The Research Science Institute (RSI) at MIT is completely free and accepts fewer than 2% of applicants. We explain how it works and how to prepare from Peru.",
+    category: "Liderazgo",
+    categoryColor: "#22577a",
+    readingMinutes: 6,
+    publishedAt: "2026-07-15",
+    tags: ["RSI", "MIT", "investigación", "ciencias", "secundaria", "beca", "STEM"],
+    contentEs: `
+<p>El Research Science Institute (RSI) es uno de los programas académicos más selectivos del mundo para estudiantes de secundaria. Se realiza en el MIT (Massachusetts Institute of Technology) cada verano, dura 6 semanas, y es completamente gratuito — incluyendo vuelos, alojamiento y alimentación.</p>
+
+<h2>¿Qué hace RSI diferente?</h2>
+<p>A diferencia de la mayoría de programas de verano, RSI no es un curso. Es un programa de investigación real: cada estudiante trabaja directamente con un profesor o investigador del MIT en un proyecto original de ciencias, matemáticas o ingeniería durante 5 semanas. Al final, presentan sus resultados ante una audiencia académica.</p>
+
+<h2>Estadísticas reales</h2>
+<ul>
+<li>~1,500 aplicantes por año de todo el mundo</li>
+<li>~80 estudiantes seleccionados (~5% de aceptación)</li>
+<li>De los seleccionados, ~70% viene de EE.UU.; ~30% internacional</li>
+<li>Alumni incluyen múltiples ganadores del Premio Nobel y medallistas olímpicos en ciencias</li>
+</ul>
+
+<h2>¿Pueden postular peruanos?</h2>
+<p>Sí. RSI acepta aplicantes internacionales de todos los países. El costo es 0 para todos los admitidos. Los peruanos que han participado generalmente vienen de colegios de alto rendimiento o han competido en olimpiadas internacionales (IMO, IPhO, IOI).</p>
+
+<h2>¿Qué necesitas para postular?</h2>
+<ul>
+<li>Estar en 3.° o 4.° de secundaria (penúltimo o antepenúltimo año antes de graduarte)</li>
+<li>Expediente académico sobresaliente en materias STEM</li>
+<li>Cartas de recomendación fuertes de profesores de ciencias o matemáticas</li>
+<li>Ensayo personal que muestre tu pasión por la investigación</li>
+<li>Inglés avanzado</li>
+<li>Idealmente: participación en olimpiadas nacionales o internacionales</li>
+</ul>
+
+<h2>¿Cómo prepararme desde Perú?</h2>
+<ul>
+<li>Participa en olimpiadas nacionales: OPI, ONMATH, ONEM, ICHO, IPhO — cualquier experiencia competitiva suma.</li>
+<li>Haz un proyecto de investigación propio, aunque sea pequeño. Demostrar iniciativa es clave.</li>
+<li>Mejora tu inglés con los <a href="/curso/ingles">cursos gratuitos de ESF</a>.</li>
+<li>La convocatoria abre normalmente en octubre-noviembre para el programa del siguiente verano.</li>
+</ul>
+
+<p>Encuentra el link directo a la convocatoria RSI en nuestra sección de <a href="/oportunidades">oportunidades verificadas</a>.</p>
+    `,
+    contentEn: `
+<p>The Research Science Institute (RSI) is one of the most selective academic programs in the world for high school students. It takes place at MIT each summer, lasts 6 weeks, and is completely free — including flights, housing, and meals.</p>
+
+<h2>What makes RSI different?</h2>
+<p>Unlike most summer programs, RSI is not a course. It's a real research program: each student works directly with an MIT professor or researcher on an original science, math, or engineering project for 5 weeks. At the end, they present their results to an academic audience.</p>
+
+<h2>Can Peruvians apply?</h2>
+<p>Yes. RSI accepts international applicants from all countries. Cost is $0 for all admitted students. Peruvians who have participated typically come from high-performing schools or have competed in international olympiads (IMO, IPhO, IOI).</p>
+
+<h2>How to prepare from Peru</h2>
+<ul>
+<li>Participate in national olympiads: OPI, ONMATH, ONEM, ICHO, IPhO.</li>
+<li>Do your own research project, even a small one. Showing initiative is key.</li>
+<li>Improve your English with <a href="/curso/ingles">ESF's free courses</a>.</li>
+<li>Applications typically open in October-November for the following summer's program.</li>
+</ul>
+
+<p>Find the direct link to RSI applications in our <a href="/oportunidades">verified opportunities section</a>.</p>
+    `,
+  },
+  {
+    slug: "technovation-girls-peru",
+    titleEs: "Technovation Girls: cómo una chica peruana puede crear una app y ganar un concurso mundial",
+    titleEn: "Technovation Girls: how a Peruvian girl can build an app and win a global contest",
+    excerptEs: "Technovation Girls es la competencia de tecnología más grande del mundo para chicas de 10 a 18 años. Es gratuita, en español, y equipos peruanos ya han llegado a la final global.",
+    excerptEn: "Technovation Girls is the world's largest technology competition for girls aged 10 to 18. It's free, available in Spanish, and Peruvian teams have already reached the global finals.",
+    category: "Tech",
+    categoryColor: "#84cc16",
+    readingMinutes: 5,
+    publishedAt: "2026-07-23",
+    tags: ["Technovation", "tech", "mujeres", "programación", "app", "emprendimiento", "secundaria"],
+    contentEs: `
+<p>Si conoces a una chica entre 10 y 18 años que tenga curiosidad por la tecnología, Technovation Girls puede cambiarle la vida. Es gratuita, disponible en español, y ya hay equipos peruanos que han competido a nivel mundial.</p>
+
+<h2>¿Qué es Technovation Girls?</h2>
+<p>Technovation Girls es un programa de emprendimiento tecnológico organizado por Technovation (antes Iridescent). Cada año, equipos de 1 a 5 chicas identifican un problema en su comunidad, crean una app móvil para solucionarlo, y presentan su proyecto ante jueces internacionales.</p>
+
+<h2>¿Qué aprenden las participantes?</h2>
+<ul>
+<li>Programación con MIT App Inventor (sin experiencia previa necesaria)</li>
+<li>Diseño de producto y UX</li>
+<li>Investigación de mercado y entrevistas a usuarios</li>
+<li>Pitch de negocios ante inversionistas</li>
+<li>Trabajo en equipo y liderazgo</li>
+</ul>
+
+<h2>¿Cómo funciona la competencia?</h2>
+<p>El programa dura 10 semanas. Las participantes tienen acceso a videos tutoriales, materiales en español y mentores voluntarios. Al final, envían su demo de app, un pitch de negocios en video y un plan de negocio. Los mejores equipos avanzan a rondas regionales y globales.</p>
+
+<h2>¿Es gratis?</h2>
+<p>Sí. El programa es completamente gratuito. Solo necesitas una computadora o tablet con acceso a internet.</p>
+
+<h2>¿Cómo unirse desde Perú?</h2>
+<p>Puedes registrar tu equipo directamente en el sitio de Technovation entre enero y marzo de cada año. También puedes buscar un "Technovation Ambassador" en tu ciudad — voluntarios que ayudan a equipos locales con mentoría.</p>
+
+<h2>¿Qué han logrado equipos peruanos?</h2>
+<p>Equipos de Lima, Arequipa y otras regiones han llegado a las rondas semifinales y finales de Technovation. La competencia es real y los jueces son ejecutivos de empresas tech como Google, Salesforce y Amazon.</p>
+
+<p>Encuentra el link oficial y más información en la sección de <a href="/oportunidades">oportunidades verificadas de ESF</a>.</p>
+    `,
+    contentEn: `
+<p>If you know a girl aged 10 to 18 who is curious about technology, Technovation Girls can change her life. It's free, available in Spanish, and Peruvian teams have already competed at the global level.</p>
+
+<h2>What is Technovation Girls?</h2>
+<p>Technovation Girls is a technology entrepreneurship program where teams of 1 to 5 girls identify a problem in their community, create a mobile app to solve it, and pitch their project to international judges. It's completely free and available in Spanish.</p>
+
+<h2>How does it work?</h2>
+<p>The 10-week program gives participants access to video tutorials, Spanish-language materials, and volunteer mentors. They learn coding with MIT App Inventor, product design, market research, and business pitching. Top teams advance to regional and global rounds.</p>
+
+<p>Find the official link and registration dates in the <a href="/oportunidades">ESF verified opportunities section</a>.</p>
+    `,
+  },
 ];
