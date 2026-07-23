@@ -414,8 +414,8 @@ function OpportunitiesTeaser() {
 
             <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "16px", maxWidth: "420px", lineHeight: 1.6 }}>
               {t
-                ? "11 oportunidades verificadas para jóvenes peruanos. Becas, olimpiadas, liderazgo, MUN y más."
-                : "11 verified opportunities for Peruvian students. Scholarships, olympiads, leadership, MUN and more."}
+                ? "131 oportunidades verificadas para jóvenes peruanos. Becas internacionales, olimpiadas, liderazgo, MUN, tech y más."
+                : "131 verified opportunities for Peruvian students. International scholarships, olympiads, leadership, MUN, tech and more."}
             </p>
           </div>
         </Reveal>
@@ -512,14 +512,24 @@ function OpportunitiesTeaser() {
               </div>
             ))}
           </div>
-          <Link
-            to="/oportunidades"
-            style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "12px 24px", background: "#080D1C", color: "#84cc16", fontSize: "14px", fontWeight: 800, borderRadius: "10px", textDecoration: "none", letterSpacing: "0.02em", transition: "opacity 0.15s" }}
-            onMouseEnter={e => (e.currentTarget.style.opacity = "0.85")}
-            onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
-          >
-            {t ? "Ver todas las oportunidades" : "See all opportunities"} <ArrowRight style={{ width: "16px", height: "16px" }} />
-          </Link>
+          <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+            <Link
+              to="/buscador"
+              style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "12px 24px", background: "#080D1C", color: "#84cc16", fontSize: "14px", fontWeight: 800, borderRadius: "10px", textDecoration: "none", letterSpacing: "0.02em", transition: "opacity 0.15s" }}
+              onMouseEnter={e => (e.currentTarget.style.opacity = "0.85")}
+              onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
+            >
+              {t ? "Busca tu oportunidad" : "Find your opportunity"} <ArrowRight style={{ width: "16px", height: "16px" }} />
+            </Link>
+            <Link
+              to="/oportunidades"
+              style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "12px 24px", background: "transparent", color: "#080D1C", border: "2px solid #080D1C", fontSize: "14px", fontWeight: 700, borderRadius: "10px", textDecoration: "none", letterSpacing: "0.02em", transition: "opacity 0.15s" }}
+              onMouseEnter={e => (e.currentTarget.style.opacity = "0.7")}
+              onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
+            >
+              {t ? "Ver todas" : "See all"}
+            </Link>
+          </div>
         </div>
       </Reveal>
     </section>

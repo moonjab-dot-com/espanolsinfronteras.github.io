@@ -15,6 +15,7 @@ const OpportunityDetailPage = lazy(() => import("@/pages/OpportunityDetailPage")
 const NosotrosPage          = lazy(() => import("@/pages/NosotrosPage"));
 const BlogPage              = lazy(() => import("@/pages/BlogPage"));
 const BlogPostPage          = lazy(() => import("@/pages/BlogPostPage"));
+const BuscadorPage          = lazy(() => import("@/pages/BuscadorPage"));
 const NotFound              = lazy(() => import("@/pages/NotFound"));
 
 // ─── Query Client ─────────────────────────────────────────────────────────────
@@ -48,6 +49,7 @@ const App = () => (
                 <Route path="/nosotros"               element={<NosotrosPage />} />
                 <Route path="/blog"                   element={<BlogPage />} />
                 <Route path="/blog/:slug"             element={<BlogPostPage />} />
+                <Route path="/buscador"               element={<BuscadorPage />} />
                 <Route path="*"             element={<NotFound />} />
               </Routes>
             </Suspense>

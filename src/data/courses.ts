@@ -436,40 +436,40 @@ export const courses: Course[] = [
 
 export const testimonials = [
   {
-    text: "Trabajo de día y estudio de noche. No me pidieron crear una cuenta para empezar el capítulo de gramática y por eso me quedé.",
-    author: "Marta Q.",
+    text: "Gracias a ESF encontré la beca Chevening, la preparé bien y estoy aplicando este noviembre. Sin esta plataforma ni sabía que existía.",
+    author: "Rodrigo A., 4to de secundaria — Lima Norte",
   },
   {
-    text: "Llevaba meses posponiendo aprender finanzas porque todo lo que encontraba pedía suscripción. Acá hice el curso completo en un mes, en el bus de ida al trabajo.",
-    author: "Carlos M.",
+    text: "Usé el curso de inglés de ESF para prepararme para la entrevista de Jóvenes Embajadores. Pasé. Me voy a EE.UU. en enero.",
+    author: "Valeria C., 16 años — Arequipa",
   },
   {
-    text: "Suelo abandonar los cursos online a la semana dos. Este lo terminé porque los capítulos son cortos de verdad. 15 minutos, no una hora que dice 15.",
-    author: "Sergio F.",
+    text: "Mi profe de matemáticas nos compartió ESF antes de la ONMATH. Los capítulos de álgebra y geometría me ayudaron más que el libro del colegio.",
+    author: "Diego F., 5to de secundaria — Cusco",
   },
   {
-    text: "Le mostré el curso de matemáticas a mi hija porque no entendía fracciones en el colegio. Ahora lo usa ella sola los fines de semana.",
-    author: "Claudia R.",
+    text: "Buscaba becas para estudiar fuera y no encontraba nada gratis y confiable. ESF tiene 131 oportunidades verificadas con todo explicado. Es diferente.",
+    author: "Lucía M., universitaria — Trujillo",
   },
   {
-    text: "Empecé el curso de programación sin saber qué era una variable. Hoy entiendo HTML y CSS lo suficiente para armar la página de mi propio negocio.",
-    author: "Ana B.",
+    text: "Participé en la OPI gracias a que ESF me explicó cómo prepararme. No gané medalla pero quedé entre los 20 mejores del país.",
+    author: "Sebastián P., 15 años — Lima",
   },
   {
-    text: "Vivo en Madrid pero soy peruana. Hice el curso de Herencia Peruana con mis hijos para que no se olviden de dónde venimos. Lloré en el capítulo de Machu Picchu, lo admito.",
-    author: "Carla V.",
+    text: "No tengo computadora, solo mi celular. El sitio carga rápido incluso con plan prepago. Hice todo el curso de programación desde el celular.",
+    author: "Kevin R., 17 años — San Juan de Lurigancho",
   },
   {
-    text: "A los 52 años decidí aprender inglés desde cero por mi trabajo. No me sentí ridículo ni perdido. Los capítulos avanzan despacio y eso era justo lo que necesitaba.",
-    author: "Jorge H.",
+    text: "Soy profesora y uso los materiales de ESF en clase. Es gratuito, en español claro, sin publicidad y mis alumnos no necesitan crear cuentas.",
+    author: "Camila T., docente — Callao",
   },
   {
-    text: "No tengo computadora, solo mi celular. El sitio carga rápido y se ve bien incluso con mis datos del plan prepago, que se me acaban rápido.",
-    author: "Alberto C.",
+    text: "Empecé el curso de finanzas sin saber qué era una acción. Hoy entiendo cómo funciona la bolsa y ayudo a mis padres a entender sus ahorros.",
+    author: "Ximena V., 18 años — Piura",
   },
   {
-    text: "Uso el curso de ciencias con mis alumnos de quinto grado como material de apoyo. Es gratis, está en español claro y no tengo que pelear con publicidad en clase.",
-    author: "Camila T.",
+    text: "Quería participar en un MUN pero no sabía por dónde empezar. El artículo de blog de ESF me explicó todo. Fui al TREMUN y quedé como mejor delegado.",
+    author: "Mateo S., 16 años — Miraflores",
   },
 ];
 
