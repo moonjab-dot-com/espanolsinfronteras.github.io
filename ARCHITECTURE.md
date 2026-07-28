@@ -161,3 +161,5 @@ Push to `main` triggers the GitHub Actions workflow (`.github/workflows/deploy.y
 2. `npm run build` — Vite production build → `dist/`
 3. Deploy `dist/` to GitHub Pages
 4. Site goes live at `https://espanolsinfronteras.org`
+
+<!-- update 5 -->
